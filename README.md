@@ -14,8 +14,8 @@ Football Competition Editor 16 - a program that allows you to keep results of th
 https://en.wikipedia.org/wiki/Minimum_viable_product
 
 ## Диаграмма прецедентов использования
-![alt tag](report/2000px-Use_case_restaurant_model.svg.png)
 
 ## Диаграмма последовательностей
 
 ## Диаграмма компонентов
+![Component diagram](report/diagrams/Component.diagram.png)
