@@ -18,4 +18,4 @@ https://en.wikipedia.org/wiki/Minimum_viable_product
 ## Диаграмма последовательностей
 
 ## Диаграмма компонентов
-![Component diagram](report/diagrams/Component.diagram.png)
+![Component diagram](//report/diagrams/Component.diagram.png)
