@@ -1,9 +1,9 @@
 TEMPLATE = subdirs
 
-app.depends = core
-test.depends = core
+ConsoleApp.depends = Core
+Test.depends = Core
 
 SUBDIRS += \
-    app \
-    core \
-    test
+    ConsoleApp \
+    Core \
+    Test
