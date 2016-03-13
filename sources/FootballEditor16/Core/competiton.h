@@ -10,18 +10,16 @@ using std::vector;
 class Competiton
 {
 public:
-    Competiton(int num);
+    Competiton(int num = 16);
     void setTitle(string &name);
-    void setListOfTeams();
+    void setListOfTeams(vector<Team> & teams);
 
     string& getTitle();
     int getNumberOfTeams();
-    void getTeams();
+    vector<Team> & getTeams();
 
     void startGroupStage();
     void startPlayOffGames();
-
-    void simulateCompetition();
 
     void saveCurrentCompetition();
     void loadCompetition();

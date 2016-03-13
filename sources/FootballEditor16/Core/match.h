@@ -1,25 +1,22 @@
 #ifndef MATCH_H
 #define MATCH_H
 
-#include "team.h"
+#include "teamstat.h"
 
 class Match
 {
 public:
-    Match(string& ftm, string& stm);
-    Match(string& ftm, string& stm, int ftmGoals, int stmGoals);
+    Match(Team& ftm, Team& stm): fteam(ftm), steam(stm) {}
+
     void setResult(int ftmGoals, int stmGoals);
     void simulate();
 
     string& getFirstTeam();
     string& getSecondTeam();
-
-    void getResult();
+    string getResult();
 private:
-    Team fteam;
-    Team steam;
-    int fteamGoals;
-    int steamGoals;
+    TeamStat fteam;
+    TeamStat steam;
 };
 
 #endif // MATCH_H
