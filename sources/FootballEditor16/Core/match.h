@@ -10,8 +10,8 @@ class Match
 public:
     /**
      * @brief Constructor of Match
-     * @param First team
-     * @param Second team
+     * @param ftm First team
+     * @param stm Second team
      */
     Match(Team& ftm, Team& stm);
 

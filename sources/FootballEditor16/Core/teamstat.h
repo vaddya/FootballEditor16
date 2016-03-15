@@ -10,7 +10,7 @@ class TeamStat : public Team
 public:
     /**
      * @brief Constuctor of TeamStat
-     * @param team
+     * @param team Source object
      */
     TeamStat(Team & team);
 

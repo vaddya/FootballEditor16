@@ -22,7 +22,7 @@ void Competition::startGroupStage()
     //TODO realization
 }
 
-void Competition::startPlayOffGames()
+void Competition::startPlayOffStage()
 {
     //TODO realization
 }

@@ -10,7 +10,7 @@ class GroupStage
 public:
     /**
      * @brief Constructor of GroupStage
-     * @param Vector of the teams
+     * @param teams Vector of the teams
      */
     GroupStage(vector<Team> & teams);
 

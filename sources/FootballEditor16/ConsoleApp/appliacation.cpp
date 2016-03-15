@@ -7,7 +7,7 @@ void Appliacation::startNewCompetition()
 {
     Competition comp;
     comp.startGroupStage();
-    comp.startPlayOffGames();
+    comp.startPlayOffStage();
     //TODO stat
 }
 

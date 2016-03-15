@@ -15,12 +15,19 @@ public:
     Team() {}
     /**
      * @brief Constructor of Team with parameters
-     * @param Team name
-     * @param Team rating
+     * @param tname Team name
+     * @param trating Team rating
      */
     Team(string &tname, int trating = 1);
-
+    /**
+     * @brief Get name of the team
+     * @return name of the team
+     */
     string& getName();
+    /**
+     * @brief Get rating of the team
+     * @return rating of the team
+     */
     int getRating() const;
 
 private:
