@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-03-16T00:41:02
+# Project created by QtCreator 2016-03-16T00:58:02
 #
 #-------------------------------------------------
 
@@ -8,8 +8,7 @@ QT       -= core gui
 
 TARGET = Core
 TEMPLATE = lib
-
-DEFINES += CORE_LIBRARY
+CONFIG += staticlib
 
 SOURCES += competition.cpp \
     groupstage.cpp \
@@ -22,7 +21,6 @@ HEADERS += competition.h \
     match.h \
     team.h \
     teamstat.h
-
 unix {
     target.path = /usr/lib
     INSTALLS += target

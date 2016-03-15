@@ -4,6 +4,6 @@ ConsoleApp.depends = Core
 Test.depends = Core
 
 SUBDIRS += \
+    Core \
     ConsoleApp \
-    Test \
-    Core
+    Test
