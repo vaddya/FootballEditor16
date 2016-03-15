@@ -6,14 +6,15 @@
 class Match
 {
 public:
-    Match(Team& ftm, Team& stm): fteam(ftm), steam(stm) {}
+    Match(Team& ftm, Team& stm);
 
     void setResult(int ftmGoals, int stmGoals);
     void simulate();
 
-    string& getFirstTeam();
-    string& getSecondTeam();
-    string getResult();
+    string& getFirstTeam() const;
+    string& getSecondTeam() const;
+    string getResult() const;
+
 private:
     TeamStat fteam;
     TeamStat steam;

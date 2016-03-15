@@ -7,10 +7,11 @@ using std::string;
 class Team
 {
 public:
-    Team(string &tname, int traiting = 1);
+    Team() {}
+    Team(string &tname, int trating = 1);
 
     string& getName();
-    int getRating();
+    int getRating() const;
 
 private:
     string name;

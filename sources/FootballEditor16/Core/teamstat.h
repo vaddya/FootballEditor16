@@ -6,13 +6,15 @@
 class TeamStat : public Team
 {
 public:
-    void setGoals(int gls);
-    void setPossession(int psn);
-    void setShots(int sts);
-    void setShotOnTarget(int sot);
-    void setYellowCards(int ycd);
-    void setRedCards(int rcd);
-    void setFouls(int fls);
+    TeamStat(Team & team);
+
+    void setGoals(int gls = 0);
+    void setPossession(int psn = 0);
+    void setShots(int sts = 0);
+    void setShotOnTarget(int sot = 0);
+    void setYellowCards(int ycd = 0);
+    void setRedCards(int rcd = 0);
+    void setFouls(int fls = 0);
 
     int getGoals() const;
     int getPossession() const;

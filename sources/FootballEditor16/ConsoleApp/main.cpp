@@ -1,10 +1,13 @@
 #include <iostream>
+#include "appliacation.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    Appliacation app;
+    //TODO settings
+    app.startNewCompetition();
     return 0;
 }
 
