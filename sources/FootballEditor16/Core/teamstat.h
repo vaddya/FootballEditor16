@@ -2,10 +2,16 @@
 #define TEAMSTAT_H
 
 #include "team.h"
-
+/**
+ * @brief The TeamStat class
+ */
 class TeamStat : public Team
 {
 public:
+    /**
+     * @brief Constuctor of TeamStat
+     * @param team
+     */
     TeamStat(Team & team);
 
     void setGoals(int gls = 0);

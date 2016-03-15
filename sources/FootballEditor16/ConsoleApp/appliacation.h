@@ -3,7 +3,9 @@
 
 #include "competition.h"
 #include "team.h"
-
+/**
+ * @brief The Appliacation class
+ */
 class Appliacation
 {
 public:

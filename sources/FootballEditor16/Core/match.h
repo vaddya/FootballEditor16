@@ -2,10 +2,17 @@
 #define MATCH_H
 
 #include "teamstat.h"
-
+/**
+ * @brief The Match class
+ */
 class Match
 {
 public:
+    /**
+     * @brief Constructor of Match
+     * @param First team
+     * @param Second team
+     */
     Match(Team& ftm, Team& stm);
 
     void setResult(int ftmGoals, int stmGoals);
