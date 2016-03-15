@@ -11,8 +11,8 @@
 Консольное приложение, позволяющее пользователю вести учет результатов футбольного турнира.
 
 ## Диаграмма прецедентов использования
-![Use case diagram](/report/diagrams/Use.Case.Diagram.png)
+![Use case diagram](/report/diagrams/UseCaseDiagram.png)
 ## Диаграмма последовательностей
 
 ## Диаграмма компонентов
-![Component diagram](/report/diagrams/Component.diagram.3.png)
+![Component diagram](/report/diagrams/ComponentDiagram.png)
