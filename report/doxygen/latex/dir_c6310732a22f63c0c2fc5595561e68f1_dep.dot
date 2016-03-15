@@ -1,0 +1,6 @@
+digraph "Core" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_c6310732a22f63c0c2fc5595561e68f1 [shape=box, label="Core", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_c6310732a22f63c0c2fc5595561e68f1.html"];
+}

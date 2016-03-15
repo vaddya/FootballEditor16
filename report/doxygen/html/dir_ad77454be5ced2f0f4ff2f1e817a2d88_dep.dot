@@ -1,0 +1,6 @@
+digraph "ConsoleApp" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_ad77454be5ced2f0f4ff2f1e817a2d88 [shape=box, label="ConsoleApp", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_ad77454be5ced2f0f4ff2f1e817a2d88.html"];
+}

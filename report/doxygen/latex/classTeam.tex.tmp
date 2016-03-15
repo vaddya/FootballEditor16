@@ -1,0 +1,59 @@
+\hypertarget{classTeam}{}\section{Класс Team}
+\label{classTeam}\index{Team@{Team}}
+
+
+The \hyperlink{classTeam}{Team} class.  
+
+
+
+
+{\ttfamily \#include $<$team.\+h$>$}
+
+
+
+Граф наследования\+:Team\+:
+% FIG 0
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classTeam_aada295895b747960576b69d8c87a54ba}{}\hyperlink{classTeam_aada295895b747960576b69d8c87a54ba}{Team} ()\label{classTeam_aada295895b747960576b69d8c87a54ba}
+
+\begin{DoxyCompactList}\small\item\em Constructor of \hyperlink{classTeam}{Team} without parameters. \end{DoxyCompactList}\item 
+\hyperlink{classTeam_aa632b7bd6adcab8803d33d9e32e29a87}{Team} (string \&tname, int trating=1)
+\begin{DoxyCompactList}\small\item\em Constructor of \hyperlink{classTeam}{Team} with parameters. \end{DoxyCompactList}\item 
+\hypertarget{classTeam_a67ced91b71ac29ad7e5c07f2255e2576}{}string \& {\bfseries get\+Name} ()\label{classTeam_a67ced91b71ac29ad7e5c07f2255e2576}
+
+\item 
+\hypertarget{classTeam_a99f197005ba382487df91308917e3783}{}int {\bfseries get\+Rating} () const \label{classTeam_a99f197005ba382487df91308917e3783}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+The \hyperlink{classTeam}{Team} class. 
+
+\subsection{Конструктор(ы)}
+\hypertarget{classTeam_aa632b7bd6adcab8803d33d9e32e29a87}{}\index{Team@{Team}!Team@{Team}}
+\index{Team@{Team}!Team@{Team}}
+\subsubsection[{Team}]{\setlength{\rightskip}{0pt plus 5cm}Team\+::\+Team (
+\begin{DoxyParamCaption}
+\item[{string \&}]{tname, }
+\item[{int}]{trating = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{classTeam_aa632b7bd6adcab8803d33d9e32e29a87}
+
+
+Constructor of \hyperlink{classTeam}{Team} with parameters. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em \hyperlink{classTeam}{Team}} & name \\
+\hline
+{\em \hyperlink{classTeam}{Team}} & rating \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Core/team.\+h\end{DoxyCompactItemize}
