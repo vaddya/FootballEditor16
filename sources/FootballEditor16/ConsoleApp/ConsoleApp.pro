@@ -4,10 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    appliacation.cpp
+    application.cpp
 
 HEADERS += \
-    appliacation.h
+    application.h
 
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../Core/release/ -lcore

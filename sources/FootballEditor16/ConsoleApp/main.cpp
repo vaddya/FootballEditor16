@@ -1,11 +1,11 @@
 #include <iostream>
-#include "appliacation.h"
+#include "application.h"
 
 using namespace std;
 
 int main()
 {
-    Appliacation app;
+    Application app;
     //TODO settings
     app.startNewCompetition();
     return 0;

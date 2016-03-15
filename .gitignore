@@ -5,3 +5,6 @@ build*
 *.synctex.gz
 *.tdo
 *.toc
+*.o
+*.a
+*.moc

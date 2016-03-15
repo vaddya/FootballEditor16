@@ -17,6 +17,11 @@ std::string &Competition::getTitle()
     return title;
 }
 
+int Competition::getNumberOfTeams()
+{
+    return numberOfTeams;
+}
+
 void Competition::startGroupStage()
 {
     //TODO realization

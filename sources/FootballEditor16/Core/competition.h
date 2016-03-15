@@ -31,6 +31,7 @@ public:
      * @brief Get title of the competition
      * @return title of the competition
      */
+
     string& getTitle();
     /**
      * @brief Get number of teams participating in the competition
@@ -45,6 +46,7 @@ public:
     /**
      * @brief Start group stage
      */
+
     void startGroupStage();
     /**
      * @brief Start play-off stage

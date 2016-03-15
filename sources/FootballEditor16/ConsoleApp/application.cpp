@@ -1,9 +1,9 @@
-#include "appliacation.h"
+#include "application.h"
 #include "iostream"
 
-Appliacation::Appliacation() {}
+Application::Application() {}
 
-void Appliacation::startNewCompetition()
+void Application::startNewCompetition()
 {
     Competition comp;
     comp.startGroupStage();

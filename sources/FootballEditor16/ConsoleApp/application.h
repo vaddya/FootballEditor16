@@ -1,15 +1,15 @@
-#ifndef APPLIACATION_H
-#define APPLIACATION_H
+#ifndef APPLICATION_H
+#define APPLICATION_H
 
 #include "competition.h"
 #include "team.h"
 /**
- * @brief The Appliacation class
+ * @brief The Application class
  */
-class Appliacation
+class Application
 {
 public:
-    Appliacation();
+    Application();
     /**
      * @brief Create new competition
      */
@@ -24,4 +24,4 @@ public:
     void setSettiings();
 };
 
-#endif // APPLIACATION_H
+#endif // APPLICATION_H

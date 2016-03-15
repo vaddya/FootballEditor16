@@ -29,7 +29,11 @@ void TestCore::TestCompetition()
     competition.setTitle(compname);
     competition.setListOfTeams(teams);
 
+    QCOMPARE(competition.getNumberOfTeams(), 16);
     QCOMPARE(competition.getTitle(), compname);
+
+    //check valgrind
+    Competition * pt = new Competition(5);
 }
 
 QTEST_APPLESS_MAIN(TestCore)
