@@ -67,7 +67,7 @@ zip_files() {
 		exit 1
 	fi
 
-	TITLE="${JOB_NAME}${BUILD_NUMBER}"
+	TITLE="${JOB_NAME}$_v{BUILD_NUMBER}"
 	mkdir "$TITLE"
 
 	if [ -e "sources/FootballEditor16/ConsoleApp/ConsoleApp" ]; then
@@ -76,7 +76,7 @@ zip_files() {
 			cp report/FootballEditor16.pdf $TITLE/FootballEditor16_v${BUILD_NUMBER}.pdf
 		fi
 		if [ -e "sources/FootballEditor16/doxygen/latex/refman.pdf" ]; then
-			cp sources/FootballEditor16/doxygen/latex/refman.pdf $TITLE/FootballEditorDoxygen_v${BUILD_NUMBER}.pdf
+			cp sources/FootballEditor16/doxygen/latex/refman.pdf $TITLE/FootballEditor16Doxygen_v${BUILD_NUMBER}.pdf
 		fi
 		zip $TITLE.zip $TITLE/*
 	else
