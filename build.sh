@@ -25,7 +25,7 @@ build_debug_version() {
 		cppcheck --enable=all -v  --xml  * 2> cppcheck_result
 		gcovr -r . --xml --exclude='tst*' -o gcovr_result
 		
-		valgrind --leak-check=full --xml=yes --xml-file=/opt/tomcat/.jenkins/jobs/FootballEditor16/workspace/tst_testcore.%p.result /opt/tomcat/.jenkins/jobs/FootballEditor16/workspace/sources/Test/tst_testcore || true
+		valgrind --leak-check=full --xml=yes --xml-file=/opt/tomcat/.jenkins/jobs/FootballEditor16/workspace/tst_testcore.%p.result /opt/tomcat/.jenkins/jobs/FootballEditor16/workspace/sources/FootballEditor16/Test/tst_testcore || true
 
 		if [ -e "doxygen.ini" ]; then
 			doxygen doxygen.ini
@@ -70,8 +70,8 @@ zip_files() {
 	TITLE="${JOB_NAME}${BUILD_NUMBER}"
 	mkdir "$TITLE"
 
-	if [ -e "sources/FootballEditor16/ConsoleApp" ]; then
-		cp sources/FootballEditor16/ConsoleApp $TITLE/FootballEditor${BUILD_NUMBER}
+	if [ -e "sources/FootballEditor16/ConsoleApp/ConsoleApp" ]; then
+		cp sources/FootballEditor16/ConsoleApp/ConsoleApp $TITLE/FootballEditor${BUILD_NUMBER}
 		if [ -e "report/FootballEditor16.pdf" ]; then
 			cp report/FootballEditor16.pdf $TITLE/FootballEditor${BUILD_NUMBER}.pdf
 		fi
