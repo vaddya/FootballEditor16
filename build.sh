@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export PATH=$PATH:/opt/Qt5.5.0/5.5/gcc_64/bin/
+
 build_release_version() {
 	cd sources/FootballEditor16
 	qmake
