@@ -2,7 +2,7 @@
 
 build_release_version() {
 	cd sources/FootballEditor16
-	qmake FootballEditor16.pro -r -spec linux-g++-64
+	qmake
 	if [ -e "Makefile" ]; then
 		make
 		cd ../..
@@ -16,7 +16,7 @@ build_release_version() {
 build_debug_version() {
 	cd sources/FootballEditor16
 	cloc --by-file --xml --out=./cloc_result *
-	qmake FootballEditor16.pro -r -spec linux-g++-64 "QMAKE_CXXFLAGS+=-fprofile-arcs -ftest-coverage -fPIC -O0 -g --coverage" "LIBS+=-lgcov"
+	qmake "QMAKE_CXXFLAGS+=-fprofile-arcs -ftest-coverage -fPIC -O0 -g --coverage" "LIBS+=-lgcov"
 	if [ -e "Makefile" ]; then
 		make
 		Test/tst_testcore -xml -o test_results || true
