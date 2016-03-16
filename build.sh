@@ -67,7 +67,7 @@ zip_files() {
 		exit 1
 	fi
 
-	TITLE="${JOB_NAME}$_v{BUILD_NUMBER}"
+	TITLE="${JOB_NAME}_v${BUILD_NUMBER}"
 	mkdir "$TITLE"
 
 	if [ -e "sources/FootballEditor16/ConsoleApp/ConsoleApp" ]; then
