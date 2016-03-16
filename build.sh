@@ -71,12 +71,12 @@ zip_files() {
 	mkdir "$TITLE"
 
 	if [ -e "sources/FootballEditor16/ConsoleApp/ConsoleApp" ]; then
-		cp sources/FootballEditor16/ConsoleApp/ConsoleApp $TITLE/FootballEditor${BUILD_NUMBER}
+		cp sources/FootballEditor16/ConsoleApp/ConsoleApp $TITLE/FootballEditor16_v${BUILD_NUMBER}
 		if [ -e "report/FootballEditor16.pdf" ]; then
-			cp report/FootballEditor16.pdf $TITLE/FootballEditor${BUILD_NUMBER}.pdf
+			cp report/FootballEditor16.pdf $TITLE/FootballEditor16_v${BUILD_NUMBER}.pdf
 		fi
 		if [ -e "sources/FootballEditor16/doxygen/latex/refman.pdf" ]; then
-			cp sources/FootballEditor16/doxygen/latex/refman.pdf $TITLE/FootballEditorDoxygen${BUILD_NUMBER}.pdf
+			cp sources/FootballEditor16/doxygen/latex/refman.pdf $TITLE/FootballEditorDoxygen_v${BUILD_NUMBER}.pdf
 		fi
 		zip $TITLE.zip $TITLE/*
 	else
