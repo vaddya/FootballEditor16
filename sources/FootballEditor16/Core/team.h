@@ -18,7 +18,7 @@ public:
      * @param tname Team name
      * @param trating Team rating
      */
-    Team(string &tname, int trating = 1);
+    Team(string tname, int tFifaPoints = 1);
     /**
      * @brief Get name of the team
      * @return name of the team
@@ -28,12 +28,11 @@ public:
      * @brief Get rating of the team
      * @return rating of the team
      */
-    int getRating() const;
+    int getFifaPoints() const;
 
 private:
     string name;
-    int rating;
-
+    int fifaPoints;
 };
 
 #endif // TEAM_H

@@ -4,8 +4,12 @@
 #include "team.h"
 #include "string"
 #include "vector"
+#include "groupstage.h"
+#include "playoffstage.h"
+
 using std::string;
 using std::vector;
+
 /**
  * @brief The Competition class
  */
@@ -16,12 +20,12 @@ public:
      * @brief Constructor of Competition
      * @param num The number of team participating in the competition
      */
-    Competition(int num = 16);
+    Competition(size_t num = 16);
     /**
      * @brief Set the title of the competition
      * @param name Competition name
      */
-    void setTitle(string &name);
+    void setTitle(string title);
     /**
      * @brief Set the list of teams participating in the competition
      * @param teams Vector of the teams
@@ -32,7 +36,8 @@ public:
      * @return title of the competition
      */
 
-    string& getTitle();
+
+    string getTitle();
     /**
      * @brief Get number of teams participating in the competition
      * @return number of teams
@@ -47,6 +52,7 @@ public:
      * @brief Start group stage
      */
 
+
     void startGroupStage();
     /**
      * @brief Start play-off stage
@@ -60,12 +66,28 @@ public:
      * @brief Load the competition
      */
     void loadCompetition();
-
+    ~Competition();
 private:
     string title;
-    int numberOfTeams;
-    vector<Team> listOfTeams;
+    size_t numberOfTeams;
+    vector<Team> teams;
+
+    GroupStage * groupstage;
+    PlayoffStage * playoffstage;
 
 };
+
+class WrongNumberOfTeams: public std::exception
+{
+public:
+    WrongNumberOfTeams(int number): wrongNumber(number) {}
+    int getWrongNum() const {
+        return wrongNumber;
+    }
+private:
+    int wrongNumber;
+};
+
+class WrongListOfTeams: public std::exception {};
 
 #endif // COMPETITON_H

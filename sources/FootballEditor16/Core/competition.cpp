@@ -1,18 +1,29 @@
 #include "competition.h"
 
-Competition::Competition(int num): numberOfTeams(num) {}
-
-void Competition::setTitle(std::string &name)
+Competition::Competition(size_t num)
 {
-    title = name;
+    if (num % 8 == 0 || true)
+        numberOfTeams = num;
+    else
+        throw WrongNumberOfTeams(num);
+    groupstage = new GroupStage(num);
+    playoffstage = new PlayoffStage();
 }
 
-void Competition::setListOfTeams(vector<Team> &teams)
+void Competition::setTitle(string title)
 {
-    listOfTeams = teams;
+    this->title = title;
 }
 
-std::string &Competition::getTitle()
+void Competition::setListOfTeams(vector<Team>& teams)
+{
+    if (teams.size() == numberOfTeams)
+        this->teams = teams;
+    else
+        throw WrongListOfTeams();
+}
+
+string Competition::getTitle()
 {
     return title;
 }
@@ -22,12 +33,23 @@ int Competition::getNumberOfTeams()
     return numberOfTeams;
 }
 
+vector<Team> &Competition::getTeams()
+{
+    return teams;
+}
+
 void Competition::startGroupStage()
 {
-    //TODO realization
+    groupstage->launch();
 }
 
 void Competition::startPlayOffStage()
 {
-    //TODO realization
+    playoffstage->launch();
+}
+
+Competition::~Competition()
+{
+    delete groupstage;
+    delete playoffstage;
 }

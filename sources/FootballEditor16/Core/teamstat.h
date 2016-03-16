@@ -2,6 +2,7 @@
 #define TEAMSTAT_H
 
 #include "team.h"
+
 /**
  * @brief The TeamStat class
  */
@@ -38,7 +39,6 @@ private:
     int yellowCards;
     int redCards;
     int fouls;
-
 };
 
 #endif // TEAMSTAT_H

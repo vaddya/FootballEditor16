@@ -2,6 +2,7 @@
 #define MATCH_H
 
 #include "teamstat.h"
+
 /**
  * @brief The Match class
  */
@@ -10,12 +11,12 @@ class Match
 public:
     /**
      * @brief Constructor of Match
-     * @param ftm First team
-     * @param stm Second team
+     * @param fteam First team
+     * @param steam Second team
      */
-    Match(Team& ftm, Team& stm);
+    Match(Team& fteam, Team& steam);
 
-    void setResult(int ftmGoals, int stmGoals);
+    void setResult(int fteamGoals, int steamGoals);
     void simulate();
 
     string& getFirstTeam() const;

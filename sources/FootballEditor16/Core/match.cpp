@@ -1,3 +1,3 @@
 #include "match.h"
 
-Match::Match(Team &ftm, Team &stm): fteam(ftm), steam(stm) {}
+Match::Match(Team &fteam, Team &steam): fteam(fteam), steam(steam) {}
