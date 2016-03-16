@@ -51,7 +51,7 @@ make_report() {
 #		pdflatex FootballEditor16.tex
 #		pdflatex FootballEditor16.tex
 #		cd ..
-	cd ../../../..
+		cd ../../../..
 	else
 		echo "Makefile does not exist"
 		echo "Report failure!"
@@ -74,6 +74,7 @@ zip_files() {
 		cp sources/OctoCoder/ConsoleApp $TITLE/FootballEditor${BUILD_NUMBER}
 		if [ -e "report/FootballEditor16.pdf" ]; then
 			cp report/FootballEditor16.pdf $TITLE/FootballEditor${BUILD_NUMBER}.pdf
+		fi
 		if [ -e "sources/FootballEditor16/doxygen/latex/refman.pdf" ]; then
 			cp sources/FootballEditor16/doxygen/latex/refman.pdf $TITLE/FootballEditorDoxygen${BUILD_NUMBER}.pdf
 		fi
