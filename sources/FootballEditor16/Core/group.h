@@ -9,7 +9,7 @@ using namespace std;
 class Group
 {
 public:
-    Group(vector<Team> teams): teams(teams) {}
+    Group(vector<Team> &teams): teams(teams) {}
 
 private:
     vector<Team> teams;

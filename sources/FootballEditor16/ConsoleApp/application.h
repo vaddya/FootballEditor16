@@ -19,6 +19,10 @@ public:
     void mainMenu();
 
     /**
+     * @brief Set title of the competition
+     */
+    void setTitleOfCompetition();
+    /**
      * @brief Set competition setting and preferences
      */
     void setSettiings();
@@ -34,18 +38,25 @@ public:
      * @brief Enter list of teams from file
      */
     void enterTeamsFromFile();
+
+
     /**
      * @brief Create new competition
      */
-
     void launchNewCompetition();
     /**
      * @brief Load competition
      */
     void loadCompetition();
+
+    /**
+     * @brief Display current list of team
+     */
+    void showCurrentListOfTeams();
 private:
     vector<Team> teams;
     size_t numberOfTeams;
+    string titleOfCompetition;
 };
 
 class WrongInput: public std::exception {};

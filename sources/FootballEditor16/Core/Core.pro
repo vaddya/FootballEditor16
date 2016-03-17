@@ -24,7 +24,8 @@ HEADERS += competition.h \
     team.h \
     teamstat.h \
     group.h \
-    playoffstage.h
+    playoffstage.h \
+    stage.h
 unix {
     target.path = /usr/lib
     INSTALLS += target

@@ -2,7 +2,7 @@
 
 Competition::Competition(size_t num)
 {
-    if (num % 8 == 0 || true)
+    if (num % 2 == 0 || true)
         numberOfTeams = num;
     else
         throw WrongNumberOfTeams(num);
@@ -38,15 +38,14 @@ vector<Team> &Competition::getTeams()
     return teams;
 }
 
-void Competition::launch()
-{
-    startGroupStage();
-    startPlayOffStage();
-}
-
 void Competition::startGroupStage()
 {
     groupstage->launch();
+}
+
+void Competition::enterResultsOfGroupStage()
+{
+    //TODO implement me
 }
 
 void Competition::startPlayOffStage()

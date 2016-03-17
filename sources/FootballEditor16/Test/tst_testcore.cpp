@@ -27,16 +27,16 @@ void TestCore::TestCompetition()
     teams.push_back(Team("Russia", 892));
     teams.push_back(Team("France", 872));
 
-    Competition competition(2);
-    competition.setTitle("EURO 2016");
-    competition.setListOfTeams(teams);
+    Competition comp(2);
+    comp.setTitle("EURO 2016");
+    comp.setListOfTeams(teams);
 
-    QCOMPARE(competition.getTeams()[0].getName().c_str(), "Russia");
-    QCOMPARE(competition.getTeams()[0].getFifaPoints(), 892);
-    QCOMPARE(competition.getTeams()[1].getName().c_str(), "France");
-    QCOMPARE(competition.getTeams()[1].getFifaPoints(), 872);
-    QCOMPARE(competition.getNumberOfTeams(), 2);
-    QCOMPARE(competition.getTitle().c_str(), "EURO 2016");
+    QCOMPARE(comp.getTeams()[0].getName().c_str(), "Russia");
+    QCOMPARE(comp.getTeams()[0].getFifaPoints(), 892);
+    QCOMPARE(comp.getTeams()[1].getName().c_str(), "France");
+    QCOMPARE(comp.getTeams()[1].getFifaPoints(), 872);
+    QCOMPARE(comp.getNumberOfTeams(), 2);
+    QCOMPARE(comp.getTitle().c_str(), "EURO 2016");
 
     //check valgrind
     Competition * pt = new Competition(5);

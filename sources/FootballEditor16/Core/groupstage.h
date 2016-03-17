@@ -1,12 +1,13 @@
 #ifndef GROUPSTAGE_H
 #define GROUPSTAGE_H
 
+#include "stage.h"
 #include "group.h"
 
 /**
  * @brief The GroupStage class
  */
-class GroupStage
+class GroupStage : public Stage
 {
 public:
     /**
@@ -20,16 +21,14 @@ public:
      */
     void setListOfTeams(vector<Team> &teams);
     /**
-     * @brief Launch this stage
-     */
-    void launch();
-    /**
      * @brief Create groups
      */
+    void launch();
+
 private:
+    vector<Team> teams;
     void sortTeams();
     void createGroups();
-    vector<Team> teams;
     vector<Group> groups;
     size_t numberOfGroups;
 };

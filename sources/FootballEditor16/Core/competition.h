@@ -56,12 +56,14 @@ public:
      * @brief Load the competition
      */
     void loadCompetition();
-    void launch();
-    ~Competition();
-private:
     void startGroupStage();
+    void enterResultsOfGroupStage();
+
     void startPlayOffStage();
 
+    ~Competition();
+
+private:
     string title;
     size_t numberOfTeams;
     vector<Team> teams;
