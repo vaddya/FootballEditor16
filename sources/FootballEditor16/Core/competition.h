@@ -49,16 +49,6 @@ public:
      */
     vector<Team> & getTeams();
     /**
-     * @brief Start group stage
-     */
-
-
-    void startGroupStage();
-    /**
-     * @brief Start play-off stage
-     */
-    void startPlayOffStage();
-    /**
      * @brief Save the current competition
      */
     void saveCurrentCompetition();
@@ -68,6 +58,9 @@ public:
     void loadCompetition();
     ~Competition();
 private:
+    void startGroupStage();
+    void startPlayOffStage();
+
     string title;
     size_t numberOfTeams;
     vector<Team> teams;

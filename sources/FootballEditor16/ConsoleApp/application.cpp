@@ -32,6 +32,7 @@ void Application::mainMenu()
             {
                 cout << teams[i].getName() << " " << teams[i].getFifaPoints() << endl;
             }
+            break;
         default:
             cout << "Error! Invalid number.\n" << endl;
             mainMenu(); break;
@@ -104,6 +105,7 @@ void Application::enterTeamsFromFile()
     cout << "Write the input file (0 for \"input.txt\"): " << endl;
     string filename;
     cin >> filename;
+    cin.clear();
     if (filename[0] == '0')
         filename = "input.txt";
     ifstream fin(filename);
