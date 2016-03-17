@@ -6,8 +6,7 @@ using namespace std;
 int main()
 {
     Application app;
-    //TODO settings
-    app.startNewCompetition();
+    app.mainMenu();
     return 0;
 }
 
