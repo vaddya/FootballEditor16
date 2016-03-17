@@ -38,6 +38,12 @@ vector<Team> &Competition::getTeams()
     return teams;
 }
 
+void Competition::launch()
+{
+    startGroupStage();
+    startPlayOffStage();
+}
+
 void Competition::startGroupStage()
 {
     groupstage->launch();

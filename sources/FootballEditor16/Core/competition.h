@@ -56,6 +56,7 @@ public:
      * @brief Load the competition
      */
     void loadCompetition();
+    void launch();
     ~Competition();
 private:
     void startGroupStage();

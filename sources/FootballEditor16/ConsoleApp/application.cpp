@@ -135,8 +135,7 @@ void Application::launchNewCompetition()
 {
     Competition comp(numberOfTeams);
     comp.setListOfTeams(teams);
-    comp.startGroupStage();
-    comp.startPlayOffStage();
+    comp.launch();
 }
 
 void Application::loadCompetition()
