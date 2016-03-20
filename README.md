@@ -16,8 +16,3 @@
 
 ## Диаграмма компонентов
 ![Component diagram](/report/diagrams/ComponentDiagram.png)
-
-```ccp
-///Перегрузка операции сравнения
-inline bool operator == (const Position& pos);
-```
