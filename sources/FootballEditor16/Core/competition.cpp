@@ -6,8 +6,6 @@ Competition::Competition(size_t num)
         numberOfTeams = num;
     else
         throw WrongNumberOfTeams(num);
-    groupStage = new GroupStage(num);
-    playoffStage = new PlayoffStage();
 }
 
 void Competition::setTitle(string title)
@@ -40,7 +38,7 @@ vector<Team> &Competition::getTeams()
 
 void Competition::startGroupStage()
 {
-    std::cout << "launch";
+    groupStage = new GroupStage(numberOfTeams, teams);
     groupStage->launch();
 }
 
@@ -49,13 +47,12 @@ GroupStage &Competition::getGroupStage()
     return *groupStage;
 }
 
-void Competition::startPlayOffStage()
-{
-    playoffStage->launch();
-}
+//void Competition::startPlayOffStage()
+//{
+//    playoffStage->launch();
+//}
 
 Competition::~Competition()
 {
     delete groupStage;
-    delete playoffStage;
 }

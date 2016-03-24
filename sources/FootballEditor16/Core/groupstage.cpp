@@ -1,13 +1,10 @@
 #include "groupstage.h"
+#include "iostream"
 
-GroupStage::GroupStage(size_t num)
+GroupStage::GroupStage(unsigned num, vector<Team> &teams)
 {
     numberOfGroups = num/4;
     groups.reserve(numberOfGroups);
-}
-
-void GroupStage::setListOfTeams(vector<Team> &teams)
-{
     this->teams = teams;
     sortTeams();
 }
@@ -24,11 +21,12 @@ void GroupStage::sortTeams()
 
 void GroupStage::createGroups()
 {
-    for (size_t i = 0; i < numberOfGroups; i++)
+    for (unsigned i = 0; i < numberOfGroups; i++)
     {
         vector<Team> group(4);
-        for (size_t j = 0; j < 4; j++)
+        for (unsigned j = 0; j < 4; j++)
             group.push_back(teams[i+j*4]);
         groups.push_back(Group(group));
+        groups.back().createMatches();
     }
 }

@@ -11,7 +11,6 @@ public:
     /**
      * @brief Launch this stage
      */
-    virtual void setListOfTeams(vector<Team> &teams) = 0;
     virtual void launch() = 0;
     virtual ~Stage() {}
 };

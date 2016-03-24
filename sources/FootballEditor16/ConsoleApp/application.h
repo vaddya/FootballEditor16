@@ -54,9 +54,9 @@ public:
     void loadCompetition();
 
     /**
-     * @brief Display current list of team
+     * @brief Display current settings
      */
-    void showCurrentListOfTeams();
+    void showCurrentSettings();
     ~Application();
 private:
     Competition * comp;

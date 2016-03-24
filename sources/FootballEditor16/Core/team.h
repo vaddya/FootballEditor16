@@ -23,7 +23,7 @@ public:
      * @brief Get name of the team
      * @return name of the team
      */
-    string& getName();
+    string getName();
     /**
      * @brief Get rating of the team
      * @return rating of the team

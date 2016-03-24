@@ -12,12 +12,7 @@ public:
     /**
      * @brief Constructor of PlayoffStage
      */
-    PlayoffStage();
-    /**
-     * @brief Set the list of teams participating in this stage
-     * @param teams Teams
-     */
-    void setListOfTeams(vector<Team> &teams);
+    PlayoffStage(unsigned num);
     /**
      * @brief Launch this stage
      */

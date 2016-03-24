@@ -14,12 +14,7 @@ public:
      * @brief Constructor of GroupStage
      * @param tms Vector of the teams
      */
-    GroupStage(size_t num);
-    /**
-     * @brief Set the list of teams participating in this stage
-     * @param teams Teams
-     */
-    void setListOfTeams(vector<Team> &teams);
+    GroupStage(unsigned num, vector<Team> &teams);
     /**
      * @brief Create groups
      */

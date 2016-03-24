@@ -2,7 +2,7 @@
 #include "iostream"
 #include "fstream"
 
-Application::Application(): numberOfTeams(16) {}
+Application::Application(): numberOfTeams(16), titleOfCompetition("Championat") {}
 
 void Application::mainMenu()
 {
@@ -51,7 +51,7 @@ void Application::setSettiings()
             << "2. Set number of teams" << endl
             << "3. Enter teams from console" << endl
             << "4. Enter teams from file" << endl
-            << "5. Show current list of teams" << endl
+            << "5. Show current settings" << endl
             << "9. Back to main menu" << endl
             << "0. Exit" << endl
             << ">>> ";
@@ -66,22 +66,23 @@ void Application::setSettiings()
            case 0:
                   break;
            case 1:
-               setTitleOfCompetition(); setSettiings(); break;
+               setTitleOfCompetition(); mainMenu(); break;
            case 2:
-               setNumberOfTeams(); setSettiings(); break;
+               setNumberOfTeams(); mainMenu(); break;
            case 3:
-               enterTeamsFromConsole(); setSettiings(); break;
+               enterTeamsFromConsole(); mainMenu(); break;
            case 4:
-               enterTeamsFromFile(); setSettiings(); break;
+               enterTeamsFromFile(); mainMenu(); break;
            case 5:
-               showCurrentListOfTeams(); setSettiings(); break;
+               showCurrentSettings(); mainMenu(); break;
            case 9:
                mainMenu(); break;
            default:
                cout << "Error! Invalid number." << endl;
                cin.clear();
                getline(cin, badStr);
-               setSettiings(); break;
+               cout << endl;
+               mainMenu(); break;
            }
        }
        else
@@ -89,7 +90,8 @@ void Application::setSettiings()
            cout << "Error! Input a number." << endl << endl;
            cin.clear();
            getline(cin, badStr);
-           setSettiings();
+           mainMenu();
+           cout << endl;
        }
 }
 
@@ -97,7 +99,8 @@ void Application::setTitleOfCompetition()
 {
     string title;
     cout << "Title: ";
-    getline(cin, title);
+    cin >> title;
+    //getline(cin, title);
     titleOfCompetition = title;
 }
 
@@ -110,7 +113,6 @@ void Application::setNumberOfTeams()
         numberOfTeams = num;
     else
         throw WrongInput();
-    cout << "okay, now number of teams = " << numberOfTeams << endl;
 }
 
 void Application::enterTeamsFromConsole()
@@ -167,7 +169,9 @@ void Application::launchNewCompetition()
 void Application::setResultsOfGroupStage()
 {
     for (Group group: comp->getGroupStage().getGroups()) {
-        cout << "hi";
+        for (Match match: group.getMatches()) {
+            cout << "First team: " << match.getFirstTeam() << endl;
+        }
     }
 }
 
@@ -176,8 +180,9 @@ void Application::loadCompetition()
     //TODO implement load comp
 }
 
-void Application::showCurrentListOfTeams()
+void Application::showCurrentSettings()
 {
+    cout << "Competition \"" << titleOfCompetition << "\" (" << numberOfTeams << " teams)" << endl;
     for (size_t i = 0; i < teams.size(); i++) {
         cout << i+1 << ". " << teams[i].getName() << " " << teams[i].getFifaPoints() << endl;
         //TODO implement overload << for class Team

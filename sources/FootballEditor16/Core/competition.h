@@ -7,7 +7,6 @@
 #include "group.h"
 #include "playoffstage.h"
 #include "groupstage.h"
-#include "iostream"
 
 using std::string;
 using std::vector;
@@ -22,7 +21,7 @@ public:
      * @brief Constructor of Competition
      * @param num The number of team participating in the competition
      */
-    Competition(size_t num = 16);
+    Competition(size_t num);
     /**
      * @brief Set the title of the competition
      * @param name Competition name
@@ -66,11 +65,11 @@ public:
 
 private:
     string title;
-    size_t numberOfTeams;
+    unsigned numberOfTeams;
     vector<Team> teams;
 
     GroupStage * groupStage;
-    PlayoffStage * playoffStage;
+    //PlayoffStage * playoffStage;
 };
 
 class WrongNumberOfTeams: public std::exception

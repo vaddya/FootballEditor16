@@ -37,9 +37,6 @@ void TestCore::TestCompetition()
     QCOMPARE(comp.getTeams()[1].getFifaPoints(), 872);
     QCOMPARE(comp.getNumberOfTeams(), 2);
     QCOMPARE(comp.getTitle().c_str(), "EURO 2016");
-
-    //check valgrind
-    Competition * pt = new Competition(5);
 }
 
 void TestCore::TestGroupStage()

@@ -1,13 +1,8 @@
 #include "playoffstage.h"
 
-PlayoffStage::PlayoffStage()
+PlayoffStage::PlayoffStage(unsigned num)
 {
     //TODO implement constructor
-}
-
-void PlayoffStage::setListOfTeams(vector<Team> &teams)
-{
-    this->teams = teams;
 }
 
 void PlayoffStage::launch()
