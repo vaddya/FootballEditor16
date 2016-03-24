@@ -45,6 +45,10 @@ public:
      */
     void launchNewCompetition();
     /**
+     * @brief Set results of group stage
+     */
+    void setResultsOfGroupStage();
+    /**
      * @brief Load competition
      */
     void loadCompetition();
@@ -53,7 +57,9 @@ public:
      * @brief Display current list of team
      */
     void showCurrentListOfTeams();
+    ~Application();
 private:
+    Competition * comp;
     vector<Team> teams;
     size_t numberOfTeams;
     string titleOfCompetition;

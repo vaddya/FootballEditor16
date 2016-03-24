@@ -25,6 +25,8 @@ public:
      */
     void launch();
 
+    vector<Group> & getGroups() { return groups; }
+
 private:
     vector<Team> teams;
     void sortTeams();

@@ -1,11 +1,13 @@
-#ifndef COMPETITON_H
-#define COMPETITON_H
+#ifndef COMPETITION_H
+#define COMPETITION_H
 
 #include "team.h"
 #include "string"
 #include "vector"
-#include "groupstage.h"
+#include "group.h"
 #include "playoffstage.h"
+#include "groupstage.h"
+#include "iostream"
 
 using std::string;
 using std::vector;
@@ -31,12 +33,11 @@ public:
      * @param teams Vector of the teams
      */
     void setListOfTeams(vector<Team> &teams);
+
     /**
      * @brief Get title of the competition
      * @return title of the competition
      */
-
-
     string getTitle();
     /**
      * @brief Get number of teams participating in the competition
@@ -56,9 +57,9 @@ public:
      * @brief Load the competition
      */
     void loadCompetition();
-    void startGroupStage();
-    void enterResultsOfGroupStage();
 
+    void startGroupStage();
+    GroupStage & getGroupStage();
     void startPlayOffStage();
 
     ~Competition();
@@ -68,9 +69,8 @@ private:
     size_t numberOfTeams;
     vector<Team> teams;
 
-    GroupStage * groupstage;
-    PlayoffStage * playoffstage;
-
+    GroupStage * groupStage;
+    PlayoffStage * playoffStage;
 };
 
 class WrongNumberOfTeams: public std::exception
@@ -86,4 +86,4 @@ private:
 
 class WrongListOfTeams: public std::exception {};
 
-#endif // COMPETITON_H
+#endif // COMPETITION_H

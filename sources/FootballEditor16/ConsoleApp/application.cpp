@@ -143,7 +143,6 @@ void Application::enterTeamsFromFile()
     else {
         string team;
         int rating;
-
         fin >> team;
         while (fin)
         {
@@ -158,11 +157,18 @@ void Application::enterTeamsFromFile()
 
 void Application::launchNewCompetition()
 {
-    Competition comp(numberOfTeams);
-    comp.setTitle(titleOfCompetition);
-    comp.setListOfTeams(teams);
-    comp.startGroupStage();
-    comp.enterResultsOfGroupStage();
+    comp = new Competition (numberOfTeams);
+    comp->setTitle(titleOfCompetition);
+    comp->setListOfTeams(teams);
+    comp->startGroupStage();
+    setResultsOfGroupStage();
+}
+
+void Application::setResultsOfGroupStage()
+{
+    for (Group group: comp->getGroupStage().getGroups()) {
+        cout << "hi";
+    }
 }
 
 void Application::loadCompetition()
@@ -176,5 +182,10 @@ void Application::showCurrentListOfTeams()
         cout << i+1 << ". " << teams[i].getName() << " " << teams[i].getFifaPoints() << endl;
         //TODO implement overload << for class Team
     }
+}
+
+Application::~Application()
+{
+    delete comp;
 }
 

@@ -15,21 +15,21 @@ public:
      */
     TeamStat(Team & team);
 
-    void setGoals(int gls = 0);
-    void setPossession(int psn = 0);
-    void setShots(int sts = 0);
-    void setShotOnTarget(int sot = 0);
-    void setYellowCards(int ycd = 0);
-    void setRedCards(int rcd = 0);
-    void setFouls(int fls = 0);
+    void setGoals(int mgoals = 0) { goals = mgoals; }
+    void setPossession(int mpossession = 0) { possession = mpossession; }
+    void setShots(int mshots = 0) { shots = mshots; }
+    void setShotOnTarget(int mshotsOnTarget = 0) { shotsOnTarget = mshotsOnTarget; }
+    void setYellowCards(int myellowCards = 0) { yellowCards = myellowCards; }
+    void setRedCards(int mredCards = 0) { redCards = mredCards; }
+    void setFouls(int mfouls = 0) { fouls = mfouls; }
 
-    int getGoals() const;
-    int getPossession() const;
-    int getShots() const;
-    int getShotOnTarget() const;
-    int getYellowCards() const;
-    int getRedCards() const;
-    int getFouls() const;
+    int getGoals() const { return goals; }
+    int getPossession() const { return possession; }
+    int getShots() const { return shots; }
+    int getShotOnTarget() const { return shotsOnTarget; }
+    int getYellowCards() const { return yellowCards; }
+    int getRedCards() const { return redCards; }
+    int getFouls() const { return fouls; }
 
 private:
     int goals;
