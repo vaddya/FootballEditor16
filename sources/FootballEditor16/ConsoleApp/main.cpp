@@ -1,4 +1,3 @@
-#include <iostream>
 #include "application.h"
 
 using namespace std;
@@ -9,4 +8,3 @@ int main()
     app.mainMenu();
     return 0;
 }
-

@@ -168,9 +168,15 @@ void Application::launchNewCompetition()
 
 void Application::setResultsOfGroupStage()
 {
+    int goalsOfFirstTeam, goalsOfSecondTeam;
+    char separator;
     for (Group group: comp->getGroupStage().getGroups()) {
         for (Match match: group.getMatches()) {
-            cout << "First team: " << match.getFirstTeam() << endl;
+            cout << "Enter results of the match "
+                 << match.getFirstTeam() << " - " << match.getSecondTeam() << ": ";
+            cin >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
+            //TODO implement set results
+            //cout << goalsOfFirstTeam << ":" << goalsOfSecondTeam << endl;
         }
     }
 }

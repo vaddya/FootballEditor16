@@ -10,7 +10,7 @@ using namespace std;
 class Group
 {
 public:
-    Group(vector<Team> teams): teams(teams) {}
+    Group(vector<Team>& teams2): teams(teams2) {}
     vector<Match> & getMatches() { return matches; }
     void createMatches();
 private:

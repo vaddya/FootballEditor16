@@ -2,7 +2,6 @@
 #define MATCH_H
 
 #include "teamstat.h"
-#include "iostream"
 /**
  * @brief The Match class
  */
@@ -19,8 +18,8 @@ public:
     void setResult(int fteamGoals, int steamGoals);
     void simulate();
 
-    string getFirstTeam() { /*BUG*/ std::cout << "param-" << fteam.getName() << "-param"; return fteam.getName(); }
-    string getSecondTeam() const;
+    string getFirstTeam() { return fteam.getName(); }
+    string getSecondTeam() { return steam.getName(); }
     string getResult() const;
 
 private:
