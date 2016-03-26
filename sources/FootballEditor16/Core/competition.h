@@ -17,11 +17,7 @@ using std::vector;
 class Competition
 {
 public:
-    /**
-     * @brief Constructor of Competition
-     * @param num The number of team participating in the competition
-     */
-    Competition(size_t num);
+    Competition();
     /**
      * @brief Set the title of the competition
      * @param name Competition name
@@ -32,17 +28,23 @@ public:
      * @param teams Vector of the teams
      */
     void setListOfTeams(vector<Team> &teams);
+    /**
+     * @brief Add the team to the current competition
+     * @param name Name of the team
+     * @param fifaRating Rating of the team in the World Ranking
+     */
+    void addTeam(string name, int fifaRating = 0);
 
     /**
      * @brief Get title of the competition
      * @return title of the competition
      */
-    string getTitle();
+    string& getTitle();
     /**
      * @brief Get number of teams participating in the competition
      * @return number of teams
      */
-    int getNumberOfTeams();
+    size_t getNumberOfTeams() const;
     /**
      * @brief Get vector of teams participating in the competition
      * @return vector of teams

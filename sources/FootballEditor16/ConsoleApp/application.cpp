@@ -2,7 +2,10 @@
 #include "iostream"
 #include "fstream"
 
-Application::Application(): numberOfTeams(16), titleOfCompetition("Championat") {}
+Application::Application()
+{
+    comp = new Competition;
+}
 
 void Application::mainMenu()
 {
@@ -22,11 +25,11 @@ void Application::mainMenu()
         case 0:
             break;
         case 1:
-            launchNewCompetition(); break;
+            launchNewCompetition(); cout << endl; break;
         case 2:
-            loadCompetition(); break;
+            loadCompetition(); cout << endl; break;
         case 3:
-            setSettiings(); break;
+            setSettiings(); cout << endl; break;
         default:
             cout << "Error! Invalid number." << endl << endl;
             cin.clear();
@@ -48,10 +51,9 @@ void Application::setSettiings()
        cout << endl
             << "Competition settings:" << endl
             << "1. Set title of the competition" << endl
-            << "2. Set number of teams" << endl
-            << "3. Enter teams from console" << endl
-            << "4. Enter teams from file" << endl
-            << "5. Show current settings" << endl
+            << "2. Enter teams from console" << endl
+            << "3. Enter teams from file" << endl
+            << "4. Show current settings" << endl
             << "9. Back to main menu" << endl
             << "0. Exit" << endl
             << ">>> ";
@@ -66,15 +68,13 @@ void Application::setSettiings()
            case 0:
                   break;
            case 1:
-               setTitleOfCompetition(); mainMenu(); break;
+               setTitleOfCompetition(); cout << endl; mainMenu(); break;
            case 2:
-               setNumberOfTeams(); mainMenu(); break;
+               enterTeamsFromConsole(); cout << endl; mainMenu(); break;
            case 3:
-               enterTeamsFromConsole(); mainMenu(); break;
+               enterTeamsFromFile(); cout << endl; mainMenu(); break;
            case 4:
-               enterTeamsFromFile(); mainMenu(); break;
-           case 5:
-               showCurrentSettings(); mainMenu(); break;
+               showCurrentSettings(); cout << endl; mainMenu(); break;
            case 9:
                mainMenu(); break;
            default:
@@ -99,40 +99,32 @@ void Application::setTitleOfCompetition()
 {
     string title;
     cout << "Title: ";
-    cin >> title;
-    //getline(cin, title);
-    titleOfCompetition = title;
-}
-
-void Application::setNumberOfTeams()
-{
-    cout << "Enter the number of teams:" << endl
-         << ">>> ";
-    size_t num;
-    if (cin >> num)
-        numberOfTeams = num;
-    else
-        throw WrongInput();
+    getline(cin, title);
+    getline(cin, title);
+    comp->setTitle(title);
 }
 
 void Application::enterTeamsFromConsole()
 {
-    cout << "Input list of " << numberOfTeams << " teams from console" << endl;
-    string team;
+    cout << "Specify the number of teams: " << endl << ">>> ";
+    size_t num;
+    cin >> num;
+    cout << "So now input list of " << num << " teams from console" << endl;
+    string name;
     int rating;
-    for (size_t i = 0; i < numberOfTeams; i++)
+    for (size_t i = 0; i < num; i++)
     {
-        cout << "Name of " << i+1 << " team: ";
-        cin >> team;
-        cout << "FIFA Rating: ";
+        cout << "Name of " << i+1 << " team: " << endl << ">>> ";
+        cin >> name;
+        cout << "FIFA Rating: " << endl << ">>> ";
         cin >> rating;
-        teams.push_back(Team(team, rating));
+        comp->addTeam(name, rating);
     }
 }
 
 void Application::enterTeamsFromFile()
 {
-    cout << "Write the input file (0 for \"input.txt\"): " << endl;
+    cout << "Write the input file (0 for \"input.txt\"): "  << endl << ">>> ";
     string filename;
     cin >> filename;
     cin.clear();
@@ -140,28 +132,24 @@ void Application::enterTeamsFromFile()
         filename = "input.txt";
     ifstream fin(filename);
     if (!fin.is_open()) {
-        cout << "Error! Cannot open input file. Input interrupted.\n" << endl;
+        cout << "Error! Cannot open input file. Input interrupted.\n";
     }
     else {
-        string team;
+        string name;
         int rating;
-        fin >> team;
+        fin >> name;
         while (fin)
         {
             fin >> rating;
-            teams.push_back(Team(team, rating));
-            fin >> team;
+            comp->addTeam(name, rating);
+            fin >> name;
         }
-
+        fin.close();
     }
-    fin.close();
 }
 
 void Application::launchNewCompetition()
 {
-    comp = new Competition (numberOfTeams);
-    comp->setTitle(titleOfCompetition);
-    comp->setListOfTeams(teams);
     comp->startGroupStage();
     setResultsOfGroupStage();
 }
@@ -170,10 +158,10 @@ void Application::setResultsOfGroupStage()
 {
     int goalsOfFirstTeam, goalsOfSecondTeam;
     char separator;
+    cout << "Enter results of the matches: " << endl;
     for (Group group: comp->getGroupStage().getGroups()) {
         for (Match match: group.getMatches()) {
-            cout << "Enter results of the match "
-                 << match.getFirstTeam() << " - " << match.getSecondTeam() << ": ";
+            cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": " << endl << ">>> ";
             cin >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
             //TODO implement set results
             //cout << goalsOfFirstTeam << ":" << goalsOfSecondTeam << endl;
@@ -184,13 +172,16 @@ void Application::setResultsOfGroupStage()
 void Application::loadCompetition()
 {
     //TODO implement load comp
+    cout << endl;
+    mainMenu();
 }
 
 void Application::showCurrentSettings()
 {
-    cout << "Competition \"" << titleOfCompetition << "\" (" << numberOfTeams << " teams)" << endl;
-    for (size_t i = 0; i < teams.size(); i++) {
-        cout << i+1 << ". " << teams[i].getName() << " " << teams[i].getFifaPoints() << endl;
+    cout << "Competition \"" << comp->getTitle() << "\"" << endl
+         << "(" << comp->getNumberOfTeams() << " teams)" << endl;
+    for (size_t i = 0; i < comp->getTeams().size(); i++) {
+        cout << i+1 << ". " << comp->getTeams()[i].getName() << " " << comp->getTeams()[i].getFifaPoints() << endl;
         //TODO implement overload << for class Team
     }
 }

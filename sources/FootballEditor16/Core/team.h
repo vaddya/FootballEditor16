@@ -14,11 +14,6 @@ public:
      */
     Team() {}
     /**
-     * @brief Copy constructor of Team
-     * @param team Object of type Team
-     */
-    Team(const Team & team);
-    /**
      * @brief Constructor of Team with parameters
      * @param tname Team name
      * @param trating Team rating
@@ -28,12 +23,13 @@ public:
      * @brief Get name of the team
      * @return name of the team
      */
-    string getName() const;
+    string & getName();
     /**
      * @brief Get rating of the team
      * @return rating of the team
      */
     int getFifaPoints() const;
+
 
 private:
     string name;

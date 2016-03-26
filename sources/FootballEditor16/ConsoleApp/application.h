@@ -27,10 +27,6 @@ public:
      */
     void setSettiings();
     /**
-     * @brief Set number of teams
-     */
-    void setNumberOfTeams();
-    /**
      * @brief Enter list of teams from console
      */
     void enterTeamsFromConsole();
@@ -60,9 +56,6 @@ public:
     ~Application();
 private:
     Competition * comp;
-    vector<Team> teams;
-    size_t numberOfTeams;
-    string titleOfCompetition;
 };
 
 class WrongInput: public std::exception {};

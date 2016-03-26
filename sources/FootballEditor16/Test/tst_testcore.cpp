@@ -27,7 +27,7 @@ void TestCore::TestCompetition()
     teams.push_back(Team("Russia", 892));
     teams.push_back(Team("France", 872));
 
-    Competition comp(2);
+    Competition comp;
     comp.setTitle("EURO 2016");
     comp.setListOfTeams(teams);
 
@@ -35,7 +35,7 @@ void TestCore::TestCompetition()
     QCOMPARE(comp.getTeams()[0].getFifaPoints(), 892);
     QCOMPARE(comp.getTeams()[1].getName().c_str(), "France");
     QCOMPARE(comp.getTeams()[1].getFifaPoints(), 872);
-    QCOMPARE(comp.getNumberOfTeams(), 2);
+    QCOMPARE(comp.getNumberOfTeams(), (size_t)2);
     QCOMPARE(comp.getTitle().c_str(), "EURO 2016");
 }
 

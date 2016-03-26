@@ -18,8 +18,8 @@ public:
     void setResult(int fteamGoals, int steamGoals);
     void simulate();
 
-    string getFirstTeam() { return fteam.getName(); }
-    string getSecondTeam() { return steam.getName(); }
+    string & getFirstTeam() { return fteam.getName(); }
+    string & getSecondTeam() { return steam.getName(); }
     string getResult() const;
 
 private:

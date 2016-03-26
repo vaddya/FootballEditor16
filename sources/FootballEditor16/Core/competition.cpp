@@ -1,11 +1,8 @@
 #include "competition.h"
 
-Competition::Competition(size_t num)
+Competition::Competition()
 {
-    if (num % 2 == 0 || true)
-        numberOfTeams = num;
-    else
-        throw WrongNumberOfTeams(num);
+    title = "Competition1";
 }
 
 void Competition::setTitle(string title)
@@ -21,12 +18,18 @@ void Competition::setListOfTeams(vector<Team>& teams)
         throw WrongListOfTeams();
 }
 
-string Competition::getTitle()
+void Competition::addTeam(string name, int fifaRating)
+{
+    teams.push_back(Team(name, fifaRating));
+    numberOfTeams++;
+}
+
+string& Competition::getTitle()
 {
     return title;
 }
 
-int Competition::getNumberOfTeams()
+size_t Competition::getNumberOfTeams() const
 {
     return numberOfTeams;
 }
@@ -38,8 +41,12 @@ vector<Team> &Competition::getTeams()
 
 void Competition::startGroupStage()
 {
-    groupStage = new GroupStage(numberOfTeams, teams);
-    groupStage->launch();
+    if (numberOfTeams % 2 == 0 || true) {
+        groupStage = new GroupStage(numberOfTeams, teams);
+        groupStage->launch();
+    }
+    else
+        throw WrongNumberOfTeams(numberOfTeams);
 }
 
 GroupStage &Competition::getGroupStage()
@@ -47,10 +54,10 @@ GroupStage &Competition::getGroupStage()
     return *groupStage;
 }
 
-//void Competition::startPlayOffStage()
-//{
-//    playoffStage->launch();
-//}
+void Competition::startPlayOffStage()
+{
+    //playoffStage->launch();
+}
 
 Competition::~Competition()
 {
