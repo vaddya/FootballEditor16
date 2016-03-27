@@ -1,6 +1,6 @@
 #include "team.h"
 
-Team::Team(std::string tname, int tFifaPoints): name(tname), fifaPoints(tFifaPoints) {}
+Team::Team(string tname, int tFifaPoints): name(tname), fifaPoints(tFifaPoints) {}
 
 string & Team::getName() { return name; }
 

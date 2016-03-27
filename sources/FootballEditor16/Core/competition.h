@@ -1,9 +1,9 @@
 #ifndef COMPETITION_H
 #define COMPETITION_H
 
-#include "team.h"
 #include "string"
 #include "vector"
+#include "team.h"
 #include "group.h"
 #include "playoffstage.h"
 #include "groupstage.h"
@@ -31,7 +31,7 @@ public:
     /**
      * @brief Add the team to the current competition
      * @param name Name of the team
-     * @param fifaRating Rating of the team in the World Ranking
+     * @param fifaRating Rating of the team in the FIFA World Ranking
      */
     void addTeam(string name, int fifaRating = 0);
 
@@ -49,7 +49,7 @@ public:
      * @brief Get vector of teams participating in the competition
      * @return vector of teams
      */
-    vector<Team> & getTeams();
+    vector<Team>& getTeams();
     /**
      * @brief Save the current competition
      */
@@ -70,8 +70,9 @@ private:
     unsigned numberOfTeams;
     vector<Team> teams;
 
+    // There are 2 stages in any football competition
     GroupStage * groupStage;
-    //PlayoffStage * playoffStage;
+    PlayoffStage * playoffStage;
 };
 
 class WrongNumberOfTeams: public std::exception

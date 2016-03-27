@@ -1,6 +1,5 @@
 #include <QString>
 #include <QtTest>
-#include "vector"
 #include "team.h"
 #include "competition.h"
 
@@ -14,27 +13,25 @@ public:
     TestCore();
 
 private Q_SLOTS:
-    void TestCompetition();
+    void CompetitionSettings();
     void TestGroupStage();
     //TODO other tests
 };
 
 TestCore::TestCore() {}
 
-void TestCore::TestCompetition()
+void TestCore::CompetitionSettings()
 {
-    vector<Team> teams;
-    teams.push_back(Team("Russia", 892));
-    teams.push_back(Team("France", 872));
-
     Competition comp;
     comp.setTitle("EURO 2016");
-    comp.setListOfTeams(teams);
+    comp.addTeam("Russia", 1000);
+    comp.addTeam("France");
 
-    QCOMPARE(comp.getTeams()[0].getName().c_str(), "Russia");
-    QCOMPARE(comp.getTeams()[0].getFifaPoints(), 892);
-    QCOMPARE(comp.getTeams()[1].getName().c_str(), "France");
-    QCOMPARE(comp.getTeams()[1].getFifaPoints(), 872);
+    QCOMPARE(comp.getTeams()[0].getName(), string("Russia"));
+    QCOMPARE(comp.getTeams()[0].getFifaPoints(), 1000);
+    QCOMPARE(comp.getTeams()[1].getName(), string("France"));
+    QCOMPARE(comp.getTeams()[1].getFifaPoints(), 0);
+
     QCOMPARE(comp.getNumberOfTeams(), (size_t)2);
     QCOMPARE(comp.getTitle().c_str(), "EURO 2016");
 }

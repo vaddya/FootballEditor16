@@ -2,7 +2,10 @@
 
 Competition::Competition()
 {
-    title = "Competition1";
+    title = "Competition";
+    numberOfTeams = 0;
+    groupStage = 0;
+    playoffStage = 0;
 }
 
 void Competition::setTitle(string title)
@@ -49,17 +52,20 @@ void Competition::startGroupStage()
         throw WrongNumberOfTeams(numberOfTeams);
 }
 
-GroupStage &Competition::getGroupStage()
+GroupStage& Competition::getGroupStage()
 {
     return *groupStage;
 }
 
 void Competition::startPlayOffStage()
 {
-    //playoffStage->launch();
+    playoffStage->launch();
 }
 
 Competition::~Competition()
 {
-    delete groupStage;
+    if (groupStage != 0)
+        delete groupStage;
+    if (playoffStage != 0)
+        delete playoffStage;
 }

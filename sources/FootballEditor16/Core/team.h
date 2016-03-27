@@ -18,7 +18,7 @@ public:
      * @param tname Team name
      * @param trating Team rating
      */
-    Team(string tname, int tFifaPoints = 1);
+    Team(string tname, int tFifaPoints = 0);
     /**
      * @brief Get name of the team
      * @return name of the team

@@ -9,4 +9,3 @@ void PlayoffStage::launch()
 {
     //TODO implement start
 }
-
