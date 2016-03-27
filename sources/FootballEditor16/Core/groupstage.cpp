@@ -18,6 +18,11 @@ vector<Group> &GroupStage::getGroups()
     return groups;
 }
 
+unsigned GroupStage::getNumberOfGroups()
+{
+    return numberOfGroups;
+}
+
 void GroupStage::sortTeams()
 {
     //TODO implement sorting

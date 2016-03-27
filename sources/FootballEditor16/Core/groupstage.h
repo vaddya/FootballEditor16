@@ -24,7 +24,11 @@ public:
      * @return vector of teams
      */
     vector<Group> & getGroups();
-    unsigned getNumberOfGroups() { return numberOfGroups; }
+    /**
+     * @brief Get number of groups
+     * @return number of groups
+     */
+    unsigned getNumberOfGroups();
 private:
     vector<Team> teams;
     void sortTeams();

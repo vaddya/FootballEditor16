@@ -20,14 +20,14 @@ public:
     Competition();
     /**
      * @brief Set the title of the competition
-     * @param name Competition name
+     * @param title Competition name
      */
-    void setTitle(string title_);
+    void setTitle(string title);
     /**
      * @brief Set the list of teams participating in the competition
      * @param teams Vector of the teams
      */
-    void setListOfTeams(vector<Team> &teams_);
+    void setListOfTeams(vector<Team> &teams);
     /**
      * @brief Add the team to the current competition
      * @param name Name of the team
@@ -58,9 +58,18 @@ public:
      * @brief Load the competition
      */
     void loadCompetition();
-
+    /**
+     * @brief Launch group stage
+     */
     void startGroupStage();
+    /**
+     * @brief Get group stage
+     * @return group stage
+     */
     GroupStage & getGroupStage();
+    /**
+     * @brief Launch playoff stage
+     */
     void startPlayOffStage();
 
     ~Competition();
