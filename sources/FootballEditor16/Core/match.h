@@ -2,6 +2,8 @@
 #define MATCH_H
 
 #include "teamstat.h"
+#include "team.h"
+
 /**
  * @brief The Match class
  */
@@ -18,9 +20,8 @@ public:
     void setResult(int fteamGoals, int steamGoals);
     void simulate();
 
-    string & getFirstTeam() { return fteam.getName(); }
-    string & getSecondTeam() { return steam.getName(); }
-    string getResult() const;
+    TeamStat& getFirstTeam() { return fteam; }
+    TeamStat& getSecondTeam() { return steam; }
 
 private:
     TeamStat fteam;

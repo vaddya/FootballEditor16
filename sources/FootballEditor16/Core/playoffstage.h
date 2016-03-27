@@ -12,7 +12,7 @@ public:
     /**
      * @brief Constructor of PlayoffStage
      */
-    PlayoffStage(unsigned num);
+    explicit PlayoffStage(unsigned num);
     /**
      * @brief Launch this stage
      */

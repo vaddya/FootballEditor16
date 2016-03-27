@@ -1,8 +1,8 @@
 #include "groupstage.h"
 
-GroupStage::GroupStage(unsigned num, vector<Team> &teams)
+GroupStage::GroupStage(vector<Team> &teams)
 {
-    numberOfGroups = num/4;
+    numberOfGroups = teams.size()/4;
     groups.reserve(numberOfGroups);
     this->teams = teams;
     sortTeams();
@@ -11,6 +11,11 @@ GroupStage::GroupStage(unsigned num, vector<Team> &teams)
 void GroupStage::launch()
 {
     createGroups();
+}
+
+vector<Group> &GroupStage::getGroups()
+{
+    return groups;
 }
 
 void GroupStage::sortTeams()
@@ -26,7 +31,7 @@ void GroupStage::createGroups()
         for (unsigned j = 0; j < 4; j++) {
             group[j] = teams[i+j*4];
         }
-        groups.push_back(Group(group));
+        groups.push_back(Group(group, char(65+i)));
         groups.back().createMatches();
     }
 }

@@ -22,12 +22,12 @@ public:
      * @brief Set the title of the competition
      * @param name Competition name
      */
-    void setTitle(string title);
+    void setTitle(string title_);
     /**
      * @brief Set the list of teams participating in the competition
      * @param teams Vector of the teams
      */
-    void setListOfTeams(vector<Team> &teams);
+    void setListOfTeams(vector<Team> &teams_);
     /**
      * @brief Add the team to the current competition
      * @param name Name of the team
@@ -44,7 +44,7 @@ public:
      * @brief Get number of teams participating in the competition
      * @return number of teams
      */
-    size_t getNumberOfTeams() const;
+    unsigned getNumberOfTeams() const;
     /**
      * @brief Get vector of teams participating in the competition
      * @return vector of teams
@@ -70,7 +70,7 @@ private:
     unsigned numberOfTeams;
     vector<Team> teams;
 
-    // There are 2 stages in any football competition
+    // There are 2 stages in a football competition
     GroupStage * groupStage;
     PlayoffStage * playoffStage;
 };

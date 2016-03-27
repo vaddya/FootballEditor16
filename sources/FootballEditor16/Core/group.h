@@ -10,10 +10,12 @@ using namespace std;
 class Group
 {
 public:
-    Group(vector<Team>& teams2): teams(teams2) {}
+    Group(vector<Team>& teams, char character): character(character), teams(teams) {}
+    char getCharacter() const;
     vector<Match> & getMatches() { return matches; }
     void createMatches();
 private:
+    char character;
     vector<Team> teams;
     vector<Match> matches;
 };

@@ -1,7 +1,28 @@
 #include "team.h"
 
-Team::Team(string tname, int tFifaPoints): name(tname), fifaPoints(tFifaPoints) {}
+Team::Team()
+{
+    name = "Empty";
+    fifaPoints = 0;
+}
 
-string & Team::getName() { return name; }
+Team::Team(const Team &other): name(other.name), fifaPoints(other.fifaPoints) {}
 
-int Team::getFifaPoints() const { return fifaPoints; }
+Team::Team(string name, int FifaPoints): name(name), fifaPoints(FifaPoints) {}
+
+string & Team::getName()
+{
+    return name;
+}
+
+int Team::getFifaPoints() const
+{
+    return fifaPoints;
+}
+
+
+ostream& operator<<(ostream& os, const Team& team)
+{
+    os << team.name;
+    return os;
+}

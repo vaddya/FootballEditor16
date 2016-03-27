@@ -12,22 +12,25 @@ class GroupStage : public Stage
 public:
     /**
      * @brief Constructor of GroupStage
-     * @param tms Vector of the teams
+     * @param teams Vector of the teams
      */
-    GroupStage(unsigned num, vector<Team> &teams);
+    GroupStage(vector<Team> &teams);
     /**
      * @brief Create groups
      */
     void launch();
-
-    vector<Group> & getGroups() { return groups; }
-
+    /**
+     * @brief Get vector of teams participating in the competition
+     * @return vector of teams
+     */
+    vector<Group> & getGroups();
+    unsigned getNumberOfGroups() { return numberOfGroups; }
 private:
     vector<Team> teams;
     void sortTeams();
     void createGroups();
     vector<Group> groups;
-    size_t numberOfGroups;
+    unsigned numberOfGroups;
 };
 
 #endif // GROUPSTAGE_H

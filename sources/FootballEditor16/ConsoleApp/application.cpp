@@ -107,12 +107,12 @@ void Application::setTitleOfCompetition()
 void Application::enterTeamsFromConsole()
 {
     cout << "Specify the number of teams: " << endl << ">>> ";
-    size_t num;
+    unsigned num;
     cin >> num;
     cout << "So now input list of " << num << " teams from console" << endl;
     string name;
     int rating;
-    for (size_t i = 0; i < num; i++)
+    for (unsigned i = 0; i < num; i++)
     {
         cout << "Name of " << i+1 << " team: " << endl << ">>> ";
         cin >> name;
@@ -160,11 +160,13 @@ void Application::setResultsOfGroupStage()
     char separator;
     cout << "Enter results of the matches: " << endl;
     for (Group group: comp->getGroupStage().getGroups()) {
+        cout << endl << "Group " << group.getCharacter() << endl;
         for (Match match: group.getMatches()) {
             cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": " << endl << ">>> ";
             cin >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
-            //TODO implement set results
-            //cout << goalsOfFirstTeam << ":" << goalsOfSecondTeam << endl;
+            match.getFirstTeam().setGoals(goalsOfFirstTeam);
+            match.getSecondTeam().setGoals(goalsOfSecondTeam);
+            //TODO implement exeption
         }
     }
 }
@@ -180,9 +182,8 @@ void Application::showCurrentSettings()
 {
     cout << "Competition \"" << comp->getTitle() << "\"" << endl
          << "(" << comp->getNumberOfTeams() << " teams)" << endl;
-    for (size_t i = 0; i < comp->getTeams().size(); i++) {
-        cout << i+1 << ". " << comp->getTeams()[i].getName() << " " << comp->getTeams()[i].getFifaPoints() << endl;
-        //TODO implement overload << for class Team
+    for (unsigned i = 0; i < comp->getTeams().size(); i++) {
+        cout << i+1 << ". " << comp->getTeams()[i] << endl;
     }
 }
 

@@ -2,7 +2,7 @@
 
 PlayoffStage::PlayoffStage(unsigned num)
 {
-    //TODO implement constructor
+    num++;
 }
 
 void PlayoffStage::launch()

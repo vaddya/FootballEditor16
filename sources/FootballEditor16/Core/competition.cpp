@@ -32,7 +32,7 @@ string& Competition::getTitle()
     return title;
 }
 
-size_t Competition::getNumberOfTeams() const
+unsigned Competition::getNumberOfTeams() const
 {
     return numberOfTeams;
 }
@@ -45,7 +45,7 @@ vector<Team> &Competition::getTeams()
 void Competition::startGroupStage()
 {
     if (numberOfTeams % 2 == 0 || true) {
-        groupStage = new GroupStage(numberOfTeams, teams);
+        groupStage = new GroupStage(teams);
         groupStage->launch();
     }
     else
