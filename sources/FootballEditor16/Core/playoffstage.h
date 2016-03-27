@@ -10,10 +10,6 @@ class PlayoffStage : public Stage
 {
 public:
     /**
-     * @brief Constructor of PlayoffStage
-     */
-    explicit PlayoffStage(unsigned num);
-    /**
      * @brief Launch this stage
      */
     void launch();

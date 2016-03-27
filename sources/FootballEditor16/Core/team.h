@@ -14,11 +14,15 @@ public:
      * @brief Constructor of Team without parameters
      */
     Team();
+    /**
+     * @brief Copy constructor of Team
+     * @param other Variable of type Team
+     */
     Team(const Team& other);
     /**
      * @brief Constructor of Team with parameters
-     * @param tname Team name
-     * @param trating Team rating
+     * @param name Team name
+     * @param rating Team rating
      */
     Team(string name, int FifaPoints = 0);
     /**
@@ -32,6 +36,13 @@ public:
      */
     int getFifaPoints() const;
 
+
+    /**
+     * @brief Overloading of operator <<
+     * @param os Variable of type ostream
+     * @param team Variable of type Team
+     * @return output stream
+     */
     friend ostream& operator<<(ostream& os, const Team& team);
 
 private:
