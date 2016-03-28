@@ -163,9 +163,10 @@ void Application::setResultsOfGroupStage()
         cout << endl << "Group " << group.getCharacter() << endl;
         for (Match match: group.getMatches()) {
             cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": " << endl << ">>> ";
+                        cout << match.getResult() << endl;
             cin >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
-            match.getFirstTeam().setGoals(goalsOfFirstTeam);
-            match.getSecondTeam().setGoals(goalsOfSecondTeam);
+            match.setResult(goalsOfFirstTeam, goalsOfSecondTeam);
+            cout << match.getResult() << endl;
             //TODO implement exeption
         }
     }

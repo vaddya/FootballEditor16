@@ -80,8 +80,8 @@ private:
     vector<Team> teams;
 
     // There are 2 stages in a football competition
-    GroupStage * groupStage;
-    PlayoffStage * playoffStage;
+    GroupStage* groupStage;
+    PlayoffStage* playoffStage;
 };
 
 class WrongNumberOfTeams: public std::exception
