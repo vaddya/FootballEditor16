@@ -4,7 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    application.cpp
+    application.cpp \
+    menu.cpp
 
 HEADERS += \
     application.h

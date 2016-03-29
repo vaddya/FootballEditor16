@@ -25,7 +25,11 @@ public:
     /**
      * @brief Set competition setting and preferences
      */
-    void setSettiings();
+    void settiingsMenu();
+    /**
+     * @brief Display menu of competition
+     */
+    void competitionMenu();
     /**
      * @brief Enter list of teams from console
      */
@@ -39,7 +43,7 @@ public:
     /**
      * @brief Create new competition
      */
-    void launchNewCompetition();
+    void createGroups();
     /**
      * @brief Set results of group stage
      */
