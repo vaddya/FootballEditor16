@@ -5,7 +5,6 @@ void Application::mainMenu()
     cout << "Main Menu:" << endl
          << "1. Launch new competition" << endl
          << "2. Load competiton" << endl
-         << "3. Set settings" << endl
          << "0. Exit" << endl
          << ">>> ";
     string badStr;
@@ -21,8 +20,6 @@ void Application::mainMenu()
             competitionMenu(); cout << endl; break;
         case 2:
             loadCompetition(); cout << endl; break;
-        case 3:
-            settiingsMenu(); cout << endl; break;
         default:
             cout << "Error! Invalid number." << endl;
             cin.clear();
@@ -63,13 +60,13 @@ void Application::settiingsMenu()
            case 0:
                   break;
            case 1:
-               setTitleOfCompetition(); cout << endl; mainMenu(); break;
+               setTitleOfCompetition(); cout << endl; settiingsMenu(); break;
            case 2:
-               enterTeamsFromConsole(); cout << endl; mainMenu(); break;
+               enterTeamsFromConsole(); cout << endl; settiingsMenu(); break;
            case 3:
-               enterTeamsFromFile(); cout << endl; mainMenu(); break;
+               enterTeamsFromFile(); cout << endl; settiingsMenu(); break;
            case 4:
-               showCurrentSettings(); cout << endl; mainMenu(); break;
+               showCurrentSettings(); cout << endl; settiingsMenu(); break;
            case 9:
                mainMenu(); break;
            default:
@@ -94,9 +91,10 @@ void Application::competitionMenu()
 {
     cout << endl
          << comp->getTitle() << endl
-         << "1. Create groups" << endl
-         << "2. Set results of the matches" << endl
-         << "3. smth else" << endl
+         << "1. Settings" << endl
+         << "2. Create groups" << endl
+         << "3. Set results of the matches" << endl
+         << "4. smth else" << endl
          << "9. Back to main menu" << endl
          << "0. Exit" << endl
          << ">>> ";
@@ -110,10 +108,12 @@ void Application::competitionMenu()
         case 0:
             break;
         case 1:
-            createGroups(); competitionMenu(); cout << endl; break;
+            settiingsMenu(); competitionMenu(); cout << endl; break;
         case 2:
-            setResultsOfGroupStage(); competitionMenu(); cout << endl; break;
+            createGroups(); competitionMenu(); cout << endl; break;
         case 3:
+            setResultsOfGroupStage(); competitionMenu(); cout << endl; break;
+        case 4:
             competitionMenu(); competitionMenu(); cout << endl; break;
         case 9:
             mainMenu(); cout << endl; break;

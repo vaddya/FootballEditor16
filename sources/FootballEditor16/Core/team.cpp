@@ -6,9 +6,9 @@ Team::Team()
     fifaPoints = 0;
 }
 
-Team::Team(const Team &other): name(other.name), fifaPoints(other.fifaPoints) {}
+Team::Team(const Team &other): name(other.name), fifaPoints(other.fifaPoints), coach(other.coach) {}
 
-Team::Team(string name, int FifaPoints): name(name), fifaPoints(FifaPoints) {}
+Team::Team(string name, int FifaPoints, string coach): name(name), fifaPoints(FifaPoints), coach(coach) {}
 
 string & Team::getName()
 {
@@ -18,6 +18,11 @@ string & Team::getName()
 int Team::getFifaPoints() const
 {
     return fifaPoints;
+}
+
+string &Team::getCoach()
+{
+    return coach;
 }
 
 

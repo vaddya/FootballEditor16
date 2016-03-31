@@ -24,17 +24,22 @@ public:
      * @param name Team name
      * @param rating Team rating
      */
-    Team(string name, int FifaPoints = 0);
+    Team(string name, int FifaPoints = 0, string coach = "Coach");
     /**
      * @brief Get name of the team
      * @return name of the team
      */
-    string & getName();
+    string& getName();
     /**
      * @brief Get rating of the team
      * @return rating of the team
      */
     int getFifaPoints() const;
+    /**
+     * @brief Get name of the coach
+     * @return Name of the coach
+     */
+    string& getCoach();
 
 
     /**
@@ -48,6 +53,7 @@ public:
 private:
     string name;
     int fifaPoints;
+    string coach;
 };
 
 #endif // TEAM_H

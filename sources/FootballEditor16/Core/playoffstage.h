@@ -13,9 +13,6 @@ public:
      * @brief Launch this stage
      */
     void launch();
-
-private:
-    vector<Team> teams;
 };
 
 #endif // PLAYOFFSTAGE_H

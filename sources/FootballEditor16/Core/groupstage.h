@@ -30,7 +30,6 @@ public:
      */
     unsigned getNumberOfGroups();
 private:
-    vector<Team> teams;
     void sortTeams();
     void createGroups();
     vector<Group> groups;

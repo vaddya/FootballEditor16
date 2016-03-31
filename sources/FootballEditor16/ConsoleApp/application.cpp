@@ -23,14 +23,14 @@ void Application::enterTeamsFromConsole()
     cin >> num;
     cout << "So now input list of " << num << " teams from console" << endl;
     string name;
-    int rating;
+//    int rating;
     for (unsigned i = 0; i < num; i++)
     {
         cout << "Name of " << i+1 << " team: " << endl << ">>> ";
         cin >> name;
-        cout << "FIFA Rating: " << endl << ">>> ";
-        cin >> rating;
-        comp->addTeam(name, rating);
+//        cout << "FIFA Rating: " << endl << ">>> ";
+//        cin >> rating;
+        comp->addTeam(name);
     }
 }
 
@@ -74,7 +74,7 @@ void Application::setResultsOfGroupStage()
         cout << endl << "Group " << group.getCharacter() << endl;
         for (Match match: group.getMatches()) {
             cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": " << endl << ">>> ";
-                        cout << match.getResult() << endl;
+//                        cout << match.getResult() << endl;
             cin >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
             match.setResult(goalsOfFirstTeam, goalsOfSecondTeam);
             cout << match.getResult() << endl;

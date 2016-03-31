@@ -44,7 +44,7 @@ vector<Team> &Competition::getTeams()
 
 void Competition::startGroupStage()
 {
-    if (numberOfTeams % 2 == 0 || true) {
+    if (numberOfTeams % 4 == 0) {
         groupStage = new GroupStage(teams);
         groupStage->launch();
     }
