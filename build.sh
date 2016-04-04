@@ -102,5 +102,5 @@ zip_files() {
 }
 
 clean() {
-	git clean -f -e *.zip *.pdf
+	git clean -f -e *.zip
 }
