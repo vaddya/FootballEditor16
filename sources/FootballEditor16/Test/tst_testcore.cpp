@@ -6,6 +6,7 @@
 #include "competition.h"
 #include "groupstage.h"
 #include "group.h"
+#include "teamingroup.h"
 
 using namespace std;
 
@@ -57,11 +58,21 @@ void TestCore::groupStageTest()
 
 void TestCore::groupTest()
 {
-    vector<Team> fourteams { teams[0], teams[1], teams[2], teams[3] };
-    QVERIFY(fourteams.size() == (unsigned long)4);
-    Group group(fourteams, 'A');
+    Group group('A');
+    group.addTeam(teams[0]);
+    group.addTeam(teams[1]);
+    group.addTeam(teams[2]);
+    group.addTeam(teams[3]);
     group.createMatches();
     QVERIFY(group.getMatches().size() == (unsigned long)6);
+    int p = 12;
+    for( TeamInGroup &team: group.getTeams() ) {
+        team.setPoints(p);
+        p -= 3;
+    }
+    QCOMPARE(group.getTeams()[0].getPoints(), 12);
+    std::sort( group.getTeams().begin(), group.getTeams().end() );
+    QCOMPARE( group.getTeams()[3].getName(), teams[0].getName() );
 }
 
 void TestCore::matchTest()

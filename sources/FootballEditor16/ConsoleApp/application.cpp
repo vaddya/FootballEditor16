@@ -63,6 +63,29 @@ void Application::enterTeamsFromFile()
 void Application::createGroups()
 {
     comp->startGroupStage();
+    cout << "Groups are created" << endl;
+}
+
+void Application::showGroups()
+{
+   for(Group group: comp->getGroupStage().getGroups()) {
+       cout << "Group " << group.getCharacter() << endl;
+       int i = 0;
+       for( TeamInGroup team : group.getTeams() )
+               cout << ++i << ". " << team << " " << team.getPoints() << " points" << endl;
+       cout << endl;
+   }
+}
+
+void Application::showMatches()
+{
+    for(Group group: comp->getGroupStage().getGroups()) {
+        cout << "Group " << group.getCharacter() << endl;
+        int i = 0;
+        for(Match match: group.getMatches())
+                cout << ++i << ". " << match.getFirstTeam() << " - " << match.getSecondTeam() << endl;
+        cout << endl;
+    }
 }
 
 void Application::setResultsOfGroupStage()

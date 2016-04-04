@@ -15,13 +15,13 @@ public:
      */
     TeamStat(Team & team);
 
-    void setGoals(int goals = 0) { goals_ = goals; }
-    void setPossession(int possession = 0) { possession_ = possession; }
-    void setShots(int shots = 0) { shots_ = shots; }
-    void setShotOnTarget(int shotsOnTarget = 0) { shotsOnTarget_ = shotsOnTarget; }
-    void setYellowCards(int yellowCards = 0) { yellowCards_ = yellowCards; }
-    void setRedCards(int redCards = 0) { redCards_ = redCards; }
-    void setFouls(int fouls = 0) { fouls_ = fouls; }
+    void setGoals(int goals) { goals_ = goals; }
+    void setPossession(int possession) { possession_ = possession; }
+    void setShots(int shots) { shots_ = shots; }
+    void setShotOnTarget(int shotsOnTarget) { shotsOnTarget_ = shotsOnTarget; }
+    void setYellowCards(int yellowCards) { yellowCards_ = yellowCards; }
+    void setRedCards(int redCards) { redCards_ = redCards; }
+    void setFouls(int fouls) { fouls_ = fouls; }
 
     int getGoals() const { return goals_; }
     int getPossession() const { return possession_; }

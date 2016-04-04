@@ -31,11 +31,10 @@ void GroupStage::createGroups()
 {
     for (unsigned i = 0; i < numberOfGroups; i++)
     {
-        vector<Team> group(4);
+        groups.push_back(Group(char(65+i)));
         for (unsigned j = 0; j < 4; j++) {
-            group[j] = getTeams()[i+j*4];
+            groups.back().addTeam(getTeams()[i+j*4]);
         }
-        groups.push_back(Group(group, char(65+i)));
         groups.back().createMatches();
     }
 }

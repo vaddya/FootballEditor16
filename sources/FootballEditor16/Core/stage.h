@@ -16,7 +16,7 @@ public:
     virtual void launch() = 0;
     virtual ~Stage() {}
 private:
-    vector<Team> teams;
+    vector<Team>& teams;
 };
 
 #endif // STAGE_H

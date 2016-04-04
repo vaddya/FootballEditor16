@@ -2,6 +2,7 @@
 #define GROUP_H
 
 #include "team.h"
+#include "teamingroup.h"
 #include "vector"
 #include "match.h"
 
@@ -15,17 +16,19 @@ public:
      * @param teams Vector of teams
      * @param character 'Name' of the group (A, B, C,...)
      */
-    Group(vector<Team>& teams, char character): character(character), teams(teams) {}
+    Group(char character): character(character) {}
     /**
      * @brief Create matches between members of groups
      */
     void createMatches();
     //TODO setMatches();
+    void addTeam(Team& team) { teams.push_back(team); }
     /**
      * @brief Get group 'name'
      * @return group 'name' (A, B, C,...)
      */
     char getCharacter() const;
+    vector<TeamInGroup>& getTeams() { return teams; }
     /**
      * @brief Get vector of created matches
      * @return vector of matches
@@ -33,8 +36,9 @@ public:
     vector<Match> & getMatches() { return matches; }
 private:
     char character;
-    vector<Team> teams;
+    vector<TeamInGroup> teams;
     vector<Match> matches;
+    void sort();
 };
 
 #endif // GROUP_H

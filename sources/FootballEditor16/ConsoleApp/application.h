@@ -45,6 +45,11 @@ public:
      */
     void createGroups();
     /**
+     * @brief Show groups
+     */
+    void showGroups();
+    void showMatches();
+    /**
      * @brief Set results of group stage
      */
     void setResultsOfGroupStage();

@@ -5,6 +5,7 @@
 #include "team.h"
 #include "string"
 #include "sstream"
+#include "algorithm"
 
 using std::string;
 using std::ostringstream;

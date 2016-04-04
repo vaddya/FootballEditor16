@@ -1,6 +1,5 @@
 #include "application.h"
-
-using namespace std;
+#include "teamingroup.h"
 
 int main()
 {
