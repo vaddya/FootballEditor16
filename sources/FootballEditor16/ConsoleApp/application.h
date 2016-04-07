@@ -40,6 +40,7 @@ public:
     void enterTeamsFromFile();
 
 
+    void launchCompetitionMenu();
     /**
      * @brief Create new competition
      */

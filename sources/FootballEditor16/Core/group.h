@@ -34,11 +34,11 @@ public:
      * @return vector of matches
      */
     vector<Match> & getMatches() { return matches; }
+    void sort();
 private:
     char character;
     vector<TeamInGroup> teams;
     vector<Match> matches;
-    void sort();
 };
 
 #endif // GROUP_H

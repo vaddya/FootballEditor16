@@ -3,7 +3,7 @@
 void Application::mainMenu()
 {
     cout << "Main Menu:" << endl
-         << "1. Launch new competition" << endl
+         << "1. New competition" << endl
          << "2. Load competiton" << endl
          << "0. Exit" << endl
          << ">>> ";
@@ -43,11 +43,7 @@ void Application::competitionMenu()
     cout << endl
          << comp->getTitle() << endl
          << "1. Settings" << endl
-         << "2. Create groups" << endl
-         << "3. Show groups" << endl
-         << "4. Show matches" << endl
-         << "5. Set results of the matches" << endl
-         << "9. Back to main menu" << endl
+         << "2. Launch" << endl
          << "0. Exit" << endl
          << ">>> ";
     string badStr;
@@ -60,15 +56,9 @@ void Application::competitionMenu()
         case 0:
             break;
         case 1:
-            settiingsMenu(); competitionMenu(); cout << endl; break;
+            settiingsMenu(); cout << endl;  competitionMenu(); break;
         case 2:
-            createGroups(); competitionMenu(); cout << endl; break;
-        case 3:
-            showGroups(); competitionMenu(); cout << endl; break;
-        case 4:
-            showMatches(); competitionMenu(); cout << endl; break;
-        case 5:
-            setResultsOfGroupStage(); competitionMenu(); cout << endl; break;
+            launchCompetitionMenu(); cout << endl; competitionMenu(); break;
         case 9:
             mainMenu(); cout << endl; break;
         default:
@@ -135,4 +125,52 @@ void Application::settiingsMenu()
            settiingsMenu();
            cout << endl;
        }
+}
+
+
+void Application::launchCompetitionMenu()
+{
+    cout << endl
+         << comp->getTitle() << endl
+         << "1. Create groups" << endl
+         << "2. Show groups" << endl
+         << "3. Show matches" << endl
+         << "4. Set results of the matches" << endl
+         << "9. Back to main menu" << endl
+         << "0. Exit" << endl
+         << ">>> ";
+    string badStr;
+    int num;
+    cin >> num;
+    if (cin.good())
+    {
+        switch (num)
+        {
+        case 0:
+            break;
+        case 1:
+            createGroups(); launchCompetitionMenu(); cout << endl; break;
+        case 2:
+            showGroups(); launchCompetitionMenu(); cout << endl; break;
+        case 3:
+            showMatches(); launchCompetitionMenu(); cout << endl; break;
+        case 4:
+            setResultsOfGroupStage(); launchCompetitionMenu(); cout << endl; break;
+        case 9:
+            mainMenu(); cout << endl; break;
+        default:
+            cout << "Error! Invalid number." << endl << endl;
+            cin.clear();
+            getline(cin, badStr);
+            competitionMenu(); break;
+        }
+    }
+    else
+    {
+        cout << "Error! Input a number." << endl;
+        cin.clear();
+        getline(cin, badStr);
+        launchCompetitionMenu();
+        cout << endl;
+    }
 }

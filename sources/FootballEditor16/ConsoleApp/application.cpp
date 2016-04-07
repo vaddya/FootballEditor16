@@ -23,13 +23,10 @@ void Application::enterTeamsFromConsole()
     cin >> num;
     cout << "So now input list of " << num << " teams from console" << endl;
     string name;
-//    int rating;
     for (unsigned i = 0; i < num; i++)
     {
         cout << "Name of " << i+1 << " team: " << endl << ">>> ";
         cin >> name;
-//        cout << "FIFA Rating: " << endl << ">>> ";
-//        cin >> rating;
         comp->addTeam(name);
     }
 }

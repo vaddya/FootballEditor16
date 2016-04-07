@@ -58,6 +58,7 @@ void TestCore::groupStageTest()
 
 void TestCore::groupTest()
 {
+    // Test initialisation
     Group group('A');
     group.addTeam(teams[0]);
     group.addTeam(teams[1]);
@@ -65,14 +66,16 @@ void TestCore::groupTest()
     group.addTeam(teams[3]);
     group.createMatches();
     QVERIFY(group.getMatches().size() == (unsigned long)6);
-    int p = 12;
+
+    // Test sorting
+    int points = 0;
     for( TeamInGroup &team: group.getTeams() ) {
-        team.setPoints(p);
-        p -= 3;
+        team.setPoints(points);
+        points += 3;
     }
-    QCOMPARE(group.getTeams()[0].getPoints(), 12);
-    std::sort( group.getTeams().begin(), group.getTeams().end() );
-    QCOMPARE( group.getTeams()[3].getName(), teams[0].getName() );
+    QCOMPARE(group.getTeams()[0].getPoints(), 0);
+    group.sort();
+    QCOMPARE(group.getTeams()[0].getPoints(), 9);
 }
 
 void TestCore::matchTest()
