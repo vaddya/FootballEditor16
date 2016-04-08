@@ -14,6 +14,7 @@ void Application::setTitleOfCompetition()
     getline(cin, title);
     getline(cin, title);
     comp->setTitle(title);
+    cout << " ";
 }
 
 void Application::enterTeamsFromConsole()
@@ -21,8 +22,8 @@ void Application::enterTeamsFromConsole()
     cout << "Specify the number of teams: " << endl << ">>> ";
     unsigned num;
     cin >> num;
-    cout << "So now input list of " << num << " teams from console" << endl;
     string name;
+    cout << "So now input list of " << num << " teams from console" << endl;
     for( unsigned i = 0; i < num; i++ ) {
         cout << "Name of " << i+1 << " team: " << endl << ">>> ";
         cin >> name;
@@ -57,47 +58,69 @@ void Application::enterTeamsFromFile()
 
 void Application::createGroups()
 {
-    comp->startGroupStage();
+    try {
+        comp->startGroupStage();
+    }
+    catch (WrongNumberOfTeams& e) {
+        cout << e.getWrongNum() <<  " number of teams are illegal!" << endl
+             << "Groups are not created" << endl;
+        return;
+    }
     cout << "Groups are created" << endl;
 }
 
 void Application::showGroups()
 {
-   for(Group group: comp->getGroupStage().getGroups()) {
-       group.sort();
-       cout << "Group " << group.getCharacter() << endl;
-       int i = 0;
-       for( TeamInGroup team : group.getTeams() )
-               cout << ++i << ". " << team << " " << team.getPoints() << " points" << endl;
-       cout << endl;
-   }
+    try {
+        for(Group group: comp->getGroupStage().getGroups()) {
+           group.sort();
+           cout << "Group " << group.getCharacter() << endl;
+           int i = 0;
+           for( TeamInGroup team : group.getTeams() )
+                   cout << ++i << ". " << team << " " << team.getPoints() << " points" << endl;
+           cout << endl;
+        }
+    }
+    catch (GroupStageAreNotCreated& e) {
+           cout << "Groups are not yet created" << endl;
+    }
 }
 
 void Application::showMatches()
 {
-    for(Group group: comp->getGroupStage().getGroups()) {
-        cout << "Group " << group.getCharacter() << endl;
-        int i = 0;
-        for(Match match: group.getMatches())
-                cout << ++i << ". " << match.getFirstTeam() << " - " << match.getSecondTeam() << endl;
-        cout << endl;
+    try {
+            for(Group group: comp->getGroupStage().getGroups()) {
+                cout << "Group " << group.getCharacter() << endl;
+//                int i = 0;
+                for(Match match: group.getMatches())
+                        cout << "(" << match.getId() << ") " << match.getFirstTeam() << " - " << match.getSecondTeam() << endl;
+        }
+    }
+    catch (GroupStageAreNotCreated& e) {
+           cout << "There are no matches" << endl
+                << "Groups are not yet created" << endl;
     }
 }
 
 void Application::setResultsOfGroupStage()
 {
-    int goalsOfFirstTeam, goalsOfSecondTeam;
-    char separator;
-    cout << "Enter results of the matches: " << endl;
-    for (Group group: comp->getGroupStage().getGroups()) {
-        cout << endl << "Group " << group.getCharacter() << endl;
-        for (Match match: group.getMatches()) {
-            cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": " << endl << ">>> ";
-            cin >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
-            match.setResult(goalsOfFirstTeam, goalsOfSecondTeam);
-            cout << match.getResult() << endl;
-            //TODO implement exeption
+    try {
+        int goalsOfFirstTeam, goalsOfSecondTeam;
+        char separator;
+        for (Group group: comp->getGroupStage().getGroups()) {
+            cout << endl << "Group " << group.getCharacter() << endl;
+            for (Match match: group.getMatches()) {
+                cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": " << endl << ">>> ";
+                cin >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
+                match.setResult(goalsOfFirstTeam, goalsOfSecondTeam);
+                cout << match.getResult() << endl;
+                //TODO implement exeption
+            }
         }
+    }
+    catch (GroupStageAreNotCreated& e) {
+           cout << "There are no matches" << endl
+                << "Groups are not yet created" << endl;
     }
 }
 

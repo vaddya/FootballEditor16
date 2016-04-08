@@ -7,6 +7,7 @@
 #include "string"
 #include "sstream"
 #include "algorithm"
+#include "idgenerator.h"
 
 using std::string;
 using std::ostringstream;
@@ -26,12 +27,14 @@ public:
 
     void setResult(int fTeamGoals, int sTeamGoals);
     string& getResult();
+    int getId() { return id; }
     void simulate();
 
     TeamStat& getFirstTeam() { return fTeam; }
     TeamStat& getSecondTeam() { return sTeam; }
 
 private:
+    int id;
     TeamStat fTeam;
     TeamStat sTeam;
     TeamInGroup * fTeamGroup;

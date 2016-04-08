@@ -17,9 +17,9 @@ void Application::mainMenu()
         case 0:
             break;
         case 1:
-            competitionMenu(); cout << endl; break;
+            competitionMenu(); break;
         case 2:
-            loadCompetition(); cout << endl; break;
+            loadCompetition(); break;
         default:
             cout << "Error! Invalid number." << endl;
             cin.clear();
@@ -56,13 +56,13 @@ void Application::competitionMenu()
         case 0:
             break;
         case 1:
-            launchCompetitionMenu(); competitionMenu(); break;
+            launchCompetitionMenu(); break;
         case 2:
-            settiingsMenu(); competitionMenu(); break;
+            settiingsMenu(); break;
         case 9:
             mainMenu(); break;
         default:
-            cout << "Error! Invalid number." << endl << endl;
+            cout << "Error! Invalid number." << endl;
             cin.clear();
             getline(cin, badStr);
             competitionMenu(); break;
@@ -92,7 +92,6 @@ void Application::settiingsMenu()
        string badStr;
        int num;
        cin >> num;
-       cout << endl;
        if (cin.good())
        {
            switch (num)
@@ -136,7 +135,7 @@ void Application::launchCompetitionMenu()
          << "2. Show groups" << endl
          << "3. Show matches" << endl
          << "4. Set results of the matches" << endl
-         << "9. Back to main menu" << endl
+         << "9. Back to competition menu" << endl
          << "0. Exit" << endl
          << ">>> ";
     string badStr;
@@ -149,20 +148,20 @@ void Application::launchCompetitionMenu()
         case 0:
             break;
         case 1:
-            createGroups(); cout << endl; launchCompetitionMenu(); break;
+            createGroups(); launchCompetitionMenu(); break;
         case 2:
-            showGroups(); cout << endl; launchCompetitionMenu(); break;
+            showGroups(); launchCompetitionMenu(); break;
         case 3:
-            showMatches(); cout << endl; launchCompetitionMenu(); break;
+            showMatches(); launchCompetitionMenu(); break;
         case 4:
-            setResultsOfGroupStage(); cout << endl; launchCompetitionMenu(); break;
+            setResultsOfGroupStage(); launchCompetitionMenu(); break;
         case 9:
-            mainMenu(); cout << endl; break;
+            competitionMenu(); break;
         default:
-            cout << "Error! Invalid number." << endl << endl;
+            cout << "Error! Invalid number." << endl;
             cin.clear();
             getline(cin, badStr);
-            competitionMenu(); break;
+            launchCompetitionMenu(); break;
         }
     }
     else

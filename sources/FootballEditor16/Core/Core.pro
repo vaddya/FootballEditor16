@@ -17,7 +17,8 @@ SOURCES += competition.cpp \
     teamstat.cpp \
     group.cpp \
     playoffstage.cpp \
-    teamingroup.cpp
+    teamingroup.cpp \
+    idgenerator.cpp
 
 HEADERS += competition.h \
     groupstage.h \
@@ -27,7 +28,8 @@ HEADERS += competition.h \
     group.h \
     playoffstage.h \
     stage.h \
-    teamingroup.h
+    teamingroup.h \
+    idgenerator.h
 unix {
     target.path = /usr/lib
     INSTALLS += target

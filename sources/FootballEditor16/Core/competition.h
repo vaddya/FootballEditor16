@@ -24,11 +24,6 @@ public:
      */
     void setTitle(string title);
     /**
-     * @brief Set the list of teams participating in the competition
-     * @param teams Vector of the teams
-     */
-    void setListOfTeams(vector<Team> &teams);
-    /**
      * @brief Add the team to the current competition
      * @param name Name of the team
      * @param fifaRating Rating of the team in the FIFA World Ranking
@@ -84,6 +79,7 @@ private:
     PlayoffStage* playoffStage;
 };
 
+
 class WrongNumberOfTeams: public std::exception
 {
 public:
@@ -96,5 +92,7 @@ private:
 };
 
 class WrongListOfTeams: public std::exception {};
+
+class GroupStageAreNotCreated: public std::exception {};
 
 #endif // COMPETITION_H

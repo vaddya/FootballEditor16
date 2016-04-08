@@ -13,14 +13,6 @@ void Competition::setTitle(string title)
     this->title = title;
 }
 
-void Competition::setListOfTeams(vector<Team>& teams)
-{
-    if (teams.size() == numberOfTeams)
-        this->teams = teams;
-    else
-        throw WrongListOfTeams();
-}
-
 void Competition::addTeam(string name, int fifaRating)
 {
     teams.push_back(Team(name, fifaRating));
@@ -44,7 +36,7 @@ vector<Team> &Competition::getTeams()
 
 void Competition::startGroupStage()
 {
-    if (numberOfTeams % 4 == 0) {
+    if (numberOfTeams % 4 == 0 && numberOfTeams != 0) {
         groupStage = new GroupStage(teams);
         groupStage->launch();
     }
@@ -54,7 +46,10 @@ void Competition::startGroupStage()
 
 GroupStage& Competition::getGroupStage()
 {
-    return *groupStage;
+    if (groupStage != 0)
+        return *groupStage;
+    else
+        throw GroupStageAreNotCreated();
 }
 
 void Competition::startPlayOffStage()
