@@ -8,6 +8,7 @@
 #include "sstream"
 #include "algorithm"
 #include "idgenerator.h"
+#include "randomiser.h"
 
 using std::string;
 using std::ostringstream;
@@ -23,22 +24,22 @@ public:
      * @param fteam First team
      * @param steam Second team
      */
-    Match(TeamInGroup& fTeam, TeamInGroup& sTeam);
+    Match(TeamInGroup& firstTeam, TeamInGroup& secondTeam);
 
     void setResult(int fTeamGoals, int sTeamGoals);
     string& getResult();
     int getId() { return id; }
     void simulate();
 
-    TeamStat& getFirstTeam() { return fTeam; }
-    TeamStat& getSecondTeam() { return sTeam; }
+    TeamStat& getFirstTeam() { return firstTeam; }
+    TeamStat& getSecondTeam() { return secondTeam; }
 
 private:
     int id;
-    TeamStat fTeam;
-    TeamStat sTeam;
-    TeamInGroup * fTeamGroup;
-    TeamInGroup * sTeamGroup;
+    TeamStat firstTeam;
+    TeamStat secondTeam;
+    TeamInGroup * firstTeamGroup;
+    TeamInGroup * secondTeamGroup;
     string result;
 
     void updatePoints( int fTeamGoals, int sTeamGoals );

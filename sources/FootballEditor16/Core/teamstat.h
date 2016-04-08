@@ -11,34 +11,92 @@ class TeamStat : public Team
 public:
     /**
      * @brief Constuctor of TeamStat
-     * @param team Source object
+     * @param team Source object of type Team
      */
     TeamStat(Team & team);
 
-    void setGoals(int goals) { goals_ = goals; }
-    void setPossession(int possession) { possession_ = possession; }
-    void setShots(int shots) { shots_ = shots; }
-    void setShotOnTarget(int shotsOnTarget) { shotsOnTarget_ = shotsOnTarget; }
-    void setYellowCards(int yellowCards) { yellowCards_ = yellowCards; }
-    void setRedCards(int redCards) { redCards_ = redCards; }
-    void setFouls(int fouls) { fouls_ = fouls; }
 
-    int getGoals() const { return goals_; }
-    int getPossession() const { return possession_; }
-    int getShots() const { return shots_; }
-    int getShotOnTarget() const { return shotsOnTarget_; }
-    int getYellowCards() const { return yellowCards_; }
-    int getRedCards() const { return redCards_; }
-    int getFouls() const { return fouls_; }
+    /**
+     * @brief Set the number of goals
+     * @param goals_ Number of goals
+     */
+    void setGoals(int goals_);
+    /**
+     * @brief Set possession
+     * @param possession_ Possession
+     */
+    void setPossession(int possession_);
+    /**
+     * @brief Set the number of shots
+     * @param shots_ Number of shots
+     */
+    void setShots(int shots_);
+    /**
+     * @brief Set the number of shots on target
+     * @param shotsOnTarget_ Number of shots on target
+     */
+    void setShotOnTarget(int shotsOnTarget_);
+    /**
+     * @brief Set the number of yellow cards
+     * @param yellowCards_ Number of yellow cards
+     */
+    void setYellowCards(int yellowCards_);
+    /**
+     * @brief Set the number of red cards
+     * @param redCards_ Number of red cards
+     */
+    void setRedCards(int redCards_);
+    /**
+     * @brief Set the number of fouls
+     * @param fouls_ Number of fouls
+     */
+    void setFouls(int fouls_);
+
+
+    /**
+     * @brief Get the number of goals
+     * @return Number of goals
+     */
+    int getGoals() const;
+    /**
+     * @brief Get possession
+     * @return Possession
+     */
+    int getPossession() const;
+    /**
+     * @brief Get number of shots
+     * @return Number of shots
+     */
+    int getShots() const;
+    /**
+     * @brief Get number of shots on target
+     * @return Number of shots of target
+     */
+    int getShotOnTarget() const;
+    /**
+     * @brief Get number of yellow cards
+     * @return Number of yellow cards
+     */
+    int getYellowCards() const;
+    /**
+     * @brief Get number of red cards
+     * @return Number of red cards
+     */
+    int getRedCards() const;
+    /**
+     * @brief Get number of fouls
+     * @return Number of fouls
+     */
+    int getFouls() const;
 
 private:
-    int goals_;
-    int possession_;
-    int shots_;
-    int shotsOnTarget_;
-    int yellowCards_;
-    int redCards_;
-    int fouls_;
+    int goals;
+    int possession;
+    int shots;
+    int shotsOnTarget;
+    int yellowCards;
+    int redCards;
+    int fouls;
 };
 
 #endif // TEAMSTAT_H

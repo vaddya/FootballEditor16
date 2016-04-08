@@ -5,6 +5,16 @@ char Group::getCharacter() const
     return character;
 }
 
+vector<TeamInGroup>& Group::getTeams()
+{
+    return teams;
+}
+
+vector<Match>& Group::getMatches()
+{
+    return matches;
+}
+
 void Group::sort()
 {
     std::sort(teams.begin(), teams.end());
@@ -18,4 +28,9 @@ void Group::createMatches()
             matches.push_back(Match(teams[i], teams[j]));
         }
     }
+}
+
+void Group::addTeam(Team &team)
+{
+    teams.push_back(team);
 }

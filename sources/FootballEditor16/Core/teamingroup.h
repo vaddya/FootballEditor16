@@ -6,14 +6,14 @@
 class TeamInGroup : public TeamStat
 {
 public:
-    TeamInGroup(Team & team): TeamStat(team), points_(0) {}
-    void setPoints(int points) { points_ = points; }
-    void increasePoints(int points) { points_ += points; }
-    int getPoints() const { return points_; }
+    TeamInGroup( Team & team ): TeamStat( team ), points( 0 ) {}
+    void setPoints( int points_ );
+    void increasePoints( int points_ );
+    int getPoints() const;
 
     friend bool operator < ( const TeamInGroup& one, const TeamInGroup& another );
 private:
-    int points_;
+    int points;
 };
 
 #endif // TEAMINGROUP_H

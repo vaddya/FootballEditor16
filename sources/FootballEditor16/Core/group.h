@@ -22,18 +22,26 @@ public:
      */
     void createMatches();
     //TODO setMatches();
-    void addTeam(Team& team) { teams.push_back(team); }
+    /**
+     * @brief Add a team to this group
+     * @param team Team
+     */
+    void addTeam(Team& team);
     /**
      * @brief Get group 'name'
-     * @return group 'name' (A, B, C,...)
+     * @return group 'name' (A, B, C, etc.)
      */
     char getCharacter() const;
-    vector<TeamInGroup>& getTeams() { return teams; }
+    /**
+     * @brief Get vector of teams
+     * @return vector of teams
+     */
+    vector<TeamInGroup>& getTeams();
     /**
      * @brief Get vector of created matches
      * @return vector of matches
      */
-    vector<Match> & getMatches() { return matches; }
+    vector<Match> & getMatches();
     void sort();
 private:
     char character;

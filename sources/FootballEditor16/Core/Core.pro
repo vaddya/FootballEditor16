@@ -8,6 +8,7 @@ QT       -= core gui
 
 TARGET = Core
 TEMPLATE = lib
+CONFIG += console c++11
 CONFIG += staticlib
 
 SOURCES += competition.cpp \
@@ -18,7 +19,8 @@ SOURCES += competition.cpp \
     group.cpp \
     playoffstage.cpp \
     teamingroup.cpp \
-    idgenerator.cpp
+    idgenerator.cpp \
+    randomiser.cpp
 
 HEADERS += competition.h \
     groupstage.h \
@@ -29,7 +31,8 @@ HEADERS += competition.h \
     playoffstage.h \
     stage.h \
     teamingroup.h \
-    idgenerator.h
+    idgenerator.h \
+    randomiser.h
 unix {
     target.path = /usr/lib
     INSTALLS += target

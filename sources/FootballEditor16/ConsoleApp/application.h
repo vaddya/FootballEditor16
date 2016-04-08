@@ -57,6 +57,7 @@ public:
      * @brief Set results of group stage
      */
     void setResultsOfGroupStage();
+    void simulateResultsOfGroupStage();
     /**
      * @brief Load competition
      */

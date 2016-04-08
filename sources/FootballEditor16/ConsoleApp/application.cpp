@@ -90,16 +90,15 @@ void Application::showGroups()
 void Application::showMatches()
 {
     try {
-            for(Group group: comp->getGroupStage().getGroups()) {
-                cout << "Group " << group.getCharacter() << endl;
-//                int i = 0;
-                for(Match match: group.getMatches())
-                        cout << "(" << match.getId() << ") " << match.getFirstTeam() << " - " << match.getSecondTeam() << endl;
+        for(Group group: comp->getGroupStage().getGroups()) {
+            cout << "Group " << group.getCharacter() << endl;
+            for(Match match: group.getMatches())
+                    cout << "(" << match.getId() << ") " << match.getFirstTeam() << " - " << match.getSecondTeam() << endl;
         }
     }
     catch (GroupAreNotCreated& e) {
            cout << "There are no matches" << endl
-                << "Groups are not created yet" << endl;
+                << e.what() << endl;
     }
 }
 
@@ -121,8 +120,25 @@ void Application::setResultsOfGroupStage()
     }
     catch (GroupAreNotCreated& e) {
            cout << "There are no matches" << endl
-                << "Groups are not created yet" << endl;
+                << e.what() << endl;
     }
+}
+
+void Application::simulateResultsOfGroupStage()
+{
+    try {
+        for (Group group: comp->getGroupStage().getGroups()) {
+            for (Match match: group.getMatches()) {
+                match.simulate();
+            }
+        }
+    }
+    catch (GroupAreNotCreated& e) {
+           cout << "There are no matches" << endl
+                << e.what() << endl;
+           return;
+    }
+    cout << "Results are simulated" << endl;
 }
 
 void Application::loadCompetition()

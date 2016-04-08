@@ -6,3 +6,18 @@ bool operator < ( const TeamInGroup &one, const TeamInGroup &another ) {
     else
         return false;
 }
+
+void TeamInGroup::setPoints(int points_)
+{
+    points = points_;
+}
+
+void TeamInGroup::increasePoints(int points_)
+{
+    points += points_;
+}
+
+int TeamInGroup::getPoints() const
+{
+    return points;
+}
