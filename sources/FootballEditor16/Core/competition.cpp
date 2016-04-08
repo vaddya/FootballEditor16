@@ -49,7 +49,7 @@ GroupStage& Competition::getGroupStage()
     if (groupStage != 0)
         return *groupStage;
     else
-        throw GroupStageAreNotCreated();
+        throw GroupAreNotCreated();
 }
 
 void Competition::startPlayOffStage()

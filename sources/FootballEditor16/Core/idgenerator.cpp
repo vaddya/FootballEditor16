@@ -3,7 +3,8 @@
 IdGenerator *IdGenerator::idGen = 0;
 
 IdGenerator::IdGenerator() {
-    count = 0;
+    firstCount = 0;
+    secondCount = 0;
 }
 
 IdGenerator *IdGenerator::IdGeneratorInstance() {
@@ -12,6 +13,11 @@ IdGenerator *IdGenerator::IdGeneratorInstance() {
     return idGen;
 }
 
-int IdGenerator::getId() {
-    return ++count;
+int IdGenerator::getFirstId() {
+    return ++firstCount;
 }
+
+int IdGenerator::getSecondId() {
+    return ++secondCount;
+}
+

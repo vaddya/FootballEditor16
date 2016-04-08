@@ -84,15 +84,23 @@ class WrongNumberOfTeams: public std::exception
 {
 public:
     WrongNumberOfTeams(int number): wrongNumber(number) {}
-    int getWrongNum() const {
-        return wrongNumber;
-    }
+    int getWrongNum() const { return wrongNumber; }
+    const char * what() { return "The number of teams should be a multiple of 8!"; }
 private:
     int wrongNumber;
 };
 
-class WrongListOfTeams: public std::exception {};
+class WrongListOfTeams: public std::exception
+{
+public:
+    WrongListOfTeams();
+    const char * what() { return ""; }
+};
 
-class GroupStageAreNotCreated: public std::exception {};
+class GroupAreNotCreated: public std::exception
+{
+public:
+    const char * what() { return "Groups are not created yet"; }
+};
 
 #endif // COMPETITION_H

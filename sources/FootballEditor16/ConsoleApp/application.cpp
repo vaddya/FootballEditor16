@@ -62,7 +62,8 @@ void Application::createGroups()
         comp->startGroupStage();
     }
     catch (WrongNumberOfTeams& e) {
-        cout << e.getWrongNum() <<  " number of teams are illegal!" << endl
+        cout << e.what() << endl
+             << "Now it's " << e.getWrongNum() << endl
              << "Groups are not created" << endl;
         return;
     }
@@ -81,8 +82,8 @@ void Application::showGroups()
            cout << endl;
         }
     }
-    catch (GroupStageAreNotCreated& e) {
-           cout << "Groups are not yet created" << endl;
+    catch (GroupAreNotCreated& e) {
+           cout << e.what() << endl;
     }
 }
 
@@ -96,9 +97,9 @@ void Application::showMatches()
                         cout << "(" << match.getId() << ") " << match.getFirstTeam() << " - " << match.getSecondTeam() << endl;
         }
     }
-    catch (GroupStageAreNotCreated& e) {
+    catch (GroupAreNotCreated& e) {
            cout << "There are no matches" << endl
-                << "Groups are not yet created" << endl;
+                << "Groups are not created yet" << endl;
     }
 }
 
@@ -118,9 +119,9 @@ void Application::setResultsOfGroupStage()
             }
         }
     }
-    catch (GroupStageAreNotCreated& e) {
+    catch (GroupAreNotCreated& e) {
            cout << "There are no matches" << endl
-                << "Groups are not yet created" << endl;
+                << "Groups are not created yet" << endl;
     }
 }
 
@@ -135,8 +136,8 @@ void Application::showCurrentSettings()
 {
     cout << "Competition \"" << comp->getTitle() << "\"" << endl
          << "(" << comp->getNumberOfTeams() << " teams)" << endl;
-    for (unsigned i = 0; i < comp->getTeams().size(); i++) {
-        cout << i+1 << ". " << comp->getTeams()[i] << endl;
+    for (Team team: comp->getTeams()) {
+        cout << team.getId() << ". " << team << endl;
     }
 }
 

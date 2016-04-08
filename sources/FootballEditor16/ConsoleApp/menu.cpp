@@ -141,6 +141,7 @@ void Application::launchCompetitionMenu()
     string badStr;
     int num;
     cin >> num;
+    cout << endl;
     if (cin.good())
     {
         switch (num)

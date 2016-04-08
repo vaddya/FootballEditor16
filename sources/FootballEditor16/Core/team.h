@@ -1,9 +1,13 @@
 #ifndef TEAM_H
 #define TEAM_H
+
 #include "iostream"
 #include "string"
+#include "idgenerator.h"
+
 using std::string;
 using std::ostream;
+
 /**
  * @brief The Team class
  */
@@ -40,8 +44,11 @@ public:
      * @return Name of the coach
      */
     string& getCoach();
-
-
+    /**
+     * @brief Get team ID
+     * @return team ID
+     */
+    int getId() const;
     /**
      * @brief Overloading of operator <<
      * @param os Variable of type ostream
@@ -51,6 +58,7 @@ public:
     friend ostream& operator<<(ostream& os, const Team& team);
 
 private:
+    int id;
     string name;
     int fifaPoints;
     string coach;

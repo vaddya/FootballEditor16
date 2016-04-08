@@ -4,10 +4,12 @@
 class IdGenerator {
 public:
     static IdGenerator *IdGeneratorInstance();
-    int getId();
+    int getFirstId();
+    int getSecondId();
 private:
     IdGenerator();
-    int count;
+    int firstCount;
+    int secondCount;
     static IdGenerator *idGen;
 };
 
