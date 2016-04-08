@@ -49,6 +49,9 @@ public:
      * @brief Show groups
      */
     void showGroups();
+    /**
+     * @brief Show matches
+     */
     void showMatches();
     /**
      * @brief Set results of group stage

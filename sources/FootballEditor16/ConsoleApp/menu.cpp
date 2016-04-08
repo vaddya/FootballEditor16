@@ -42,8 +42,8 @@ void Application::competitionMenu()
 {
     cout << endl
          << comp->getTitle() << endl
-         << "1. Settings" << endl
-         << "2. Launch" << endl
+         << "1. Launch" << endl
+         << "2. Settings" << endl
          << "0. Exit" << endl
          << ">>> ";
     string badStr;
@@ -56,11 +56,11 @@ void Application::competitionMenu()
         case 0:
             break;
         case 1:
-            settiingsMenu(); cout << endl;  competitionMenu(); break;
+            launchCompetitionMenu(); competitionMenu(); break;
         case 2:
-            launchCompetitionMenu(); cout << endl; competitionMenu(); break;
+            settiingsMenu(); competitionMenu(); break;
         case 9:
-            mainMenu(); cout << endl; break;
+            mainMenu(); break;
         default:
             cout << "Error! Invalid number." << endl << endl;
             cin.clear();
@@ -100,13 +100,13 @@ void Application::settiingsMenu()
            case 0:
                   break;
            case 1:
-               setTitleOfCompetition(); cout << endl; settiingsMenu(); break;
+               setTitleOfCompetition(); settiingsMenu(); break;
            case 2:
-               enterTeamsFromConsole(); cout << endl; settiingsMenu(); break;
+               enterTeamsFromConsole(); settiingsMenu(); break;
            case 3:
-               enterTeamsFromFile(); cout << endl; settiingsMenu(); break;
+               enterTeamsFromFile(); settiingsMenu(); break;
            case 4:
-               showCurrentSettings(); cout << endl; settiingsMenu(); break;
+               showCurrentSettings(); settiingsMenu(); break;
            case 9:
                competitionMenu(); break;
            default:
@@ -149,13 +149,13 @@ void Application::launchCompetitionMenu()
         case 0:
             break;
         case 1:
-            createGroups(); launchCompetitionMenu(); cout << endl; break;
+            createGroups(); cout << endl; launchCompetitionMenu(); break;
         case 2:
-            showGroups(); launchCompetitionMenu(); cout << endl; break;
+            showGroups(); cout << endl; launchCompetitionMenu(); break;
         case 3:
-            showMatches(); launchCompetitionMenu(); cout << endl; break;
+            showMatches(); cout << endl; launchCompetitionMenu(); break;
         case 4:
-            setResultsOfGroupStage(); launchCompetitionMenu(); cout << endl; break;
+            setResultsOfGroupStage(); cout << endl; launchCompetitionMenu(); break;
         case 9:
             mainMenu(); cout << endl; break;
         default:

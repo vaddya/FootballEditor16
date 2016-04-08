@@ -1,8 +1,9 @@
 #ifndef MATCH_H
 #define MATCH_H
 
-#include "teamstat.h"
 #include "team.h"
+#include "teamstat.h"
+#include "teamingroup.h"
 #include "string"
 #include "sstream"
 #include "algorithm"
@@ -21,20 +22,24 @@ public:
      * @param fteam First team
      * @param steam Second team
      */
-    Match(Team& fteam, Team& steam);
+    Match(TeamInGroup& fTeam, TeamInGroup& sTeam);
 
-    void setResult(int fteamGoals, int steamGoals);
+    void setResult(int fTeamGoals, int sTeamGoals);
     string& getResult();
     void simulate();
 
-    TeamStat& getFirstTeam() { return fteam; }
-    TeamStat& getSecondTeam() { return steam; }
+    TeamStat& getFirstTeam() { return fTeam; }
+    TeamStat& getSecondTeam() { return sTeam; }
 
 private:
-    TeamStat fteam;
-    TeamStat steam;
+    TeamStat fTeam;
+    TeamStat sTeam;
+    TeamInGroup * fTeamGroup;
+    TeamInGroup * sTeamGroup;
     string result;
 
+    void updatePoints( int fTeamGoals, int sTeamGoals );
+    void pickPoints( int fTeamGoals, int sTeamGoals );
     void updateResult();
 };
 

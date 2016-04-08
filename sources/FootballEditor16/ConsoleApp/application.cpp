@@ -23,8 +23,7 @@ void Application::enterTeamsFromConsole()
     cin >> num;
     cout << "So now input list of " << num << " teams from console" << endl;
     string name;
-    for (unsigned i = 0; i < num; i++)
-    {
+    for( unsigned i = 0; i < num; i++ ) {
         cout << "Name of " << i+1 << " team: " << endl << ">>> ";
         cin >> name;
         comp->addTeam(name);
@@ -47,8 +46,7 @@ void Application::enterTeamsFromFile()
         string name;
         int rating;
         fin >> name;
-        while (fin)
-        {
+        while (fin) {
             fin >> rating;
             comp->addTeam(name, rating);
             fin >> name;
@@ -66,6 +64,7 @@ void Application::createGroups()
 void Application::showGroups()
 {
    for(Group group: comp->getGroupStage().getGroups()) {
+       group.sort();
        cout << "Group " << group.getCharacter() << endl;
        int i = 0;
        for( TeamInGroup team : group.getTeams() )
@@ -94,7 +93,6 @@ void Application::setResultsOfGroupStage()
         cout << endl << "Group " << group.getCharacter() << endl;
         for (Match match: group.getMatches()) {
             cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": " << endl << ">>> ";
-//                        cout << match.getResult() << endl;
             cin >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
             match.setResult(goalsOfFirstTeam, goalsOfSecondTeam);
             cout << match.getResult() << endl;

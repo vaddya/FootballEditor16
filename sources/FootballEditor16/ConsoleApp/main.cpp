@@ -1,5 +1,4 @@
 #include "application.h"
-#include "teamingroup.h"
 
 int main()
 {
