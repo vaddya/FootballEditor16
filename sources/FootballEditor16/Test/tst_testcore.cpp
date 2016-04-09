@@ -2,11 +2,13 @@
 #include <QtTest>
 #include "vector"
 
-#include "team.h"
 #include "competition.h"
 #include "groupstage.h"
 #include "group.h"
+#include "team.h"
 #include "teamingroup.h"
+#include "teamstat.h"
+#include "match.h"
 
 using namespace std;
 
@@ -24,8 +26,8 @@ private Q_SLOTS:
     void competitionTest();
     void groupStageTest();
     void teamTest();
-    void teamStatTest();
-    void teamInGroupTest();
+//    void teamStatTest();
+//    void teamInGroupTest();
     void groupTest();
     void matchTest();
 
@@ -77,27 +79,27 @@ void TestCore::teamTest()
     delete team2;
 }
 
-void TestCore::teamStatTest()
-{
-    TeamStat *teamstat = new TeamStat(teams[0]);
-    teamstat->setGoals(3);
-    QVERIFY(teamstat->getGoals() == 3);
-    teamstat->setPossession(67);
-    QVERIFY(teamstat->getPossession() == 67);
+//void TestCore::teamStatTest()
+//{
+//    TeamStat *teamstat = new TeamStat(teams[0]);
+//    teamstat->setGoals(3);
+//    QVERIFY(teamstat->getGoals() == 3);
+//    teamstat->setPossession(67);
+//    QVERIFY(teamstat->getPossession() == 67);
 
-    delete teamstat;
-}
+//    delete teamstat;
+//}
 
-void TestCore::teamInGroupTest()
-{
-    TeamInGroup *teamInGroup = new TeamInGroup(teams[0]);
-    teamInGroup->setPoints(9);
-    QVERIFY(teamInGroup->getPoints() == 9);
-    teamInGroup->increasePoints(3);
-    QVERIFY(teamInGroup->getPoints() == 12);
+//void TestCore::teamInGroupTest()
+//{
+//    TeamInGroup *teamInGroup = new TeamInGroup(teams[0]);
+//    teamInGroup->setPoints(9);
+//    QVERIFY(teamInGroup->getPoints() == 9);
+//    teamInGroup->increasePoints(3);
+//    QVERIFY(teamInGroup->getPoints() == 12);
 
-    delete teamInGroup;
-}
+//    delete teamInGroup;
+//}
 
 void TestCore::groupTest()
 {
