@@ -92,8 +92,15 @@ void Application::showMatches()
     try {
         for(Group group: comp->getGroupStage().getGroups()) {
             cout << "Group " << group.getCharacter() << endl;
-            for(Match match: group.getMatches())
-                    cout << "(" << match.getId() << ") " << match.getFirstTeam() << " - " << match.getSecondTeam() << endl;
+            for(Match match: group.getMatches()) {
+                cout << "(" << match.getId() << ") " << match.getFirstTeam();
+                if (match.getResult() == "Hasn't started yet")
+                    cout << " - ";
+                else
+                    cout << " " << match.getResult() << " ";
+                cout << match.getSecondTeam() << endl;
+            }
+            cout << endl;
         }
     }
     catch (GroupAreNotCreated& e) {
@@ -107,14 +114,13 @@ void Application::setResultsOfGroupStage()
     try {
         int goalsOfFirstTeam, goalsOfSecondTeam;
         char separator;
-        for (Group group: comp->getGroupStage().getGroups()) {
+        for (Group &group: comp->getGroupStage().getGroups()) {
             cout << endl << "Group " << group.getCharacter() << endl;
-            for (Match match: group.getMatches()) {
+            for (Match &match: group.getMatches()) {
                 cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": " << endl << ">>> ";
                 cin >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
                 match.setResult(goalsOfFirstTeam, goalsOfSecondTeam);
                 cout << match.getResult() << endl;
-                //TODO implement exeption
             }
         }
     }
@@ -127,8 +133,8 @@ void Application::setResultsOfGroupStage()
 void Application::simulateResultsOfGroupStage()
 {
     try {
-        for (Group group: comp->getGroupStage().getGroups()) {
-            for (Match match: group.getMatches()) {
+        for (Group &group: comp->getGroupStage().getGroups()) {
+            for (Match &match: group.getMatches()) {
                 match.simulate();
             }
         }
@@ -138,7 +144,7 @@ void Application::simulateResultsOfGroupStage()
                 << e.what() << endl;
            return;
     }
-    cout << "Results are simulated" << endl;
+    showMatches();
 }
 
 void Application::loadCompetition()
@@ -153,7 +159,7 @@ void Application::showCurrentSettings()
     cout << "Competition \"" << comp->getTitle() << "\"" << endl
          << "(" << comp->getNumberOfTeams() << " teams)" << endl;
     for (Team team: comp->getTeams()) {
-        cout << team.getId() << ". " << team << endl;
+        cout << "(" << team.getId() << ") " << team << endl;
     }
 }
 
