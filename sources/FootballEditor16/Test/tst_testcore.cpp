@@ -40,14 +40,10 @@ void TestCore::competitionTest()
 {
     Competition *comp = new Competition();
     comp->setTitle("EURO 2016");
-    comp->addTeam("Russia", 892);
     comp->addTeam("France");
 
-    QCOMPARE(comp->getTeams()[0].getName().c_str(), "Russia");
-    QVERIFY(comp->getTeams()[0].getFifaPoints() == 892);
     QCOMPARE(comp->getTeams()[1].getName().c_str(), "France");
-    QVERIFY(comp->getTeams()[1].getFifaPoints() == 0);
-    QVERIFY(comp->getNumberOfTeams() == (unsigned)2);
+    QVERIFY(comp->getNumberOfTeams() == (unsigned)1);
     QCOMPARE(comp->getTitle().c_str(), "EURO 2016");
 
     delete comp;
@@ -66,14 +62,12 @@ void TestCore::groupStageTest()
 void TestCore::teamTest()
 {
     // not existed team
-    Team *team = new Team("Ukraine", 900);
+    Team *team = new Team("Ukraine");
     QCOMPARE(team->getName().c_str(), "Ukraine");
-    QVERIFY(team->getFifaPoints() == 900);
 
     // existed team
     Team *team2 = new Team(*team);
     QCOMPARE(team2->getName().c_str(), "Ukraine");
-    QVERIFY(team2->getFifaPoints() == 900);
 
     delete team;
     delete team2;

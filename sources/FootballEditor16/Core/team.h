@@ -15,40 +15,33 @@ class Team
 {
 public:
     /**
-     * @brief Constructor of Team without parameters
+     * @brief Constructor of Team
+     * @param name Team name with deafaul value "Team"
+     * @param rating Team rating wtih default value 0
+     * @param coach Team coach with default value "Coach"
      */
-    Team();
+    Team(string name = "Team", string coach = "Coach");
     /**
      * @brief Copy constructor of Team
      * @param other Variable of type Team
      */
     Team(const Team& other);
     /**
-     * @brief Constructor of Team with parameters
-     * @param name Team name
-     * @param rating Team rating
+     * @brief Get team ID
+     * @return team ID
      */
-    Team(string name, int FifaPoints = 0, string coach = "Coach");
+    int getId() const;
     /**
      * @brief Get name of the team
      * @return name of the team
      */
     string& getName();
     /**
-     * @brief Get rating of the team
-     * @return rating of the team
-     */
-    int getFifaPoints() const;
-    /**
      * @brief Get name of the coach
      * @return Name of the coach
      */
     string& getCoach();
-    /**
-     * @brief Get team ID
-     * @return team ID
-     */
-    int getId() const;
+
     /**
      * @brief Overloading of operator <<
      * @param os Variable of type ostream
@@ -60,7 +53,6 @@ public:
 private:
     int id;
     string name;
-    int fifaPoints;
     string coach;
 };
 

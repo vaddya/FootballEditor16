@@ -28,7 +28,7 @@ public:
      * @param name Name of the team
      * @param fifaRating Rating of the team in the FIFA World Ranking
      */
-    void addTeam(string name, int fifaRating = 0);
+    void addTeam(string name);
 
     /**
      * @brief Get title of the competition

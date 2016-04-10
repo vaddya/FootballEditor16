@@ -13,9 +13,9 @@ void Competition::setTitle(string title)
     this->title = title;
 }
 
-void Competition::addTeam(string name, int fifaRating)
+void Competition::addTeam(string name)
 {
-    teams.push_back(Team(name, fifaRating));
+    teams.push_back(Team(name));
     numberOfTeams++;
 }
 

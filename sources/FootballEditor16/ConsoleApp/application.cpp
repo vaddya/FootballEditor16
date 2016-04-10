@@ -43,11 +43,9 @@ void Application::enterTeamsFromFile()
         return;
     }
     string name;
-    int rating;
     fin >> name;
     while (fin) {
-        fin >> rating;
-        comp->addTeam(name, rating);
+        comp->addTeam(name);
         fin >> name;
     }
     fin.close();
@@ -57,11 +55,11 @@ void Application::enterTeamsFromFile()
 void Application::createGroups()
 {
     try {
+        cout << endl;
         comp->startGroupStage();
     }
     catch (WrongNumberOfTeams& e) {
-        cout << e.what() << endl
-             << "Now it's " << e.getWrongNum() << endl
+        cout << e.what() << " (now " << e.getWrongNum() << ")" << endl
              << "Groups are not created" << endl;
         return;
     }
@@ -76,6 +74,7 @@ void Application::showGroups()
             group.sort();
             cout << group << endl;
         }
+        cout << "G-Groups, W-Wins, D-Drawns, L-Loses, P-Points" << endl;
     }
     catch (GroupAreNotCreated& e) {
            cout << e.what() << endl;
@@ -85,6 +84,7 @@ void Application::showGroups()
 void Application::showMatches()
 {
     try {
+        cout << endl;
         for(Group group: comp->getGroupStage().getGroups()) {
             cout << "Group " << group.getCharacter() << endl;
             for(Match match: group.getMatches()) {
@@ -146,7 +146,7 @@ void Application::loadCompetition()
 void Application::showCurrentSettings()
 {
     cout << "Competition \"" << comp->getTitle() << "\"" << endl
-         << "(" << comp->getNumberOfTeams() << " teams)" << endl;
+         <<  comp->getNumberOfTeams() << " teams:" << endl;
     for (Team team: comp->getTeams()) {
         cout << "(" << team.getId() << ") " << team << endl;
     }

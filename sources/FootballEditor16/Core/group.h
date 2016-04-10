@@ -43,7 +43,8 @@ public:
      * @brief Get vector of created matches
      * @return vector of matches
      */
-    vector<Match> & getMatches();
+    vector<Match>& getMatches();
+    vector<Team> determineWiners();
     /**
      * @brief Overloading of operator <<
      * @param os Variable of type ostream
