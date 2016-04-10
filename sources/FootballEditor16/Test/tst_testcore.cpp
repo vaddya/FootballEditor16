@@ -138,6 +138,7 @@ void TestCore::matchTest()
 
     delete firstTeam;
     delete secondTeam;
+    delete match;
 }
 
 QTEST_APPLESS_MAIN(TestCore)
