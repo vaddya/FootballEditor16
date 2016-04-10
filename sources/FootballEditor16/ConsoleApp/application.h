@@ -4,6 +4,9 @@
 #include "competition.h"
 #include "team.h"
 #include "vector"
+#include "iostream"
+#include "fstream"
+
 using namespace std;
 
 /**

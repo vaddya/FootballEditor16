@@ -15,6 +15,21 @@ vector<Match>& Group::getMatches()
     return matches;
 }
 
+ostream& operator<<(ostream &os, Group &group)
+{
+    cout << "Group " << group.getCharacter() << endl;
+    cout << "#  " << "Team" << setw(21) << "G  W  D  L  P" << endl;
+    int i = 0;
+    for( TeamInGroup team : group.getTeams() )
+        cout << ++i << ". " << team << setw(13-team.getName().size())
+             << team.getGames() << "  "
+             << team.getWins() << "  "
+             << team.getDrawns() << "  "
+             << team.getLoses() << "  "
+             << team.getPoints() << endl;
+    return os;
+}
+
 void Group::sort()
 {
     std::sort(teams.begin(), teams.end());

@@ -41,9 +41,10 @@ void Application::mainMenu()
 void Application::competitionMenu()
 {
     cout << endl
-         << comp->getTitle() << endl
+         << comp->getTitle() << ":" << endl
          << "1. Launch" << endl
          << "2. Settings" << endl
+         << "9. Back to main menu" << endl
          << "0. Exit" << endl
          << ">>> ";
     string badStr;
@@ -60,7 +61,7 @@ void Application::competitionMenu()
         case 2:
             settiingsMenu(); break;
         case 9:
-            mainMenu(); break;
+            cout << endl; mainMenu(); break;
         default:
             cout << "Error! Invalid number." << endl;
             cin.clear();
@@ -81,7 +82,7 @@ void Application::competitionMenu()
 void Application::settiingsMenu()
 {
        cout << endl
-            << "Competition settings:" << endl
+            << comp->getTitle() << " settings:" << endl
             << "1. Set title of the competition" << endl
             << "2. Enter teams from console" << endl
             << "3. Enter teams from file" << endl
@@ -130,7 +131,7 @@ void Application::settiingsMenu()
 void Application::launchCompetitionMenu()
 {
     cout << endl
-         << comp->getTitle() << endl
+         << comp->getTitle() << ":" << endl
          << "1. Create groups" << endl
          << "2. Show groups" << endl
          << "3. Show matches" << endl
@@ -142,7 +143,6 @@ void Application::launchCompetitionMenu()
     string badStr;
     int num;
     cin >> num;
-    cout << endl;
     if (cin.good())
     {
         switch (num)

@@ -1,6 +1,4 @@
 #include "application.h"
-#include "iostream"
-#include "fstream"
 
 Application::Application()
 {
@@ -19,13 +17,13 @@ void Application::setTitleOfCompetition()
 
 void Application::enterTeamsFromConsole()
 {
-    cout << "Specify the number of teams: " << endl << ">>> ";
+    cout << "Specify the number of teams: ";
     unsigned num;
     cin >> num;
     string name;
     cout << "So now input list of " << num << " teams from console" << endl;
     for( unsigned i = 0; i < num; i++ ) {
-        cout << "Name of " << i+1 << " team: " << endl << ">>> ";
+        cout << "Name of " << i+1 << " team: ";
         cin >> name;
         comp->addTeam(name);
     }
@@ -33,7 +31,7 @@ void Application::enterTeamsFromConsole()
 
 void Application::enterTeamsFromFile()
 {
-    cout << "Write the input file (0 for \"input.txt\"): "  << endl << ">>> ";
+    cout << "Write the input file (0 for \"input.txt\"): "  ;
     string filename;
     cin >> filename;
     cin.clear();
@@ -42,18 +40,18 @@ void Application::enterTeamsFromFile()
     ifstream fin(filename);
     if (!fin.is_open()) {
         cout << "Error! Cannot open input file. Input interrupted.\n";
+        return;
     }
-    else {
-        string name;
-        int rating;
+    string name;
+    int rating;
+    fin >> name;
+    while (fin) {
+        fin >> rating;
+        comp->addTeam(name, rating);
         fin >> name;
-        while (fin) {
-            fin >> rating;
-            comp->addTeam(name, rating);
-            fin >> name;
-        }
-        fin.close();
     }
+    fin.close();
+    cout << "Data has been read" << endl;
 }
 
 void Application::createGroups()
@@ -73,13 +71,10 @@ void Application::createGroups()
 void Application::showGroups()
 {
     try {
+        cout << endl;
         for(Group group: comp->getGroupStage().getGroups()) {
-           group.sort();
-           cout << "Group " << group.getCharacter() << endl;
-           int i = 0;
-           for( TeamInGroup team : group.getTeams() )
-                   cout << ++i << ". " << team << " " << team.getPoints() << " points" << endl;
-           cout << endl;
+            group.sort();
+            cout << group << endl;
         }
     }
     catch (GroupAreNotCreated& e) {
@@ -93,12 +88,7 @@ void Application::showMatches()
         for(Group group: comp->getGroupStage().getGroups()) {
             cout << "Group " << group.getCharacter() << endl;
             for(Match match: group.getMatches()) {
-                cout << "(" << match.getId() << ") " << match.getFirstTeam();
-                if (match.getResult() == "Hasn't started yet")
-                    cout << " - ";
-                else
-                    cout << " " << match.getResult() << " ";
-                cout << match.getSecondTeam() << endl;
+                cout << match;
             }
             cout << endl;
         }
@@ -117,10 +107,9 @@ void Application::setResultsOfGroupStage()
         for (Group &group: comp->getGroupStage().getGroups()) {
             cout << endl << "Group " << group.getCharacter() << endl;
             for (Match &match: group.getMatches()) {
-                cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": " << endl << ">>> ";
+                cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": ";
                 cin >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
                 match.setResult(goalsOfFirstTeam, goalsOfSecondTeam);
-                cout << match.getResult() << endl;
             }
         }
     }
@@ -150,7 +139,7 @@ void Application::simulateResultsOfGroupStage()
 void Application::loadCompetition()
 {
     //TODO implement load comp
-    cout << endl;
+    cout << endl << "It's coming" << endl << endl;
     mainMenu();
 }
 
@@ -167,4 +156,3 @@ Application::~Application()
 {
     delete comp;
 }
-

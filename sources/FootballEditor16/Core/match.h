@@ -9,9 +9,9 @@
 #include "algorithm"
 #include "idgenerator.h"
 #include "randomiser.h"
+#include "iostream"
 
-using std::string;
-using std::ostringstream;
+using namespace std;
 
 /**
  * @brief The Match class
@@ -34,16 +34,17 @@ public:
     TeamStat& getFirstTeam() { return firstTeam; }
     TeamStat& getSecondTeam() { return secondTeam; }
 
+    friend ostream& operator<<(ostream& os, Match &match);
 private:
     int id;
     TeamStat firstTeam;
     TeamStat secondTeam;
-    TeamInGroup * firstTeamGroup;
-    TeamInGroup * secondTeamGroup;
+    TeamInGroup *firstTG;
+    TeamInGroup *secondTG;
     string result;
 
     void updatePoints( int fTeamGoals, int sTeamGoals );
-    void pickPoints( int fTeamGoals, int sTeamGoals );
+    void pickPointsBack( int fTeamGoals, int sTeamGoals );
     void updateResult();
 };
 

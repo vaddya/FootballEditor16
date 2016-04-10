@@ -5,6 +5,8 @@
 #include "teamingroup.h"
 #include "vector"
 #include "match.h"
+#include "iostream"
+#include "iomanip"
 
 using namespace std;
 
@@ -42,6 +44,13 @@ public:
      * @return vector of matches
      */
     vector<Match> & getMatches();
+    /**
+     * @brief Overloading of operator <<
+     * @param os Variable of type ostream
+     * @param group Variable of type Group
+     * @return output stream
+     */
+    friend ostream& operator<<(ostream& os, Group &group);
     void sort();
 private:
     char character;

@@ -26,8 +26,8 @@ private Q_SLOTS:
     void competitionTest();
     void groupStageTest();
     void teamTest();
-//    void teamStatTest();
-//    void teamInGroupTest();
+    void teamStatTest();
+    void teamInGroupTest();
     void groupTest();
     void matchTest();
 
@@ -79,27 +79,25 @@ void TestCore::teamTest()
     delete team2;
 }
 
-//void TestCore::teamStatTest()
-//{
-//    TeamStat *teamstat = new TeamStat(teams[0]);
-//    teamstat->setGoals(3);
-//    QVERIFY(teamstat->getGoals() == 3);
-//    teamstat->setPossession(67);
-//    QVERIFY(teamstat->getPossession() == 67);
+void TestCore::teamStatTest()
+{
+    TeamStat *teamstat = new TeamStat(teams[0]);
+    teamstat->setGoals(3);
+    QVERIFY(teamstat->getGoals() == 3);
+    teamstat->setPossession(67);
+    QVERIFY(teamstat->getPossession() == 67);
 
-//    delete teamstat;
-//}
+    delete teamstat;
+}
 
-//void TestCore::teamInGroupTest()
-//{
-//    TeamInGroup *teamInGroup = new TeamInGroup(teams[0]);
-//    teamInGroup->setPoints(9);
-//    QVERIFY(teamInGroup->getPoints() == 9);
-//    teamInGroup->increasePoints(3);
-//    QVERIFY(teamInGroup->getPoints() == 12);
+void TestCore::teamInGroupTest()
+{
+    TeamInGroup *teamInGroup = new TeamInGroup(teams[0]);
+    teamInGroup->increasePoints(3);
+    QVERIFY(teamInGroup->getPoints() == 3);
 
-//    delete teamInGroup;
-//}
+    delete teamInGroup;
+}
 
 void TestCore::groupTest()
 {
@@ -115,7 +113,7 @@ void TestCore::groupTest()
     // Test sorting
     int points = 0;
     for( TeamInGroup &team: group->getTeams() )
-        team.setPoints(points++); // 4 teams with 0 1 2 and 3 points
+    team.increasePoints(points++); // 4 teams with 0 1 2 and 3 points
     QCOMPARE(group->getTeams()[0].getPoints(), 0);
     group->sort();
     QCOMPARE(group->getTeams()[0].getPoints(), 3);
