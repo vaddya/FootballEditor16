@@ -28,18 +28,18 @@ public:
      */
     void lose();
 
-    void unWin();
     /**
      * @brief Decrease games and wins by 1 & decrease points by 3
      */
-    void unDraw();
+    void unWin();
     /**
      * @brief Decrease games and draws by 1 & decrease points by 1
      */
-    void unLose();
+    void unDraw();
     /**
      * @brief Decrease games and loses by 1
      */
+    void unLose();
 
     /**
      * @brief Get number of points
@@ -67,7 +67,13 @@ public:
      */
     int getLoses() const;
 
-
+    /**
+     * @brief Overloading of operator <
+     * @param one Variable of type TeamInGroup
+     * @param another Variable of type TeamInGroup
+     * @return true, if points of one is less than points of second
+     * false, if points of one is greater than or equal of points of second
+     */
     friend bool operator<( const TeamInGroup& one, const TeamInGroup& another );
 private:
     int points;

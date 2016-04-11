@@ -5,6 +5,9 @@
 #include "team.h"
 using namespace std;
 
+/**
+ * @brief The Stage class
+ */
 class Stage
 {
 public:
