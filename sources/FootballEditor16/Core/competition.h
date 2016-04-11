@@ -26,7 +26,6 @@ public:
     /**
      * @brief Add the team to the current competition
      * @param name Name of the team
-     * @param fifaRating Rating of the team in the FIFA World Ranking
      */
     void addTeam(string name);
 

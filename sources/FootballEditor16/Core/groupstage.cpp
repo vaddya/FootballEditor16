@@ -17,7 +17,7 @@ vector<Group> &GroupStage::getGroups()
     return groups;
 }
 
-unsigned GroupStage::getNumberOfGroups()
+unsigned GroupStage::getNumberOfGroups() const
 {
     return numberOfGroups;
 }

@@ -17,7 +17,6 @@ public:
     /**
      * @brief Constructor of Team
      * @param name Team name with deafaul value "Team"
-     * @param rating Team rating wtih default value 0
      * @param coach Team coach with default value "Coach"
      */
     Team(string name = "Team", string coach = "Coach");

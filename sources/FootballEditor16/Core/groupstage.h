@@ -20,15 +20,15 @@ public:
      */
     void launch();
     /**
-     * @brief Get vector of teams participating in the competition
-     * @return vector of teams
+     * @brief Get vector of groups
+     * @return vector of groups
      */
     vector<Group> & getGroups();
     /**
      * @brief Get number of groups
      * @return number of groups
      */
-    unsigned getNumberOfGroups();
+    unsigned getNumberOfGroups() const;
 private:
     void sortTeams();
     void createGroups();

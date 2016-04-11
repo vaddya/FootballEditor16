@@ -74,7 +74,7 @@ void Application::showGroups()
             group.sort();
             cout << group << endl;
         }
-        cout << "G-Groups, W-Wins, D-Drawns, L-Loses, P-Points" << endl;
+        cout << "G-Groups, W-Wins, D-Draws, L-Loses, P-Points" << endl;
     }
     catch (GroupAreNotCreated& e) {
            cout << e.what() << endl;

@@ -1,6 +1,7 @@
 #include "match.h"
 
-Match::Match(TeamInGroup &fteam, TeamInGroup &steam): firstTeam(fteam), secondTeam(steam), firstTG(&fteam), secondTG(&steam), result("Hasn't started yet")
+Match::Match(TeamInGroup &firstTeam, TeamInGroup &secondTeam): firstTeam(firstTeam),
+    secondTeam(secondTeam), firstTG(&firstTeam), secondTG(&secondTeam), result("Hasn't started yet")
 {
     IdGenerator *idGen = IdGenerator::IdGeneratorInstance();
     id = idGen->getFirstId();
@@ -19,6 +20,11 @@ void Match::setResult(int firstTeamGoals, int secondTeamGoals)
 string& Match::getResult()
 {
     return result;
+}
+
+int Match::getId() const
+{
+    return id;
 }
 
 void Match::simulate()
@@ -51,8 +57,8 @@ void Match::updatePoints(int fTeamGoals, int sTeamGoals)
         secondTG->win();
     }
     if (fTeamGoals == sTeamGoals) {
-        firstTG->drawn();
-        secondTG->drawn();
+        firstTG->draw();
+        secondTG->draw();
     }
 }
 
@@ -67,8 +73,8 @@ void Match::pickPointsBack(int fTeamGoals, int sTeamGoals)
         secondTG->unWin();
     }
     if (fTeamGoals == sTeamGoals) {
-        firstTG->unDrawn();
-        secondTG->unDrawn();
+        firstTG->unDraw();
+        secondTG->unDraw();
     }
 }
 

@@ -10,12 +10,14 @@
 
 using namespace std;
 
+/**
+ * @brief The Group class
+ */
 class Group
 {
 public:
     /**
      * @brief Constructor of Group
-     * @param teams Vector of teams
      * @param character 'Name' of the group (A, B, C,...)
      */
     Group(char character): character(character) {}
@@ -44,6 +46,10 @@ public:
      * @return vector of matches
      */
     vector<Match>& getMatches();
+    /**
+     * @brief Determine winers
+     * @return
+     */
     vector<Team> determineWiners();
     /**
      * @brief Overloading of operator <<
@@ -52,6 +58,9 @@ public:
      * @return output stream
      */
     friend ostream& operator<<(ostream& os, Group &group);
+    /**
+     * @brief Sort teams by number of points
+     */
     void sort();
 private:
     char character;

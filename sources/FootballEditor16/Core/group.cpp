@@ -33,7 +33,7 @@ ostream& operator<<(ostream &os, Group &group)
         cout << ++i << ". " << team << setw(14-team.getName().size())
              << team.getGames() << "   "
              << team.getWins() << "   "
-             << team.getDrawns() << "   "
+             << team.getDraws() << "   "
              << team.getLoses() << "   "
              << team.getPoints() << endl;
     return os;

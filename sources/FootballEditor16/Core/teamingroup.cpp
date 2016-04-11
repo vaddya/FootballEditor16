@@ -13,9 +13,9 @@ void TeamInGroup::win()
     points += 3;
 }
 
-void TeamInGroup::drawn()
+void TeamInGroup::draw()
 {
-    ++drawns;
+    ++draws;
     ++points;
 }
 
@@ -30,9 +30,9 @@ void TeamInGroup::unWin()
     points -= 3;
 }
 
-void TeamInGroup::unDrawn()
+void TeamInGroup::unDraw()
 {
-    --drawns;
+    --draws;
     --points;
 }
 
@@ -56,9 +56,9 @@ int TeamInGroup::getWins() const
     return wins;
 }
 
-int TeamInGroup::getDrawns() const
+int TeamInGroup::getDraws() const
 {
-    return drawns;
+    return draws;
 }
 
 int TeamInGroup::getLoses() const

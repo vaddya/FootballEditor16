@@ -42,7 +42,9 @@ public:
      */
     void enterTeamsFromFile();
 
-
+    /**
+     * @brief Launch competition menu
+     */
     void launchCompetitionMenu();
     /**
      * @brief Create new competition
@@ -60,6 +62,9 @@ public:
      * @brief Set results of group stage
      */
     void setResultsOfGroupStage();
+    /**
+     * @brief Simulate results of group stage
+     */
     void simulateResultsOfGroupStage();
     /**
      * @brief Load competition
