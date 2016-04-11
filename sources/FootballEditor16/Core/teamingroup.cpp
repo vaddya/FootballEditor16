@@ -7,29 +7,38 @@ bool operator < ( const TeamInGroup &one, const TeamInGroup &another ) {
         return false;
 }
 
-void TeamInGroup::increasePoints( int points_ )
+void TeamInGroup::win()
 {
-    points += points_;
+    ++wins;
+    points += 3;
 }
 
-void TeamInGroup::increaseGames(int games_)
+void TeamInGroup::drawn()
 {
-    games += games_;
+    ++drawns;
+    ++points;
 }
 
-void TeamInGroup::increaseWins(int wins_)
+void TeamInGroup::lose()
 {
-    wins += wins_;
+    ++loses;
 }
 
-void TeamInGroup::increaseDrawns(int drawn_)
+void TeamInGroup::unWin()
 {
-    drawns += drawn_;
+    --wins;
+    points -= 3;
 }
 
-void TeamInGroup::increaseLoses(int loses_)
+void TeamInGroup::unDrawn()
 {
-    loses += loses_;
+    --drawns;
+    --points;
+}
+
+void TeamInGroup::unLose()
+{
+    --loses;
 }
 
 int TeamInGroup::getPoints() const

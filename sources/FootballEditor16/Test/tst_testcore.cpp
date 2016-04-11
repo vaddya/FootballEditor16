@@ -42,7 +42,7 @@ void TestCore::competitionTest()
     comp->setTitle("EURO 2016");
     comp->addTeam("France");
 
-    QCOMPARE(comp->getTeams()[1].getName().c_str(), "France");
+    QCOMPARE(comp->getTeams()[0].getName().c_str(), "France");
     QVERIFY(comp->getNumberOfTeams() == (unsigned)1);
     QCOMPARE(comp->getTitle().c_str(), "EURO 2016");
 
@@ -87,7 +87,7 @@ void TestCore::teamStatTest()
 void TestCore::teamInGroupTest()
 {
     TeamInGroup *teamInGroup = new TeamInGroup(teams[0]);
-    teamInGroup->increasePoints(3);
+    teamInGroup->win();
     QVERIFY(teamInGroup->getPoints() == 3);
 
     delete teamInGroup;
@@ -105,12 +105,15 @@ void TestCore::groupTest()
     QVERIFY(group->getMatches().size() == (unsigned long)6);
 
     // Test sorting
-    int points = 0;
-    for( TeamInGroup &team: group->getTeams() )
-    team.increasePoints(points++); // 4 teams with 0 1 2 and 3 points
+    int i = 0;
+    for( TeamInGroup &team: group->getTeams() ) {
+        for( int j = 0; j < i; j++ )
+            team.win(); // 0 3 6 9
+        ++i;
+    }
     QCOMPARE(group->getTeams()[0].getPoints(), 0);
-    group->sort();
-    QCOMPARE(group->getTeams()[0].getPoints(), 3);
+    group->sort(); // now 9 6 3 0
+    QCOMPARE(group->getTeams()[0].getPoints(), 9);
 
     delete group;
 }

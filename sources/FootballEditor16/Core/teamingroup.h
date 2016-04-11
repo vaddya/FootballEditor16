@@ -8,11 +8,13 @@ class TeamInGroup : public TeamStat
 public:
     TeamInGroup( Team & team ): TeamStat( team ), points( 0 ), games( 0 ), wins( 0 ), drawns( 0 ), loses( 0 ) {}
 
-    void increasePoints( int points_ );
-    void increaseGames( int games_ = 1 );
-    void increaseWins( int wins_ = 1 );
-    void increaseDrawns( int drawn_ = 1 );
-    void increaseLoses( int loses_ = 1 );
+    void win();
+    void drawn();
+    void lose();
+
+    void unWin();
+    void unDrawn();
+    void unLose();
 
     int getPoints() const;
     int getGames() const;

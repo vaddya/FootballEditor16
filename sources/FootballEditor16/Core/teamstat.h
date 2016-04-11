@@ -10,8 +10,8 @@ class TeamStat : public Team
 {
 public:
     /**
-     * @brief Constuctor of TeamStat
-     * @param team Source object of type Team
+     * @brief TeamStat
+     * @param team
      */
     TeamStat(Team & team);
 

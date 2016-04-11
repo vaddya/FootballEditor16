@@ -43,52 +43,32 @@ ostream& operator<<(ostream &os, Match &match)
 void Match::updatePoints(int fTeamGoals, int sTeamGoals)
 {
     if (fTeamGoals > sTeamGoals) {
-        firstTG->increaseGames();
-        firstTG->increaseWins();
-        firstTG->increasePoints(3);
-        secondTG->increaseGames();
-        secondTG->increaseLoses();
+        firstTG->win();
+        secondTG->lose();
     }
     if (fTeamGoals < sTeamGoals) {
-        firstTG->increaseGames();
-        firstTG->increaseLoses();
-        secondTG->increasePoints(3);
-        secondTG->increaseGames();
-        secondTG->increaseWins();
+        firstTG->lose();
+        secondTG->win();
     }
     if (fTeamGoals == sTeamGoals) {
-        firstTG->increaseGames();
-        firstTG->increaseDrawns();
-        firstTG->increasePoints(1);
-        secondTG->increasePoints(1);
-        secondTG->increaseGames();
-        secondTG->increaseDrawns();
+        firstTG->drawn();
+        secondTG->drawn();
     }
 }
 
 void Match::pickPointsBack(int fTeamGoals, int sTeamGoals)
 {
     if (fTeamGoals > sTeamGoals) {
-        firstTG->increaseGames(-1);
-        firstTG->increaseWins(-1);
-        firstTG->increasePoints(-3);
-        secondTG->increaseGames(-1);
-        secondTG->increaseLoses(-1);
+        firstTG->unWin();
+        secondTG->unLose();
     }
     if (fTeamGoals < sTeamGoals) {
-        firstTG->increaseGames(-1);
-        firstTG->increaseLoses(-1);
-        secondTG->increasePoints(-3);
-        secondTG->increaseGames(-1);
-        secondTG->increaseWins(-1);
+        firstTG->unLose();
+        secondTG->unWin();
     }
     if (fTeamGoals == sTeamGoals) {
-        firstTG->increaseGames(-1);
-        firstTG->increaseDrawns(-1);
-        firstTG->increasePoints(-1);
-        secondTG->increasePoints(-1);
-        secondTG->increaseGames(-1);
-        secondTG->increaseDrawns(-1);
+        firstTG->unDrawn();
+        secondTG->unDrawn();
     }
 }
 
