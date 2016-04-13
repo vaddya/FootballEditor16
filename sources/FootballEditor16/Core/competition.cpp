@@ -44,12 +44,17 @@ void Competition::startGroupStage()
         throw WrongNumberOfTeams(numberOfTeams);
 }
 
-GroupStage& Competition::getGroupStage()
+GroupStage &Competition::getGroupStage()
 {
     if (groupStage != 0)
         return *groupStage;
     else
         throw GroupAreNotCreated();
+}
+
+PlayoffStage &Competition::getPlayoffStage()
+{
+    return *playoffStage;
 }
 
 void Competition::startPlayOffStage()

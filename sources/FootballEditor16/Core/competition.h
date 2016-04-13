@@ -60,7 +60,12 @@ public:
      * @brief Get group stage
      * @return group stage
      */
-    GroupStage & getGroupStage();
+    GroupStage &getGroupStage();
+    /**
+     * @brief Get playoff stage
+     * @return playoff stage
+     */
+    PlayoffStage &getPlayoffStage();
     /**
      * @brief Launch playoff stage
      */

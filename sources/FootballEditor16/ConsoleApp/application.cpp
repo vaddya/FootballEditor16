@@ -150,6 +150,12 @@ void Application::determineWinnersOfGroupStage()
     cout << endl;
 }
 
+void Application::createPlayoffPairs()
+{
+    comp->startPlayOffStage();
+    cout << comp->getPlayoffStage();
+}
+
 void Application::showCurrentSettings()
 {
     cout << "Competition \"" << comp->getTitle() << "\"" << endl

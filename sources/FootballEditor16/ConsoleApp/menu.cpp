@@ -138,6 +138,7 @@ void Application::launchCompetitionMenu()
          << "4. Enter the results of the group stage matches" << endl
          << "5. Simulate the results of the group stage matches" << endl
          << "6. Determine winners of group stage" << endl
+         << "7. Create playoff pairs" << endl
          << "9. Back to competition menu" << endl
          << "0. Exit" << endl
          << ">>> ";
@@ -162,6 +163,8 @@ void Application::launchCompetitionMenu()
             simulateResultsOfGroupStage(); launchCompetitionMenu(); break;
         case 6:
             determineWinnersOfGroupStage(); launchCompetitionMenu(); break;
+        case 7:
+            createPlayoffPairs(); launchCompetitionMenu(); break;
         case 9:
             competitionMenu(); break;
         default:
