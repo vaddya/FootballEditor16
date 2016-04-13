@@ -13,7 +13,7 @@ int Team::getId() const
     return id;
 }
 
-string & Team::getName()
+string &Team::getName()
 {
     return name;
 }
@@ -24,6 +24,7 @@ string &Team::getCoach()
 
 ostream& operator<<(ostream& os, const Team& team)
 {
-    os << "(" << team.id << ") " << team.name;
+    //os << "(" << team.id << ") " << team.name;
+    os << team.name;
     return os;
 }

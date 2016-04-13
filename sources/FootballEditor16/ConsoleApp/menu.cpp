@@ -38,6 +38,16 @@ void Application::mainMenu()
     }
 }
 
+void Application::isCompetitionReadyToLaunch()
+{
+    if (comp->getTeams().size() > 0)
+        launchCompetitionMenu();
+    else {
+        cout << "Add teams to the competition!" << endl;
+        competitionMenu();
+    }
+}
+
 void Application::competitionMenu()
 {
     cout << endl
@@ -57,9 +67,11 @@ void Application::competitionMenu()
         case 0:
             break;
         case 1:
-            launchCompetitionMenu(); break;
+            isCompetitionReadyToLaunch(); break;
         case 2:
             settiingsMenu(); break;
+        case 3:
+            showGroupsMenu(); break;
         case 9:
             cout << endl; mainMenu(); break;
         default:
@@ -75,6 +87,53 @@ void Application::competitionMenu()
         cin.clear();
         getline(cin, badStr);
         competitionMenu();
+        cout << endl;
+    }
+}
+
+void Application::showGroupsMenu()
+{
+    cout << endl
+         << "Groups:" << endl;
+    int i = 0;
+        for( Group group: comp->getGroupStage().getGroups() )
+            cout << ++i << ". Group " << group.getCharacter() << endl;
+         cout << "9. Back to competition menu" << endl
+         << "0. Exit" << endl
+         << ">>> ";
+    string badStr;
+    int num;
+    cin >> num;
+    if (cin.good())
+    {
+        switch (num)
+        {
+        case 0:
+            break;
+        case 1:
+            setTitleOfCompetition(); settiingsMenu(); break;
+        case 2:
+            enterTeamsFromConsole(); settiingsMenu(); break;
+        case 3:
+            enterTeamsFromFile(); settiingsMenu(); break;
+        case 4:
+            showCurrentSettings(); settiingsMenu(); break;
+        case 9:
+            competitionMenu(); break;
+        default:
+            cout << "Error! Invalid number." << endl;
+            cin.clear();
+            getline(cin, badStr);
+            cout << endl;
+            settiingsMenu(); break;
+        }
+    }
+    else
+    {
+        cout << "Error! Input a number." << endl;
+        cin.clear();
+        getline(cin, badStr);
+        settiingsMenu();
         cout << endl;
     }
 }
@@ -98,7 +157,7 @@ void Application::settiingsMenu()
            switch (num)
            {
            case 0:
-                  break;
+               break;
            case 1:
                setTitleOfCompetition(); settiingsMenu(); break;
            case 2:

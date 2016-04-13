@@ -19,7 +19,7 @@ void Competition::addTeam(string name)
     numberOfTeams++;
 }
 
-string& Competition::getTitle()
+string &Competition::getTitle()
 {
     return title;
 }
@@ -60,7 +60,7 @@ PlayoffStage &Competition::getPlayoffStage()
 void Competition::startPlayOffStage()
 {
     if (numberOfTeams % 4 == 0 && numberOfTeams != 0) {
-        playoffStage = new PlayoffStage(groupStage->determineWinners());
+        playoffStage = new PlayoffStage(groupStage->getWinners());
         playoffStage->launch();
     }
     else

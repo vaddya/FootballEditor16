@@ -18,6 +18,7 @@ public:
      * @brief Launch this stage
      */
     void launch();
+    void createPairs();
     friend ostream& operator<<(ostream& os, PlayoffStage &playoff);
 };
 

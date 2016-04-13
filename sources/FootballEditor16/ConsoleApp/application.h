@@ -20,7 +20,7 @@ public:
      * @brief Display main menu
      */
     void mainMenu();
-
+    void isCompetitionReadyToLaunch();
     /**
      * @brief Set title of the competition
      */
@@ -33,6 +33,7 @@ public:
      * @brief Display menu of competition
      */
     void competitionMenu();
+    void showGroupsMenu();
     /**
      * @brief Enter list of teams from console
      */

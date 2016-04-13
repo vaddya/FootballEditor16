@@ -145,7 +145,7 @@ void Application::loadCompetition()
 
 void Application::determineWinnersOfGroupStage()
 {
-    for( Team team :comp->getGroupStage().determineWinners() )
+    for( Team team :comp->getGroupStage().getWinners() )
         cout << team << endl;
     cout << endl;
 }

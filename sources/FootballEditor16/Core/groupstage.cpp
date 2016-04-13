@@ -23,7 +23,7 @@ unsigned GroupStage::getNumberOfGroups() const
     return numberOfGroups;
 }
 
-vector<Team> &GroupStage::determineWinners()
+void GroupStage::determineWinners()
 {
     winners.clear();
     for (Group group: groups) {
@@ -32,6 +32,11 @@ vector<Team> &GroupStage::determineWinners()
     for (Group group: groups) {
         winners.push_back(group.getSecondPlace());
     }
+}
+
+vector<Team> &GroupStage::getWinners()
+{
+    determineWinners();
     return winners;
 }
 

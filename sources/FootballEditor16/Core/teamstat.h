@@ -13,7 +13,7 @@ public:
      * @brief TeamStat
      * @param team
      */
-    TeamStat(Team & team);
+    TeamStat(Team &team);
 
 
     /**

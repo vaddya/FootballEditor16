@@ -29,12 +29,18 @@ public:
      * @return number of groups
      */
     unsigned getNumberOfGroups() const;
-
-    vector<Team> &determineWinners();
-
-private:
-    void sortTeams();
+    /**
+     * @brief Create groups
+     */
     void createGroups();
+    /**
+     * @brief Get winners of the group stage
+     * @return vector of winners
+     */
+    vector<Team> &getWinners();
+private:
+    void determineWinners();
+    void sortTeams();
     vector<Group> groups;
     unsigned numberOfGroups;
 
