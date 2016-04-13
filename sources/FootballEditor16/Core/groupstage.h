@@ -23,17 +23,22 @@ public:
      * @brief Get vector of groups
      * @return vector of groups
      */
-    vector<Group> & getGroups();
+    vector<Group> &getGroups();
     /**
      * @brief Get number of groups
      * @return number of groups
      */
     unsigned getNumberOfGroups() const;
+
+    vector<Team> &determineWinners();
+
 private:
     void sortTeams();
     void createGroups();
     vector<Group> groups;
     unsigned numberOfGroups;
+
+    vector<Team> winners;
 };
 
 #endif // GROUPSTAGE_H

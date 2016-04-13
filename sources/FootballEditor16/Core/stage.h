@@ -24,9 +24,7 @@ public:
      * @brief Launch the stage
      */
     virtual void launch() = 0;
-    /**
-     * @brief Destructor
-     */
+
     virtual ~Stage() {}
 private:
     vector<Team>& teams;

@@ -46,11 +46,8 @@ public:
      * @return vector of matches
      */
     vector<Match>& getMatches();
-    /**
-     * @brief Determine winers
-     * @return
-     */
-    vector<Team> determineWiners();
+    Team getFirstPlace();
+    Team getSecondPlace();
     /**
      * @brief Overloading of operator <<
      * @param os Variable of type ostream
@@ -62,6 +59,7 @@ public:
      * @brief Sort teams by number of points
      */
     void sort();
+
 private:
     char character;
     vector<TeamInGroup> teams;

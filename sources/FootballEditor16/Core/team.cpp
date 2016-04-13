@@ -24,6 +24,6 @@ string &Team::getCoach()
 
 ostream& operator<<(ostream& os, const Team& team)
 {
-    os << team.name;
+    os << "(" << team.id << ") " << team.name;
     return os;
 }

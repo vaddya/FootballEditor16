@@ -15,13 +15,16 @@ vector<Match>& Group::getMatches()
     return matches;
 }
 
-vector<Team> Group::determineWiners()
+Team Group::getFirstPlace()
 {
     sort();
-    vector<Team> winers;
-    if (teams[1] < teams[0])
-        winers.push_back(teams[0]);
-    return winers;
+    return teams[0];
+}
+
+Team Group::getSecondPlace()
+{
+    sort();
+    return teams[1];
 }
 
 ostream& operator<<(ostream &os, Group &group)

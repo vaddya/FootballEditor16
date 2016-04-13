@@ -111,9 +111,12 @@ void TestCore::groupTest()
             team.win(); // 0 3 6 9
         ++i;
     }
-    QCOMPARE(group->getTeams()[0].getPoints(), 0);
+    QVERIFY(group->getTeams()[0].getPoints() == 0);
     group->sort(); // now 9 6 3 0
-    QCOMPARE(group->getTeams()[0].getPoints(), 9);
+    QVERIFY(group->getTeams()[0].getPoints() == 9);
+    QVERIFY(group->getTeams()[0].getGames() == 3);
+    QVERIFY(group->getTeams()[0].getWins() == 3);
+    QVERIFY(group->getTeams()[2].getWins() == 1);
 
     delete group;
 }

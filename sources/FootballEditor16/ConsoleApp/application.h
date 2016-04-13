@@ -71,6 +71,7 @@ public:
      */
     void loadCompetition();
 
+    void determineWinnersOfGroupStage();
     /**
      * @brief Display current settings
      */

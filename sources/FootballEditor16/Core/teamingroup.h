@@ -75,6 +75,8 @@ public:
      * false, if points of one is greater than or equal of points of second
      */
     friend bool operator<( const TeamInGroup& one, const TeamInGroup& another );
+
+    friend bool operator==( const TeamInGroup& one, const TeamInGroup& another );
 private:
     int points;
     int games;

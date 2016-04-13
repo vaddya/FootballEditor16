@@ -9,35 +9,41 @@ bool operator < ( const TeamInGroup &one, const TeamInGroup &another ) {
 
 void TeamInGroup::win()
 {
+    ++games;
     ++wins;
     points += 3;
 }
 
 void TeamInGroup::draw()
 {
+    ++games;
     ++draws;
     ++points;
 }
 
 void TeamInGroup::lose()
 {
+    ++games;
     ++loses;
 }
 
 void TeamInGroup::unWin()
 {
+    --games;
     --wins;
     points -= 3;
 }
 
 void TeamInGroup::unDraw()
 {
+    --games;
     --draws;
     --points;
 }
 
 void TeamInGroup::unLose()
 {
+    --games;
     --loses;
 }
 

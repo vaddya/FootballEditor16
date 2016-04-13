@@ -4,6 +4,7 @@ GroupStage::GroupStage(vector<Team> &teams): Stage(teams)
 {
     numberOfGroups = teams.size()/4;
     groups.reserve(numberOfGroups);
+    winners.reserve(numberOfGroups*2);
     sortTeams();
 }
 
@@ -20,6 +21,18 @@ vector<Group> &GroupStage::getGroups()
 unsigned GroupStage::getNumberOfGroups() const
 {
     return numberOfGroups;
+}
+
+vector<Team> &GroupStage::determineWinners()
+{
+    winners.clear();
+    for (Group group: groups) {
+        winners.push_back(group.getFirstPlace());
+    }
+    for (Group group: groups) {
+        winners.push_back(group.getSecondPlace());
+    }
+    return winners;
 }
 
 void GroupStage::sortTeams()

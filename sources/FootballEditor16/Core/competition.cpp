@@ -54,7 +54,12 @@ GroupStage& Competition::getGroupStage()
 
 void Competition::startPlayOffStage()
 {
-    playoffStage->launch();
+    if (numberOfTeams % 4 == 0 && numberOfTeams != 0) {
+        playoffStage = new PlayoffStage(groupStage->determineWinners());
+        playoffStage->launch();
+    }
+    else
+        throw WrongNumberOfTeams(numberOfTeams);
 }
 
 Competition::~Competition()

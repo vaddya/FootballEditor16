@@ -143,6 +143,13 @@ void Application::loadCompetition()
     mainMenu();
 }
 
+void Application::determineWinnersOfGroupStage()
+{
+    for( Team team :comp->getGroupStage().determineWinners() )
+        cout << team << endl;
+    cout << endl;
+}
+
 void Application::showCurrentSettings()
 {
     cout << "Competition \"" << comp->getTitle() << "\"" << endl
