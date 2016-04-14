@@ -38,16 +38,6 @@ void Application::mainMenu()
     }
 }
 
-void Application::isCompetitionReadyToLaunch()
-{
-    if (comp->getTeams().size() > 0)
-        launchCompetitionMenu();
-    else {
-        cout << "Add teams to the competition!" << endl;
-        competitionMenu();
-    }
-}
-
 void Application::competitionMenu()
 {
     cout << endl
@@ -70,8 +60,6 @@ void Application::competitionMenu()
             isCompetitionReadyToLaunch(); break;
         case 2:
             settiingsMenu(); break;
-        case 3:
-            showGroupsMenu(); break;
         case 9:
             cout << endl; mainMenu(); break;
         default:
@@ -93,12 +81,55 @@ void Application::competitionMenu()
 
 void Application::showGroupsMenu()
 {
+    vector<Group> *groups = &(comp->getGroupStage().getGroups());
     cout << endl
-         << "Groups:" << endl;
-    int i = 0;
-        for( Group group: comp->getGroupStage().getGroups() )
-            cout << ++i << ". Group " << group.getCharacter() << endl;
-         cout << "9. Back to competition menu" << endl
+         << "Select group:" << endl;
+    for( Group group: *groups )
+        cout << group.getCharacter() << ". Group " << group.getCharacter() << endl;
+    cout << "9. Back to competition menu" << endl
+         << "0. Exit" << endl
+         << ">>> ";
+    string badStr;
+    char ch;
+    cin >> ch;
+    if (cin.good())
+    {
+        if (ch == '0')
+            return;
+        else if (ch == '9') {
+                competitionMenu();
+                return;
+             }
+        else if (ch >= 'A' && ch <= groups->back().getCharacter())
+            showGroupMenu(ch);
+        else {
+            cout << "Error! Invalid choise." << endl;
+            cin.clear();
+            getline(cin, badStr);
+            cout << endl;
+            showGroupsMenu();
+            return;
+        }
+    }
+    else
+    {
+        cout << "Error! Input a symbol." << endl;
+        cin.clear();
+        getline(cin, badStr);
+        showGroupsMenu();
+        cout << endl;
+    }
+}
+
+void Application::showGroupMenu(char groupCharacter)
+{
+    cout << endl
+         << "Group " << groupCharacter << " :" << endl
+         << "1. Show group" << endl
+         << "2. Show matches" << endl
+         << "3. Enter the results of the matches" << endl
+         << "4. Simulate the results of the matches" << endl
+         << "9. Back to competition menu" << endl
          << "0. Exit" << endl
          << ">>> ";
     string badStr;
@@ -111,21 +142,20 @@ void Application::showGroupsMenu()
         case 0:
             break;
         case 1:
-            setTitleOfCompetition(); settiingsMenu(); break;
+            showGroups(); launchCompetitionMenu(); break;
         case 2:
-            enterTeamsFromConsole(); settiingsMenu(); break;
+            showMatches(); launchCompetitionMenu(); break;
         case 3:
-            enterTeamsFromFile(); settiingsMenu(); break;
+            setResultsOfGroupStage(); launchCompetitionMenu(); break;
         case 4:
-            showCurrentSettings(); settiingsMenu(); break;
+            simulateResultsOfGroupStage(); launchCompetitionMenu(); break;
         case 9:
             competitionMenu(); break;
         default:
             cout << "Error! Invalid number." << endl;
             cin.clear();
             getline(cin, badStr);
-            cout << endl;
-            settiingsMenu(); break;
+            launchCompetitionMenu(); break;
         }
     }
     else
@@ -133,7 +163,7 @@ void Application::showGroupsMenu()
         cout << "Error! Input a number." << endl;
         cin.clear();
         getline(cin, badStr);
-        settiingsMenu();
+        launchCompetitionMenu();
         cout << endl;
     }
 }
@@ -192,12 +222,9 @@ void Application::launchCompetitionMenu()
     cout << endl
          << comp->getTitle() << ":" << endl
          << "1. Create groups" << endl
-         << "2. Show groups" << endl
-         << "3. Show matches" << endl
-         << "4. Enter the results of the group stage matches" << endl
-         << "5. Simulate the results of the group stage matches" << endl
-         << "6. Determine winners of group stage" << endl
-         << "7. Create playoff pairs" << endl
+         << "2. Groups" << endl
+         << "3. Create playoff pairs" << endl
+         << "4. Playoff" << endl
          << "9. Back to competition menu" << endl
          << "0. Exit" << endl
          << ">>> ";
@@ -213,16 +240,10 @@ void Application::launchCompetitionMenu()
         case 1:
             createGroups(); launchCompetitionMenu(); break;
         case 2:
-            showGroups(); launchCompetitionMenu(); break;
+            showGroupsMenu(); launchCompetitionMenu(); break;
         case 3:
-            showMatches(); launchCompetitionMenu(); break;
+            createPlayoffPairs(); launchCompetitionMenu(); break;
         case 4:
-            setResultsOfGroupStage(); launchCompetitionMenu(); break;
-        case 5:
-            simulateResultsOfGroupStage(); launchCompetitionMenu(); break;
-        case 6:
-            determineWinnersOfGroupStage(); launchCompetitionMenu(); break;
-        case 7:
             createPlayoffPairs(); launchCompetitionMenu(); break;
         case 9:
             competitionMenu(); break;

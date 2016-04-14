@@ -52,6 +52,16 @@ void Application::enterTeamsFromFile()
     cout << "Data has been read" << endl;
 }
 
+void Application::isCompetitionReadyToLaunch()
+{
+    if (comp->getTeams().size() > 0)
+        launchCompetitionMenu();
+    else {
+        cout << "Add teams to the competition!" << endl;
+        competitionMenu();
+    }
+}
+
 void Application::createGroups()
 {
     try {
