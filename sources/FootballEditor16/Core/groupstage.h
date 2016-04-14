@@ -38,6 +38,8 @@ public:
      * @return vector of winners
      */
     vector<Team> &getWinners();
+
+    Group& getGroup(char id);
 private:
     void determineWinners();
     void sortTeams();
@@ -46,5 +48,7 @@ private:
 
     vector<Team> winners;
 };
+
+class WrongID : public std::exception {};
 
 #endif // GROUPSTAGE_H

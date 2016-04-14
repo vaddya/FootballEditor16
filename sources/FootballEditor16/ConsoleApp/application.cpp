@@ -76,6 +76,31 @@ void Application::createGroups()
     cout << "Groups are created" << endl;
 }
 
+void Application::showGroup(char groupCharacter)
+{
+    try {
+        cout << endl;
+        cout << comp->getGroupStage().getGroup(groupCharacter) << endl;
+        cout << "G-Groups, W-Wins, D-Draws, L-Loses, P-Points" << endl;
+    }
+    catch (GroupAreNotCreated& e) {
+           cout << e.what() << endl;
+           return;
+    }
+    try {
+        cout << endl;
+        cout << "Matches:" << endl;
+        for( Match match: comp->getGroupStage().getGroup(groupCharacter).getMatches() ) {
+            cout << match;
+        }
+        cout << endl;
+    }
+    catch (GroupAreNotCreated& e) {
+           cout << "There are no matches" << endl
+                << e.what() << endl;
+    }
+}
+
 void Application::showGroups()
 {
     try {
@@ -89,6 +114,20 @@ void Application::showGroups()
     catch (GroupAreNotCreated& e) {
            cout << e.what() << endl;
     }
+    try {
+        cout << endl;
+        for(Group group: comp->getGroupStage().getGroups()) {
+
+            for(Match match: group.getMatches()) {
+                cout << match;
+            }
+            cout << endl;
+        }
+    }
+    catch (GroupAreNotCreated& e) {
+           cout << "There are no matches" << endl
+                << e.what() << endl;
+    }
 }
 
 void Application::showMatches()
@@ -96,7 +135,7 @@ void Application::showMatches()
     try {
         cout << endl;
         for(Group group: comp->getGroupStage().getGroups()) {
-            cout << "Group " << group.getCharacter() << endl;
+            cout << "Group " << group.getId() << endl;
             for(Match match: group.getMatches()) {
                 cout << match;
             }
@@ -115,7 +154,7 @@ void Application::setResultsOfGroupStage()
         int goalsOfFirstTeam, goalsOfSecondTeam;
         char separator;
         for (Group &group: comp->getGroupStage().getGroups()) {
-            cout << endl << "Group " << group.getCharacter() << endl;
+            cout << endl << "Group " << group.getId() << endl;
             for (Match &match: group.getMatches()) {
                 cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": ";
                 cin >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;

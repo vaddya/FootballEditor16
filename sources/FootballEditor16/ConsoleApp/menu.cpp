@@ -85,7 +85,7 @@ void Application::showGroupsMenu()
     cout << endl
          << "Select group:" << endl;
     for( Group group: *groups )
-        cout << group.getCharacter() << ". Group " << group.getCharacter() << endl;
+        cout << group.getId() << ". Group " << group.getId() << endl;
     cout << "9. Back to competition menu" << endl
          << "0. Exit" << endl
          << ">>> ";
@@ -100,7 +100,7 @@ void Application::showGroupsMenu()
                 competitionMenu();
                 return;
              }
-        else if (ch >= 'A' && ch <= groups->back().getCharacter())
+        else if (ch >= 'A' && ch <= groups->back().getId())
             showGroupMenu(ch);
         else {
             cout << "Error! Invalid choise." << endl;
@@ -124,7 +124,7 @@ void Application::showGroupsMenu()
 void Application::showGroupMenu(char groupCharacter)
 {
     cout << endl
-         << "Group " << groupCharacter << " :" << endl
+         << "Group " << groupCharacter << ":" << endl
          << "1. Show group" << endl
          << "2. Show matches" << endl
          << "3. Enter the results of the matches" << endl
@@ -142,20 +142,20 @@ void Application::showGroupMenu(char groupCharacter)
         case 0:
             break;
         case 1:
-            showGroups(); launchCompetitionMenu(); break;
+            showGroup(groupCharacter); showGroupMenu(groupCharacter); break;
         case 2:
-            showMatches(); launchCompetitionMenu(); break;
+            showMatches(); showGroupMenu(groupCharacter); break;
         case 3:
-            setResultsOfGroupStage(); launchCompetitionMenu(); break;
+            setResultsOfGroupStage(); showGroupMenu(groupCharacter); break;
         case 4:
-            simulateResultsOfGroupStage(); launchCompetitionMenu(); break;
+            simulateResultsOfGroupStage(); showGroupMenu(groupCharacter); break;
         case 9:
             competitionMenu(); break;
         default:
             cout << "Error! Invalid number." << endl;
             cin.clear();
             getline(cin, badStr);
-            launchCompetitionMenu(); break;
+            showGroupMenu(groupCharacter); break;
         }
     }
     else
@@ -163,7 +163,7 @@ void Application::showGroupMenu(char groupCharacter)
         cout << "Error! Input a number." << endl;
         cin.clear();
         getline(cin, badStr);
-        launchCompetitionMenu();
+        showGroupMenu(groupCharacter);
         cout << endl;
     }
 }

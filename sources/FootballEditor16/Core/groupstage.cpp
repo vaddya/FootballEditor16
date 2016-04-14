@@ -26,11 +26,10 @@ unsigned GroupStage::getNumberOfGroups() const
 void GroupStage::determineWinners()
 {
     winners.clear();
+    vector<Team> winnersOfGroup;
     for (Group group: groups) {
-        winners.push_back(group.getFirstPlace());
-    }
-    for (Group group: groups) {
-        winners.push_back(group.getSecondPlace());
+        winnersOfGroup = group.getWinners();
+        winners.insert(winners.end(), winnersOfGroup.begin(), winnersOfGroup.end());
     }
 }
 
@@ -38,6 +37,15 @@ vector<Team> &GroupStage::getWinners()
 {
     determineWinners();
     return winners;
+}
+
+Group &GroupStage::getGroup(char id)
+{
+    for( Group &group: groups )
+        if ( id == group.getId() )
+            return group;
+    throw WrongID();
+    return groups[0];
 }
 
 void GroupStage::sortTeams()
@@ -49,7 +57,7 @@ void GroupStage::createGroups()
 {
     for (unsigned i = 0; i < numberOfGroups; i++)
     {
-        groups.push_back(Group(char(65+i)));
+        groups.push_back(Group());
         for (unsigned j = 0; j < 4; j++) {
             groups.back().addTeam(getTeams()[i+j*4]);
         }

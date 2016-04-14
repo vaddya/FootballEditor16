@@ -20,7 +20,7 @@ public:
      * @brief Constructor of Group
      * @param character 'Name' of the group (A, B, C,...)
      */
-    Group(char character): character(character) {}
+    Group();
     /**
      * @brief Create matches between members of groups
      */
@@ -35,7 +35,7 @@ public:
      * @brief Get group 'name'
      * @return group 'name' (A, B, C, etc.)
      */
-    char getCharacter() const;
+    char getId() const;
     /**
      * @brief Get vector of teams
      * @return vector of teams
@@ -46,8 +46,7 @@ public:
      * @return vector of matches
      */
     vector<Match>& getMatches();
-    Team getFirstPlace();
-    Team getSecondPlace();
+    vector<Team> getWinners();
     /**
      * @brief Overloading of operator <<
      * @param os Variable of type ostream
@@ -61,7 +60,7 @@ public:
     void sort();
 
 private:
-    char character;
+    char id;
     vector<TeamInGroup> teams;
     vector<Match> matches;
 };

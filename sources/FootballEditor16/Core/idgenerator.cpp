@@ -3,8 +3,9 @@
 IdGenerator *IdGenerator::idGen = 0;
 
 IdGenerator::IdGenerator() {
-    firstCount = 0;
-    secondCount = 0;
+    teamCount = 1;
+    matchCount = 1;
+    groupCount = 'A';
 }
 
 IdGenerator *IdGenerator::IdGeneratorInstance() {
@@ -13,11 +14,16 @@ IdGenerator *IdGenerator::IdGeneratorInstance() {
     return idGen;
 }
 
-int IdGenerator::getFirstId() {
-    return ++firstCount;
+int IdGenerator::getTeamId() {
+    return teamCount++;
 }
 
-int IdGenerator::getSecondId() {
-    return ++secondCount;
+int IdGenerator::getMatchId() {
+    return matchCount++;
+}
+
+char IdGenerator::getGroupId()
+{
+    return groupCount++;
 }
 

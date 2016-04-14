@@ -1,8 +1,14 @@
 #include "group.h"
 
-char Group::getCharacter() const
+Group::Group()
 {
-    return character;
+    IdGenerator *idGen = IdGenerator::IdGeneratorInstance();
+    id = idGen->getGroupId();
+}
+
+char Group::getId() const
+{
+    return id;
 }
 
 vector<TeamInGroup>& Group::getTeams()
@@ -15,31 +21,12 @@ vector<Match>& Group::getMatches()
     return matches;
 }
 
-Team Group::getFirstPlace()
+vector<Team> Group::getWinners()
 {
-    sort();
-    return teams[0];
-}
-
-Team Group::getSecondPlace()
-{
-    sort();
-    return teams[1];
-}
-
-ostream& operator<<(ostream &os, Group &group)
-{
-    cout << "Group " << group.getCharacter() << endl;
-    cout << "N  " << "Team" << setw(26) << "G   W   D   L   P" << endl;
-    int i = 0;
-    for( TeamInGroup team : group.getTeams() )
-        cout << ++i << ". " << team << setw(14-team.getName().size())
-             << team.getGames() << "   "
-             << team.getWins() << "   "
-             << team.getDraws() << "   "
-             << team.getLoses() << "   "
-             << team.getPoints() << endl;
-    return os;
+    vector<Team> winners;
+    winners.push_back(teams[0]);
+    winners.push_back(teams[1]);
+    return winners;
 }
 
 void Group::sort()
@@ -60,4 +47,19 @@ void Group::createMatches()
 void Group::addTeam(Team &team)
 {
     teams.push_back(team);
+}
+
+ostream& operator<<(ostream &os, Group &group)
+{
+    cout << "Group " << group.getId() << endl;
+    cout << "N  " << "Team" << setw(26) << "G   W   D   L   P" << endl;
+    int i = 0;
+    for( TeamInGroup team : group.getTeams() )
+        cout << ++i << ". " << team << setw(14-team.getName().size())
+             << team.getGames() << "   "
+             << team.getWins() << "   "
+             << team.getDraws() << "   "
+             << team.getLoses() << "   "
+             << team.getPoints() << endl;
+    return os;
 }

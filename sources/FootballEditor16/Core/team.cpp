@@ -3,7 +3,7 @@
 Team::Team(string name, string coach): name(name), coach(coach)
 {
     IdGenerator *idGen = IdGenerator::IdGeneratorInstance();
-    id = idGen->getSecondId();
+    id = idGen->getTeamId();
 }
 
 Team::Team(const Team &other): id(other.id), name(other.name), coach(other.coach) {}

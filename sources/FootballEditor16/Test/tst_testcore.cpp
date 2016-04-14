@@ -96,7 +96,7 @@ void TestCore::teamInGroupTest()
 void TestCore::groupTest()
 {
     // Test initialisation
-    Group *group = new Group('A');
+    Group *group = new Group();
     group->addTeam(teams[0]);
     group->addTeam(teams[1]);
     group->addTeam(teams[2]);

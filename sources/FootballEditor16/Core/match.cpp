@@ -4,7 +4,7 @@ Match::Match(TeamInGroup &firstTeam, TeamInGroup &secondTeam): firstTeam(firstTe
     secondTeam(secondTeam), firstTG(&firstTeam), secondTG(&secondTeam), result("Hasn't started yet")
 {
     IdGenerator *idGen = IdGenerator::IdGeneratorInstance();
-    id = idGen->getFirstId();
+    id = idGen->getMatchId();
 }
 
 void Match::setResult(int firstTeamGoals, int secondTeamGoals)
@@ -33,17 +33,6 @@ void Match::simulate()
     int firstTeamGoals = randomiser->random(0, 4);
     int secondTeamGoals = randomiser->random(0, 4);
     setResult(firstTeamGoals, secondTeamGoals);
-}
-
-ostream& operator<<(ostream &os, Match &match)
-{
-    os << "(" << match.getId() << ") " << match.getFirstTeam();
-    if (match.getResult() == "Hasn't started yet")
-        os << " vs ";
-    else
-        os << " " << match.getResult() << " ";
-    os << match.getSecondTeam() << endl;
-    return os;
 }
 
 void Match::updatePoints(int fTeamGoals, int sTeamGoals)
@@ -83,4 +72,15 @@ void Match::updateResult()
     ostringstream convert;
     convert << firstTeam.getGoals() << ':' << secondTeam.getGoals();
     result = convert.str();
+}
+
+ostream& operator<<(ostream &os, Match &match)
+{
+    os << "(" << match.getId() << ") " << match.getFirstTeam();
+    if (match.getResult() == "Hasn't started yet")
+        os << " vs ";
+    else
+        os << " " << match.getResult() << " ";
+    os << match.getSecondTeam() << endl;
+    return os;
 }

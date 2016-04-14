@@ -12,19 +12,25 @@ public:
      */
     static IdGenerator *IdGeneratorInstance();
     /**
-     * @brief Get ID from first counter
+     * @brief Get ID for team
      * @return Generated ID
      */
-    int getFirstId();
+    int getTeamId();
     /**
-     * @brief Get ID from second counter
+     * @brief Get ID for match
      * @return Generated ID
      */
-    int getSecondId();
+    int getMatchId();
+    /**
+     * @brief Get ID for group
+     * @return Generated ID
+     */
+    char getGroupId();
 private:
     IdGenerator();
-    int firstCount;
-    int secondCount;
+    int teamCount;
+    int matchCount;
+    char groupCount;
     static IdGenerator *idGen;
 };
 
