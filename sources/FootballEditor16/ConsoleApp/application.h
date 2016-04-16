@@ -34,8 +34,10 @@ public:
      */
     void competitionMenu();
     void showGroupsMenu();
-    void showGroup(char groupCharacter);
+    void showTable(char groupCharacter);
+    void showMatches(char groupCharacter);
     void showGroupMenu(char groupCharacter);
+    void setResultsOfMatches(char groupCharacter);
     /**
      * @brief Enter list of teams from console
      */

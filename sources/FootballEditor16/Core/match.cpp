@@ -35,6 +35,15 @@ void Match::simulate()
     setResult(firstTeamGoals, secondTeamGoals);
 }
 
+void Match::clear()
+{
+    pickPointsBack(firstTeam.getGoals(), secondTeam.getGoals());
+    firstTeam.setGoals(0);
+    secondTeam.setGoals(0);
+    result = "Hasn't started yet";
+}
+
+
 void Match::updatePoints(int fTeamGoals, int sTeamGoals)
 {
     if (fTeamGoals > sTeamGoals) {
@@ -74,13 +83,22 @@ void Match::updateResult()
     result = convert.str();
 }
 
-ostream& operator<<(ostream &os, Match &match)
+ostream &operator<<(ostream &os, Match &match)
 {
     os << "(" << match.getId() << ") " << match.getFirstTeam();
     if (match.getResult() == "Hasn't started yet")
         os << " vs ";
     else
         os << " " << match.getResult() << " ";
-    os << match.getSecondTeam() << endl;
+    os << match.getSecondTeam();
     return os;
+}
+
+istream &operator>>(istream &is, Match &match)
+{
+    int goalsOfFirstTeam, goalsOfSecondTeam;
+    char separator;
+    is >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
+    match.setResult(goalsOfFirstTeam, goalsOfSecondTeam);
+    return is;
 }

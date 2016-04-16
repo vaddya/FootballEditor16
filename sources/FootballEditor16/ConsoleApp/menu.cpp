@@ -125,7 +125,7 @@ void Application::showGroupMenu(char groupCharacter)
 {
     cout << endl
          << "Group " << groupCharacter << ":" << endl
-         << "1. Show group" << endl
+         << "1. Show table" << endl
          << "2. Show matches" << endl
          << "3. Enter the results of the matches" << endl
          << "4. Simulate the results of the matches" << endl
@@ -142,11 +142,11 @@ void Application::showGroupMenu(char groupCharacter)
         case 0:
             break;
         case 1:
-            showGroup(groupCharacter); showGroupMenu(groupCharacter); break;
+            showTable(groupCharacter); showGroupMenu(groupCharacter); break;
         case 2:
-            showMatches(); showGroupMenu(groupCharacter); break;
+            showMatches(groupCharacter); showGroupMenu(groupCharacter); break;
         case 3:
-            setResultsOfGroupStage(); showGroupMenu(groupCharacter); break;
+            setResultsOfMatches(groupCharacter); showGroupMenu(groupCharacter); break;
         case 4:
             simulateResultsOfGroupStage(); showGroupMenu(groupCharacter); break;
         case 9:

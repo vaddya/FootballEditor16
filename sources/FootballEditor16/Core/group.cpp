@@ -51,6 +51,7 @@ void Group::addTeam(Team &team)
 
 ostream& operator<<(ostream &os, Group &group)
 {
+    group.sort();
     cout << "Group " << group.getId() << endl;
     cout << "N  " << "Team" << setw(26) << "G   W   D   L   P" << endl;
     int i = 0;
