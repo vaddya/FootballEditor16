@@ -79,95 +79,6 @@ void Application::competitionMenu()
     }
 }
 
-void Application::showGroupsMenu()
-{
-    vector<Group> *groups = &(comp->getGroupStage().getGroups());
-    cout << endl
-         << "Select group:" << endl;
-    for( Group group: *groups )
-        cout << group.getId() << ". Group " << group.getId() << endl;
-    cout << "9. Back to competition menu" << endl
-         << "0. Exit" << endl
-         << ">>> ";
-    string badStr;
-    char ch;
-    cin >> ch;
-    if (cin.good())
-    {
-        if (ch == '0')
-            return;
-        else if (ch == '9') {
-                competitionMenu();
-                return;
-             }
-        else if (ch >= 'A' && ch <= groups->back().getId())
-            showGroupMenu(ch);
-        else {
-            cout << "Error! Invalid choise." << endl;
-            cin.clear();
-            getline(cin, badStr);
-            cout << endl;
-            showGroupsMenu();
-            return;
-        }
-    }
-    else
-    {
-        cout << "Error! Input a symbol." << endl;
-        cin.clear();
-        getline(cin, badStr);
-        showGroupsMenu();
-        cout << endl;
-    }
-}
-
-void Application::showGroupMenu(char groupCharacter)
-{
-    cout << endl
-         << "Group " << groupCharacter << ":" << endl
-         << "1. Show table" << endl
-         << "2. Show matches" << endl
-         << "3. Enter the results of the matches" << endl
-         << "4. Simulate the results of the matches" << endl
-         << "9. Back to competition menu" << endl
-         << "0. Exit" << endl
-         << ">>> ";
-    string badStr;
-    int num;
-    cin >> num;
-    if (cin.good())
-    {
-        switch (num)
-        {
-        case 0:
-            break;
-        case 1:
-            showTable(groupCharacter); showGroupMenu(groupCharacter); break;
-        case 2:
-            showMatches(groupCharacter); showGroupMenu(groupCharacter); break;
-        case 3:
-            setResultsOfMatches(groupCharacter); showGroupMenu(groupCharacter); break;
-        case 4:
-            simulateResultsOfGroupStage(); showGroupMenu(groupCharacter); break;
-        case 9:
-            competitionMenu(); break;
-        default:
-            cout << "Error! Invalid number." << endl;
-            cin.clear();
-            getline(cin, badStr);
-            showGroupMenu(groupCharacter); break;
-        }
-    }
-    else
-    {
-        cout << "Error! Input a number." << endl;
-        cin.clear();
-        getline(cin, badStr);
-        showGroupMenu(groupCharacter);
-        cout << endl;
-    }
-}
-
 void Application::settiingsMenu()
 {
        cout << endl
@@ -240,7 +151,7 @@ void Application::launchCompetitionMenu()
         case 1:
             createGroups(); launchCompetitionMenu(); break;
         case 2:
-            showGroupsMenu(); launchCompetitionMenu(); break;
+            showGroupsMenu(); break;
         case 3:
             createPlayoffPairs(); launchCompetitionMenu(); break;
         case 4:
@@ -260,6 +171,95 @@ void Application::launchCompetitionMenu()
         cin.clear();
         getline(cin, badStr);
         launchCompetitionMenu();
+        cout << endl;
+    }
+}
+
+void Application::showGroupsMenu()
+{
+    vector<Group> *groups = &(comp->getGroupStage().getGroups());
+    cout << endl
+         << "Select group:" << endl;
+    for( Group group: *groups )
+        cout << group.getId() << ". Group " << group.getId() << endl;
+    cout << "9. Back to competition menu" << endl
+         << "0. Exit" << endl
+         << ">>> ";
+    string badStr;
+    char ch;
+    cin >> ch;
+    if (cin.good())
+    {
+        if (ch == '0')
+            return;
+        else if (ch == '9') {
+                launchCompetitionMenu();
+                return;
+             }
+        else if (ch >= 'A' && ch <= groups->back().getId())
+            showGroupMenu(ch);
+        else {
+            cout << "Error! Invalid choise." << endl;
+            cin.clear();
+            getline(cin, badStr);
+            cout << endl;
+            showGroupsMenu();
+            return;
+        }
+    }
+    else
+    {
+        cout << "Error! Input a symbol." << endl;
+        cin.clear();
+        getline(cin, badStr);
+        showGroupsMenu();
+        cout << endl;
+    }
+}
+
+void Application::showGroupMenu(char groupCharacter)
+{
+    cout << endl
+         << "Group " << groupCharacter << ":" << endl
+         << "1. Show table" << endl
+         << "2. Show matches" << endl
+         << "3. Enter the results of the matches" << endl
+         << "4. Simulate the results of the matches" << endl
+         << "9. Back to groups menu" << endl
+         << "0. Exit" << endl
+         << ">>> ";
+    string badStr;
+    int num;
+    cin >> num;
+    if (cin.good())
+    {
+        switch (num)
+        {
+        case 0:
+            break;
+        case 1:
+            showTable(groupCharacter); showGroupMenu(groupCharacter); break;
+        case 2:
+            showMatches(groupCharacter); showGroupMenu(groupCharacter); break;
+        case 3:
+            setResultsOfMatches(groupCharacter); showGroupMenu(groupCharacter); break;
+        case 4:
+            simulateResultsOfGroupStage(); showGroupMenu(groupCharacter); break;
+        case 9:
+            showGroupsMenu(); break;
+        default:
+            cout << "Error! Invalid number." << endl;
+            cin.clear();
+            getline(cin, badStr);
+            showGroupMenu(groupCharacter); break;
+        }
+    }
+    else
+    {
+        cout << "Error! Input a number." << endl;
+        cin.clear();
+        getline(cin, badStr);
+        showGroupMenu(groupCharacter);
         cout << endl;
     }
 }

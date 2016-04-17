@@ -34,10 +34,10 @@ public:
      */
     void competitionMenu();
     void showGroupsMenu();
-    void showTable(char groupCharacter);
-    void showMatches(char groupCharacter);
-    void showGroupMenu(char groupCharacter);
-    void setResultsOfMatches(char groupCharacter);
+    void showTable( char groupId );
+    void showMatches( char groupId );
+    void showGroupMenu( char groupId );
+    void setResultsOfMatches( char groupId );
     /**
      * @brief Enter list of teams from console
      */
@@ -66,7 +66,7 @@ public:
     /**
      * @brief Set results of group stage
      */
-    void setResultsOfGroupStage();
+    void setResultsOfMatches();
     /**
      * @brief Simulate results of group stage
      */

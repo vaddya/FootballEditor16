@@ -54,7 +54,7 @@ void Application::enterTeamsFromFile()
 
 void Application::isCompetitionReadyToLaunch()
 {
-    if (comp->getTeams().size() > 0)
+    if( comp->getTeams().size() > 0 )
         launchCompetitionMenu();
     else {
         cout << "Add teams to the competition!" << endl;
@@ -65,10 +65,9 @@ void Application::isCompetitionReadyToLaunch()
 void Application::createGroups()
 {
     try {
-        cout << endl;
         comp->startGroupStage();
     }
-    catch (WrongNumberOfTeams& e) {
+    catch( WrongNumberOfTeams& e ) {
         cout << e.what() << " (now " << e.getWrongNum() << ")" << endl
              << "Groups are not created" << endl;
         return;
@@ -76,14 +75,13 @@ void Application::createGroups()
     cout << "Groups are created" << endl;
 }
 
-void Application::showTable(char groupCharacter)
+void Application::showTable( char groupId )
 {
     try {
         cout << endl;
-        cout << comp->getGroupStage().getGroup(groupCharacter) << endl;
-        cout << "G-Groups, W-Wins, D-Draws, L-Loses, P-Points" << endl;
+        cout << comp->getGroupStage().getGroup(groupId) << endl;
     }
-    catch (GroupAreNotCreated& e) {
+    catch( GroupAreNotCreated& e ) {
            cout << e.what() << endl;
            return;
     }
@@ -97,22 +95,21 @@ void Application::showGroups()
             group.sort();
             cout << group << endl;
         }
-        cout << "G-Groups, W-Wins, D-Draws, L-Loses, P-Points" << endl;
     }
-    catch (GroupAreNotCreated& e) {
+    catch( GroupAreNotCreated& e ) {
            cout << e.what() << endl;
     }
     try {
         cout << endl;
-        for(Group group: comp->getGroupStage().getGroups()) {
+        for( Group group: comp->getGroupStage().getGroups() ) {
 
-            for(Match match: group.getMatches()) {
+            for( Match match: group.getMatches() ) {
                 cout << match;
             }
             cout << endl;
         }
     }
-    catch (GroupAreNotCreated& e) {
+    catch( GroupAreNotCreated& e ) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
     }
@@ -136,41 +133,24 @@ void Application::showMatches()
     }
 }
 
-void Application::showMatches(char groupCharacter)
+void Application::showMatches( char groupId )
 {
     try {
         cout << endl;
-        cout << "Group " << groupCharacter << endl;
+        cout << "Group " << groupId << endl;
         cout << "Matches:" << endl;
-        for( Match match: comp->getGroupStage().getGroup(groupCharacter).getMatches() ) {
+        for( Match match: comp->getGroupStage().getGroup(groupId).getMatches() ) {
             cout << match << endl;
         }
         cout << endl;
     }
-    catch (GroupAreNotCreated& e) {
+    catch( GroupAreNotCreated& e ) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
     }
 }
 
-
-void Application::setResultsOfMatches(char groupCharacter)
-{
-    try {
-        cout << endl << "Group " << groupCharacter << endl;
-        for (Match &match: comp->getGroupStage().getGroup(groupCharacter).getMatches()) {
-            match.clear();
-            cout << match << ": ";
-            cin >> match;
-        }
-    }
-    catch (GroupAreNotCreated& e) {
-           cout << "There are no matches" << endl
-                << e.what() << endl;
-    }
-}
-
-void Application::setResultsOfGroupStage()
+void Application::setResultsOfMatches()
 {
     try {
         for (Group &group: comp->getGroupStage().getGroups()) {
@@ -179,6 +159,22 @@ void Application::setResultsOfGroupStage()
                 cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": ";
                 cin >> match;
             }
+        }
+    }
+    catch (GroupAreNotCreated& e) {
+           cout << "There are no matches" << endl
+                << e.what() << endl;
+    }
+}
+
+void Application::setResultsOfMatches( char groupId )
+{
+    try {
+        cout << endl << "Group " << groupId << endl;
+        for (Match &match: comp->getGroupStage().getGroup(groupId).getMatches()) {
+            //match.clear();
+            cout << match << ": ";
+            cin >> match;
         }
     }
     catch (GroupAreNotCreated& e) {
