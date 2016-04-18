@@ -79,7 +79,7 @@ void Application::showTable( char groupId )
 {
     try {
         cout << endl;
-        cout << comp->getGroupStage().getGroup(groupId) << endl;
+        cout << comp->getGroupStage().getGroup(groupId) ;
     }
     catch( GroupAreNotCreated& e ) {
            cout << e.what() << endl;
@@ -93,7 +93,7 @@ void Application::showGroups()
         cout << endl;
         for(Group group: comp->getGroupStage().getGroups()) {
             group.sort();
-            cout << group << endl;
+            cout << group;
         }
     }
     catch( GroupAreNotCreated& e ) {
@@ -142,7 +142,6 @@ void Application::showMatches( char groupId )
         for( Match match: comp->getGroupStage().getGroup(groupId).getMatches() ) {
             cout << match << endl;
         }
-        cout << endl;
     }
     catch( GroupAreNotCreated& e ) {
            cout << "There are no matches" << endl

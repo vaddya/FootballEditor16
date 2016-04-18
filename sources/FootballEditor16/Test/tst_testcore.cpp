@@ -76,8 +76,8 @@ void TestCore::teamTest()
 void TestCore::teamStatTest()
 {
     TeamStat *teamstat = new TeamStat(teams[0]);
-    teamstat->setGoals(3);
-    QVERIFY(teamstat->getGoals() == 3);
+    teamstat->setGoalsFor(3);
+    QVERIFY(teamstat->getGoalsFor() == 3);
     teamstat->setPossession(67);
     QVERIFY(teamstat->getPossession() == 67);
 
@@ -130,8 +130,8 @@ void TestCore::matchTest()
     QCOMPARE(match->getFirstTeam().getName().c_str(), teams[0].getName().c_str());
     QCOMPARE(match->getSecondTeam().getName().c_str(), teams[1].getName().c_str());
     match->setResult(3, 2);
-    QVERIFY(match->getFirstTeam().getGoals() == 3);
-    QVERIFY(match->getSecondTeam().getGoals() == 2);
+    QVERIFY(match->getFirstTeam().getGoalsFor() == 3);
+    QVERIFY(match->getSecondTeam().getGoalsFor() == 2);
     QCOMPARE(match->getResult().c_str(), "3:2");
 
     delete firstTeam;

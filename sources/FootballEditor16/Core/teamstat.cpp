@@ -1,10 +1,21 @@
 #include "teamstat.h"
 
-TeamStat::TeamStat(Team &team): Team(team) {}
+TeamStat::TeamStat(Team &team): Team(team), goalsFor(0), goalsAgainst(0), possession(50), shots(0),
+                                            shotsOnTarget(0), yellowCards(0), redCards(0), fouls(0) {}
 
-void TeamStat::setGoals(int goals_)
+void TeamStat::increaseGoalsFor( int goalsFor_ )
 {
-    goals = goals_;
+    goalsFor += goalsFor_;
+}
+
+void TeamStat::increaseGoalsAgainst( int goalsAgainst_ )
+{
+    goalsAgainst += goalsAgainst_;
+}
+
+void TeamStat::setGoalsFor(int goals_)
+{
+    goalsFor = goals_;
 }
 
 void TeamStat::setPossession(int possession_)
@@ -37,9 +48,9 @@ void TeamStat::setFouls(int fouls_)
     fouls = fouls_;
 }
 
-int TeamStat::getGoals() const
+int TeamStat::getGoalsFor() const
 {
-    return goals; }
+    return goalsFor; }
 
 int TeamStat::getPossession() const
 {

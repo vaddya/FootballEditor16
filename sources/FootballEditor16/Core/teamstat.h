@@ -16,48 +16,51 @@ public:
     TeamStat(Team &team);
 
 
+    void increaseGoalsFor( int goalsFor_ );
+    void increaseGoalsAgainst( int goalsAgainst_ );
+
     /**
      * @brief Set the number of goals
      * @param goals_ Number of goals
      */
-    void setGoals(int goals_);
+    void setGoalsFor( int goals_ );
     /**
      * @brief Set possession
      * @param possession_ Possession
      */
-    void setPossession(int possession_);
+    void setPossession( int possession_ );
     /**
      * @brief Set the number of shots
      * @param shots_ Number of shots
      */
-    void setShots(int shots_);
+    void setShots( int shots_ );
     /**
      * @brief Set the number of shots on target
      * @param shotsOnTarget_ Number of shots on target
      */
-    void setShotOnTarget(int shotsOnTarget_);
+    void setShotOnTarget( int shotsOnTarget_ );
     /**
      * @brief Set the number of yellow cards
      * @param yellowCards_ Number of yellow cards
      */
-    void setYellowCards(int yellowCards_);
+    void setYellowCards( int yellowCards_ );
     /**
      * @brief Set the number of red cards
      * @param redCards_ Number of red cards
      */
-    void setRedCards(int redCards_);
+    void setRedCards( int redCards_ );
     /**
      * @brief Set the number of fouls
      * @param fouls_ Number of fouls
      */
-    void setFouls(int fouls_);
+    void setFouls( int fouls_ );
 
 
     /**
      * @brief Get the number of goals
      * @return Number of goals
      */
-    int getGoals() const;
+    int getGoalsFor() const;
     /**
      * @brief Get possession
      * @return Possession
@@ -90,7 +93,8 @@ public:
     int getFouls() const;
 
 private:
-    int goals;
+    int goalsFor;
+    int goalsAgainst;
     int possession;
     int shots;
     int shotsOnTarget;

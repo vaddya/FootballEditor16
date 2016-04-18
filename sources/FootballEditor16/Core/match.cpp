@@ -10,9 +10,9 @@ Match::Match(TeamInGroup &firstTeam, TeamInGroup &secondTeam): firstTeam(firstTe
 void Match::setResult(int firstTeamGoals, int secondTeamGoals)
 {
     if (result != "Hasn't started yet")
-        pickPointsBack(firstTeam.getGoals(), secondTeam.getGoals()); // pick previously acquired points
-    firstTeam.setGoals(firstTeamGoals);
-    secondTeam.setGoals(secondTeamGoals);
+        pickPointsBack(firstTeam.getGoalsFor(), secondTeam.getGoalsFor()); // pick previously acquired points
+    firstTeam.setGoalsFor(firstTeamGoals);
+    secondTeam.setGoalsFor(secondTeamGoals);
     updatePoints(firstTeamGoals, secondTeamGoals);
     updateResult();
 }
@@ -37,15 +37,19 @@ void Match::simulate()
 
 void Match::clear()
 {
-    pickPointsBack(firstTeam.getGoals(), secondTeam.getGoals());
-    firstTeam.setGoals(0);
-    secondTeam.setGoals(0);
+    pickPointsBack(firstTeam.getGoalsFor(), secondTeam.getGoalsFor());
+    firstTeam.setGoalsFor(0);
+    secondTeam.setGoalsFor(0);
     result = "Hasn't started yet";
 }
 
 
 void Match::updatePoints(int fTeamGoals, int sTeamGoals)
 {
+    firstTG->increaseGoalsFor( fTeamGoals );
+    firstTG->increaseGoalsAgainst( sTeamGoals );
+    secondTG->increaseGoalsFor( sTeamGoals );
+    secondTG->increaseGoalsAgainst( fTeamGoals );
     if (fTeamGoals > sTeamGoals) {
         firstTG->win();
         secondTG->lose();
@@ -79,7 +83,7 @@ void Match::pickPointsBack(int fTeamGoals, int sTeamGoals)
 void Match::updateResult()
 {
     ostringstream convert;
-    convert << firstTeam.getGoals() << ':' << secondTeam.getGoals();
+    convert << firstTeam.getGoalsFor() << ':' << secondTeam.getGoalsFor();
     result = convert.str();
 }
 

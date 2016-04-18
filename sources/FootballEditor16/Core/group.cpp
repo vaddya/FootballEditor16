@@ -53,7 +53,7 @@ ostream& operator<<(ostream &os, Group &group)
 {
     group.sort();
     cout << "Group " << group.getId() << endl;
-    cout << "N  " << "Team" << setw(26) << "M   W   D   L   P" << endl;
+    cout << "N  " << "Team" << setw(26) << "M   W   D   L   GF   GA   GD   P" << endl;
     int i = 0;
     for( TeamInGroup team : group.getTeams() )
         cout << ++i << ". " << team << setw(14-team.getName().size())
@@ -61,6 +61,10 @@ ostream& operator<<(ostream &os, Group &group)
              << team.getWins() << "   "
              << team.getDraws() << "   "
              << team.getLoses() << "   "
+             << team.getGoalsFor() << "   "
+             << team.getGoalsAgainst() << "   "
+             << team.getPoints() << "   "
+             << team.getPoints() << "   "
              << team.getPoints() << endl;
     cout << endl << "M-Matches, W-Wins, D-Draws, L-Loses, P-Points" << endl;
     return os;
