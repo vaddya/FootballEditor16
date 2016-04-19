@@ -50,7 +50,18 @@ void TeamStat::setFouls(int fouls_)
 
 int TeamStat::getGoalsFor() const
 {
-    return goalsFor; }
+    return goalsFor;
+}
+
+int TeamStat::getGoalsAgainst() const
+{
+    return goalsAgainst;
+}
+
+int TeamStat::getGoalsDiffrence() const
+{
+    return goalsFor-goalsAgainst;
+}
 
 int TeamStat::getPossession() const
 {

@@ -61,6 +61,8 @@ public:
      * @return Number of goals
      */
     int getGoalsFor() const;
+    int getGoalsAgainst() const;
+    int getGoalsDiffrence() const;
     /**
      * @brief Get possession
      * @return Possession
