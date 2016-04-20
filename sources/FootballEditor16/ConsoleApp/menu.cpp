@@ -132,10 +132,11 @@ void Application::launchCompetitionMenu()
 {
     cout << endl
          << comp->getTitle() << ":" << endl
-         << "1. Create groups" << endl
-         << "2. Groups" << endl
-         << "3. Create playoff pairs" << endl
-         << "4. Playoff" << endl
+         << "1. Generate groups" << endl
+         << "2. Create groups" << endl
+         << "3. Groups" << endl
+         << "4. Create playoff pairs" << endl
+         << "5. Playoff" << endl
          << "9. Back to competition menu" << endl
          << "0. Exit" << endl
          << ">>> ";
@@ -149,12 +150,14 @@ void Application::launchCompetitionMenu()
         case 0:
             break;
         case 1:
-            createGroups(); launchCompetitionMenu(); break;
+            generateGroups(); launchCompetitionMenu(); break;
         case 2:
-            showGroupsMenu(); break;
+            createGroups(); launchCompetitionMenu(); break;
         case 3:
-            createPlayoffPairs(); launchCompetitionMenu(); break;
+            showGroupsMenu(); break;
         case 4:
+            createPlayoffPairs(); launchCompetitionMenu(); break;
+        case 5:
             createPlayoffPairs(); launchCompetitionMenu(); break;
         case 9:
             competitionMenu(); break;
@@ -182,6 +185,7 @@ void Application::showGroupsMenu()
          << "Select group:" << endl;
     for( Group group: *groups )
         cout << group.getId() << ". Group " << group.getId() << endl;
+    cout << "8. Show tables of all groups" << endl;
     cout << "9. Back to competition menu" << endl
          << "0. Exit" << endl
          << ">>> ";
@@ -192,6 +196,11 @@ void Application::showGroupsMenu()
     {
         if (ch == '0')
             return;
+        else if (ch == '8') {
+                showGroups();
+                showGroupsMenu();
+                return;
+             }
         else if (ch == '9') {
                 launchCompetitionMenu();
                 return;

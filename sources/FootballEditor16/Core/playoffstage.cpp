@@ -9,8 +9,17 @@ void PlayoffStage::launch()
     //TODO implement start
 }
 
+void PlayoffStage::createPairs(vector<int> teamIDs)
+{
+
+}
+
 ostream& operator<<(ostream &os, PlayoffStage &playoff)
 {
+    for( Team team: playoff.getTeams() )
+        os << team << endl;
+    os << endl;
+
     os << "Russia"<< setw(13-6) << "2" << " ═" << "╗" << endl;
     os << setw(18) << "║" << "══╗" << endl;
     os << "France"<< setw(13-6) << "1" << " ═" << "╝  ║" << endl;

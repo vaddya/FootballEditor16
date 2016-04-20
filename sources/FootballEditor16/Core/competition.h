@@ -56,6 +56,7 @@ public:
      * @brief Launch group stage
      */
     void startGroupStage();
+    void startGroupStage( vector<int> teamIDs );
     /**
      * @brief Get group stage
      * @return group stage
@@ -70,7 +71,7 @@ public:
      * @brief Launch playoff stage
      */
     void startPlayOffStage();
-
+    void startPlayOffStage( vector<int> teamIDs );
     ~Competition();
 
 private:

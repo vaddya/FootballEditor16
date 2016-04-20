@@ -10,7 +10,7 @@ GroupStage::GroupStage(vector<Team> &teams): Stage(teams)
 
 void GroupStage::launch()
 {
-    createGroups();
+    //createGroups();
 }
 
 vector<Group> &GroupStage::getGroups()
@@ -55,12 +55,23 @@ void GroupStage::sortTeams()
 
 void GroupStage::createGroups()
 {
-    for (unsigned i = 0; i < numberOfGroups; i++)
+    for( unsigned i = 0; i < numberOfGroups; i++ )
     {
         groups.push_back(Group());
-        for (unsigned j = 0; j < 4; j++) {
+        for( unsigned j = 0; j < 4; j++ )
             groups.back().addTeam(getTeams()[i+j*4]);
-        }
+        groups.back().createMatches();
+    }
+}
+
+void GroupStage::createGroups(vector<int> teamIDs)
+{
+    int id = 0;
+    for( unsigned i = 0; i < numberOfGroups; i++ )
+    {
+        groups.push_back(Group());
+        for( unsigned j = 0; j < 4; j++ )
+            groups.back().addTeam(getTeams()[teamIDs[id++]]);
         groups.back().createMatches();
     }
 }

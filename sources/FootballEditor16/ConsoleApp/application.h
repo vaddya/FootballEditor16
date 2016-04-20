@@ -54,6 +54,7 @@ public:
     /**
      * @brief Create new competition
      */
+    void generateGroups();
     void createGroups();
     /**
      * @brief Show groups

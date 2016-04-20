@@ -39,6 +39,18 @@ void Competition::startGroupStage()
     if (numberOfTeams % 4 == 0 && numberOfTeams != 0) {
         groupStage = new GroupStage(teams);
         groupStage->launch();
+        groupStage->createGroups();
+    }
+    else
+        throw WrongNumberOfTeams(numberOfTeams);
+}
+
+void Competition::startGroupStage(vector<int> teamIDs)
+{
+    if (numberOfTeams % 4 == 0 && numberOfTeams != 0) {
+        groupStage = new GroupStage(teams);
+        groupStage->launch();
+        groupStage->createGroups(teamIDs);
     }
     else
         throw WrongNumberOfTeams(numberOfTeams);
@@ -59,9 +71,20 @@ PlayoffStage &Competition::getPlayoffStage()
 
 void Competition::startPlayOffStage()
 {
-    if (numberOfTeams % 4 == 0 && numberOfTeams != 0) {
+    if (groupStage->getWinners().size() != 0) {
         playoffStage = new PlayoffStage(groupStage->getWinners());
         playoffStage->launch();
+    }
+    else
+        throw WrongNumberOfTeams(numberOfTeams);
+}
+
+void Competition::startPlayOffStage(vector<int> teamIDs)
+{
+    if (groupStage->getWinners().size() != 0) {
+        playoffStage = new PlayoffStage(groupStage->getWinners());
+        playoffStage->launch();
+        playoffStage->createPairs(teamIDs);
     }
     else
         throw WrongNumberOfTeams(numberOfTeams);

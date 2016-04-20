@@ -18,7 +18,7 @@ public:
      * @brief Launch this stage
      */
     void launch();
-    void createPairs();
+    void createPairs(vector<int> teamIDs);
     friend ostream& operator<<(ostream& os, PlayoffStage &playoff);
 };
 

@@ -30,9 +30,13 @@ public:
      */
     unsigned getNumberOfGroups() const;
     /**
-     * @brief Create groups
+     * @brief Generate groups
      */
     void createGroups();
+    /**
+     * @brief Create groups
+     */
+    void createGroups(vector<int> teamIDs);
     /**
      * @brief Get winners of the group stage
      * @return vector of winners

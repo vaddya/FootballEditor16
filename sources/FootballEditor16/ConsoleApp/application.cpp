@@ -62,10 +62,34 @@ void Application::isCompetitionReadyToLaunch()
     }
 }
 
-void Application::createGroups()
+void Application::generateGroups()
 {
     try {
         comp->startGroupStage();
+    }
+    catch( WrongNumberOfTeams& e ) {
+        cout << e.what() << " (now " << e.getWrongNum() << ")" << endl
+             << "Groups are not created" << endl;
+        return;
+    }
+    cout << "Groups are created" << endl;
+}
+
+void Application::createGroups()
+{
+    try {
+        vector<int> teamIDs;
+        showCurrentSettings();
+        int teamID;
+        char groupID = 'A';
+        for( unsigned i = 0; i < comp->getTeams().size() / 4; i++ ) {
+            cout << "Enter team's ID for " << groupID++ << " group: " << endl << ">>> ";
+            for( unsigned j = 0; j < 4; j++) {
+                cin >> teamID;
+                teamIDs.push_back(teamID-1);
+            }
+        }
+        comp->startGroupStage(teamIDs);
     }
     catch( WrongNumberOfTeams& e ) {
         cout << e.what() << " (now " << e.getWrongNum() << ")" << endl
@@ -91,27 +115,13 @@ void Application::showGroups()
 {
     try {
         cout << endl;
-        for(Group group: comp->getGroupStage().getGroups()) {
+        for( Group group: comp->getGroupStage().getGroups() ) {
             group.sort();
-            cout << group;
+            cout << group << endl;
         }
     }
     catch( GroupAreNotCreated& e ) {
            cout << e.what() << endl;
-    }
-    try {
-        cout << endl;
-        for( Group group: comp->getGroupStage().getGroups() ) {
-
-            for( Match match: group.getMatches() ) {
-                cout << match;
-            }
-            cout << endl;
-        }
-    }
-    catch( GroupAreNotCreated& e ) {
-           cout << "There are no matches" << endl
-                << e.what() << endl;
     }
 }
 
@@ -119,9 +129,9 @@ void Application::showMatches()
 {
     try {
         cout << endl;
-        for(Group group: comp->getGroupStage().getGroups()) {
+        for( Group group: comp->getGroupStage().getGroups() ) {
             cout << "Group " << group.getId() << endl;
-            for(Match match: group.getMatches()) {
+            for( Match match: group.getMatches() ) {
                 cout << match << endl;
             }
             cout << endl;
@@ -216,7 +226,25 @@ void Application::determineWinnersOfGroupStage()
 void Application::createPlayoffPairs()
 {
     comp->startPlayOffStage();
-    cout << comp->getPlayoffStage();
+    try {
+        vector<int> teamIDs;
+        showCurrentSettings();
+        int teamID;
+        char groupID = 'A';
+        for( unsigned i = 0; i < comp->getTeams().size() / 4; i++ ) {
+            cout << "Enter team's ID for " << groupID++ << " group: " << endl << ">>> ";
+            for( unsigned j = 0; j < 4; j++) {
+                cin >> teamID;
+                teamIDs.push_back(teamID-1);
+            }
+        }
+        comp->startPlayOffStage(teamIDs);
+    }
+    catch (...) {
+        //TODO exeptions
+    }
+
+    //cout << comp->getPlayoffStage();
 }
 
 void Application::showCurrentSettings()
