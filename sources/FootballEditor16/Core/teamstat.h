@@ -16,14 +16,14 @@ public:
     TeamStat(Team &team);
 
 
-    void increaseGoalsFor( int goalsFor_ );
-    void increaseGoalsAgainst( int goalsAgainst_ );
+    void increaseGoals( int goalsFor_, int goalsAgainst_ );
+
 
     /**
      * @brief Set the number of goals
      * @param goals_ Number of goals
      */
-    void setGoalsFor( int goals_ );
+    void setGoals( int goalsFor_, int goalsAgainst_ );
     /**
      * @brief Set possession
      * @param possession_ Possession

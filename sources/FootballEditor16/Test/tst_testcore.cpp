@@ -76,7 +76,7 @@ void TestCore::teamTest()
 void TestCore::teamStatTest()
 {
     TeamStat *teamstat = new TeamStat(teams[0]);
-    teamstat->setGoalsFor(3);
+    teamstat->setGoals(3, 0);
     QVERIFY(teamstat->getGoalsFor() == 3);
     teamstat->setPossession(67);
     QVERIFY(teamstat->getPossession() == 67);

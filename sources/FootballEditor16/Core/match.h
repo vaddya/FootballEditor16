@@ -31,7 +31,7 @@ public:
      * @param firstTeamGoals Number of goals of first team
      * @param secondTeamGoals Number of goals of second team
      */
-    void setResult(int firstTeamGoals, int secondTeamGoals);
+    virtual void setResult(int firstTeamGoals, int secondTeamGoals) = 0;
     /**
      * @brief Get result of the match
      * @return result of match in format "X:Y", where
@@ -61,7 +61,6 @@ public:
      * where number of goals of both teams are randomed from 0 to 4
      */
     void simulate();
-    void clear();
     /**
      * @brief Overloading of operator <<
      * @param os Variable of type ostream
@@ -77,17 +76,14 @@ public:
      * @return input stream
      * Input in format: 'X:Y' or 'X-Y'
      */
+    virtual ~Match() {}
     friend istream& operator>>(istream& is, Match &match);
 private:
     int id;
     TeamStat firstTeam;
     TeamStat secondTeam;
-    TeamInGroup *firstTG;
-    TeamInGroup *secondTG;
-    string result;
 
-    void updatePoints( int fTeamGoals, int sTeamGoals );
-    void pickPointsBack( int fTeamGoals, int sTeamGoals );
+    string result;
     void updateResult();
 };
 

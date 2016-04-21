@@ -16,7 +16,7 @@ vector<TeamInGroup>& Group::getTeams()
     return teams;
 }
 
-vector<Match>& Group::getMatches()
+vector<MatchInGroup>& Group::getMatches()
 {
     return matches;
 }
@@ -39,7 +39,7 @@ void Group::createMatches()
 {
     for (unsigned i = 0; i < 4; i++) {
         for (unsigned j = i+1; j < 4; j++) {
-            matches.push_back(Match(teams[i], teams[j]));
+            matches.push_back(MatchInGroup(teams[i], teams[j]));
         }
     }
 }

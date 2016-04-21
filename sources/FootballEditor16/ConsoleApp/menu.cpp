@@ -183,42 +183,51 @@ void Application::showGroupsMenu()
     vector<Group> *groups = &(comp->getGroupStage().getGroups());
     cout << endl
          << "Select group:" << endl;
+    int num = 0;
     for( Group group: *groups )
-        cout << group.getId() << ". Group " << group.getId() << endl;
-    cout << "8. Show tables of all groups" << endl;
-    cout << "9. Back to competition menu" << endl
+        cout << ++num << ". Group " << group.getId() << endl;
+    int numberOfGroups = num;
+    cout << ++num << ". Simulate results" << endl;
+    cout << ++num << ". Show tables of all groups" << endl;
+    cout << ++num << ". Back to competition menu" << endl
          << "0. Exit" << endl
          << ">>> ";
     string badStr;
-    char ch;
-    cin >> ch;
+    int digit;
+    cin >> digit;
     if (cin.good())
     {
-        if (ch == '0')
+        if (digit == 0)
             return;
-        else if (ch == '8') {
+        else if (digit == numberOfGroups+1) {
+                simulateResultsOfGroupStage();
+                showGroupsMenu();
+                return;
+             }
+        else if (digit == numberOfGroups+2) {
                 showGroups();
                 showGroupsMenu();
                 return;
              }
-        else if (ch == '9') {
+        else if (digit == numberOfGroups+3) {
                 launchCompetitionMenu();
                 return;
              }
-        else if (ch >= 'A' && ch <= groups->back().getId())
-            showGroupMenu(ch);
+        else if (digit >= 1 && digit <= groups->back().getId() - 'A') {
+            showGroupMenu('A' + digit - 1);
+            return;
+        }
         else {
-            cout << "Error! Invalid choise." << endl;
+            cout << "Error! Invalid number." << endl;
             cin.clear();
             getline(cin, badStr);
-            cout << endl;
             showGroupsMenu();
             return;
         }
     }
     else
     {
-        cout << "Error! Input a symbol." << endl;
+        cout << "Error! Input a number." << endl;
         cin.clear();
         getline(cin, badStr);
         showGroupsMenu();

@@ -83,7 +83,7 @@ void Application::createGroups()
         int teamID;
         char groupID = 'A';
         for( unsigned i = 0; i < comp->getTeams().size() / 4; i++ ) {
-            cout << "Enter team's ID for " << groupID++ << " group: " << endl << ">>> ";
+            cout << "Enter 4 team's ID for " << groupID++ << " group: " << endl << ">>> ";
             for( unsigned j = 0; j < 4; j++) {
                 cin >> teamID;
                 teamIDs.push_back(teamID-1);
@@ -216,24 +216,18 @@ void Application::loadCompetition()
     mainMenu();
 }
 
-void Application::determineWinnersOfGroupStage()
-{
-    for( Team team :comp->getGroupStage().getWinners() )
-        cout << team << endl;
-    cout << endl;
-}
-
 void Application::createPlayoffPairs()
 {
     comp->startPlayOffStage();
     try {
         vector<int> teamIDs;
-        showCurrentSettings();
+        for( Team team: comp->getGroupStage().getWinners() )
+            cout << "(" << team.getId() << ") " << team << endl;
         int teamID;
         char groupID = 'A';
         for( unsigned i = 0; i < comp->getTeams().size() / 4; i++ ) {
-            cout << "Enter team's ID for " << groupID++ << " group: " << endl << ">>> ";
-            for( unsigned j = 0; j < 4; j++) {
+            cout << "Enter 2 team's ID for " << groupID++ << " playoff pair: " << endl << ">>> ";
+            for( unsigned j = 0; j < 2; j++) {
                 cin >> teamID;
                 teamIDs.push_back(teamID-1);
             }

@@ -77,8 +77,6 @@ public:
      */
     void loadCompetition();
 
-    void determineWinnersOfGroupStage();
-
     void createPlayoffPairs();
     /**
      * @brief Display current settings

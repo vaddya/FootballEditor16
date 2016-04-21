@@ -1,20 +1,9 @@
 #include "match.h"
 
-Match::Match(TeamInGroup &firstTeam, TeamInGroup &secondTeam): firstTeam(firstTeam),
-    secondTeam(secondTeam), firstTG(&firstTeam), secondTG(&secondTeam), result("Hasn't started yet")
+Match::Match(TeamInGroup &firstTeam, TeamInGroup &secondTeam): firstTeam(firstTeam), secondTeam(secondTeam), result("Hasn't started yet")
 {
     IdGenerator *idGen = IdGenerator::IdGeneratorInstance();
     id = idGen->getMatchId();
-}
-
-void Match::setResult(int firstTeamGoals, int secondTeamGoals)
-{
-    if (result != "Hasn't started yet")
-        pickPointsBack(firstTeam.getGoalsFor(), secondTeam.getGoalsFor()); // pick previously acquired points
-    firstTeam.setGoalsFor(firstTeamGoals);
-    secondTeam.setGoalsFor(secondTeamGoals);
-    updatePoints(firstTeamGoals, secondTeamGoals);
-    updateResult();
 }
 
 string& Match::getResult()
@@ -33,51 +22,6 @@ void Match::simulate()
     int firstTeamGoals = randomiser->random(0, 4);
     int secondTeamGoals = randomiser->random(0, 4);
     setResult(firstTeamGoals, secondTeamGoals);
-}
-
-void Match::clear()
-{
-    pickPointsBack(firstTeam.getGoalsFor(), secondTeam.getGoalsFor());
-    firstTeam.setGoalsFor(0);
-    secondTeam.setGoalsFor(0);
-    result = "Hasn't started yet";
-}
-
-
-void Match::updatePoints(int fTeamGoals, int sTeamGoals)
-{
-    firstTG->increaseGoalsFor( fTeamGoals );
-    firstTG->increaseGoalsAgainst( sTeamGoals );
-    secondTG->increaseGoalsFor( sTeamGoals );
-    secondTG->increaseGoalsAgainst( fTeamGoals );
-    if (fTeamGoals > sTeamGoals) {
-        firstTG->win();
-        secondTG->lose();
-    }
-    if (fTeamGoals < sTeamGoals) {
-        firstTG->lose();
-        secondTG->win();
-    }
-    if (fTeamGoals == sTeamGoals) {
-        firstTG->draw();
-        secondTG->draw();
-    }
-}
-
-void Match::pickPointsBack(int fTeamGoals, int sTeamGoals)
-{
-    if (fTeamGoals > sTeamGoals) {
-        firstTG->unWin();
-        secondTG->unLose();
-    }
-    if (fTeamGoals < sTeamGoals) {
-        firstTG->unLose();
-        secondTG->unWin();
-    }
-    if (fTeamGoals == sTeamGoals) {
-        firstTG->unDraw();
-        secondTG->unDraw();
-    }
 }
 
 void Match::updateResult()

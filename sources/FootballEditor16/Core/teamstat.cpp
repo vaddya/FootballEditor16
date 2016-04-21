@@ -1,21 +1,18 @@
 #include "teamstat.h"
 
 TeamStat::TeamStat(Team &team): Team(team), goalsFor(0), goalsAgainst(0), possession(50), shots(0),
-                                            shotsOnTarget(0), yellowCards(0), redCards(0), fouls(0) {}
+    shotsOnTarget(0), yellowCards(0), redCards(0), fouls(0) {}
 
-void TeamStat::increaseGoalsFor( int goalsFor_ )
+void TeamStat::increaseGoals( int goalsFor_, int goalsAgainst_ )
 {
     goalsFor += goalsFor_;
-}
-
-void TeamStat::increaseGoalsAgainst( int goalsAgainst_ )
-{
     goalsAgainst += goalsAgainst_;
 }
 
-void TeamStat::setGoalsFor(int goals_)
+void TeamStat::setGoals( int goalsFor_, int goalsAgainst_ )
 {
-    goalsFor = goals_;
+    goalsFor = goalsFor_;
+    goalsAgainst = goalsAgainst_;
 }
 
 void TeamStat::setPossession(int possession_)

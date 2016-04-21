@@ -1,6 +1,7 @@
 #ifndef PLAYOFFSTAGE_H
 #define PLAYOFFSTAGE_H
 
+#include "team.h"
 #include "stage.h"
 #include "iostream"
 #include "iomanip"
@@ -19,6 +20,7 @@ public:
      */
     void launch();
     void createPairs(vector<int> teamIDs);
+
     friend ostream& operator<<(ostream& os, PlayoffStage &playoff);
 };
 

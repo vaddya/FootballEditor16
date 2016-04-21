@@ -4,7 +4,7 @@
 #include "team.h"
 #include "teamingroup.h"
 #include "vector"
-#include "match.h"
+#include "matchingroup.h"
 #include "iostream"
 #include "iomanip"
 
@@ -45,7 +45,7 @@ public:
      * @brief Get vector of created matches
      * @return vector of matches
      */
-    vector<Match>& getMatches();
+    vector<MatchInGroup> &getMatches();
     vector<Team> getWinners();
     /**
      * @brief Overloading of operator <<
@@ -62,7 +62,7 @@ public:
 private:
     char id;
     vector<TeamInGroup> teams;
-    vector<Match> matches;
+    vector<MatchInGroup> matches;
 };
 
 #endif // GROUP_H
