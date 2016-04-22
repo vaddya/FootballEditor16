@@ -10,8 +10,8 @@ public:
     void setResult(int firstTeamGoals, int secondTeamGoals);
     void clear();
 private:
-    TeamInGroup *firstTG;
-    TeamInGroup *secondTG;
+    TeamInGroup *firstTeamInGroup;
+    TeamInGroup *secondTeamInGroup;
 
     void updatePoints( int fTeamGoals, int sTeamGoals );
     void pickPointsBack( int fTeamGoals, int sTeamGoals );

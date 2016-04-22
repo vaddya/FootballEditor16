@@ -131,7 +131,7 @@ void Application::showMatches()
         cout << endl;
         for( Group group: comp->getGroupStage().getGroups() ) {
             cout << "Group " << group.getId() << endl;
-            for( Match match: group.getMatches() ) {
+            for( MatchInGroup match: group.getMatches() ) {
                 cout << match << endl;
             }
             cout << endl;
@@ -149,7 +149,7 @@ void Application::showMatches( char groupId )
         cout << endl;
         cout << "Group " << groupId << endl;
         cout << "Matches:" << endl;
-        for( Match match: comp->getGroupStage().getGroup(groupId).getMatches() ) {
+        for( MatchInGroup match: comp->getGroupStage().getGroup(groupId).getMatches() ) {
             cout << match << endl;
         }
     }

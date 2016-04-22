@@ -2,8 +2,10 @@
 #define PLAYOFFSTAGE_H
 
 #include "team.h"
+#include "match.h"
 #include "stage.h"
 #include "iostream"
+#include "vector"
 #include "iomanip"
 
 using namespace std;
@@ -19,9 +21,12 @@ public:
      * @brief Launch this stage
      */
     void launch();
-    void createPairs(vector<int> teamIDs);
+    void createMatches( vector<int> teamIDs );
 
     friend ostream& operator<<(ostream& os, PlayoffStage &playoff);
+
+private:
+    vector<Match> matches;
 };
 
 #endif // PLAYOFFSTAGE_H

@@ -19,12 +19,13 @@ public:
      * @param name Team name with deafaul value "Team"
      * @param coach Team coach with default value "Coach"
      */
-    Team(string name = "Team", string coach = "Coach");
+    Team( string name_ = "Team", string coach_ = "Coach" );
+    Team( int id_ );
     /**
      * @brief Copy constructor of Team
      * @param other Variable of type Team
      */
-    Team(const Team& other);
+    Team( const Team& another );
     /**
      * @brief Get team ID
      * @return team ID
@@ -47,8 +48,8 @@ public:
      * @param team Variable of type Team
      * @return output stream
      */
-    friend ostream& operator<<(ostream& os, const Team& team);
-
+    friend ostream& operator<<( ostream& os, const Team& team );
+//    friend bool operator==( const Team& one, const Team& another );
 private:
     int id;
     string name;

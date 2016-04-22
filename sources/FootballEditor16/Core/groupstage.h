@@ -14,7 +14,7 @@ public:
      * @brief Constructor of GroupStage
      * @param teams Vector of the teams
      */
-    GroupStage(vector<Team> &teams);
+    GroupStage( vector<Team> &teams );
     /**
      * @brief Create groups
      */
@@ -36,20 +36,23 @@ public:
     /**
      * @brief Create groups
      */
-    void createGroups(vector<int> teamIDs);
+    void createGroups( vector<int> teamIDs );
     /**
      * @brief Get winners of the group stage
      * @return vector of winners
      */
-    vector<Team> &getWinners();
-
-    Group& getGroup(char id);
+    vector<Team>& getWinners();
+    /**
+     * @brief Get group by ID (A, B, C, etc.)
+     * @param id
+     * @return group
+     */
+    Group& getGroup( char id );
 private:
     void determineWinners();
     void sortTeams();
     vector<Group> groups;
     unsigned numberOfGroups;
-
     vector<Team> winners;
 };
 

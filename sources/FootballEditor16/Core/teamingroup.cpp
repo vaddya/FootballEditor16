@@ -1,12 +1,5 @@
 #include "teamingroup.h"
 
-bool operator < ( const TeamInGroup &one, const TeamInGroup &another ) {
-    if (one.getPoints() < another.getPoints())
-        return true;
-    else
-        return false;
-}
-
 void TeamInGroup::win()
 {
     ++games;
@@ -70,4 +63,9 @@ int TeamInGroup::getDraws() const
 int TeamInGroup::getLoses() const
 {
     return loses;
+}
+
+bool operator<( const TeamInGroup &one, const TeamInGroup &another )
+{
+    return one.getPoints() < another.getPoints();
 }

@@ -78,13 +78,15 @@ public:
      */
     virtual ~Match() {}
     friend istream& operator>>(istream& is, Match &match);
-private:
-    int id;
+
+protected:
     TeamStat firstTeam;
     TeamStat secondTeam;
-
     string result;
     void updateResult();
+
+private:
+    int id;
 };
 
 #endif // MATCH_H

@@ -1,6 +1,6 @@
 #include "matchingroup.h"
 
-MatchInGroup::MatchInGroup(TeamInGroup &firstTeam, TeamInGroup &secondTeam): Match(firstTeam, secondTeam), firstTG(&firstTeam), secondTG(&secondTeam)
+MatchInGroup::MatchInGroup(TeamInGroup &firstTeam, TeamInGroup &secondTeam): Match(firstTeam, secondTeam), firstTeamInGroup(&firstTeam), secondTeamInGroup(&secondTeam)
 {
 
 }
@@ -26,34 +26,34 @@ void MatchInGroup::clear()
 
 void MatchInGroup::updatePoints(int fTeamGoals, int sTeamGoals)
 {
-    firstTG->increaseGoals( fTeamGoals, sTeamGoals );
-    secondTG->increaseGoals( sTeamGoals, fTeamGoals );
+    firstTeamInGroup->increaseGoals( fTeamGoals, sTeamGoals );
+    secondTeamInGroup->increaseGoals( sTeamGoals, fTeamGoals );
     if (fTeamGoals > sTeamGoals) {
-        firstTG->win();
-        secondTG->lose();
+        firstTeamInGroup->win();
+        secondTeamInGroup->lose();
     }
     if (fTeamGoals < sTeamGoals) {
-        firstTG->lose();
-        secondTG->win();
+        firstTeamInGroup->lose();
+        secondTeamInGroup->win();
     }
     if (fTeamGoals == sTeamGoals) {
-        firstTG->draw();
-        secondTG->draw();
+        firstTeamInGroup->draw();
+        secondTeamInGroup->draw();
     }
 }
 
 void MatchInGroup::pickPointsBack(int fTeamGoals, int sTeamGoals)
 {
     if (fTeamGoals > sTeamGoals) {
-        firstTG->unWin();
-        secondTG->unLose();
+        firstTeamInGroup->unWin();
+        secondTeamInGroup->unLose();
     }
     if (fTeamGoals < sTeamGoals) {
-        firstTG->unLose();
-        secondTG->unWin();
+        firstTeamInGroup->unLose();
+        secondTeamInGroup->unWin();
     }
     if (fTeamGoals == sTeamGoals) {
-        firstTG->unDraw();
-        secondTG->unDraw();
+        firstTeamInGroup->unDraw();
+        secondTeamInGroup->unDraw();
     }
 }

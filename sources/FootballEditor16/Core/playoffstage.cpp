@@ -1,7 +1,8 @@
 #include "playoffstage.h"
 
-PlayoffStage::PlayoffStage(vector<Team> &teams): Stage(teams)
+PlayoffStage::PlayoffStage( vector<Team> &teams ): Stage(teams)
 {
+
 }
 
 void PlayoffStage::launch()
@@ -9,12 +10,16 @@ void PlayoffStage::launch()
     //TODO implement start
 }
 
-void PlayoffStage::createPairs(vector<int> teamIDs)
+void PlayoffStage::createMatches( vector<int> teamIDs )
 {
-
+//    for( unsigned i = 0; i < teams.size()/2; i++ ) {
+//        for( unsigned j = 0; j < 2; j++ )
+//            groups.back().addTeam(getTeams()[2*i+j]);
+//        groups.back().createMatches();
+//    }
 }
 
-ostream& operator<<(ostream &os, PlayoffStage &playoff)
+ostream& operator<<( ostream &os, PlayoffStage &playoff )
 {
     for( Team team: playoff.getTeams() )
         os << team << endl;

@@ -125,7 +125,7 @@ void TestCore::matchTest()
 {
     TeamInGroup *firstTeam = new TeamInGroup(teams[0]);
     TeamInGroup *secondTeam = new TeamInGroup(teams[1]);
-    Match *match = new Match(*firstTeam, *secondTeam);
+    MatchInGroup *match = new MatchInGroup(*firstTeam, *secondTeam);
 
     QCOMPARE(match->getFirstTeam().getName().c_str(), teams[0].getName().c_str());
     QCOMPARE(match->getSecondTeam().getName().c_str(), teams[1].getName().c_str());

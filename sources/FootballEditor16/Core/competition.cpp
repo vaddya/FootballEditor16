@@ -84,7 +84,7 @@ void Competition::startPlayOffStage(vector<int> teamIDs)
     if (groupStage->getWinners().size() != 0) {
         playoffStage = new PlayoffStage(groupStage->getWinners());
         playoffStage->launch();
-        playoffStage->createPairs(teamIDs);
+        playoffStage->createMatches(teamIDs);
     }
     else
         throw WrongNumberOfTeams(numberOfTeams);

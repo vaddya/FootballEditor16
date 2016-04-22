@@ -33,7 +33,7 @@ void GroupStage::determineWinners()
     }
 }
 
-vector<Team> &GroupStage::getWinners()
+vector<Team>& GroupStage::getWinners()
 {
     determineWinners();
     return winners;
@@ -55,8 +55,7 @@ void GroupStage::sortTeams()
 
 void GroupStage::createGroups()
 {
-    for( unsigned i = 0; i < numberOfGroups; i++ )
-    {
+    for( unsigned i = 0; i < numberOfGroups; i++ ) {
         groups.push_back(Group());
         for( unsigned j = 0; j < 4; j++ )
             groups.back().addTeam(getTeams()[i+j*4]);
