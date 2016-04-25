@@ -238,7 +238,7 @@ void Application::createPlayoffPairs()
         //TODO exeptions
     }
 
-    //cout << comp->getPlayoffStage();
+    cout << comp->getPlayoffStage();
 }
 
 void Application::showCurrentSettings()

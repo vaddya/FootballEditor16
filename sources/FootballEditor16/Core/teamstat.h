@@ -58,10 +58,18 @@ public:
 
     /**
      * @brief Get the number of goals
-     * @return Number of goals
+     * @return goals for
      */
     int getGoalsFor() const;
+    /**
+     * @brief Get goals against
+     * @return goals aginst
+     */
     int getGoalsAgainst() const;
+    /**
+     * @brief Get goals diffrence (goals for minus goals against)
+     * @return goals diffrence
+     */
     int getGoalsDiffrence() const;
     /**
      * @brief Get possession

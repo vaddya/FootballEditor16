@@ -48,6 +48,7 @@ public:
      * @return group
      */
     Group& getGroup( char id );
+
 private:
     void determineWinners();
     void sortTeams();

@@ -7,17 +7,23 @@ PlayoffStage::PlayoffStage( vector<Team> &teams ): Stage(teams)
 
 void PlayoffStage::launch()
 {
-    //TODO implement start
+    //TODO implement startW
 }
 
 void PlayoffStage::createMatches( vector<int> teamIDs )
 {
+//    int num = -1;
 //    for( unsigned i = 0; i < teams.size()/2; i++ ) {
-//        for( unsigned j = 0; j < 2; j++ )
-//            groups.back().addTeam(getTeams()[2*i+j]);
-//        groups.back().createMatches();
+//        matches.push_back( MatchInPlayoff( *findTeam( (teamIDs[++num]) ), *findTeam( (&teamIDs[++num]) ) ) );
 //    }
 }
+
+//TeamInPlayoff *PlayoffStage::findTeam( int id )
+//{
+//    for( TeamInPlayoff &team: teams )
+//        if( team.getId() == id )
+//            return &team;
+//}
 
 ostream& operator<<( ostream &os, PlayoffStage &playoff )
 {

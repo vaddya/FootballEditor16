@@ -49,7 +49,7 @@ public:
      * @return output stream
      */
     friend ostream& operator<<( ostream& os, const Team& team );
-//    friend bool operator==( const Team& one, const Team& another );
+    friend bool operator==( const Team& one, const Team& another );
 private:
     int id;
     string name;

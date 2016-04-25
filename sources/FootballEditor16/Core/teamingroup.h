@@ -76,7 +76,6 @@ public:
      */
     friend bool operator<( const TeamInGroup& one, const TeamInGroup& another );
 
-    //friend bool operator==( const TeamInGroup& one, const TeamInGroup& another );
 private:
     int points;
     int games;

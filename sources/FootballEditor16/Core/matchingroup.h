@@ -7,8 +7,9 @@ class MatchInGroup : public Match
 {
 public:
     MatchInGroup( TeamInGroup& firstTeam, TeamInGroup& secondTeam );
-    void setResult(int firstTeamGoals, int secondTeamGoals);
+    void setResult( int firstTeamGoals, int secondTeamGoals );
     void clear();
+
 private:
     TeamInGroup *firstTeamInGroup;
     TeamInGroup *secondTeamInGroup;

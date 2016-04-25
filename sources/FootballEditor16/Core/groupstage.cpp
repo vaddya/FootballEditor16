@@ -28,6 +28,7 @@ void GroupStage::determineWinners()
     winners.clear();
     vector<Team> winnersOfGroup;
     for (Group group: groups) {
+        group.sort();
         winnersOfGroup = group.getWinners();
         winners.insert(winners.end(), winnersOfGroup.begin(), winnersOfGroup.end());
     }
@@ -39,7 +40,7 @@ vector<Team>& GroupStage::getWinners()
     return winners;
 }
 
-Group &GroupStage::getGroup(char id)
+Group &GroupStage::getGroup( char id )
 {
     for( Group &group: groups )
         if ( id == group.getId() )
@@ -63,7 +64,7 @@ void GroupStage::createGroups()
     }
 }
 
-void GroupStage::createGroups(vector<int> teamIDs)
+void GroupStage::createGroups( vector<int> teamIDs )
 {
     int id = 0;
     for( unsigned i = 0; i < numberOfGroups; i++ )

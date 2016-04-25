@@ -1,6 +1,11 @@
 #include "matchinplayoff.h"
 
-MatchInPlayoff::MatchInPlayoff(TeamInGroup &firstTeam, TeamInGroup &secondTeam): Match(firstTeam, secondTeam)
+MatchInPlayoff::MatchInPlayoff(Team &firstTeam, Team &secondTeam): Match(firstTeam, secondTeam)
+{
+
+}
+
+void MatchInPlayoff::setResult(int firstTeamGoals, int secondTeamGoals)
 {
 
 }

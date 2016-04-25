@@ -11,7 +11,7 @@ Team::Team( int id_ )
     id = id_;
 }
 
-Team::Team(const Team &another ): id(another.id), name(another.name), coach(another.coach) {}
+Team::Team( const Team &another ): id(another.id), name(another.name), coach(another.coach) {}
 
 int Team::getId() const
 {
@@ -27,10 +27,10 @@ string& Team::getCoach()
     return coach;
 }
 
-//bool operator==( const Team &one, const Team &another )
-//{
-//    return one.getId() == another.getId();
-//}
+bool operator==( const Team &one, const Team &another )
+{
+    return one.getId() == another.getId();
+}
 
 ostream& operator<<( ostream& os, const Team& team )
 {

@@ -22,12 +22,12 @@ public:
      * @brief Set the title of the competition
      * @param title Competition name
      */
-    void setTitle(string title);
+    void setTitle( string title );
     /**
      * @brief Add the team to the current competition
      * @param name Name of the team
      */
-    void addTeam(string name);
+    void addTeam( string name );
 
     /**
      * @brief Get title of the competition

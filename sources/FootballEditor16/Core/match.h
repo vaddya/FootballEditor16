@@ -24,8 +24,11 @@ public:
      * @param firstTeam First team
      * @param secondTeam Second team
      */
-    Match(TeamInGroup& firstTeam, TeamInGroup& secondTeam);
-
+    Match( TeamInGroup& firstTeam, TeamInGroup& secondTeam );
+    /**
+     * @brief Destructor
+     */
+    virtual ~Match() {}
     /**
      * @brief Set result of the match
      * @param firstTeamGoals Number of goals of first team
@@ -68,7 +71,7 @@ public:
      * @return output stream
      * Output in format: 'Team1 vs Team2' or 'Team1 X:Y Team2'
      */
-    friend ostream& operator<<(ostream& os, Match &match);
+    friend ostream& operator<<( ostream& os, Match &match );
     /**
      * @brief Overloading of operator >>
      * @param is Variable of type istream
@@ -76,17 +79,16 @@ public:
      * @return input stream
      * Input in format: 'X:Y' or 'X-Y'
      */
-    virtual ~Match() {}
-    friend istream& operator>>(istream& is, Match &match);
+    friend istream& operator>>( istream& is, Match &match );
+
+private:
+    int id;
 
 protected:
     TeamStat firstTeam;
     TeamStat secondTeam;
     string result;
     void updateResult();
-
-private:
-    int id;
 };
 
 #endif // MATCH_H

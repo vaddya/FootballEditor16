@@ -26,7 +26,7 @@ public:
     virtual void launch() = 0;
 
     virtual ~Stage() {}
-private:
+protected:
     vector<Team>& teams;
 };
 

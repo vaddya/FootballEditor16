@@ -44,6 +44,11 @@ void Group::createMatches()
     }
 }
 
+void Group::setMatches()
+{
+
+}
+
 void Group::addTeam(Team &team)
 {
     teams.push_back(team);
@@ -66,7 +71,5 @@ ostream& operator<<(ostream &os, Group &group)
              << team.getGoalsDiffrence() << " " << setw(3)
              << team.getPoints() << endl;
     }
-    cout << endl << "M-Matches, W-Wins, D-Draws, L-Loses, P-Points" << endl
-         << "GF-Goals For, GA-Goals Against, GD-Goals diffrence" << endl;
     return os;
 }

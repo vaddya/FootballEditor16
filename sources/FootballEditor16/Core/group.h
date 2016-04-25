@@ -25,7 +25,7 @@ public:
      * @brief Create matches between members of groups
      */
     void createMatches();
-    //TODO setMatches();
+    void setMatches();
     /**
      * @brief Add a team to this group
      * @param team Team
@@ -46,6 +46,10 @@ public:
      * @return vector of matches
      */
     vector<MatchInGroup> &getMatches();
+    /**
+     * @brief Get winners of the stage
+     * @return vector of winners (1 and 2 place of each group)
+     */
     vector<Team> getWinners();
     /**
      * @brief Overloading of operator <<

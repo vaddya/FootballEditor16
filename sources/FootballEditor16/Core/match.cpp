@@ -1,6 +1,6 @@
 #include "match.h"
 
-Match::Match(TeamInGroup &firstTeam, TeamInGroup &secondTeam): firstTeam(firstTeam), secondTeam(secondTeam), result("Hasn't started yet")
+Match::Match( TeamInGroup &firstTeam, TeamInGroup &secondTeam ): firstTeam(firstTeam), secondTeam(secondTeam), result("Hasn't started yet")
 {
     IdGenerator *idGen = IdGenerator::IdGeneratorInstance();
     id = idGen->getMatchId();

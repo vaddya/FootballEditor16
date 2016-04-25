@@ -2,11 +2,14 @@
 #define MATCHINPLAYOFF_H
 
 #include "match.h"
+#include "teaminplayoff.h"
 
 class MatchInPlayoff : public Match
 {
 public:
-    MatchInPlayoff( TeamInGroup& firstTeam, TeamInGroup& secondTeam );
+    MatchInPlayoff(Team &firstTeam, Team &secondTeam );
+    void setResult(int firstTeamGoals, int secondTeamGoals);
+private:
 
 };
 
