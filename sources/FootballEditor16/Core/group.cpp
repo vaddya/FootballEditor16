@@ -37,8 +37,8 @@ void Group::sort()
 
 void Group::createMatches()
 {
-    for (unsigned i = 0; i < 4; i++) {
-        for (unsigned j = i+1; j < 4; j++) {
+    for( unsigned i = 0; i < 4; i++ ) {
+        for( unsigned j = i+1; j < 4; j++ ) {
             matches.push_back(MatchInGroup(teams[i], teams[j]));
         }
     }

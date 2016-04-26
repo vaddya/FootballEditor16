@@ -24,7 +24,7 @@ public:
      * @param firstTeam First team
      * @param secondTeam Second team
      */
-    Match( TeamInGroup& firstTeam, TeamInGroup& secondTeam );
+    Match( TeamStat& firstTeam, TeamStat& secondTeam );
     /**
      * @brief Destructor
      */
@@ -52,12 +52,12 @@ public:
      * @brief Get reference to the first team
      * @return first team
      */
-    TeamStat& getFirstTeam() { return firstTeam; }
+    TeamStat& getFirstTeam();
     /**
      * @brief Get reference to the second team
      * @return second team
      */
-    TeamStat& getSecondTeam() { return secondTeam; }
+    TeamStat& getSecondTeam();
 
     /**
      * @brief Simulate result of the match

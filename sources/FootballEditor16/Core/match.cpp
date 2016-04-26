@@ -1,6 +1,6 @@
 #include "match.h"
 
-Match::Match( TeamInGroup &firstTeam, TeamInGroup &secondTeam ): firstTeam(firstTeam), secondTeam(secondTeam), result("Hasn't started yet")
+Match::Match( TeamStat &firstTeam, TeamStat &secondTeam ): firstTeam(firstTeam), secondTeam(secondTeam), result("Hasn't started yet")
 {
     IdGenerator *idGen = IdGenerator::IdGeneratorInstance();
     id = idGen->getMatchId();
@@ -14,6 +14,16 @@ string& Match::getResult()
 int Match::getId() const
 {
     return id;
+}
+
+TeamStat& Match::getFirstTeam()
+{
+    return firstTeam;
+}
+
+TeamStat &Match::getSecondTeam()
+{
+    return secondTeam;
 }
 
 void Match::simulate()
@@ -31,7 +41,7 @@ void Match::updateResult()
     result = convert.str();
 }
 
-ostream &operator<<(ostream &os, Match &match)
+ostream& operator<<( ostream &os, Match &match )
 {
     os << "(" << match.getId() << ") " << match.getFirstTeam();
     if (match.getResult() == "Hasn't started yet")
@@ -42,7 +52,7 @@ ostream &operator<<(ostream &os, Match &match)
     return os;
 }
 
-istream &operator>>(istream &is, Match &match)
+istream& operator>>( istream &is, Match &match )
 {
     int goalsOfFirstTeam, goalsOfSecondTeam;
     char separator;

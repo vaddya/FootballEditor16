@@ -11,6 +11,8 @@
 
 using namespace std;
 
+class MatchInPlayoff;
+
 /**
  * @brief The PlayoffStage class
  */
@@ -23,11 +25,12 @@ public:
      */
     void launch();
     void createMatches( vector<int> teamIDs );
-    TeamInPlayoff *findTeam( int id );
+    Team *findTeam( int id );
     friend ostream& operator<<(ostream& os, PlayoffStage &playoff);
 
 private:
     vector<MatchInPlayoff> matches;
+    int numberOfRounds;
 };
 
 #endif // PLAYOFFSTAGE_H

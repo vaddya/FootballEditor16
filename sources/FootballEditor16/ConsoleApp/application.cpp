@@ -20,8 +20,13 @@ void Application::enterTeamsFromConsole()
     cout << "Specify the number of teams: ";
     unsigned num;
     cin >> num;
+    if( num != 8 && num != 16 && num != 32 ) {
+        cout << "Number of teams could be 8, 16 or 32!" << endl;
+        enterTeamsFromConsole();
+        return;
+    }
     string name;
-    cout << "So now input list of " << num << " teams from console" << endl;
+    cout << "Input list of " << num << " teams from console" << endl;
     for( unsigned i = 0; i < num; i++ ) {
         cout << "Name of " << i+1 << " team: ";
         cin >> name;

@@ -2,28 +2,32 @@
 
 PlayoffStage::PlayoffStage( vector<Team> &teams ): Stage(teams)
 {
-
+    if( teams.size() == 8 ) numberOfRounds = 3;
+    if( teams.size() == 16 ) numberOfRounds = 4;
+    if( teams.size() == 32 ) numberOfRounds = 5;
 }
 
 void PlayoffStage::launch()
 {
-    //TODO implement startW
+    //TODO implement start
 }
 
 void PlayoffStage::createMatches( vector<int> teamIDs )
 {
-//    int num = -1;
-//    for( unsigned i = 0; i < teams.size()/2; i++ ) {
-//        matches.push_back( MatchInPlayoff( *findTeam( (teamIDs[++num]) ), *findTeam( (&teamIDs[++num]) ) ) );
-//    }
+    int num = -1;
+    for( unsigned i = 0; i < teams.size()/2; i++ ) {
+        Team * first = findTeam( (teamIDs[++num]) );
+        Team * second = findTeam( (teamIDs[++num]) );
+        //matches.push_back( *first, *second );
+    }
 }
 
-//TeamInPlayoff *PlayoffStage::findTeam( int id )
-//{
-//    for( TeamInPlayoff &team: teams )
-//        if( team.getId() == id )
-//            return &team;
-//}
+Team *PlayoffStage::findTeam( int id )
+{
+    for( Team &team: teams )
+        if( team.getId() == id )
+            return &team;
+}
 
 ostream& operator<<( ostream &os, PlayoffStage &playoff )
 {

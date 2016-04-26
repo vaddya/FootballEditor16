@@ -20,7 +20,6 @@ public:
      * @param coach Team coach with default value "Coach"
      */
     Team( string name_ = "Team", string coach_ = "Coach" );
-    Team( int id_ );
     /**
      * @brief Copy constructor of Team
      * @param other Variable of type Team

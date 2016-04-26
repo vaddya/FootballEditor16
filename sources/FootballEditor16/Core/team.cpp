@@ -6,11 +6,6 @@ Team::Team( string name_, string coach_ ): name(name_), coach(coach_)
     id = idGen->getTeamId();
 }
 
-Team::Team( int id_ )
-{
-    id = id_;
-}
-
 Team::Team( const Team &another ): id(another.id), name(another.name), coach(another.coach) {}
 
 int Team::getId() const
@@ -34,7 +29,6 @@ bool operator==( const Team &one, const Team &another )
 
 ostream& operator<<( ostream& os, const Team& team )
 {
-    //os << "(" << team.id << ") " << team.name;
     os << team.name;
     return os;
 }

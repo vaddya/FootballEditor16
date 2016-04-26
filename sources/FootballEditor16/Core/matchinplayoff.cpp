@@ -1,6 +1,6 @@
 #include "matchinplayoff.h"
 
-MatchInPlayoff::MatchInPlayoff(Team &firstTeam, Team &secondTeam): Match(firstTeam, secondTeam)
+MatchInPlayoff::MatchInPlayoff(TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam): Match(firstTeam, secondTeam)
 {
 
 }
