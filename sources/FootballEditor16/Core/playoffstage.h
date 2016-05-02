@@ -25,7 +25,8 @@ public:
      */
     void launch();
     void createMatches( vector<int> teamIDs );
-    Team *findTeam( int id );
+    Team &findTeam( int id );
+    vector<MatchInPlayoff> &getMatches();
     friend ostream& operator<<(ostream& os, PlayoffStage &playoff);
 
 private:

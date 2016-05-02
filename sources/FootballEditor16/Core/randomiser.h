@@ -23,7 +23,7 @@ public:
      * @param end
      * @return randomed value
      */
-    int random(int begin, int end);
+    int random( int begin, int end );
 private:
     Randomiser();
     static Randomiser *randomiser;

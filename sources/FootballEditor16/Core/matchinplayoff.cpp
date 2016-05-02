@@ -7,6 +7,7 @@ MatchInPlayoff::MatchInPlayoff(TeamInPlayoff &firstTeam, TeamInPlayoff &secondTe
 
 void MatchInPlayoff::setResult(int firstTeamGoals, int secondTeamGoals)
 {
-
+    firstTeamGoals++; // temp
+    secondTeamGoals++;
 }
 

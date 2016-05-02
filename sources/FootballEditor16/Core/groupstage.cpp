@@ -45,8 +45,7 @@ Group &GroupStage::getGroup( char id )
     for( Group &group: groups )
         if ( id == group.getId() )
             return group;
-    throw WrongID();
-    return groups[0];
+    throw WrongID( id );
 }
 
 void GroupStage::sortTeams()

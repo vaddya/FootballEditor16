@@ -16,7 +16,6 @@ class MatchInPlayoff : public Match
 public:
     MatchInPlayoff( TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam );
     void setResult( int firstTeamGoals, int secondTeamGoals );
-
 private:
     TeamInPlayoff *firstTeamInPlayoff;
     TeamInPlayoff *secondTeamInPlayoff;

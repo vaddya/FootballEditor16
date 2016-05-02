@@ -16,23 +16,29 @@ void PlayoffStage::createMatches( vector<int> teamIDs )
 {
     int num = -1;
     for( unsigned i = 0; i < teams.size()/2; i++ ) {
-        Team * first = findTeam( (teamIDs[++num]) );
-        Team * second = findTeam( (teamIDs[++num]) );
-        //matches.push_back( *first, *second );
+        TeamInPlayoff first = findTeam( (teamIDs[++num]) );
+        TeamInPlayoff second = findTeam( (teamIDs[++num]) );
+        matches.push_back( MatchInPlayoff( first, second ));
     }
 }
 
-Team *PlayoffStage::findTeam( int id )
+Team &PlayoffStage::findTeam( int id )
 {
     for( Team &team: teams )
         if( team.getId() == id )
-            return &team;
+            return team;
+    throw WrongID( id );
+}
+
+vector<MatchInPlayoff> &PlayoffStage::getMatches()
+{
+    return matches;
 }
 
 ostream& operator<<( ostream &os, PlayoffStage &playoff )
 {
-    for( Team team: playoff.getTeams() )
-        os << team << endl;
+    for( MatchInPlayoff match: playoff.getMatches() )
+        os << match << endl;
     os << endl;
 
     os << "Russia"<< setw(13-6) << "2" << " ═" << "╗" << endl;

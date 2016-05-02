@@ -10,10 +10,10 @@ Randomiser *Randomiser::RandomiserInstance() {
     return randomiser;
 }
 
-int Randomiser::random(int begin, int end)
+int Randomiser::random( int begin, int end )
 {
     mt19937 rng;
     rng.seed(random_device()());
-    uniform_int_distribution<std::mt19937::result_type> dist6(begin, end); // distribution in range [begin, end]
-    return dist6(rng);
+    uniform_int_distribution<std::mt19937::result_type> dist6( begin, end ); // distribution in range [begin, end]
+    return dist6( rng );
 }
