@@ -229,12 +229,12 @@ void Application::createPlayoffPairs()
         for( Team team: comp->getGroupStage().getWinners() )
             cout << "(" << team.getId() << ") " << team << endl;
         int teamID;
-        char groupID = 'A';
+        int pairID = 0;
         for( unsigned i = 0; i < comp->getTeams().size() / 4; i++ ) {
-            cout << "Enter 2 team's ID for " << groupID++ << " playoff pair: " << endl << ">>> ";
+            cout << "Enter 2 team's ID for " << ++pairID << " playoff pair: " << endl << ">>> ";
             for( unsigned j = 0; j < 2; j++) {
                 cin >> teamID;
-                teamIDs.push_back(teamID-1);
+                teamIDs.push_back(teamID);
             }
         }
         comp->startPlayOffStage(teamIDs);

@@ -6,7 +6,7 @@
 #include "teaminplayoff.h"
 
 enum Round {
-    FINAL = 2, SEMIFINAL = 4, QUARTERFINALS = 8, ROUNDOF16 = 16,
+    FINAL = 1, SEMIFINAL = 2, QUARTERFINALS = 4, ROUNDOF16 = 8,
 };
 
 class PlayoffStage;

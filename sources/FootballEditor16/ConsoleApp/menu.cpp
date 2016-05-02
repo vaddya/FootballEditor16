@@ -136,7 +136,7 @@ void Application::launchCompetitionMenu()
          << "2. Create groups" << endl
          << "3. Groups" << endl
          << "4. Create playoff pairs" << endl
-         << "5. Playoff" << endl
+         //<< "5. Playoff" << endl
          << "9. Back to competition menu" << endl
          << "0. Exit" << endl
          << ">>> ";

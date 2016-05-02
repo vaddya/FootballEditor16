@@ -37,9 +37,12 @@ vector<MatchInPlayoff> &PlayoffStage::getMatches()
 
 ostream& operator<<( ostream &os, PlayoffStage &playoff )
 {
-    for( MatchInPlayoff match: playoff.getMatches() )
+    os << "below" << endl;
+    for( Match &match: playoff.getMatches() )
         os << match << endl;
     os << endl;
+
+    os << "above" << endl;
 
     os << "Russia"<< setw(13-6) << "2" << " ═" << "╗" << endl;
     os << setw(18) << "║" << "══╗" << endl;
