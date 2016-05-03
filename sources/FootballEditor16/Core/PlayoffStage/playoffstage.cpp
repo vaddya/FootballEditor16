@@ -5,6 +5,7 @@ PlayoffStage::PlayoffStage( vector<Team> &teams ): Stage(teams)
     if( teams.size() == 8 ) numberOfRounds = 3;
     if( teams.size() == 16 ) numberOfRounds = 4;
     if( teams.size() == 32 ) numberOfRounds = 5;
+    rounds.reserve( numberOfRounds );
 }
 
 void PlayoffStage::launch()
