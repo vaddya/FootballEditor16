@@ -1,4 +1,4 @@
-#include "groupstage.h"
+#include "GroupStage/groupstage.h"
 
 GroupStage::GroupStage(vector<Team> &teams): Stage(teams)
 {

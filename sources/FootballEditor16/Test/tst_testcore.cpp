@@ -3,12 +3,12 @@
 #include "vector"
 
 #include "competition.h"
-#include "groupstage.h"
-#include "group.h"
 #include "team.h"
-#include "teamingroup.h"
 #include "teamstat.h"
 #include "match.h"
+#include "GroupStage/groupstage.h"
+#include "GroupStage/group.h"
+#include "GroupStage/teamingroup.h"
 
 using namespace std;
 

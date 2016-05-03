@@ -1,7 +1,7 @@
 #ifndef GROUPSTAGE_H
 #define GROUPSTAGE_H
 
-#include "stage.h"
+#include "../stage.h"
 #include "group.h"
 
 /**

@@ -3,12 +3,11 @@
 
 #include "team.h"
 #include "teamstat.h"
-#include "teamingroup.h"
+#include "idgenerator.h"
+#include "randomiser.h"
 #include "string"
 #include "sstream"
 #include "algorithm"
-#include "idgenerator.h"
-#include "randomiser.h"
 #include "iostream"
 
 using namespace std;

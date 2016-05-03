@@ -1,4 +1,4 @@
-#include "matchingroup.h"
+#include "GroupStage/matchingroup.h"
 
 MatchInGroup::MatchInGroup(TeamInGroup &firstTeam, TeamInGroup &secondTeam): Match(firstTeam, secondTeam),
     firstTeamInGroup(&firstTeam), secondTeamInGroup(&secondTeam) {}

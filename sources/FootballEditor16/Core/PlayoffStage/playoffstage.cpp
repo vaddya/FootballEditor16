@@ -1,4 +1,4 @@
-#include "playoffstage.h"
+#include "PlayoffStage/playoffstage.h"
 
 PlayoffStage::PlayoffStage( vector<Team> &teams ): Stage(teams)
 {

@@ -1,14 +1,13 @@
 #ifndef PLAYOFFSTAGE_H
 #define PLAYOFFSTAGE_H
 
-#include "team.h"
+#include "../stage.h"
+#include "../team.h"
 #include "matchinplayoff.h"
-#include "stage.h"
+#include "teaminplayoff.h"
 #include "iostream"
 #include "vector"
 #include "iomanip"
-#include "teaminplayoff.h"
-
 using namespace std;
 
 class MatchInPlayoff;

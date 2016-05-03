@@ -1,7 +1,8 @@
 #ifndef MATCHINGROUP_H
 #define MATCHINGROUP_H
 
-#include "match.h"
+#include "../match.h"
+#include "teamingroup.h"
 
 class MatchInGroup : public Match
 {

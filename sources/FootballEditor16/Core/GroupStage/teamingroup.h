@@ -1,7 +1,7 @@
 #ifndef TEAMINGROUP_H
 #define TEAMINGROUP_H
 
-#include "teamstat.h"
+#include "../teamstat.h"
 
 /**
  * @brief The TeamInGroup class

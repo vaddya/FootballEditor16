@@ -1,4 +1,4 @@
-#include "teamingroup.h"
+#include "GroupStage/teamingroup.h"
 
 void TeamInGroup::win()
 {

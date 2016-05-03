@@ -12,35 +12,35 @@ CONFIG += console c++11
 CONFIG += staticlib
 
 SOURCES += competition.cpp \
-    groupstage.cpp \
     match.cpp \
     team.cpp \
     teamstat.cpp \
-    group.cpp \
-    playoffstage.cpp \
-    teamingroup.cpp \
     idgenerator.cpp \
     randomiser.cpp \
-    teaminplayoff.cpp \
-    matchinplayoff.cpp \
-    matchingroup.cpp \
-    round.cpp
+    GroupStage/groupstage.cpp \
+    GroupStage/group.cpp \
+    GroupStage/teamingroup.cpp \
+    GroupStage/matchingroup.cpp \
+    PlayoffStage/playoffstage.cpp \
+    PlayoffStage/teaminplayoff.cpp \
+    PlayoffStage/matchinplayoff.cpp \
+    PlayoffStage/round.cpp
 
 HEADERS += competition.h \
-    groupstage.h \
     match.h \
     team.h \
     teamstat.h \
-    group.h \
-    playoffstage.h \
     stage.h \
-    teamingroup.h \
     idgenerator.h \
     randomiser.h \
-    teaminplayoff.h \
-    matchinplayoff.h \
-    matchingroup.h \
-    round.h
+    GroupStage/groupstage.h \
+    GroupStage/group.h \
+    GroupStage/teamingroup.h \
+    GroupStage/matchingroup.h \
+    PlayoffStage/playoffstage.h \
+    PlayoffStage/teaminplayoff.h \
+    PlayoffStage/matchinplayoff.h \
+    PlayoffStage/round.h
 unix {
     target.path = /usr/lib
     INSTALLS += target

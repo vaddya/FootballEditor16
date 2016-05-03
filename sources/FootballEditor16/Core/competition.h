@@ -4,9 +4,9 @@
 #include "string"
 #include "vector"
 #include "team.h"
-#include "group.h"
-#include "playoffstage.h"
-#include "groupstage.h"
+#include "GroupStage/groupstage.h"
+#include "GroupStage/group.h"
+#include "PlayoffStage/playoffstage.h"
 
 using std::string;
 using std::vector;

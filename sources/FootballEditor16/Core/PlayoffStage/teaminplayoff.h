@@ -1,7 +1,7 @@
 #ifndef TEAMINPLAYOFF_H
 #define TEAMINPLAYOFF_H
 
-#include "teamstat.h"
+#include "../teamstat.h"
 
 class TeamInPlayoff : public TeamStat
 {

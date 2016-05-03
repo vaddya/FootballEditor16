@@ -1,9 +1,9 @@
 #ifndef TEAM_H
 #define TEAM_H
 
+#include "idgenerator.h"
 #include "iostream"
 #include "string"
-#include "idgenerator.h"
 
 using std::string;
 using std::ostream;

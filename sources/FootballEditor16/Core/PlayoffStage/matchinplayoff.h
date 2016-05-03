@@ -1,7 +1,7 @@
 #ifndef MATCHINPLAYOFF_H
 #define MATCHINPLAYOFF_H
 
-#include "match.h"
+#include "../match.h"
 #include "teaminplayoff.h"
 
 struct Penalty {

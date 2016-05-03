@@ -3,8 +3,8 @@
 
 #include "team.h"
 #include "teamingroup.h"
-#include "vector"
 #include "matchingroup.h"
+#include "vector"
 #include "iostream"
 #include "iomanip"
 
