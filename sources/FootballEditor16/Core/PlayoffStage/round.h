@@ -9,6 +9,9 @@ class Round
 {
 public:
     Round();
+
+private:
+
 };
 
 #endif // ROUND_H

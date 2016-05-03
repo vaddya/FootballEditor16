@@ -19,8 +19,8 @@ public:
     static Randomiser * RandomiserInstance();
     /**
      * @brief Get random value from begin to end
-     * @param begin
-     * @param end
+     * @param begin Bottom bound
+     * @param end Upper bound
      * @return randomed value
      */
     int random( int begin, int end );

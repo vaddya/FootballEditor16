@@ -8,7 +8,9 @@
 #include "iostream"
 #include "iomanip"
 
-using namespace std;
+using std::vector;
+using std::endl;
+using std::setw;
 
 /**
  * @brief The Group class

@@ -8,9 +8,12 @@
 #include "iostream"
 #include "vector"
 #include "iomanip"
-using namespace std;
 
-class MatchInPlayoff;
+using std::vector;
+using std::endl;
+using std::setw;
+
+//class MatchInPlayoff;
 
 /**
  * @brief The PlayoffStage class

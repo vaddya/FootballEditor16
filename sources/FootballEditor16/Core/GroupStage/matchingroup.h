@@ -4,6 +4,11 @@
 #include "../match.h"
 #include "teamingroup.h"
 
+using std::istream;
+
+/**
+ * @brief The MatchInGroup class
+ */
 class MatchInGroup : public Match
 {
 public:

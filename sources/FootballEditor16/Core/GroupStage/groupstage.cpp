@@ -1,6 +1,6 @@
 #include "GroupStage/groupstage.h"
 
-GroupStage::GroupStage(vector<Team> &teams): Stage(teams)
+GroupStage::GroupStage( vector<Team> &teams ): Stage( teams )
 {
     numberOfGroups = teams.size()/4;
     groups.reserve(numberOfGroups);

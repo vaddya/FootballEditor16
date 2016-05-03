@@ -4,7 +4,8 @@
 /**
  * @brief The IdGenerator class
  */
-class IdGenerator {
+class IdGenerator
+{
 public:
     /**
      * @brief Instance ID Generator
@@ -26,6 +27,7 @@ public:
      * @return Generated ID
      */
     char getGroupId();
+
 private:
     IdGenerator();
     int teamCount;

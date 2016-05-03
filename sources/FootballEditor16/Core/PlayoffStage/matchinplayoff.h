@@ -3,11 +3,16 @@
 
 #include "../match.h"
 #include "teaminplayoff.h"
-
+/**
+ * @brief The Penalty struct
+ */
 struct Penalty {
     int firstTeamPenaltyScore, secondTeamPenaltyScore;
 };
 
+/**
+ * @brief The MatchInPlayoff class
+ */
 class MatchInPlayoff : public Match
 {
 public:

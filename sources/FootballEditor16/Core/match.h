@@ -10,7 +10,9 @@
 #include "algorithm"
 #include "iostream"
 
-using namespace std;
+using std::vector;
+using std::istream;
+using std::ostringstream;
 
 /**
  * @brief The Match class

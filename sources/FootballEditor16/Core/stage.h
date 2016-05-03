@@ -3,7 +3,8 @@
 
 #include "vector"
 #include "team.h"
-using namespace std;
+
+using std::vector;
 
 /**
  * @brief The Stage class
