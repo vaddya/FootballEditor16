@@ -23,7 +23,8 @@ SOURCES += competition.cpp \
     randomiser.cpp \
     teaminplayoff.cpp \
     matchinplayoff.cpp \
-    matchingroup.cpp
+    matchingroup.cpp \
+    round.cpp
 
 HEADERS += competition.h \
     groupstage.h \
@@ -38,7 +39,8 @@ HEADERS += competition.h \
     randomiser.h \
     teaminplayoff.h \
     matchinplayoff.h \
-    matchingroup.h
+    matchingroup.h \
+    round.h
 unix {
     target.path = /usr/lib
     INSTALLS += target

@@ -1,25 +1,23 @@
 #ifndef MATCHINPLAYOFF_H
 #define MATCHINPLAYOFF_H
 
-#include "playoffstage.h"
 #include "match.h"
 #include "teaminplayoff.h"
 
-enum Round {
-    FINAL = 1, SEMIFINAL = 2, QUARTERFINALS = 4, ROUNDOF16 = 8,
+struct Penalty {
+    int firstTeamPenaltyScore, secondTeamPenaltyScore;
 };
-
-class PlayoffStage;
 
 class MatchInPlayoff : public Match
 {
 public:
     MatchInPlayoff( TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam );
     void setResult( int firstTeamGoals, int secondTeamGoals );
+    TeamInPlayoff *getWinner();
 private:
     TeamInPlayoff *firstTeamInPlayoff;
     TeamInPlayoff *secondTeamInPlayoff;
-    Round round;
+    Penalty penalty;
 };
 
 #endif // MATCHINPLAYOFF_H

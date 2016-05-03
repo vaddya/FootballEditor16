@@ -1,9 +1,7 @@
 #include "matchingroup.h"
 
-MatchInGroup::MatchInGroup(TeamInGroup &firstTeam, TeamInGroup &secondTeam): Match(firstTeam, secondTeam), firstTeamInGroup(&firstTeam), secondTeamInGroup(&secondTeam)
-{
-
-}
+MatchInGroup::MatchInGroup(TeamInGroup &firstTeam, TeamInGroup &secondTeam): Match(firstTeam, secondTeam),
+    firstTeamInGroup(&firstTeam), secondTeamInGroup(&secondTeam) {}
 
 void MatchInGroup::setResult(int firstTeamGoals, int secondTeamGoals)
 {
@@ -56,4 +54,25 @@ void MatchInGroup::pickPointsBack(int fTeamGoals, int sTeamGoals)
         firstTeamInGroup->unDraw();
         secondTeamInGroup->unDraw();
     }
+}
+
+
+ostream& operator<<( ostream &os, MatchInGroup &match )
+{
+    os << "(" << match.getId() << ") " << match.getFirstTeam();
+    if (match.getResult() == "Hasn't started yet")
+        os << " vs ";
+    else
+        os << " " << match.getResult() << " ";
+    os << match.getSecondTeam();
+    return os;
+}
+
+istream& operator>>( istream &is, MatchInGroup &match )
+{
+    int goalsOfFirstTeam, goalsOfSecondTeam;
+    char separator;
+    is >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
+    match.setResult(goalsOfFirstTeam, goalsOfSecondTeam);
+    return is;
 }
