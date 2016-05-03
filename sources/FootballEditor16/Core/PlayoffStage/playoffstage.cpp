@@ -37,9 +37,7 @@ vector<MatchInPlayoff> &PlayoffStage::getMatches()
 
 ostream& operator<<( ostream &os, PlayoffStage &playoff )
 {
-    for( Match &match: playoff.matches )
-        os << match << endl;
-    os << endl;
+    os << "Table of playoff stage" << endl << endl;
 
     os << playoff.matches[0].getFirstTeam() << setw(13-playoff.matches[0].getFirstTeam().getName().size())
             << playoff.matches[0].getFirstTeam().getGoalsFor() << " ═" << "╗" << endl;

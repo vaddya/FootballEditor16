@@ -50,8 +50,7 @@ void Application::showGroupMenu(char groupCharacter)
 void Application::showGroupTable( char groupId )
 {
     try {
-        cout << endl;
-        cout << comp->getGroupStage().getGroup(groupId) ;
+        cout << endl << comp->getGroupStage().getGroup(groupId) ;
     }
     catch( GroupAreNotCreated& e ) {
            cout << e.what() << endl;

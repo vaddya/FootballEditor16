@@ -41,9 +41,9 @@ public:
     void simulateResultsOfGroupStage();
 
     // Group
+    void showGroupMenu( char groupId );
     void showGroupTable( char groupId );
     void showGroupMatches( char groupId );
-    void showGroupMenu( char groupId );
     void setResultsOfGroupMatches( char groupId );
 
     // Playoff
@@ -51,6 +51,7 @@ public:
     void createPlayoffPairs();
     void showPlayoffTable();
     void showPlayoffMatches();
+
 private:
     Competition * comp;
 };

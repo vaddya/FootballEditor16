@@ -51,7 +51,7 @@ void Application::showPlayoffMenu()
 
 void Application::showPlayoffTable()
 {
-    cout << comp->getPlayoffStage();
+    cout << endl << comp->getPlayoffStage();
 }
 
 void Application::showPlayoffMatches()
