@@ -9,11 +9,12 @@
 class TeamStat : public Team
 {
 public:
+    TeamStat();
     /**
      * @brief TeamStat
      * @param team
      */
-    TeamStat(Team &team);
+    TeamStat( Team &team );
 
     /**
      * @brief Increase goals
@@ -21,6 +22,12 @@ public:
      * @param goalsAgainst_ Goals scored rivals
      */
     void increaseGoals( int goalsFor_, int goalsAgainst_ );
+    /**
+     * @brief Decrease goals
+     * @param goalsFor_ Goals scored team
+     * @param goalsAgainst_ Goals scored rivals
+     */
+    void decreaseGoals( int goalsFor_, int goalsAgainst_ );
     /**
      * @brief Set the number of goals
      * @param goals_ Number of goals

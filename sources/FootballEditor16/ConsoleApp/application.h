@@ -15,78 +15,44 @@ using namespace std;
 class Application
 {
 public:
+    // App
     Application();
-    /**
-     * @brief Display main menu
-     */
+    void loadCompetition();
     void mainMenu();
-    void isCompetitionReadyToLaunch();
-    /**
-     * @brief Set title of the competition
-     */
-    void setTitleOfCompetition();
-    /**
-     * @brief Set competition setting and preferences
-     */
-    void settiingsMenu();
-    /**
-     * @brief Display menu of competition
-     */
     void competitionMenu();
-    void showGroupsMenu();
-    void showTable( char groupId );
-    void showMatches( char groupId );
-    void showGroupMenu( char groupId );
-    void setResultsOfMatches( char groupId );
-    /**
-     * @brief Enter list of teams from console
-     */
-    void enterTeamsFromConsole();
-    /**
-     * @brief Enter list of teams from file
-     */
-    void enterTeamsFromFile();
-
-    /**
-     * @brief Launch competition menu
-     */
     void launchCompetitionMenu();
-    /**
-     * @brief Create new competition
-     */
+    ~Application();
+
+    // Settings
+    void settiingsMenu();
+    void isCompetitionReadyToLaunch();
+    void setTitleOfCompetition();
+    void enterTeamsFromConsole();
+    void enterTeamsFromFile();
+    void showCurrentSettings();
+
+    // Groups
+    void showGroupsMenu();
     void generateGroups();
     void createGroups();
-    /**
-     * @brief Show groups
-     */
     void showGroups();
-    /**
-     * @brief Show matches
-     */
-    void showMatches();
-    /**
-     * @brief Set results of group stage
-     */
-    void setResultsOfMatches();
-    /**
-     * @brief Simulate results of group stage
-     */
+    void showGroupMatches();
+    void setResultsOfGroupMatches();
     void simulateResultsOfGroupStage();
-    /**
-     * @brief Load competition
-     */
-    void loadCompetition();
 
+    // Group
+    void showGroupTable( char groupId );
+    void showGroupMatches( char groupId );
+    void showGroupMenu( char groupId );
+    void setResultsOfGroupMatches( char groupId );
+
+    // Playoff
+    void showPlayoffMenu();
     void createPlayoffPairs();
-    /**
-     * @brief Display current settings
-     */
-    void showCurrentSettings();
-    ~Application();
+    void showPlayoffTable();
+    void showPlayoffMatches();
 private:
     Competition * comp;
 };
-
-class WrongInput: public std::exception {};
 
 #endif // APPLICATION_H

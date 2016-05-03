@@ -5,7 +5,10 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     application.cpp \
-    menu.cpp
+    settings.cpp \
+    groups.cpp \
+    group.cpp \
+    playoff.cpp
 
 HEADERS += \
     application.h

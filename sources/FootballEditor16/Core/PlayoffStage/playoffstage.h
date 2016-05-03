@@ -5,7 +5,6 @@
 #include "../team.h"
 #include "matchinplayoff.h"
 #include "teaminplayoff.h"
-#include "round.h"
 #include "iostream"
 #include "vector"
 #include "iomanip"
@@ -13,8 +12,6 @@
 using std::vector;
 using std::endl;
 using std::setw;
-
-//class MatchInPlayoff;
 
 /**
  * @brief The PlayoffStage class
@@ -33,9 +30,9 @@ public:
 
 private:
     Team &findTeam( int id );
-    vector<Round> rounds;
     vector<MatchInPlayoff> matches;
     int numberOfRounds;
+    Round currentRound;
 };
 
 #endif // PLAYOFFSTAGE_H

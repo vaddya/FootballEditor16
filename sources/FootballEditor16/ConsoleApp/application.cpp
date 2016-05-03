@@ -5,253 +5,139 @@ Application::Application()
     comp = new Competition;
 }
 
-void Application::setTitleOfCompetition()
-{
-    string title;
-    cout << "Title: ";
-    getline(cin, title);
-    getline(cin, title);
-    comp->setTitle(title);
-    cout << " ";
-}
-
-void Application::enterTeamsFromConsole()
-{
-    cout << "Specify the number of teams: ";
-    unsigned num;
-    cin >> num;
-    if( num != 8 && num != 16 && num != 32 ) {
-        cout << "Number of teams could be 8, 16 or 32!" << endl;
-        enterTeamsFromConsole();
-        return;
-    }
-    string name;
-    cout << "Input list of " << num << " teams from console" << endl;
-    for( unsigned i = 0; i < num; i++ ) {
-        cout << "Name of " << i+1 << " team: ";
-        cin >> name;
-        comp->addTeam(name);
-    }
-}
-
-void Application::enterTeamsFromFile()
-{
-    cout << "Write the input file (0 for \"input.txt\"): "  ;
-    string filename;
-    cin >> filename;
-    cin.clear();
-    if (filename[0] == '0')
-        filename = "input.txt";
-    ifstream fin(filename);
-    if (!fin.is_open()) {
-        cout << "Error! Cannot open input file. Input interrupted.\n";
-        return;
-    }
-    string name;
-    fin >> name;
-    while (fin) {
-        comp->addTeam(name);
-        fin >> name;
-    }
-    fin.close();
-    cout << "Data has been read" << endl;
-}
-
-void Application::isCompetitionReadyToLaunch()
-{
-    if( comp->getTeams().size() > 0 )
-        launchCompetitionMenu();
-    else {
-        cout << "Add teams to the competition!" << endl;
-        competitionMenu();
-    }
-}
-
-void Application::generateGroups()
-{
-    try {
-        comp->startGroupStage();
-    }
-    catch( WrongNumberOfTeams& e ) {
-        cout << e.what() << " (now " << e.getWrongNum() << ")" << endl
-             << "Groups are not created" << endl;
-        return;
-    }
-    cout << "Groups are created" << endl;
-}
-
-void Application::createGroups()
-{
-    try {
-        vector<int> teamIDs;
-        showCurrentSettings();
-        int teamID;
-        char groupID = 'A';
-        for( unsigned i = 0; i < comp->getTeams().size() / 4; i++ ) {
-            cout << "Enter 4 team's ID for " << groupID++ << " group: " << endl << ">>> ";
-            for( unsigned j = 0; j < 4; j++) {
-                cin >> teamID;
-                teamIDs.push_back(teamID-1);
-            }
-        }
-        comp->startGroupStage(teamIDs);
-    }
-    catch( WrongNumberOfTeams& e ) {
-        cout << e.what() << " (now " << e.getWrongNum() << ")" << endl
-             << "Groups are not created" << endl;
-        return;
-    }
-    cout << "Groups are created" << endl;
-}
-
-void Application::showTable( char groupId )
-{
-    try {
-        cout << endl;
-        cout << comp->getGroupStage().getGroup(groupId) ;
-    }
-    catch( GroupAreNotCreated& e ) {
-           cout << e.what() << endl;
-           return;
-    }
-}
-
-void Application::showGroups()
-{
-    try {
-        cout << endl;
-        for( Group group: comp->getGroupStage().getGroups() ) {
-            group.sort();
-            cout << group << endl;
-        }
-    }
-    catch( GroupAreNotCreated& e ) {
-           cout << e.what() << endl;
-    }
-}
-
-void Application::showMatches()
-{
-    try {
-        cout << endl;
-        for( Group group: comp->getGroupStage().getGroups() ) {
-            cout << "Group " << group.getId() << endl;
-            for( MatchInGroup match: group.getMatches() ) {
-                cout << match << endl;
-            }
-            cout << endl;
-        }
-    }
-    catch (GroupAreNotCreated& e) {
-           cout << "There are no matches" << endl
-                << e.what() << endl;
-    }
-}
-
-void Application::showMatches( char groupId )
-{
-    try {
-        cout << endl;
-        cout << "Group " << groupId << endl;
-        cout << "Matches:" << endl;
-        for( MatchInGroup match: comp->getGroupStage().getGroup(groupId).getMatches() ) {
-            cout << match << endl;
-        }
-    }
-    catch( GroupAreNotCreated& e ) {
-           cout << "There are no matches" << endl
-                << e.what() << endl;
-    }
-}
-
-void Application::setResultsOfMatches()
-{
-    try {
-        for (Group &group: comp->getGroupStage().getGroups()) {
-            cout << endl << "Group " << group.getId() << endl;
-            for (Match &match: group.getMatches()) {
-                cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": ";
-                cin >> match;
-            }
-        }
-    }
-    catch (GroupAreNotCreated& e) {
-           cout << "There are no matches" << endl
-                << e.what() << endl;
-    }
-}
-
-void Application::setResultsOfMatches( char groupId )
-{
-    try {
-        cout << endl << "Group " << groupId << endl;
-        for (Match &match: comp->getGroupStage().getGroup(groupId).getMatches()) {
-            //match.clear();
-            cout << match << ": ";
-            cin >> match;
-        }
-    }
-    catch (GroupAreNotCreated& e) {
-           cout << "There are no matches" << endl
-                << e.what() << endl;
-    }
-}
-
-void Application::simulateResultsOfGroupStage()
-{
-    try {
-        for (Group &group: comp->getGroupStage().getGroups()) {
-            for (Match &match: group.getMatches()) {
-                match.simulate();
-            }
-        }
-    }
-    catch (GroupAreNotCreated& e) {
-           cout << "There are no matches" << endl
-                << e.what() << endl;
-           return;
-    }
-    showMatches();
-}
-
 void Application::loadCompetition()
 {
     //TODO implement load comp
-    cout << endl << "It's coming" << endl << endl;
+    cout << endl << "Is coming" << endl << endl;
     mainMenu();
 }
 
-void Application::createPlayoffPairs()
+void Application::mainMenu()
 {
-    comp->startPlayOffStage();
-    try {
-        vector<int> teamIDs;
-        for( Team team: comp->getGroupStage().getWinners() )
-            cout << "(" << team.getId() << ") " << team << endl;
-        int teamID;
-        int pairID = 0;
-        for( unsigned i = 0; i < comp->getTeams().size() / 4; i++ ) {
-            cout << "Enter 2 team's ID for " << ++pairID << " playoff pair: " << endl << ">>> ";
-            for( unsigned j = 0; j < 2; j++) {
-                cin >> teamID;
-                teamIDs.push_back(teamID);
-            }
+    cout << "Main Menu:" << endl
+         << "1. New competition" << endl
+         << "2. Load competiton" << endl
+         << "0. Exit" << endl
+         << ">>> ";
+    string badStr;
+    int num;
+    cin >> num;
+    if (cin.good())
+    {
+        switch (num)
+        {
+        case 0:
+            break;
+        case 1:
+            competitionMenu(); break;
+        case 2:
+            loadCompetition(); break;
+        default:
+            cout << "Error! Invalid number." << endl;
+            cin.clear();
+            getline(cin, badStr);
+            cout << endl;
+            mainMenu(); break;
         }
-        comp->startPlayOffStage(teamIDs);
     }
-    catch (...) {
-        //TODO exeptions
+    else
+    {
+        cout << "Error! Input a number." << endl ;
+        cin.clear();
+        getline(cin, badStr);
+        cout << endl;
+        mainMenu();
     }
-
-    cout << comp->getPlayoffStage();
 }
 
-void Application::showCurrentSettings()
+void Application::competitionMenu()
 {
-    cout << "Competition \"" << comp->getTitle() << "\"" << endl
-         <<  comp->getNumberOfTeams() << " teams:" << endl;
-    for (Team team: comp->getTeams()) {
-        cout << "(" << team.getId() << ") " << team << endl;
+    cout << endl
+         << comp->getTitle() << ":" << endl
+         << "1. Launch" << endl
+         << "2. Settings" << endl
+         << "9. Back to main menu" << endl
+         << "0. Exit" << endl
+         << ">>> ";
+    string badStr;
+    int num;
+    cin >> num;
+    if (cin.good())
+    {
+        switch (num)
+        {
+        case 0:
+            break;
+        case 1:
+            isCompetitionReadyToLaunch(); break;
+        case 2:
+            settiingsMenu(); break;
+        case 9:
+            cout << endl; mainMenu(); break;
+        default:
+            cout << "Error! Invalid number." << endl;
+            cin.clear();
+            getline(cin, badStr);
+            competitionMenu(); break;
+        }
+    }
+    else
+    {
+        cout << "Error! Input a number." << endl;
+        cin.clear();
+        getline(cin, badStr);
+        competitionMenu();
+        cout << endl;
+    }
+}
+
+void Application::launchCompetitionMenu()
+{
+    cout << endl
+         << comp->getTitle() << ":" << endl
+         << "1. Generate groups" << endl
+         << "2. Create groups" << endl
+         << "3. Groups" << endl
+         << "4. Create playoff pairs" << endl
+         << "5. Playoff" << endl
+         << "9. Back to competition menu" << endl
+         << "0. Exit" << endl
+         << ">>> ";
+    string badStr;
+    int num;
+    cin >> num;
+    if (cin.good())
+    {
+        switch (num)
+        {
+        case 0:
+            break;
+        case 1:
+            generateGroups(); launchCompetitionMenu(); break;
+        case 2:
+            createGroups(); launchCompetitionMenu(); break;
+        case 3:
+            showGroupsMenu(); break;
+        case 4:
+            createPlayoffPairs(); launchCompetitionMenu(); break;
+        case 5:
+            showPlayoffMenu(); break;
+        case 9:
+            competitionMenu(); break;
+        default:
+            cout << "Error! Invalid number." << endl;
+            cin.clear();
+            getline(cin, badStr);
+            launchCompetitionMenu(); break;
+        }
+    }
+    else
+    {
+        cout << "Error! Input a number." << endl;
+        cin.clear();
+        getline(cin, badStr);
+        launchCompetitionMenu();
+        cout << endl;
     }
 }
 

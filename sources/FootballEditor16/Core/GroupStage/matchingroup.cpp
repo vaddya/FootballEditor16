@@ -42,6 +42,8 @@ void MatchInGroup::updatePoints(int fTeamGoals, int sTeamGoals)
 
 void MatchInGroup::pickPointsBack(int fTeamGoals, int sTeamGoals)
 {
+    firstTeamInGroup->decreaseGoals( firstTeam.getGoalsFor(), secondTeam.getGoalsFor() );
+    secondTeamInGroup->decreaseGoals( secondTeam.getGoalsFor(), firstTeam.getGoalsFor() );
     if (fTeamGoals > sTeamGoals) {
         firstTeamInGroup->unWin();
         secondTeamInGroup->unLose();
