@@ -79,7 +79,6 @@ void Application::setResultsOfGroupMatches( char groupId )
     try {
         cout << endl << "Group " << groupId << endl;
         for (Match &match: comp->getGroupStage().getGroup(groupId).getMatches()) {
-            //match.clear();
             cout << match << ": ";
             cin >> match;
         }

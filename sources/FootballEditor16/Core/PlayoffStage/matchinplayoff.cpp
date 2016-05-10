@@ -1,21 +1,16 @@
 #include "PlayoffStage/matchinplayoff.h"
 
-MatchInPlayoff::MatchInPlayoff(): Match()
-{
-
-}
-
-MatchInPlayoff::MatchInPlayoff(TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam): Match(firstTeam, secondTeam),
-    firstTeamInPlayoff(&firstTeam), secondTeamInPlayoff(&secondTeam) {}
+MatchInPlayoff::MatchInPlayoff( Round round, TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam ): Match(firstTeam, secondTeam), round(round),
+    firstTeamInPlayoff(&firstTeam), secondTeamInPlayoff(&secondTeam), isWithPenalty(false) {}
 
 void MatchInPlayoff::setResult(int firstTeamGoals, int secondTeamGoals)
 {
-    firstTeamGoals++; // temp
-    secondTeamGoals++;
+    firstTeam.setGoals( firstTeamGoals, secondTeamGoals );
+    secondTeam.setGoals( secondTeamGoals, firstTeamGoals );
+    updateResult();
 }
 
 TeamInPlayoff *MatchInPlayoff::getWinner()
 {
     return firstTeam.getGoalsFor() > secondTeam.getGoalsFor() ? firstTeamInPlayoff : secondTeamInPlayoff;
 }
-

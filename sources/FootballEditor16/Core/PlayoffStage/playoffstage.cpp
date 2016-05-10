@@ -2,9 +2,14 @@
 
 PlayoffStage::PlayoffStage( vector<Team> &teams ): Stage(teams)
 {
-    if( teams.size() == 8 ) numberOfRounds = 3;
-    if( teams.size() == 16 ) numberOfRounds = 4;
-    if( teams.size() == 32 ) numberOfRounds = 5;
+    if( teams.size() == 8 ) {
+        numberOfRounds = 4;
+        currentRound = QUARTERFINAL;
+    }
+    if( teams.size() == 16 ) {
+        numberOfRounds = 5;
+        currentRound = ROUNDOF16;
+    }
 }
 
 void PlayoffStage::launch()
@@ -16,9 +21,9 @@ void PlayoffStage::createMatches( vector<int> teamIDs )
 {
     int num = -1;
     for( unsigned i = 0; i < teams.size()/2; i++ ) {
-        TeamInPlayoff first = findTeam( (teamIDs[++num]) );
-        TeamInPlayoff second = findTeam( (teamIDs[++num]) );
-        matches.push_back( MatchInPlayoff( first, second ));
+        TeamInPlayoff first = findTeam( teamIDs[++num] );
+        TeamInPlayoff second = findTeam( teamIDs[++num] );
+        matches.push_back( MatchInPlayoff( currentRound, first, second ));
     }
 }
 
@@ -35,9 +40,30 @@ vector<MatchInPlayoff> &PlayoffStage::getMatches()
     return matches;
 }
 
+Round PlayoffStage::getRound() const
+{
+    return currentRound;
+}
+
+Round PlayoffStage::nextStage()
+{
+    switch( currentRound ) {
+        case ROUNDOF16: currentRound = QUARTERFINAL; break;
+        case QUARTERFINAL: currentRound = SEMIFINAL; break;
+        case SEMIFINAL: currentRound = FINAL; break;
+        case FINAL: currentRound = END; break;
+        case END: break;
+    }
+    return currentRound;
+}
+
+void PlayoffStage::createNewMatches()
+{
+}
+
 ostream& operator<<( ostream &os, PlayoffStage &playoff )
 {
-    os << "Table of playoff stage" << endl << endl;
+    os << "Table of playoff stage:" << endl << endl;
 
     os << playoff.matches[0].getFirstTeam() << setw(13-playoff.matches[0].getFirstTeam().getName().size())
             << playoff.matches[0].getFirstTeam().getGoalsFor() << " ═" << "╗" << endl;

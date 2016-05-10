@@ -26,9 +26,12 @@ public:
     void launch();
     void createMatches( vector<int> teamIDs );
     vector<MatchInPlayoff> &getMatches();
+    Round getRound() const;
     friend ostream& operator<<(ostream& os, PlayoffStage &playoff);
 
 private:
+    Round nextStage();
+    void createNewMatches();
     Team &findTeam( int id );
     vector<MatchInPlayoff> matches;
     int numberOfRounds;

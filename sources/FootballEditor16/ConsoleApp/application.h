@@ -51,6 +51,7 @@ public:
     void createPlayoffPairs();
     void showPlayoffTable();
     void showPlayoffMatches();
+    void setResultsOfPlayoffMatches();
 
 private:
     Competition * comp;

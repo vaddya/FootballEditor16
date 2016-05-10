@@ -20,7 +20,6 @@ using std::ostringstream;
 class Match
 {
 public:
-    Match();
     /**
      * @brief Constructor of Match
      * @param firstTeam First team

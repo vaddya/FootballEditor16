@@ -27,9 +27,9 @@ void Application::showPlayoffMenu()
         case 2:
             showPlayoffMatches(); showPlayoffMenu(); break;
         case 3:
-            //setResultsOfMatches(groupCharacter); showPlayoffMenu; break;
+            setResultsOfPlayoffMatches(); showPlayoffMenu(); break;
         case 4:
-            //simulateResultsOfGroupStage(); showPlayoffMenu; break;
+            //simulateResultsOfGroupStage(); showPlayoffMenu(); break;
         case 9:
             showGroupsMenu(); break;
         default:
@@ -47,17 +47,6 @@ void Application::showPlayoffMenu()
         showPlayoffMenu();
         cout << endl;
     }
-}
-
-void Application::showPlayoffTable()
-{
-    cout << endl << comp->getPlayoffStage();
-}
-
-void Application::showPlayoffMatches()
-{
-    for( MatchInPlayoff match: comp->getPlayoffStage().getMatches() )
-        cout << match;
 }
 
 void Application::createPlayoffPairs()
@@ -83,4 +72,30 @@ void Application::createPlayoffPairs()
     }
 
     cout << comp->getPlayoffStage();
+}
+
+void Application::showPlayoffTable()
+{
+    cout << endl << comp->getPlayoffStage();
+}
+
+void Application::showPlayoffMatches()
+{
+    for( MatchInPlayoff match: comp->getPlayoffStage().getMatches() )
+        cout << match << endl;
+}
+
+void Application::setResultsOfPlayoffMatches()
+{
+    try {
+        cout << endl << "1/" << comp->getPlayoffStage().getRound() << endl;
+        for( Match &match: comp->getPlayoffStage().getMatches() ) {
+            cout << match << ": ";
+            cin >> match;
+        }
+    }
+    catch (GroupAreNotCreated& e) {
+           cout << "There are no matches" << endl
+                << e.what() << endl;
+    }
 }

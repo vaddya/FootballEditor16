@@ -17,26 +17,26 @@ void Application::showGroupsMenu()
     string badStr;
     int digit;
     cin >> digit;
-    if (cin.good())
+    if( cin.good() )
     {
-        if (digit == 0)
+        if( digit == 0 )
             return;
-        else if (digit == numberOfGroups+1) {
+        else if( digit == numberOfGroups+1 ) {
                 simulateResultsOfGroupStage();
                 showGroupsMenu();
                 return;
              }
-        else if (digit == numberOfGroups+2) {
+        else if( digit == numberOfGroups+2 ) {
                 showGroups();
                 showGroupsMenu();
                 return;
              }
-        else if (digit == numberOfGroups+3) {
+        else if( digit == numberOfGroups+3 ) {
                 launchCompetitionMenu();
                 return;
              }
-        else if (digit >= 1 && digit <= numberOfGroups) {
-            showGroupMenu('A' + digit - 1);
+        else if( digit >= 1 && digit <= numberOfGroups ) {
+            showGroupMenu( 'A' + digit - 1 );
             return;
         }
         else {

@@ -11,7 +11,7 @@ struct Penalty {
 };
 
 enum Round {
-    FINAL = 1, SEMIFINAL = 2, QUARTERFINALS = 4, ROUNDOF16 = 8, // stages 1, 1/2, 1/4, 1/8
+    END = 0, FINAL = 1, SEMIFINAL = 2, QUARTERFINAL = 4, ROUNDOF16 = 8, // stages 1, 1/2, 1/4, 1/8
 };
 
 /**
@@ -20,16 +20,16 @@ enum Round {
 class MatchInPlayoff : public Match
 {
 public:
-    MatchInPlayoff();
-    MatchInPlayoff( TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam );
+    MatchInPlayoff( Round round, TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam );
     void setResult( int firstTeamGoals, int secondTeamGoals );
     TeamInPlayoff *getWinner();
 
 private:
+    Round round;
     TeamInPlayoff *firstTeamInPlayoff;
     TeamInPlayoff *secondTeamInPlayoff;
+    bool isWithPenalty;
     Penalty penalty;
-    Round round;
 };
 
 #endif // MATCHINPLAYOFF_H
