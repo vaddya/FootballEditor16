@@ -23,7 +23,8 @@ SOURCES += competition.cpp \
     GroupStage/matchingroup.cpp \
     PlayoffStage/playoffstage.cpp \
     PlayoffStage/teaminplayoff.cpp \
-    PlayoffStage/matchinplayoff.cpp
+    PlayoffStage/matchinplayoff.cpp \
+    PlayoffStage/round.cpp
 
 HEADERS += competition.h \
     match.h \
@@ -38,7 +39,8 @@ HEADERS += competition.h \
     GroupStage/matchingroup.h \
     PlayoffStage/playoffstage.h \
     PlayoffStage/teaminplayoff.h \
-    PlayoffStage/matchinplayoff.h
+    PlayoffStage/matchinplayoff.h \
+    PlayoffStage/round.h
 unix {
     target.path = /usr/lib
     INSTALLS += target

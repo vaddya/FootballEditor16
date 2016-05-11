@@ -40,12 +40,12 @@ vector<MatchInPlayoff> &PlayoffStage::getMatches()
     return matches;
 }
 
-Round PlayoffStage::getRound() const
+RoundEnum PlayoffStage::getRound() const
 {
     return currentRound;
 }
 
-Round PlayoffStage::nextStage()
+RoundEnum PlayoffStage::nextStage()
 {
     switch( currentRound ) {
         case ROUNDOF16: currentRound = QUARTERFINAL; break;

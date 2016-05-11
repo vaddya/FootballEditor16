@@ -29,7 +29,7 @@ void Application::showPlayoffMenu()
         case 3:
             setResultsOfPlayoffMatches(); showPlayoffMenu(); break;
         case 4:
-            //simulateResultsOfGroupStage(); showPlayoffMenu(); break;
+            simulateResultsOfPlayoffMatches(); showPlayoffMenu(); break;
         case 9:
             showGroupsMenu(); break;
         default:
@@ -98,4 +98,9 @@ void Application::setResultsOfPlayoffMatches()
            cout << "There are no matches" << endl
                 << e.what() << endl;
     }
+}
+
+void Application::simulateResultsOfPlayoffMatches()
+{
+
 }

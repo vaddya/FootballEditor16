@@ -27,7 +27,6 @@ public:
      * @brief Create matches between members of groups
      */
     void createMatches();
-    void setMatches();
     /**
      * @brief Add a team to this group
      * @param team Team

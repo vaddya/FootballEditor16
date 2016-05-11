@@ -44,11 +44,6 @@ void Group::createMatches()
     }
 }
 
-void Group::setMatches()
-{
-//TODO smth
-}
-
 void Group::addTeam(Team &team)
 {
     teams.push_back(team);

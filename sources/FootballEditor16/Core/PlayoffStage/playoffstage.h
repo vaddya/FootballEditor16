@@ -5,6 +5,7 @@
 #include "../team.h"
 #include "matchinplayoff.h"
 #include "teaminplayoff.h"
+#include "round.h"
 #include "iostream"
 #include "vector"
 #include "iomanip"
@@ -26,16 +27,17 @@ public:
     void launch();
     void createMatches( vector<int> teamIDs );
     vector<MatchInPlayoff> &getMatches();
-    Round getRound() const;
+    RoundEnum getRound() const;
     friend ostream& operator<<(ostream& os, PlayoffStage &playoff);
 
 private:
-    Round nextStage();
+    RoundEnum nextStage();
     void createNewMatches();
     Team &findTeam( int id );
     vector<MatchInPlayoff> matches;
+    vector<Round> rounds;
     int numberOfRounds;
-    Round currentRound;
+    RoundEnum currentRound;
 };
 
 #endif // PLAYOFFSTAGE_H
