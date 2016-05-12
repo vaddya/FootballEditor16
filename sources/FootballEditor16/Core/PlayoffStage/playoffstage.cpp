@@ -5,10 +5,12 @@ PlayoffStage::PlayoffStage( vector<Team> &teams ): Stage(teams)
     if( teams.size() == 8 ) {
         numberOfRounds = 4;
         currentRound = QUARTERFINAL;
+        rounds.push_back( currentRound );
     }
     if( teams.size() == 16 ) {
         numberOfRounds = 5;
         currentRound = ROUNDOF16;
+        rounds.push_back( currentRound );
     }
 }
 
@@ -23,7 +25,7 @@ void PlayoffStage::createMatches( vector<int> teamIDs )
     for( unsigned i = 0; i < teams.size()/2; i++ ) {
         TeamInPlayoff first = findTeam( teamIDs[++num] );
         TeamInPlayoff second = findTeam( teamIDs[++num] );
-        matches.push_back( MatchInPlayoff( currentRound, first, second ));
+        rounds.back().addPair( first, second );
     }
 }
 
@@ -37,12 +39,17 @@ Team &PlayoffStage::findTeam( int id )
 
 vector<MatchInPlayoff> &PlayoffStage::getMatches()
 {
-    return matches;
+    return rounds.back().getMatches();
 }
 
-RoundEnum PlayoffStage::getRound() const
+RoundEnum PlayoffStage::getCurrentRound() const
 {
     return currentRound;
+}
+
+vector<Round> &PlayoffStage::getRounds()
+{
+    return rounds;
 }
 
 RoundEnum PlayoffStage::nextStage()
@@ -59,12 +66,18 @@ RoundEnum PlayoffStage::nextStage()
 
 void PlayoffStage::createNewMatches()
 {
+    vector<TeamInPlayoff> &winners = rounds.back().getWinners();
+    nextStage();
+    rounds.push_back( currentRound );
+    rounds.back().addTeams( winners );
 }
 
 ostream& operator<<( ostream &os, PlayoffStage &playoff )
 {
     os << "Table of playoff stage:" << endl << endl;
 
+
+/*
     os << playoff.matches[0].getFirstTeam() << setw(13-playoff.matches[0].getFirstTeam().getName().size())
             << playoff.matches[0].getFirstTeam().getGoalsFor() << " ═" << "╗" << endl;
     os << setw(18) << "║" << "══╗" << endl;
@@ -137,5 +150,6 @@ ostream& operator<<( ostream &os, PlayoffStage &playoff )
     os << setw(18) << "║" << "══╝" << endl;
     os << playoff.matches[3].getSecondTeam() << setw(13-playoff.matches[3].getSecondTeam().getName().size())
             << playoff.matches[3].getSecondTeam().getGoalsFor() << " ═" << "╝" << endl;
+*/
     return os;
 }

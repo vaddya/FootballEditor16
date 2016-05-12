@@ -88,7 +88,7 @@ void Application::showPlayoffMatches()
 void Application::setResultsOfPlayoffMatches()
 {
     try {
-        cout << endl << "1/" << comp->getPlayoffStage().getRound() << endl;
+        cout << endl << "1/" << comp->getPlayoffStage().getCurrentRound() << endl;
         for( Match &match: comp->getPlayoffStage().getMatches() ) {
             cout << match << ": ";
             cin >> match;

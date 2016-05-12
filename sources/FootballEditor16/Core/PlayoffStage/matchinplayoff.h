@@ -20,12 +20,11 @@ enum RoundEnum {
 class MatchInPlayoff : public Match
 {
 public:
-    MatchInPlayoff( RoundEnum round, TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam );
+    MatchInPlayoff( TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam );
     void setResult( int firstTeamGoals, int secondTeamGoals );
     TeamInPlayoff *getWinner();
 
 private:
-    RoundEnum round;
     TeamInPlayoff *firstTeamInPlayoff;
     TeamInPlayoff *secondTeamInPlayoff;
     bool isWithPenalty;

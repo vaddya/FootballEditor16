@@ -1,6 +1,6 @@
 #include "PlayoffStage/matchinplayoff.h"
 
-MatchInPlayoff::MatchInPlayoff( RoundEnum round, TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam ): Match(firstTeam, secondTeam), round(round),
+MatchInPlayoff::MatchInPlayoff( TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam ): Match(firstTeam, secondTeam),
     firstTeamInPlayoff(&firstTeam), secondTeamInPlayoff(&secondTeam), isWithPenalty(false) {}
 
 void MatchInPlayoff::setResult(int firstTeamGoals, int secondTeamGoals)

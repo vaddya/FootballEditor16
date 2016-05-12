@@ -43,7 +43,7 @@ vector<Team>& GroupStage::getWinners()
 Group &GroupStage::getGroup( char id )
 {
     for( Group &group: groups )
-        if ( id == group.getId() )
+        if( id == group.getId() )
             return group;
     throw WrongID( id );
 }

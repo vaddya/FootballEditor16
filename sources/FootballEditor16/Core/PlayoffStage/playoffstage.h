@@ -27,14 +27,14 @@ public:
     void launch();
     void createMatches( vector<int> teamIDs );
     vector<MatchInPlayoff> &getMatches();
-    RoundEnum getRound() const;
+    RoundEnum getCurrentRound() const;
+    vector<Round> &getRounds();
     friend ostream& operator<<(ostream& os, PlayoffStage &playoff);
 
 private:
     RoundEnum nextStage();
     void createNewMatches();
     Team &findTeam( int id );
-    vector<MatchInPlayoff> matches;
     vector<Round> rounds;
     int numberOfRounds;
     RoundEnum currentRound;
