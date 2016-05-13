@@ -1,5 +1,7 @@
 #include "GroupStage/teamingroup.h"
 
+TeamInGroup::TeamInGroup( Team &team ): TeamStat( team ), points( 0 ), games( 0 ), wins( 0 ), draws( 0 ), loses( 0 ) {}
+
 void TeamInGroup::win()
 {
     ++games;

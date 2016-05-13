@@ -26,6 +26,7 @@ public:
      */
     void launch();
     void createMatches( vector<int> teamIDs );
+    void createNewMatches();
     vector<MatchInPlayoff> &getMatches();
     RoundEnum getCurrentRound() const;
     vector<Round> &getRounds();
@@ -33,7 +34,6 @@ public:
 
 private:
     RoundEnum nextStage();
-    void createNewMatches();
     Team &findTeam( int id );
     vector<Round> rounds;
     int numberOfRounds;

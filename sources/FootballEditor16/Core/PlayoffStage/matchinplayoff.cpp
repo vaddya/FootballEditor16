@@ -1,7 +1,7 @@
 #include "PlayoffStage/matchinplayoff.h"
 
 MatchInPlayoff::MatchInPlayoff( TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam ): Match(firstTeam, secondTeam),
-    firstTeamInPlayoff(&firstTeam), secondTeamInPlayoff(&secondTeam), isWithPenalty(false) {}
+    firstTeamInPlayoff(firstTeam), secondTeamInPlayoff(secondTeam), isWithPenalty(false) {}
 
 void MatchInPlayoff::setResult(int firstTeamGoals, int secondTeamGoals)
 {
@@ -10,7 +10,7 @@ void MatchInPlayoff::setResult(int firstTeamGoals, int secondTeamGoals)
     updateResult();
 }
 
-TeamInPlayoff *MatchInPlayoff::getWinner()
+TeamInPlayoff &MatchInPlayoff::getWinner()
 {
     return firstTeam.getGoalsFor() > secondTeam.getGoalsFor() ? firstTeamInPlayoff : secondTeamInPlayoff;
 }

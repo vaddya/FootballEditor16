@@ -1,10 +1,5 @@
 #include "teamstat.h"
 
-TeamStat::TeamStat()
-{
-
-}
-
 TeamStat::TeamStat(Team &team): Team(team), goalsFor(0), goalsAgainst(0), possession(50), shots(0),
     shotsOnTarget(0), yellowCards(0), redCards(0), fouls(0) {}
 

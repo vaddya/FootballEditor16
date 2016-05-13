@@ -7,7 +7,8 @@
  * @brief The Penalty struct
  */
 struct Penalty {
-    int firstTeamPenaltyScore, secondTeamPenaltyScore;
+    int firstTeamPenaltyScore = 0;
+    int secondTeamPenaltyScore = 0;
 };
 
 enum RoundEnum {
@@ -22,11 +23,11 @@ class MatchInPlayoff : public Match
 public:
     MatchInPlayoff( TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam );
     void setResult( int firstTeamGoals, int secondTeamGoals );
-    TeamInPlayoff *getWinner();
+    TeamInPlayoff &getWinner();
 
 private:
-    TeamInPlayoff *firstTeamInPlayoff;
-    TeamInPlayoff *secondTeamInPlayoff;
+    TeamInPlayoff firstTeamInPlayoff;
+    TeamInPlayoff secondTeamInPlayoff;
     bool isWithPenalty;
     Penalty penalty;
 };

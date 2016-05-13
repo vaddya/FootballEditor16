@@ -53,6 +53,7 @@ public:
     void showPlayoffMatches();
     void setResultsOfPlayoffMatches();
     void simulateResultsOfPlayoffMatches();
+    void createNewRound();
 
 private:
     Competition * comp;

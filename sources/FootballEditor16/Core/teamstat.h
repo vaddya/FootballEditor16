@@ -9,7 +9,6 @@
 class TeamStat : public Team
 {
 public:
-    TeamStat();
     /**
      * @brief TeamStat
      * @param team
@@ -120,6 +119,7 @@ private:
     int yellowCards;
     int redCards;
     int fouls;
+
 };
 
 #endif // TEAMSTAT_H

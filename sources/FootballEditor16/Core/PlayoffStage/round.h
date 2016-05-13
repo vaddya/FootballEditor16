@@ -13,6 +13,7 @@ public:
     vector<TeamInPlayoff> &getTeams();
     vector<MatchInPlayoff> &getMatches();
     vector<TeamInPlayoff> &getWinners();
+    void updateWinners();
 
 private:
     RoundEnum round;

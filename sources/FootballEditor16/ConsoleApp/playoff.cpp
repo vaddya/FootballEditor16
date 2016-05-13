@@ -10,6 +10,7 @@ void Application::showPlayoffMenu()
          << "2. Show matches" << endl
          << "3. Enter the results of the matches" << endl
          << "4. Simulate the results of the matches" << endl
+         << "5. Next round" << endl
          << "9. Back to groups menu" << endl
          << "0. Exit" << endl
          << ">>> ";
@@ -30,6 +31,8 @@ void Application::showPlayoffMenu()
             setResultsOfPlayoffMatches(); showPlayoffMenu(); break;
         case 4:
             simulateResultsOfPlayoffMatches(); showPlayoffMenu(); break;
+        case 5:
+            createNewRound(); showPlayoffMenu(); break;
         case 9:
             showGroupsMenu(); break;
         default:
@@ -81,7 +84,7 @@ void Application::showPlayoffTable()
 
 void Application::showPlayoffMatches()
 {
-    for( MatchInPlayoff match: comp->getPlayoffStage().getMatches() )
+    for( Match &match: comp->getPlayoffStage().getMatches() )
         cout << match << endl;
 }
 
@@ -100,7 +103,16 @@ void Application::setResultsOfPlayoffMatches()
     }
 }
 
+
 void Application::simulateResultsOfPlayoffMatches()
 {
+    for( Match &match: comp->getPlayoffStage().getMatches() )
+        match.simulate();
+    showPlayoffMatches();
+}
 
+void Application::createNewRound()
+{
+    comp->getPlayoffStage().createNewMatches();
+    showPlayoffMatches();
 }

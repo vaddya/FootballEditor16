@@ -13,7 +13,7 @@ public:
      * @brief Constructor of TeamInGroup
      * @param team Object of type Team
      */
-    TeamInGroup( Team &team ): TeamStat( team ), points( 0 ), games( 0 ), wins( 0 ), draws( 0 ), loses( 0 ) {}
+    TeamInGroup( Team &team );
 
     /**
      * @brief Increase games and wins by 1 & increase points by 3
