@@ -102,10 +102,16 @@ public:
     const char * what() { return ""; }
 };
 
-class GroupAreNotCreated: public std::exception
+class GroupsAreNotCreated: public std::exception
 {
 public:
-    const char * what() { return "Groups are not created yet"; }
+    const char * what() { return "Groups are not created yet!"; }
+};
+
+class GroupStageIsNotOver: public std::exception
+{
+public:
+    const char * what() { return "Group Stage isn't over!"; }
 };
 
 #endif // COMPETITION_H

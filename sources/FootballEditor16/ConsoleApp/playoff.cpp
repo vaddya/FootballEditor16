@@ -1,7 +1,5 @@
 #include "application.h"
 
-
-
 void Application::showPlayoffMenu()
 {
     cout << endl
@@ -32,9 +30,9 @@ void Application::showPlayoffMenu()
         case 4:
             simulateResultsOfPlayoffMatches(); showPlayoffMenu(); break;
         case 5:
-            createNewRound(); showPlayoffMenu(); break;
+            createNewRound(); launchCompetitionMenu(); break;
         case 9:
-            showGroupsMenu(); break;
+            launchCompetitionMenu(); break;
         default:
             cout << "Error! Invalid number." << endl;
             cin.clear();
@@ -54,10 +52,10 @@ void Application::showPlayoffMenu()
 
 void Application::createPlayoffPairs()
 {
-    comp->startPlayOffStage();
     try {
+        comp->startPlayOffStage();
         vector<int> teamIDs;
-        for( Team team: comp->getGroupStage().getWinners() )
+        for( Team &team: comp->getGroupStage().getWinners() )
             cout << "(" << team.getId() << ") " << team << endl;
         int teamID;
         int pairID = 0;
@@ -70,16 +68,19 @@ void Application::createPlayoffPairs()
         }
         comp->startPlayOffStage(teamIDs);
     }
-    catch (...) {
-        //TODO exeptions
+    catch ( GroupStageIsNotOver& e ) {
+        cout << e.what() << endl;
     }
-
-    cout << comp->getPlayoffStage();
 }
 
 void Application::showPlayoffTable()
 {
-    cout << endl << comp->getPlayoffStage();
+    try {
+        cout << endl << comp->getPlayoffStage();
+    }
+    catch ( GroupStageIsNotOver& e ) {
+        cout << e.what() << endl;
+    }
 }
 
 void Application::showPlayoffMatches()
@@ -97,7 +98,7 @@ void Application::setResultsOfPlayoffMatches()
             cin >> match;
         }
     }
-    catch (GroupAreNotCreated& e) {
+    catch( GroupsAreNotCreated& e ) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
     }

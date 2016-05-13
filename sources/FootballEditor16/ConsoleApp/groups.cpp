@@ -57,7 +57,7 @@ void Application::showGroupsMenu()
             cout << endl;
         }
     }
-    catch( GroupAreNotCreated& e ) {
+    catch( GroupsAreNotCreated& e ) {
         cout << "Groups are not created!" << endl;
         launchCompetitionMenu();
     }
@@ -109,7 +109,7 @@ void Application::showGroups()
             cout << group << endl;
         }
     }
-    catch( GroupAreNotCreated& e ) {
+    catch( GroupsAreNotCreated& e ) {
            cout << e.what() << endl;
     }
 }
@@ -126,7 +126,7 @@ void Application::showGroupMatches()
             cout << endl;
         }
     }
-    catch (GroupAreNotCreated& e) {
+    catch (GroupsAreNotCreated& e) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
     }
@@ -143,7 +143,7 @@ void Application::setResultsOfGroupMatches()
             }
         }
     }
-    catch (GroupAreNotCreated& e) {
+    catch (GroupsAreNotCreated& e) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
     }
@@ -158,7 +158,7 @@ void Application::simulateResultsOfGroupStage()
             }
         }
     }
-    catch (GroupAreNotCreated& e) {
+    catch (GroupsAreNotCreated& e) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
            return;

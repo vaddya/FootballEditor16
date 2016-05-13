@@ -27,7 +27,7 @@ void GroupStage::determineWinners()
 {
     winners.clear();
     vector<Team> winnersOfGroup;
-    for (Group group: groups) {
+    for (Group &group: groups) {
         group.sort();
         winnersOfGroup = group.getWinners();
         winners.insert(winners.end(), winnersOfGroup.begin(), winnersOfGroup.end());

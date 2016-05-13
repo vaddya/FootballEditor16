@@ -61,7 +61,7 @@ GroupStage &Competition::getGroupStage()
     if (groupStage != 0)
         return *groupStage;
     else
-        throw GroupAreNotCreated();
+        throw GroupsAreNotCreated();
 }
 
 PlayoffStage &Competition::getPlayoffStage()
@@ -71,12 +71,12 @@ PlayoffStage &Competition::getPlayoffStage()
 
 void Competition::startPlayOffStage()
 {
-    if (groupStage->getWinners().size() != 0) {
+    if (groupStage != 0 && groupStage->getWinners().size() != 0) {
         playoffStage = new PlayoffStage(groupStage->getWinners());
         playoffStage->launch();
     }
     else
-        throw WrongNumberOfTeams(numberOfTeams);
+        throw GroupStageIsNotOver();
 }
 
 void Competition::startPlayOffStage(vector<int> teamIDs)
@@ -87,7 +87,7 @@ void Competition::startPlayOffStage(vector<int> teamIDs)
         playoffStage->createMatches(teamIDs);
     }
     else
-        throw WrongNumberOfTeams(numberOfTeams);
+        throw GroupStageIsNotOver();
 }
 
 Competition::~Competition()

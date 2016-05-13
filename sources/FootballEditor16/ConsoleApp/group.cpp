@@ -52,7 +52,7 @@ void Application::showGroupTable( char groupId )
     try {
         cout << endl << comp->getGroupStage().getGroup(groupId) ;
     }
-    catch( GroupAreNotCreated& e ) {
+    catch( GroupsAreNotCreated& e ) {
            cout << e.what() << endl;
            return;
     }
@@ -68,7 +68,7 @@ void Application::showGroupMatches( char groupId )
             cout << match << endl;
         }
     }
-    catch( GroupAreNotCreated& e ) {
+    catch( GroupsAreNotCreated& e ) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
     }
@@ -83,7 +83,7 @@ void Application::setResultsOfGroupMatches( char groupId )
             cin >> match;
         }
     }
-    catch (GroupAreNotCreated& e) {
+    catch (GroupsAreNotCreated& e) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
     }
