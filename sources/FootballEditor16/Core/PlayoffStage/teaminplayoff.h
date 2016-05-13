@@ -13,7 +13,7 @@ class TeamInPlayoff : public TeamStat
 {
 public:
     TeamInPlayoff( Team &team );
-    friend ostream& operator<<( ostream& os, TeamInPlayoff &match );
+    //friend ostream& operator<<( ostream& os, TeamInPlayoff &match );
 private:
 
 };

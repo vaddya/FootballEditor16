@@ -67,12 +67,17 @@ RoundEnum PlayoffStage::nextStage()
 void PlayoffStage::createNewMatches()
 {
     rounds.back().updateWinners();
-    nextStage();
-    rounds.push_back( currentRound );
-    rounds.back().addTeams( rounds[rounds.size()-2].getWinners() );
+    if ( currentRound == FINAL ) {
+        throw CompetitionIsOver();
+    }
+    else {
+        nextStage();
+        rounds.push_back( currentRound );
+        rounds.back().addTeams( rounds[rounds.size()-2].getWinners() );
+    }
 }
 
-// Код - один большой костыль, издержки консольного приложения
+// Консольная графика - один большой костыль
 ostream& operator<<( ostream &os, PlayoffStage &playoff )
 {
     os << "Table of playoff stage:" << endl << endl;
@@ -88,9 +93,11 @@ ostream& operator<<( ostream &os, PlayoffStage &playoff )
             << Round1[0].getSecondTeam().getGoalsFor() << " ═" << "╝  ║" << endl;
 
     if( playoff.getCurrentRound() <= 2 ) {
-        os << setw(21) << "║" << setw(4) << " " << "Russia" << setw(13-6) << "1" << " ═" << "╗" << endl;
+        os << setw(21) << "║" << setw(4) << " " << Round2[0].getFirstTeam() << setw(13-Round2[0].getFirstTeam().getName().size())
+           << Round2[0].getFirstTeam().getGoalsFor() << " ═" << "╗" << endl;
         os << setw(21) << "║" << "══" << setw(20) << "║" << "══╗"   << endl;
-        os << setw(21) << "║" << setw(4) << " " << "Germany" << setw(13-7) << "4" << " ═" << "╝  ║" << endl;
+        os << setw(21) << "║" << setw(4) << " " << Round2[0].getSecondTeam() << setw(13-Round2[0].getSecondTeam().getName().size())
+           << Round2[0].getSecondTeam().getGoalsFor() << " ═" << "╝  ║" << endl;
     }
     else {
         os << setw(21) << "║" << endl;
@@ -103,18 +110,24 @@ ostream& operator<<( ostream &os, PlayoffStage &playoff )
     if( playoff.getCurrentRound() <= 2 ) os << setw(25) << "║";
     os << endl;
     os << setw(18) << "║" << "══╝";
-    if( playoff.getCurrentRound() <= 2 )  os << setw(25) << "║";
+    if( playoff.getCurrentRound() <= 2 ) os << setw(25) << "║";
     os << endl;
     os << Round1[1].getSecondTeam() << setw(13-Round1[1].getSecondTeam().getName().size())
             << Round1[1].getSecondTeam().getGoalsFor() << " ═" << "╝";
-    if( playoff.getCurrentRound() <= 2  ) os << setw(28) << "║";
-    os << endl;
+    if( playoff.getCurrentRound() <= 2 ) os << setw(28) << "║";
+    else os << endl;
     os << endl;
 
     if( playoff.getCurrentRound() == 1 ) {
-        os << setw(44) << "║" << setw(4) << " " << "Germany" << setw(13-7) << "2" << " ═" << "╗" << endl;
-        os << setw(44) << "║" << "══" << setw(20) << "║" << "══ Germany" << endl;
-        os << setw(44) << "║" << setw(4) << " " << "Spain" << setw(13-5) << "0" << " ═" << "╝" << endl;
+        os << setw(44) << "║" << setw(4) << " " << Round3[0].getFirstTeam() << setw(13-Round3[0].getFirstTeam().getName().size())
+           << Round3[0].getFirstTeam().getGoalsFor() << " ═" << "╗" << endl;
+        os << setw(44) << "║" << "══" << setw(20) << "║" << "══ ";
+        if( Round3[0].getResult() == "Hasn't started yet" )
+            os << endl;
+        else
+            os << Round3[0].getWinner() << endl;
+        os << setw(44) << "║" << setw(4) << " " << Round3[0].getSecondTeam() << setw(13-Round3[0].getSecondTeam().getName().size())
+           << Round3[0].getSecondTeam().getGoalsFor() << " ═" << "╝" << endl;
     }
     else if ( playoff.getCurrentRound() <= 2 ) {
         os << setw(44) << "║" << endl;
@@ -135,12 +148,14 @@ ostream& operator<<( ostream &os, PlayoffStage &playoff )
     os << Round1[2].getSecondTeam() << setw(13-Round1[2].getSecondTeam().getName().size())
             << Round1[2].getSecondTeam().getGoalsFor() << " ═" << "╝  ║" ;
     if( playoff.getCurrentRound() <= 2 ) os << setw(25) << "║" << endl;
-    os << endl;
+    else os << endl;
 
-    if( playoff.getCurrentRound() == 1 ) {
-        os << setw(21) << "║" << setw(4) << " " << "Spain" << setw(13-5) << "3" << " ═" << "╗  ║" << endl;
-        os << setw(21) << "║" << "══" << setw(20) << "║" << "══╝" << endl;
-        os << setw(21) << "║" << setw(4) << " " << "Switherland" << setw(13-11) << "1" << " ═" << "╝" << endl;
+    if( playoff.getCurrentRound() <= 2 ) {
+        os << setw(21) << "║" << setw(4) << " " << Round2[1].getFirstTeam() << setw(13-Round2[1].getFirstTeam().getName().size())
+           << Round2[1].getFirstTeam().getGoalsFor() << " ═" << "╗  ║" << endl;
+        os << setw(21) << "║" << "══" << setw(20) << "║" << "══╝"   << endl;
+        os << setw(21) << "║" << setw(4) << " " << Round2[1].getSecondTeam() << setw(13-Round2[1].getSecondTeam().getName().size())
+           << Round2[1].getSecondTeam().getGoalsFor() << " ═" << "╝" << endl;
     }
     else {
         os << setw(21) << "║" << endl;

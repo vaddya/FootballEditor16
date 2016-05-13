@@ -40,4 +40,10 @@ private:
     RoundEnum currentRound;
 };
 
+class CompetitionIsOver: public std::exception
+{
+public:
+    const char * what() { return "The compeition is over!"; }
+};
+
 #endif // PLAYOFFSTAGE_H

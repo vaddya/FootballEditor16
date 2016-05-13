@@ -2,58 +2,64 @@
 
 void Application::showGroupsMenu()
 {
-    vector<Group> *groups = &(comp->getGroupStage().getGroups());
-    cout << endl
-         << "Select group:" << endl;
-    int num = 0;
-    for( Group group: *groups )
-        cout << ++num << ". Group " << group.getId() << endl;
-    int numberOfGroups = num;
-    cout << ++num << ". Simulate results" << endl;
-    cout << ++num << ". Show tables of all groups" << endl;
-    cout << ++num << ". Back to competition menu" << endl
-         << "0. Exit" << endl
-         << ">>> ";
-    string badStr;
-    int digit;
-    cin >> digit;
-    if( cin.good() )
-    {
-        if( digit == 0 )
-            return;
-        else if( digit == numberOfGroups+1 ) {
-                simulateResultsOfGroupStage();
+    try {
+        vector<Group> *groups = &(comp->getGroupStage().getGroups());
+        cout << endl
+             << "Select group:" << endl;
+        int num = 0;
+        for( Group group: *groups )
+            cout << ++num << ". Group " << group.getId() << endl;
+        int numberOfGroups = num;
+        cout << ++num << ". Simulate results" << endl;
+        cout << ++num << ". Show tables of all groups" << endl;
+        cout << ++num << ". Back to competition menu" << endl
+             << "0. Exit" << endl
+             << ">>> ";
+        string badStr;
+        int digit;
+        cin >> digit;
+        if( cin.good() )
+        {
+            if( digit == 0 )
+                return;
+            else if( digit == numberOfGroups+1 ) {
+                    simulateResultsOfGroupStage();
+                    showGroupsMenu();
+                    return;
+                 }
+            else if( digit == numberOfGroups+2 ) {
+                    showGroups();
+                    showGroupsMenu();
+                    return;
+                 }
+            else if( digit == numberOfGroups+3 ) {
+                    launchCompetitionMenu();
+                    return;
+                 }
+            else if( digit >= 1 && digit <= numberOfGroups ) {
+                showGroupMenu( 'A' + digit - 1 );
+                return;
+            }
+            else {
+                cout << "Error! Invalid number." << endl;
+                cin.clear();
+                getline(cin, badStr);
                 showGroupsMenu();
                 return;
-             }
-        else if( digit == numberOfGroups+2 ) {
-                showGroups();
-                showGroupsMenu();
-                return;
-             }
-        else if( digit == numberOfGroups+3 ) {
-                launchCompetitionMenu();
-                return;
-             }
-        else if( digit >= 1 && digit <= numberOfGroups ) {
-            showGroupMenu( 'A' + digit - 1 );
-            return;
+            }
         }
-        else {
-            cout << "Error! Invalid number." << endl;
+        else
+        {
+            cout << "Error! Input a number." << endl;
             cin.clear();
             getline(cin, badStr);
             showGroupsMenu();
-            return;
+            cout << endl;
         }
     }
-    else
-    {
-        cout << "Error! Input a number." << endl;
-        cin.clear();
-        getline(cin, badStr);
-        showGroupsMenu();
-        cout << endl;
+    catch( GroupAreNotCreated& e ) {
+        cout << "Groups are not created!" << endl;
+        launchCompetitionMenu();
     }
 }
 

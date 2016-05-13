@@ -53,7 +53,8 @@ void Application::isCompetitionReadyToLaunch()
     if( comp->getTeams().size() == 16 || comp->getTeams().size() == 32 )
         launchCompetitionMenu();
     else {
-        cout << "Number of teams could be 16 or 32!" << endl;
+        cout << "Number of teams could be 16 or 32!" << endl
+             << "Now it's " << comp->getTeams().size() << endl;
         competitionMenu();
     }
 }

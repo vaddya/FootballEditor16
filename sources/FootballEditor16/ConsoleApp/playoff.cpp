@@ -113,6 +113,11 @@ void Application::simulateResultsOfPlayoffMatches()
 
 void Application::createNewRound()
 {
-    comp->getPlayoffStage().createNewMatches();
-    showPlayoffMatches();
+    try {
+        comp->getPlayoffStage().createNewMatches();
+        showPlayoffMatches();
+    }
+    catch (CompetitionIsOver& e) {
+           cout << e.what() << endl;
+    }
 }
