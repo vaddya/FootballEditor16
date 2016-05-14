@@ -27,6 +27,7 @@ public:
     void launch();
     void createMatches( vector<int> teamIDs );
     void createNewMatches();
+    int getNumberOfRounds() const;
     vector<MatchInPlayoff> &getMatches();
     RoundEnum getCurrentRound() const;
     vector<Round> &getRounds();
