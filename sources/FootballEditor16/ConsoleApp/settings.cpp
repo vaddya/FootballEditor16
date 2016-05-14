@@ -8,6 +8,7 @@ void Application::settiingsMenu()
             << "2. Enter teams from console" << endl
             << "3. Enter teams from file" << endl
             << "4. Show current settings" << endl
+            << "5. Set default settings" << endl
             << "9. Back to competition menu" << endl
             << "0. Exit" << endl
             << ">>> ";
@@ -28,6 +29,8 @@ void Application::settiingsMenu()
                enterTeamsFromFile(); settiingsMenu(); break;
            case 4:
                showCurrentSettings(); settiingsMenu(); break;
+           case 5:
+               setDefaulSettings(); settiingsMenu(); break;
            case 9:
                competitionMenu(); break;
            default:
@@ -50,8 +53,9 @@ void Application::settiingsMenu()
 
 void Application::isCompetitionReadyToLaunch()
 {
-    if( comp->getTeams().size() == 16 || comp->getTeams().size() == 32 )
+    if( comp->getTeams().size() == 16 || comp->getTeams().size() == 32 ) {
         launchCompetitionMenu();
+    }
     else {
         cout << "Number of teams could be 16 or 32!" << endl
              << "Now it's " << comp->getTeams().size() << endl;
@@ -116,4 +120,10 @@ void Application::showCurrentSettings()
     for( Team &team: comp->getTeams() ) {
         cout << "(" << team.getId() << ") " << team << endl;
     }
+}
+
+void Application::setDefaulSettings()
+{
+    delete comp;
+    comp = new Competition;
 }

@@ -30,6 +30,7 @@ public:
     void enterTeamsFromConsole();
     void enterTeamsFromFile();
     void showCurrentSettings();
+    void setDefaulSettings();
 
     // Groups
     void showGroupsMenu();

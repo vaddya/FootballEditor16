@@ -52,7 +52,7 @@ void GroupStage::createGroups()
     for( unsigned i = 0; i < numberOfGroups; i++ ) {
         groups.push_back(Group());
         for( unsigned j = 0; j < 4; j++ )
-            groups.back().addTeam(getTeams()[i+j*4]);
+            groups.back().addTeam(getTeams()[i+j*numberOfGroups]);
         groups.back().createMatches();
     }
 }
