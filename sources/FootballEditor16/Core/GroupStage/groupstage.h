@@ -56,6 +56,4 @@ private:
     vector<Team> winners;
 };
 
-//class WrongID : public std::exception {};
-
 #endif // GROUPSTAGE_H

@@ -93,9 +93,25 @@ void Application::setResultsOfPlayoffMatches()
 {
     try {
         cout << endl << "1/" << comp->getPlayoffStage().getCurrentRound() << endl;
-        for( Match &match: comp->getPlayoffStage().getMatches() ) {
-            cout << match << ": ";
-            cin >> match;
+        for( MatchInPlayoff &match: comp->getPlayoffStage().getMatches() ) {
+            try {
+                cout << match << ": ";
+                cin >> match;
+            }
+            catch( InputPenaltryScore& e ) {
+                cout << e.what() << ": ";
+                int penaltyOfFirstTeam, penaltyOfSecondTeam;
+                char separator;
+                cin >> penaltyOfFirstTeam >> separator >> penaltyOfSecondTeam;
+                try {
+                    match.setPenaltyScore( penaltyOfFirstTeam, penaltyOfSecondTeam );
+                }
+                catch( WrongPenaltyScore& e ) {
+                    cout << e.what() << endl
+                         << "Input interrupted." << endl;
+                    return;
+                }
+            }
         }
     }
     catch( GroupsAreNotCreated& e ) {

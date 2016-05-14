@@ -23,13 +23,29 @@ class MatchInPlayoff : public Match
 public:
     MatchInPlayoff( TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam );
     void setResult( int firstTeamGoals, int secondTeamGoals );
+    void setPenaltyScore( int firstTeamPenaltyScore, int secondTeamPenaltyScore );
     TeamInPlayoff &getWinner();
-
+    string showFirstTeam();
+    string showSecondTeam();
+    void simulate();
 private:
+    void updateResult();
     TeamInPlayoff firstTeamInPlayoff;
     TeamInPlayoff secondTeamInPlayoff;
     bool isWithPenalty;
     Penalty penalty;
+};
+
+class InputPenaltryScore: public std::exception
+{
+public:
+    const char * what() { return "Input penaltry score"; }
+};
+
+class WrongPenaltyScore: public std::exception
+{
+public:
+    const char * what() { return "Penalty scores can't be equal"; }
 };
 
 #endif // MATCHINPLAYOFF_H

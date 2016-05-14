@@ -86,88 +86,74 @@ ostream& operator<<( ostream &os, PlayoffStage &playoff )
     vector<MatchInPlayoff> &Round2 = playoff.getRounds()[1].getMatches();
     vector<MatchInPlayoff> &Round3 = playoff.getRounds()[2].getMatches();
 
-    os << Round1[0].getFirstTeam() << setw(13-Round1[0].getFirstTeam().getName().size())
-            << Round1[0].getFirstTeam().getGoalsFor() << " ═" << "╗" << endl;
-    os << setw(18) << "║" << "══╗" << endl;
-    os << Round1[0].getSecondTeam() << setw(13-Round1[0].getSecondTeam().getName().size())
-            << Round1[0].getSecondTeam().getGoalsFor() << " ═" << "╝  ║" << endl;
+    os << Round1[0].showFirstTeam() << " ═" << "╗" << endl;
+    os << setw(21) << "║" << "══╗" << endl;
+    os << Round1[0].showSecondTeam() << " ═" << "╝  ║" << endl;
 
     if( playoff.getCurrentRound() <= 2 ) {
-        os << setw(21) << "║" << setw(4) << " " << Round2[0].getFirstTeam() << setw(13-Round2[0].getFirstTeam().getName().size())
-           << Round2[0].getFirstTeam().getGoalsFor() << " ═" << "╗" << endl;
-        os << setw(21) << "║" << "══" << setw(20) << "║" << "══╗"   << endl;
-        os << setw(21) << "║" << setw(4) << " " << Round2[0].getSecondTeam() << setw(13-Round2[0].getSecondTeam().getName().size())
-           << Round2[0].getSecondTeam().getGoalsFor() << " ═" << "╝  ║" << endl;
+        os << setw(24) << "║" << setw(4) << " " << Round2[0].showFirstTeam() << " ═" << "╗" << endl;
+        os << setw(24) << "║" << "══" << setw(23) << "║" << "══╗"   << endl;
+        os << setw(24) << "║" << setw(4) << " " << Round2[0].showSecondTeam() << " ═" << "╝  ║" << endl;
     }
     else {
-        os << setw(21) << "║" << endl;
-        os << setw(21) << "║" << "══" << endl;
-        os << setw(21) << "║" << endl;
+        os << setw(24) << "║" << endl;
+        os << setw(24) << "║" << "══" << endl;
+        os << setw(24) << "║" << endl;
     }
 
-    os << Round1[1].getFirstTeam() << setw(13-Round1[1].getFirstTeam().getName().size())
-            << Round1[1].getFirstTeam().getGoalsFor() << " ═" << "╗  ║";
-    if( playoff.getCurrentRound() <= 2 ) os << setw(25) << "║";
-    os << endl;
-    os << setw(18) << "║" << "══╝";
-    if( playoff.getCurrentRound() <= 2 ) os << setw(25) << "║";
-    os << endl;
-    os << Round1[1].getSecondTeam() << setw(13-Round1[1].getSecondTeam().getName().size())
-            << Round1[1].getSecondTeam().getGoalsFor() << " ═" << "╝";
+    os << Round1[1].showFirstTeam() << " ═" << "╗  ║";
     if( playoff.getCurrentRound() <= 2 ) os << setw(28) << "║";
+    os << endl;
+    os << setw(21) << "║" << "══╝";
+    if( playoff.getCurrentRound() <= 2 ) os << setw(28) << "║";
+    os << endl;
+    os << Round1[1].showSecondTeam() << " ═" << "╝";
+    if( playoff.getCurrentRound() <= 2 ) os << setw(31) << "║";
     else os << endl;
     os << endl;
 
     if( playoff.getCurrentRound() == 1 ) {
-        os << setw(44) << "║" << setw(4) << " " << Round3[0].getFirstTeam() << setw(13-Round3[0].getFirstTeam().getName().size())
-           << Round3[0].getFirstTeam().getGoalsFor() << " ═" << "╗" << endl;
-        os << setw(44) << "║" << "══" << setw(20) << "║" << "══ ";
+        os << setw(50) << "║" << setw(3) << " " << Round3[0].showFirstTeam() << " ═" << "╗" << endl;
+        os << setw(50) << "║" << "══" << setw(22) << "║" << "══ ";
         if( !Round3[0].isPlayed() )
             os << endl;
         else
             os << Round3[0].getWinner() << endl;
-        os << setw(44) << "║" << setw(4) << " " << Round3[0].getSecondTeam() << setw(13-Round3[0].getSecondTeam().getName().size())
-           << Round3[0].getSecondTeam().getGoalsFor() << " ═" << "╝" << endl;
+        os << setw(50) << "║" << setw(3) << " " << Round3[0].showSecondTeam() << " ═" << "╝" << endl;
     }
     else if( playoff.getCurrentRound() <= 2 ) {
-        os << setw(44) << "║" << endl;
-        os << setw(44) << "║" << "══" << endl;
-        os << setw(44) << "║" << endl;
+        os << setw(50) << "║" << endl;
+        os << setw(50) << "║" << "══" << endl;
+        os << setw(50) << "║" << endl;
     }
     else {
         os << endl << endl;
     }
 
-    os << Round1[2].getFirstTeam() << setw(13-Round1[2].getFirstTeam().getName().size())
-            << Round1[2].getFirstTeam().getGoalsFor() << " ═" << "╗";
-    if( playoff.getCurrentRound() <= 2 ) os << setw(28) << "║";
+    os << Round1[2].showFirstTeam() << " ═" << "╗";
+    if( playoff.getCurrentRound() <= 2 ) os << setw(31) << "║";
     os << endl;
-    os << setw(18) << "║" << "══╗";
-    if( playoff.getCurrentRound() <= 2 )  os << setw(25) << "║";
+    os << setw(21) << "║" << "══╗";
+    if( playoff.getCurrentRound() <= 2 )  os << setw(28) << "║";
     os << endl;
-    os << Round1[2].getSecondTeam() << setw(13-Round1[2].getSecondTeam().getName().size())
-            << Round1[2].getSecondTeam().getGoalsFor() << " ═" << "╝  ║" ;
-    if( playoff.getCurrentRound() <= 2 ) os << setw(25) << "║" << endl;
+    os << Round1[2].showSecondTeam() << " ═" << "╝  ║" ;
+    if( playoff.getCurrentRound() <= 2 ) os << setw(28) << "║" << endl;
     else os << endl;
 
     if( playoff.getCurrentRound() <= 2 ) {
-        os << setw(21) << "║" << setw(4) << " " << Round2[1].getFirstTeam() << setw(13-Round2[1].getFirstTeam().getName().size())
-           << Round2[1].getFirstTeam().getGoalsFor() << " ═" << "╗  ║" << endl;
-        os << setw(21) << "║" << "══" << setw(20) << "║" << "══╝"   << endl;
-        os << setw(21) << "║" << setw(4) << " " << Round2[1].getSecondTeam() << setw(13-Round2[1].getSecondTeam().getName().size())
-           << Round2[1].getSecondTeam().getGoalsFor() << " ═" << "╝" << endl;
+        os << setw(24) << "║" << setw(4) << " " << Round2[1].showFirstTeam() << " ═" << "╗  ║" << endl;
+        os << setw(24) << "║" << "══" << setw(23) << "║" << "══╝"   << endl;
+        os << setw(24) << "║" << setw(4) << " " << Round2[1].showSecondTeam() << " ═" << "╝" << endl;
     }
     else {
-        os << setw(21) << "║" << endl;
-        os << setw(21) << "║" << "══" << endl;
-        os << setw(21) << "║" << endl;
+        os << setw(24) << "║" << endl;
+        os << setw(24) << "║" << "══" << endl;
+        os << setw(24) << "║" << endl;
     }
 
-    os << Round1[3].getFirstTeam() << setw(13-Round1[3].getFirstTeam().getName().size())
-            << Round1[3].getFirstTeam().getGoalsFor() << " ═" << "╗  ║" << endl;
-    os << setw(18) << "║" << "══╝" << endl;
-    os << Round1[3].getSecondTeam() << setw(13-Round1[3].getSecondTeam().getName().size())
-            << Round1[3].getSecondTeam().getGoalsFor() << " ═" << "╝" << endl;
+    os << Round1[3].showFirstTeam() << " ═" << "╗  ║" << endl;
+    os << setw(21) << "║" << "══╝" << endl;
+    os << Round1[3].showSecondTeam() << " ═" << "╝" << endl;
 
     return os;
 }

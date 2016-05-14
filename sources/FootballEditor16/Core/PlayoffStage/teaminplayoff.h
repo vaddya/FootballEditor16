@@ -3,8 +3,10 @@
 
 #include "../teamstat.h"
 #include "iomanip"
+#include "sstream"
 
 using std::setw;
+using std::ostringstream;
 
 /**
  * @brief The TeamInPlayoff class

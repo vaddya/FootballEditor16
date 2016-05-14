@@ -69,7 +69,7 @@ public:
      * @brief Simulate result of the match
      * where number of goals of both teams are randomed from 0 to 4
      */
-    void simulate();
+    virtual void simulate();
     /**
      * @brief Overloading of operator <<
      * @param os Variable of type ostream
@@ -94,7 +94,7 @@ protected:
     TeamStat firstTeam;
     TeamStat secondTeam;
     string result;
-    void updateResult();
+    virtual void updateResult();
 };
 
 #endif // MATCH_H

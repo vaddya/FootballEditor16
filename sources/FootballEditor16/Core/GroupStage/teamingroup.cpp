@@ -78,13 +78,8 @@ bool operator<( const TeamInGroup &one, const TeamInGroup &another )
             if( one.getGoalsFor() < another.getGoalsFor() ) return true;
             if( one.getGoalsFor() > another.getGoalsFor() ) return false;
             if( one.getGoalsFor() == another.getGoalsFor() ) {
-                //Randomiser *randomiser = Randomiser::RandomiserInstance();
-                //return (bool)randomiser->random(0,1);
-                //return true;
-                return bool(one.getId()%2); // kind of random
+                return bool(( one.getId() + another.getId() ) % 2 ); // kind of random
             }
         }
     }
-    //return true; // just remove warning
-        //return one.getPoints() < another.getPoints();
 }

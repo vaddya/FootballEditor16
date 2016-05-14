@@ -94,7 +94,7 @@ void Application::enterTeamsFromConsole()
 
 void Application::enterTeamsFromFile()
 {
-    cout << "Write the input file (default eufa16 and fifa32): "  ;
+    cout << "Write the input file (default uefa16 and fifa32): "  ;
     string filename;
     cin >> filename;
     cin.clear();
