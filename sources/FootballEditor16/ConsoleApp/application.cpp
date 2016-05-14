@@ -22,9 +22,9 @@ void Application::mainMenu()
     string badStr;
     int num;
     cin >> num;
-    if (cin.good())
+    if( cin.good() )
     {
-        switch (num)
+        switch( num )
         {
         case 0:
             break;
@@ -62,9 +62,9 @@ void Application::competitionMenu()
     string badStr;
     int num;
     cin >> num;
-    if (cin.good())
+    if( cin.good() )
     {
-        switch (num)
+        switch( num )
         {
         case 0:
             break;
@@ -106,9 +106,9 @@ void Application::launchCompetitionMenu()
     string badStr;
     int num;
     cin >> num;
-    if (cin.good())
+    if( cin.good() )
     {
-        switch (num)
+        switch( num )
         {
         case 0:
             break;
@@ -119,7 +119,7 @@ void Application::launchCompetitionMenu()
         case 3:
             showGroupsMenu(); break;
         case 4:
-            createPlayoffPairs(); launchCompetitionMenu(); break;
+            createPlayoffPairs(); showPlayoffMenu(); break;
         case 5:
             showPlayoffMenu(); break;
         case 9:

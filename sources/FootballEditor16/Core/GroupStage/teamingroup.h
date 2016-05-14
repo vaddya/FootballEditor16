@@ -2,6 +2,7 @@
 #define TEAMINGROUP_H
 
 #include "../teamstat.h"
+#include "../randomiser.h"
 
 /**
  * @brief The TeamInGroup class

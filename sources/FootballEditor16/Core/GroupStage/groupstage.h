@@ -51,7 +51,6 @@ public:
 
 private:
     void determineWinners();
-    void sortTeams();
     vector<Group> groups;
     unsigned numberOfGroups;
     vector<Team> winners;

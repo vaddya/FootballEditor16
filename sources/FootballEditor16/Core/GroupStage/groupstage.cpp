@@ -5,7 +5,6 @@ GroupStage::GroupStage( vector<Team> &teams ): Stage( teams )
     numberOfGroups = teams.size()/4;
     groups.reserve(numberOfGroups);
     winners.reserve(numberOfGroups*2);
-    sortTeams();
 }
 
 void GroupStage::launch()
@@ -27,7 +26,7 @@ void GroupStage::determineWinners()
 {
     winners.clear();
     vector<Team> winnersOfGroup;
-    for (Group &group: groups) {
+    for( Group &group: groups ) {
         group.sort();
         winnersOfGroup = group.getWinners();
         winners.insert(winners.end(), winnersOfGroup.begin(), winnersOfGroup.end());
@@ -46,11 +45,6 @@ Group &GroupStage::getGroup( char id )
         if( id == group.getId() )
             return group;
     throw WrongID( id );
-}
-
-void GroupStage::sortTeams()
-{
-    //TODO implement sorting
 }
 
 void GroupStage::createGroups()

@@ -69,5 +69,21 @@ int TeamInGroup::getLoses() const
 
 bool operator<( const TeamInGroup &one, const TeamInGroup &another )
 {
-    return one.getPoints() < another.getPoints();
+    if( one.getPoints() < another.getPoints() ) return true;
+    if( one.getPoints() > another.getPoints() ) return false;
+    if( one.getPoints() == another.getPoints() ) {
+        if( one.getGoalsDiffrence() < another.getGoalsDiffrence() ) return true;
+        if( one.getGoalsDiffrence() > another.getGoalsDiffrence() ) return false;
+        if( one.getGoalsDiffrence() == another.getGoalsDiffrence() ) {
+            if( one.getGoalsFor() < another.getGoalsFor() ) return true;
+            if( one.getGoalsFor() > another.getGoalsFor() ) return false;
+            if( one.getGoalsFor() == another.getGoalsFor() ) {
+                    //Randomiser *randomiser = Randomiser::RandomiserInstance();
+                    //return randomiser->random(0,1);
+                return true;
+            }
+        }
+    }
+    //return true; // just remove warning
+        //return one.getPoints() < another.getPoints();
 }

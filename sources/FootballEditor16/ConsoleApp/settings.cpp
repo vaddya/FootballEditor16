@@ -14,9 +14,9 @@ void Application::settiingsMenu()
        string badStr;
        int num;
        cin >> num;
-       if (cin.good())
+       if( cin.good() )
        {
-           switch (num)
+           switch( num )
            {
            case 0:
                break;
@@ -90,18 +90,18 @@ void Application::enterTeamsFromConsole()
 
 void Application::enterTeamsFromFile()
 {
-    cout << "Write the input file (default 16 or 32): "  ;
+    cout << "Write the input file (default eufa16 and fifa32): "  ;
     string filename;
     cin >> filename;
     cin.clear();
-    ifstream fin(filename);
-    if (!fin.is_open()) {
+    ifstream fin( filename );
+    if( !fin.is_open() ) {
         cout << "Error! Cannot open input file. Input interrupted.\n";
         return;
     }
     string name;
     fin >> name;
-    while (fin) {
+    while( fin ) {
         comp->addTeam(name);
         fin >> name;
     }
@@ -113,7 +113,7 @@ void Application::showCurrentSettings()
 {
     cout << "Competition \"" << comp->getTitle() << "\"" << endl
          <<  comp->getNumberOfTeams() << " teams:" << endl;
-    for (Team team: comp->getTeams()) {
+    for( Team &team: comp->getTeams() ) {
         cout << "(" << team.getId() << ") " << team << endl;
     }
 }

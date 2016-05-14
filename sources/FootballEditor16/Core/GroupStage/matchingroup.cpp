@@ -5,7 +5,7 @@ MatchInGroup::MatchInGroup(TeamInGroup &firstTeam, TeamInGroup &secondTeam): Mat
 
 void MatchInGroup::setResult(int firstTeamGoals, int secondTeamGoals)
 {
-    if (result != "Hasn't started yet")
+    if( isPlayed() )
         pickPointsBack( firstTeam.getGoalsFor(), secondTeam.getGoalsFor() ); // pick previously acquired points
     firstTeam.setGoals( firstTeamGoals, secondTeamGoals );
     secondTeam.setGoals( secondTeamGoals, firstTeamGoals );
@@ -26,15 +26,15 @@ void MatchInGroup::updatePoints(int fTeamGoals, int sTeamGoals)
 {
     firstTeamInGroup->increaseGoals( fTeamGoals, sTeamGoals );
     secondTeamInGroup->increaseGoals( sTeamGoals, fTeamGoals );
-    if (fTeamGoals > sTeamGoals) {
+    if( fTeamGoals > sTeamGoals ) {
         firstTeamInGroup->win();
         secondTeamInGroup->lose();
     }
-    if (fTeamGoals < sTeamGoals) {
+    if( fTeamGoals < sTeamGoals ) {
         firstTeamInGroup->lose();
         secondTeamInGroup->win();
     }
-    if (fTeamGoals == sTeamGoals) {
+    if( fTeamGoals == sTeamGoals ) {
         firstTeamInGroup->draw();
         secondTeamInGroup->draw();
     }
@@ -44,37 +44,16 @@ void MatchInGroup::pickPointsBack(int fTeamGoals, int sTeamGoals)
 {
     firstTeamInGroup->decreaseGoals( firstTeam.getGoalsFor(), secondTeam.getGoalsFor() );
     secondTeamInGroup->decreaseGoals( secondTeam.getGoalsFor(), firstTeam.getGoalsFor() );
-    if (fTeamGoals > sTeamGoals) {
+    if( fTeamGoals > sTeamGoals ) {
         firstTeamInGroup->unWin();
         secondTeamInGroup->unLose();
     }
-    if (fTeamGoals < sTeamGoals) {
+    if( fTeamGoals < sTeamGoals ) {
         firstTeamInGroup->unLose();
         secondTeamInGroup->unWin();
     }
-    if (fTeamGoals == sTeamGoals) {
+    if( fTeamGoals == sTeamGoals ) {
         firstTeamInGroup->unDraw();
         secondTeamInGroup->unDraw();
     }
-}
-
-
-ostream& operator<<( ostream &os, MatchInGroup &match )
-{
-    os << "(" << match.getId() << ") " << match.getFirstTeam();
-    if (match.getResult() == "Hasn't started yet")
-        os << " vs ";
-    else
-        os << " " << match.getResult() << " ";
-    os << match.getSecondTeam();
-    return os;
-}
-
-istream& operator>>( istream &is, MatchInGroup &match )
-{
-    int goalsOfFirstTeam, goalsOfSecondTeam;
-    char separator;
-    is >> goalsOfFirstTeam >> separator >> goalsOfSecondTeam;
-    match.setResult(goalsOfFirstTeam, goalsOfSecondTeam);
-    return is;
 }

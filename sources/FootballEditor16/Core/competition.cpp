@@ -36,7 +36,7 @@ vector<Team> &Competition::getTeams()
 
 void Competition::startGroupStage()
 {
-    if (numberOfTeams % 4 == 0 && numberOfTeams != 0) {
+    if( numberOfTeams % 4 == 0 && numberOfTeams != 0 ) {
         groupStage = new GroupStage(teams);
         groupStage->launch();
         groupStage->createGroups();
@@ -47,7 +47,7 @@ void Competition::startGroupStage()
 
 void Competition::startGroupStage(vector<int> teamIDs)
 {
-    if (numberOfTeams % 4 == 0 && numberOfTeams != 0) {
+    if( numberOfTeams % 4 == 0 && numberOfTeams != 0 ) {
         groupStage = new GroupStage(teams);
         groupStage->launch();
         groupStage->createGroups(teamIDs);
@@ -58,7 +58,7 @@ void Competition::startGroupStage(vector<int> teamIDs)
 
 GroupStage &Competition::getGroupStage()
 {
-    if (groupStage != 0)
+    if( groupStage != 0 )
         return *groupStage;
     else
         throw GroupsAreNotCreated();
@@ -66,12 +66,15 @@ GroupStage &Competition::getGroupStage()
 
 PlayoffStage &Competition::getPlayoffStage()
 {
-    return *playoffStage;
+    if( playoffStage != 0 )
+        return *playoffStage;
+    else
+        throw GroupStageIsNotOver();
 }
 
 void Competition::startPlayOffStage()
 {
-    if (groupStage != 0 && groupStage->getWinners().size() != 0) {
+    if( groupStage != 0 && groupStage->getWinners().size() != 0 ) {
         playoffStage = new PlayoffStage(groupStage->getWinners());
         playoffStage->launch();
     }
@@ -81,7 +84,7 @@ void Competition::startPlayOffStage()
 
 void Competition::startPlayOffStage(vector<int> teamIDs)
 {
-    if (groupStage->getWinners().size() != 0) {
+    if( groupStage->getWinners().size() != 0 ) {
         playoffStage = new PlayoffStage(groupStage->getWinners());
         playoffStage->launch();
         playoffStage->createMatches(teamIDs);
@@ -92,8 +95,8 @@ void Competition::startPlayOffStage(vector<int> teamIDs)
 
 Competition::~Competition()
 {
-    if (groupStage != 0)
+    if( groupStage )
         delete groupStage;
-    if (playoffStage != 0)
+    if( playoffStage )
         delete playoffStage;
 }

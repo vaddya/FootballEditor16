@@ -48,6 +48,11 @@ public:
      * @return ID of the match
      */
     int getId() const;
+    /**
+     * @brief Is game already played
+     * @return true if game is played, false if game isn't played
+     */
+    bool isPlayed() const;
 
     /**
      * @brief Get reference to the first team

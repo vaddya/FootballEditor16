@@ -7,7 +7,7 @@ void Application::showGroupsMenu()
         cout << endl
              << "Select group:" << endl;
         int num = 0;
-        for( Group group: *groups )
+        for( Group &group: *groups )
             cout << ++num << ". Group " << group.getId() << endl;
         int numberOfGroups = num;
         cout << ++num << ". Simulate results" << endl;
@@ -104,7 +104,7 @@ void Application::showGroups()
 {
     try {
         cout << endl;
-        for( Group group: comp->getGroupStage().getGroups() ) {
+        for( Group &group: comp->getGroupStage().getGroups() ) {
             group.sort();
             cout << group << endl;
         }
@@ -118,15 +118,15 @@ void Application::showGroupMatches()
 {
     try {
         cout << endl;
-        for( Group group: comp->getGroupStage().getGroups() ) {
+        for( Group &group: comp->getGroupStage().getGroups() ) {
             cout << "Group " << group.getId() << endl;
-            for( MatchInGroup match: group.getMatches() ) {
+            for( MatchInGroup &match: group.getMatches() ) {
                 cout << match << endl;
             }
             cout << endl;
         }
     }
-    catch (GroupsAreNotCreated& e) {
+    catch( GroupsAreNotCreated& e ) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
     }
@@ -135,15 +135,15 @@ void Application::showGroupMatches()
 void Application::setResultsOfGroupMatches()
 {
     try {
-        for (Group &group: comp->getGroupStage().getGroups()) {
+        for( Group &group: comp->getGroupStage().getGroups() ) {
             cout << endl << "Group " << group.getId() << endl;
-            for (Match &match: group.getMatches()) {
+            for( MatchInGroup &match: group.getMatches() ) {
                 cout << match.getFirstTeam() << " - " << match.getSecondTeam() << ": ";
                 cin >> match;
             }
         }
     }
-    catch (GroupsAreNotCreated& e) {
+    catch( GroupsAreNotCreated& e ) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
     }
@@ -152,13 +152,13 @@ void Application::setResultsOfGroupMatches()
 void Application::simulateResultsOfGroupStage()
 {
     try {
-        for (Group &group: comp->getGroupStage().getGroups()) {
-            for (Match &match: group.getMatches()) {
+        for( Group &group: comp->getGroupStage().getGroups() ) {
+            for( MatchInGroup &match: group.getMatches() ) {
                 match.simulate();
             }
         }
     }
-    catch (GroupsAreNotCreated& e) {
+    catch( GroupsAreNotCreated& e ) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
            return;

@@ -67,7 +67,7 @@ RoundEnum PlayoffStage::nextStage()
 void PlayoffStage::createNewMatches()
 {
     rounds.back().updateWinners();
-    if ( currentRound == FINAL ) {
+    if( currentRound == FINAL ) {
         throw CompetitionIsOver();
     }
     else {
@@ -122,14 +122,14 @@ ostream& operator<<( ostream &os, PlayoffStage &playoff )
         os << setw(44) << "║" << setw(4) << " " << Round3[0].getFirstTeam() << setw(13-Round3[0].getFirstTeam().getName().size())
            << Round3[0].getFirstTeam().getGoalsFor() << " ═" << "╗" << endl;
         os << setw(44) << "║" << "══" << setw(20) << "║" << "══ ";
-        if( Round3[0].getResult() == "Hasn't started yet" )
+        if( !Round3[0].isPlayed() )
             os << endl;
         else
             os << Round3[0].getWinner() << endl;
         os << setw(44) << "║" << setw(4) << " " << Round3[0].getSecondTeam() << setw(13-Round3[0].getSecondTeam().getName().size())
            << Round3[0].getSecondTeam().getGoalsFor() << " ═" << "╝" << endl;
     }
-    else if ( playoff.getCurrentRound() <= 2 ) {
+    else if( playoff.getCurrentRound() <= 2 ) {
         os << setw(44) << "║" << endl;
         os << setw(44) << "║" << "══" << endl;
         os << setw(44) << "║" << endl;

@@ -15,9 +15,9 @@ void Application::showPlayoffMenu()
     string badStr;
     int num;
     cin >> num;
-    if (cin.good())
+    if( cin.good() )
     {
-        switch (num)
+        switch( num )
         {
         case 0:
             break;
@@ -30,7 +30,7 @@ void Application::showPlayoffMenu()
         case 4:
             simulateResultsOfPlayoffMatches(); showPlayoffMenu(); break;
         case 5:
-            createNewRound(); launchCompetitionMenu(); break;
+            createNewRound(); showPlayoffMenu(); break;
         case 9:
             launchCompetitionMenu(); break;
         default:
@@ -59,16 +59,16 @@ void Application::createPlayoffPairs()
             cout << "(" << team.getId() << ") " << team << endl;
         int teamID;
         int pairID = 0;
-        for( unsigned i = 0; i < comp->getTeams().size() / 4; i++ ) {
+        for( size_t i = 0; i < comp->getGroupStage().getWinners().size() / 2; i++ ) {
             cout << "Enter 2 team's ID for " << ++pairID << " playoff pair: " << endl << ">>> ";
-            for( unsigned j = 0; j < 2; j++) {
+            for( size_t j = 0; j < 2; j++) {
                 cin >> teamID;
                 teamIDs.push_back(teamID);
             }
         }
         comp->startPlayOffStage(teamIDs);
     }
-    catch ( GroupStageIsNotOver& e ) {
+    catch( GroupStageIsNotOver& e ) {
         cout << e.what() << endl;
     }
 }
@@ -78,7 +78,7 @@ void Application::showPlayoffTable()
     try {
         cout << endl << comp->getPlayoffStage();
     }
-    catch ( GroupStageIsNotOver& e ) {
+    catch( GroupStageIsNotOver& e ) {
         cout << e.what() << endl;
     }
 }
@@ -118,7 +118,7 @@ void Application::createNewRound()
         comp->getPlayoffStage().createNewMatches();
         showPlayoffMatches();
     }
-    catch (CompetitionIsOver& e) {
+    catch( CompetitionIsOver& e ) {
            cout << e.what() << endl;
     }
 }

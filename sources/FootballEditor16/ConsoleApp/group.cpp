@@ -1,9 +1,9 @@
 #include "application.h"
 
-void Application::showGroupMenu(char groupCharacter)
+void Application::showGroupMenu(char group)
 {
     cout << endl
-         << "Group " << groupCharacter << ":" << endl
+         << "Group " << group << ":" << endl
          << "1. Show table" << endl
          << "2. Show matches" << endl
          << "3. Enter the results of the matches" << endl
@@ -14,27 +14,27 @@ void Application::showGroupMenu(char groupCharacter)
     string badStr;
     int num;
     cin >> num;
-    if (cin.good())
+    if( cin.good() )
     {
-        switch (num)
+        switch( num )
         {
         case 0:
             break;
         case 1:
-            showGroupTable(groupCharacter); showGroupMenu(groupCharacter); break;
+            showGroupTable(group); showGroupMenu(group); break;
         case 2:
-            showGroupMatches(groupCharacter); showGroupMenu(groupCharacter); break;
+            showGroupMatches(group); showGroupMenu(group); break;
         case 3:
-            setResultsOfGroupMatches(groupCharacter); showGroupMenu(groupCharacter); break;
+            setResultsOfGroupMatches(group); showGroupMenu(group); break;
         case 4:
-            simulateResultsOfGroupStage(); showGroupMenu(groupCharacter); break;
+            simulateResultsOfGroupStage(group); showGroupMenu(group); break;
         case 9:
             showGroupsMenu(); break;
         default:
             cout << "Error! Invalid number." << endl;
             cin.clear();
             getline(cin, badStr);
-            showGroupMenu(groupCharacter); break;
+            showGroupMenu(group); break;
         }
     }
     else
@@ -42,7 +42,7 @@ void Application::showGroupMenu(char groupCharacter)
         cout << "Error! Input a number." << endl;
         cin.clear();
         getline(cin, badStr);
-        showGroupMenu(groupCharacter);
+        showGroupMenu(group);
         cout << endl;
     }
 }
@@ -64,7 +64,7 @@ void Application::showGroupMatches( char groupId )
         cout << endl;
         cout << "Group " << groupId << endl;
         cout << "Matches:" << endl;
-        for( MatchInGroup match: comp->getGroupStage().getGroup(groupId).getMatches() ) {
+        for( Match &match: comp->getGroupStage().getGroup(groupId).getMatches() ) {
             cout << match << endl;
         }
     }
@@ -78,14 +78,29 @@ void Application::setResultsOfGroupMatches( char groupId )
 {
     try {
         cout << endl << "Group " << groupId << endl;
-        for (Match &match: comp->getGroupStage().getGroup(groupId).getMatches()) {
+        for( Match &match: comp->getGroupStage().getGroup(groupId).getMatches() ) {
             cout << match << ": ";
             cin >> match;
         }
     }
-    catch (GroupsAreNotCreated& e) {
+    catch( GroupsAreNotCreated& e ) {
            cout << "There are no matches" << endl
                 << e.what() << endl;
     }
+}
+
+void Application::simulateResultsOfGroupStage( char groupId )
+{
+    try {
+        for( Match &match: comp->getGroupStage().getGroup(groupId).getMatches() ) {
+            match.simulate();
+        }
+    }
+    catch( GroupsAreNotCreated& e ) {
+           cout << "There are no matches" << endl
+                << e.what() << endl;
+           return;
+    }
+    showGroupMatches( groupId );
 }
 

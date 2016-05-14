@@ -26,11 +26,33 @@ TeamStat &Match::getSecondTeam()
     return secondTeam;
 }
 
+bool Match::isPlayed() const
+{
+    if( result != "Hasn't started yet" )
+        return true;
+    else
+        return false;
+}
+
 void Match::simulate()
 {
     Randomiser *randomiser = Randomiser::RandomiserInstance();
-    int firstTeamGoals = randomiser->random(0, 4);
-    int secondTeamGoals = randomiser->random(0, 4);
+    int firstTeamGoals;
+    int secondTeamGoals;
+    if( randomiser->random(0,2) ) { // Chance is 2/3
+        firstTeamGoals = randomiser->random(0,2);
+        secondTeamGoals = randomiser->random(0,2);
+    }
+    else {
+        if( randomiser->random(0,2) ) { // Chance is 2/9
+            firstTeamGoals = randomiser->random(0,3);
+            secondTeamGoals = randomiser->random(0,3);
+        }
+        else { // Chance is 1/9
+            firstTeamGoals = randomiser->random(0,4);
+            secondTeamGoals = randomiser->random(0,4);
+        }
+    }
     setResult(firstTeamGoals, secondTeamGoals);
 }
 
@@ -44,7 +66,7 @@ void Match::updateResult()
 ostream& operator<<( ostream &os, Match &match )
 {
     os << "(" << match.getId() << ") " << match.getFirstTeam();
-    if (match.getResult() == "Hasn't started yet")
+    if( match.getResult() == "Hasn't started yet" )
         os << " vs ";
     else
         os << " " << match.getResult() << " ";

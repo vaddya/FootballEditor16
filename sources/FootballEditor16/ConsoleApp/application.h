@@ -45,6 +45,7 @@ public:
     void showGroupTable( char groupId );
     void showGroupMatches( char groupId );
     void setResultsOfGroupMatches( char groupId );
+    void simulateResultsOfGroupStage( char groupId );
 
     // Playoff
     void showPlayoffMenu();
