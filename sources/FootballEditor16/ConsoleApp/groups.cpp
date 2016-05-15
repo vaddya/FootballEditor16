@@ -90,14 +90,24 @@ void Application::createGroups()
                 teamIDs.push_back(teamID-1);
             }
         }
-        comp->startGroupStage(teamIDs);
+        try {
+            comp->startGroupStage(teamIDs);
+        }
+        catch( WrongID& e ) {
+            cout << "#" << e.getWrongID() << " " << e.what() << endl
+                 << "Input interrupted." << endl;
+            launchCompetitionMenu();
+            return;
+        }
     }
     catch( WrongNumberOfTeams& e ) {
         cout << e.what() << " (now " << e.getWrongNum() << ")" << endl
              << "Groups are not created" << endl;
+        launchCompetitionMenu();
         return;
     }
     cout << "Groups are created" << endl;
+    showGroupsMenu();
 }
 
 void Application::showGroups()

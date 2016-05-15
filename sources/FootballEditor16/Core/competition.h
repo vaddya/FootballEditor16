@@ -7,7 +7,10 @@
 #include "GroupStage/groupstage.h"
 #include "GroupStage/group.h"
 #include "PlayoffStage/playoffstage.h"
-
+#include "Exceptions/wrongid.h"
+#include "Exceptions/wrongnumberofteams.h"
+#include "Exceptions/groupstageisnotover.h"
+#include "GroupStage/Exceptions/groupsarenotcreated.h"
 using std::string;
 using std::vector;
 
@@ -56,6 +59,10 @@ public:
      * @brief Launch group stage
      */
     void startGroupStage();
+    /**
+     * @brief Launch group stage with custom groups
+     * @param teamIDs
+     */
     void startGroupStage( vector<int> teamIDs );
     /**
      * @brief Get group stage
@@ -71,6 +78,10 @@ public:
      * @brief Launch playoff stage
      */
     void startPlayOffStage();
+    /**
+     * @brief Launch playoff stage with custom pairs
+     * @param teamIDs
+     */
     void startPlayOffStage( vector<int> teamIDs );
     ~Competition();
 
@@ -82,36 +93,6 @@ private:
     // There are 2 stages in a football competition
     GroupStage* groupStage;
     PlayoffStage* playoffStage;
-};
-
-
-class WrongNumberOfTeams: public std::exception
-{
-public:
-    WrongNumberOfTeams(int number): wrongNumber(number) {}
-    int getWrongNum() const { return wrongNumber; }
-    const char * what() { return "The number of teams should be a multiple of 8!"; }
-private:
-    int wrongNumber;
-};
-
-class WrongListOfTeams: public std::exception
-{
-public:
-    WrongListOfTeams();
-    const char * what() { return ""; }
-};
-
-class GroupsAreNotCreated: public std::exception
-{
-public:
-    const char * what() { return "Groups are not created yet!"; }
-};
-
-class GroupStageIsNotOver: public std::exception
-{
-public:
-    const char * what() { return "Group Stage isn't over!"; }
 };
 
 #endif // COMPETITION_H

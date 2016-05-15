@@ -32,6 +32,7 @@ TeamInPlayoff &MatchInPlayoff::getWinner()
         else
             return secondTeamInPlayoff;
     }
+    return firstTeamInPlayoff; // just remove warning
 }
 
 void MatchInPlayoff::updateResult()
@@ -47,7 +48,7 @@ void MatchInPlayoff::updateResult()
 string MatchInPlayoff::showFirstTeam()
 {
     ostringstream convert;
-    convert << firstTeam;
+    convert << firstTeam.getName();
     if( isWithPenalty )
         convert << setw(13-firstTeam.getName().size()) << firstTeam.getGoalsFor() << "(" << penalty.firstTeamPenaltyScore << ")";
     else
@@ -58,7 +59,7 @@ string MatchInPlayoff::showFirstTeam()
 string MatchInPlayoff::showSecondTeam()
 {
     ostringstream convert;
-    convert << secondTeam;
+    convert << secondTeam.getName();
     if( isWithPenalty )
         convert << setw(13-secondTeam.getName().size()) << secondTeam.getGoalsFor() << "(" << penalty.secondTeamPenaltyScore << ")";
     else

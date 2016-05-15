@@ -82,4 +82,5 @@ bool operator<( const TeamInGroup &one, const TeamInGroup &another )
             }
         }
     }
+    return true; // just remove warning
 }

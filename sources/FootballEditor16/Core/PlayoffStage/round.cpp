@@ -13,7 +13,7 @@ void Round::addPair(TeamInPlayoff &first, TeamInPlayoff &second )
     matches.push_back( MatchInPlayoff( first, second ) );
 }
 
-RoundEnum Round::getRound() const
+RoundEnum Round::getRoundEnum() const
 {
     return round;
 }

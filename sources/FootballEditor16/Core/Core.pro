@@ -40,7 +40,16 @@ HEADERS += competition.h \
     PlayoffStage/playoffstage.h \
     PlayoffStage/teaminplayoff.h \
     PlayoffStage/matchinplayoff.h \
-    PlayoffStage/round.h
+    PlayoffStage/round.h \
+    GroupStage/Exceptions/groupsarenotcreated.h \
+    PlayoffStage/Exceptions/inputpenaltryscore.h \
+    PlayoffStage/Exceptions/wrongpenaltyscore.h \
+    Exceptions/groupstageisnotover.h \
+    Exceptions/competitionisover.h \
+    Exceptions/wrongnumberofteams.h \
+    Exceptions/wrongid.h \
+    PlayoffStage/Exceptions/competitionisover.h \
+    PlayoffStage/roundenum.h
 unix {
     target.path = /usr/lib
     INSTALLS += target

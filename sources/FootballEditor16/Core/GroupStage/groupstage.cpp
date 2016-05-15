@@ -63,8 +63,12 @@ void GroupStage::createGroups( vector<int> teamIDs )
     for( unsigned i = 0; i < numberOfGroups; i++ )
     {
         groups.push_back(Group());
-        for( unsigned j = 0; j < 4; j++ )
-            groups.back().addTeam(getTeams()[teamIDs[id++]]);
+        for( unsigned j = 0; j < 4; j++ ) {
+            if( id >=0 || id <= (int)teams.size()-1 )
+                groups.back().addTeam(getTeams()[teamIDs[id++]]);
+            else
+                throw WrongID(id);
+        }
         groups.back().createMatches();
     }
 }

@@ -8,7 +8,7 @@ class Round
 public:
     Round( RoundEnum round );
     void addPair( TeamInPlayoff &first, TeamInPlayoff &second );
-    RoundEnum getRound() const;
+    RoundEnum getRoundEnum() const;
     void addTeams(vector<TeamInPlayoff> &teams_ );
     vector<TeamInPlayoff> &getTeams();
     vector<MatchInPlayoff> &getMatches();

@@ -3,6 +3,7 @@
 
 #include "../stage.h"
 #include "group.h"
+#include "../Exceptions/wrongid.h"
 
 /**
  * @brief The GroupStage class

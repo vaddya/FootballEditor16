@@ -53,7 +53,6 @@ void Application::showPlayoffMenu()
 void Application::createPlayoffPairs()
 {
     try {
-        comp->startPlayOffStage();
         vector<int> teamIDs;
         for( Team &team: comp->getGroupStage().getWinners() )
             cout << "(" << team.getId() << ") " << team << endl;
@@ -66,11 +65,22 @@ void Application::createPlayoffPairs()
                 teamIDs.push_back(teamID);
             }
         }
-        comp->startPlayOffStage(teamIDs);
+        try {
+            comp->startPlayOffStage(teamIDs);
+        }
+        catch( WrongID& e ) {
+            cout << "#" << e.getWrongID() << " " << e.what() << endl
+                 << "Input interrupted. Create pairs again." << endl;
+            launchCompetitionMenu();
+            return;
+        }
     }
     catch( GroupStageIsNotOver& e ) {
         cout << e.what() << endl;
+        return;
     }
+    cout << "Pairs are created" << endl;
+    showPlayoffMenu();
 }
 
 void Application::showPlayoffTable()

@@ -6,6 +6,8 @@
 #include "matchinplayoff.h"
 #include "teaminplayoff.h"
 #include "round.h"
+#include "../Exceptions/wrongid.h"
+#include "Exceptions/competitionisover.h"
 #include "iostream"
 #include "vector"
 #include "iomanip"
@@ -39,12 +41,6 @@ private:
     vector<Round> rounds;
     int numberOfRounds;
     RoundEnum currentRound;
-};
-
-class CompetitionIsOver: public std::exception
-{
-public:
-    const char * what() { return "The compeition is over!"; }
 };
 
 #endif // PLAYOFFSTAGE_H

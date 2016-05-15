@@ -7,8 +7,7 @@ Application::Application()
 
 void Application::loadCompetition()
 {
-    //TODO implement load comp
-    cout << endl << "Is coming" << endl << endl;
+    cout << endl;
     mainMenu();
 }
 
@@ -113,13 +112,13 @@ void Application::launchCompetitionMenu()
         case 0:
             break;
         case 1:
-            generateGroups(); launchCompetitionMenu(); break;
+            generateGroups(); showGroupsMenu(); break;
         case 2:
-            createGroups(); launchCompetitionMenu(); break;
+            createGroups(); break;
         case 3:
             showGroupsMenu(); break;
         case 4:
-            createPlayoffPairs(); showPlayoffMenu(); break;
+            createPlayoffPairs(); break;
         case 5:
             showPlayoffMenu(); break;
         case 9:
