@@ -86,10 +86,10 @@ zip_files() {
 			cp report/FootballEditor16.pdf $TITLE/FootballEditor16_v${BUILD_NUMBER}.pdf
 		fi
 		if [ -e "report/uefa16" ]; then
-			cp report/Teams $TITLE/uefa16
+			cp report/uefa16 $TITLE/uefa16
 		fi
 		if [ -e "report/fifa32" ]; then
-			cp report/Teams $TITLE/fifa32
+			cp report/fifa32 $TITLE/fifa32
 		fi
 		if [ -e "sources/FootballEditor16/doxygen/latex/refman.pdf" ]; then
 			cp sources/FootballEditor16/doxygen/latex/refman.pdf $TITLE/FootballEditor16Doxygen_v${BUILD_NUMBER}.pdf
