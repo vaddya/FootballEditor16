@@ -9,4 +9,5 @@ Test.depends = Core
 SUBDIRS += \
     Core \
     ConsoleApp \
-    Test
+    Test \
+    GUIApp
