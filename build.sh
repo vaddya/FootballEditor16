@@ -92,10 +92,8 @@ zip_files() {
 			cp report/fifa32 $TITLE/fifa32
 		fi
 		if [ -e "sources/FootballEditor16/doxygen/latex/refman.pdf" ]; then
-			cp sources/FootballEditor16/doxygen/latex/refman.pdf $TITLE/FootballEditor16Doxygen_v${BUILD_NUMBER}.pdf
+			cp sources/FootballEditor16/doxygen/latex/refman.pdf $TITLE/FootballEditor16_Doxygen_v${BUILD_NUMBER}.pdf
 		fi
-		zip --version
-		zip $TITLE.zip $TITLE/*
 	else
 		echo "ConsoleApp does not exist"
 		echo "Zip failure!"
@@ -109,6 +107,8 @@ zip_files() {
 		echo "Zip failure!"
 		exit 1
 	fi
+	zip --version
+	zip $TITLE.zip $TITLE/*
 }
 
 clean() {
