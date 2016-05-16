@@ -81,7 +81,7 @@ zip_files() {
 	mkdir "$TITLE"
 
 	if [ -e "sources/FootballEditor16/ConsoleApp/ConsoleApp" ]; then
-		cp sources/FootballEditor16/ConsoleApp/ConsoleApp $TITLE/FootballEditor16_v${BUILD_NUMBER}
+		cp sources/FootballEditor16/ConsoleApp/ConsoleApp $TITLE/FootballEditor16_Console_v${BUILD_NUMBER}
 		if [ -e "report/FootballEditor16.pdf" ]; then
 			cp report/FootballEditor16.pdf $TITLE/FootballEditor16_v${BUILD_NUMBER}.pdf
 		fi
@@ -102,6 +102,13 @@ zip_files() {
 		exit 1
 	fi
 
+	if [ -e "sources/FootballEditor16/GUIApp/GUIApp" ]; then
+		cp sources/FootballEditor16/GUIApp/GUIApp $TITLE/FootballEditor16_GUI_v${BUILD_NUMBER}
+	else
+		echo "GUIApp does not exist"
+		echo "Zip failure!"
+		exit 1
+	fi
 }
 
 clean() {

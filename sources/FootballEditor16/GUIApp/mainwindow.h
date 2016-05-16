@@ -19,7 +19,6 @@ private:
     const QSize SCREEN_SIZE{1090, 647};
     const QSize BUTTON_SIZE{150, 50};
 
-private:
     Ui::MainWindow *ui;
 };
 
