@@ -4,6 +4,7 @@
 #include "../stage.h"
 #include "group.h"
 #include "../Exceptions/wrongid.h"
+#include "Exceptions/groupstageisnotover.h"
 
 /**
  * @brief The GroupStage class
@@ -49,7 +50,7 @@ public:
      * @return group
      */
     Group& getGroup( char id );
-
+    bool isGroupStageOver();
 private:
     void determineWinners();
     vector<Group> groups;

@@ -62,18 +62,16 @@ void Application::createPlayoffPairs()
             cout << "Enter 2 team's ID for " << ++pairID << " playoff pair: " << endl << ">>> ";
             for( size_t j = 0; j < 2; j++) {
                 cin >> teamID;
-                teamIDs.push_back(teamID);
+                teamIDs.push_back( teamID );
             }
         }
-        try {
-            comp->startPlayOffStage(teamIDs);
-        }
-        catch( WrongID& e ) {
-            cout << "#" << e.getWrongID() << " " << e.what() << endl
-                 << "Input interrupted. Create pairs again." << endl;
-            launchCompetitionMenu();
-            return;
-        }
+        comp->startPlayOffStage( teamIDs );
+    }
+    catch( WrongID& e ) {
+        cout << "#" << e.getWrongID() << " " << e.what() << endl
+             << "Input interrupted. Create pairs again." << endl;
+        launchCompetitionMenu();
+        return;
     }
     catch( GroupStageIsNotOver& e ) {
         cout << e.what() << endl;
@@ -95,8 +93,20 @@ void Application::showPlayoffTable()
 
 void Application::showPlayoffMatches()
 {
-    for( Match &match: comp->getPlayoffStage().getMatches() )
-        cout << match << endl;
+    try {
+        switch( comp->getPlayoffStage().getCurrentRound() ) {
+            case 0:
+            case 1: cout << "Final" << endl; break;
+            case 2: cout << "Semi-finals" << endl; break;
+            case 4: cout << "Quarter-finals" << endl; break;
+            case 8: cout << "Round of 16" << endl; break;
+        }
+        for( Match &match: comp->getPlayoffStage().getMatches() )
+            cout << match << endl;
+    }
+    catch( GroupStageIsNotOver& e ) {
+        cout << e.what() << endl;
+    }
 }
 
 void Application::setResultsOfPlayoffMatches()
@@ -117,25 +127,28 @@ void Application::setResultsOfPlayoffMatches()
                     match.setPenaltyScore( penaltyOfFirstTeam, penaltyOfSecondTeam );
                 }
                 catch( WrongPenaltyScore& e ) {
-                    cout << e.what() << endl
-                         << "Input interrupted." << endl;
+                    cout << e.what() << endl << "Input interrupted." << endl;
                     return;
                 }
             }
         }
     }
-    catch( GroupsAreNotCreated& e ) {
-           cout << "There are no matches" << endl
-                << e.what() << endl;
+    catch( GroupStageIsNotOver& e ) {
+        cout << e.what() << endl;
     }
 }
 
 
 void Application::simulateResultsOfPlayoffMatches()
 {
-    for( Match &match: comp->getPlayoffStage().getMatches() )
-        match.simulate();
-    showPlayoffMatches();
+    try {
+        for( Match &match: comp->getPlayoffStage().getMatches() )
+            match.simulate();
+        showPlayoffMatches();
+    }
+    catch( GroupStageIsNotOver& e ) {
+        cout << e.what() << endl;
+    }
 }
 
 void Application::createNewRound()
@@ -145,6 +158,9 @@ void Application::createNewRound()
         showPlayoffMatches();
     }
     catch( CompetitionIsOver& e ) {
-           cout << e.what() << endl;
+        cout << e.what() << endl;
+    }
+    catch( GroupStageIsNotOver& e ) {
+        cout << e.what() << endl;
     }
 }

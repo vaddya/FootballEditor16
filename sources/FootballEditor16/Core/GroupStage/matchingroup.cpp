@@ -1,12 +1,12 @@
 #include "GroupStage/matchingroup.h"
 
-MatchInGroup::MatchInGroup(TeamInGroup &firstTeam, TeamInGroup &secondTeam): Match(firstTeam, secondTeam),
-    firstTeamInGroup(&firstTeam), secondTeamInGroup(&secondTeam) {}
+MatchInGroup::MatchInGroup( TeamInGroup &firstTeam, TeamInGroup &secondTeam ): Match( firstTeam, secondTeam ),
+    firstTeamInGroup( &firstTeam ), secondTeamInGroup( &secondTeam ) {}
 
-void MatchInGroup::setResult(int firstTeamGoals, int secondTeamGoals)
+void MatchInGroup::setResult( int firstTeamGoals, int secondTeamGoals )
 {
     if( isPlayed() )
-        pickPointsBack( firstTeam.getGoalsFor(), secondTeam.getGoalsFor() ); // pick previously acquired points
+        clear(); // pick previously acquired points
     firstTeam.setGoals( firstTeamGoals, secondTeamGoals );
     secondTeam.setGoals( secondTeamGoals, firstTeamGoals );
     updatePoints( firstTeamGoals, secondTeamGoals );
@@ -15,14 +15,14 @@ void MatchInGroup::setResult(int firstTeamGoals, int secondTeamGoals)
 
 void MatchInGroup::clear()
 {
-    pickPointsBack(firstTeam.getGoalsFor(), secondTeam.getGoalsFor());
-    firstTeam.setGoals(0, 0);
-    secondTeam.setGoals(0, 0);
+    pickPointsBack( firstTeam.getGoalsFor(), secondTeam.getGoalsFor() );
+    firstTeam.clear();
+    secondTeam.clear();
     result = "Hasn't started yet";
 }
 
 
-void MatchInGroup::updatePoints(int fTeamGoals, int sTeamGoals)
+void MatchInGroup::updatePoints( int fTeamGoals, int sTeamGoals )
 {
     firstTeamInGroup->increaseGoals( fTeamGoals, sTeamGoals );
     secondTeamInGroup->increaseGoals( sTeamGoals, fTeamGoals );
@@ -40,10 +40,10 @@ void MatchInGroup::updatePoints(int fTeamGoals, int sTeamGoals)
     }
 }
 
-void MatchInGroup::pickPointsBack(int fTeamGoals, int sTeamGoals)
+void MatchInGroup::pickPointsBack( int fTeamGoals, int sTeamGoals )
 {
-    firstTeamInGroup->decreaseGoals( firstTeam.getGoalsFor(), secondTeam.getGoalsFor() );
-    secondTeamInGroup->decreaseGoals( secondTeam.getGoalsFor(), firstTeam.getGoalsFor() );
+    firstTeamInGroup->decreaseGoals( fTeamGoals, sTeamGoals );
+    secondTeamInGroup->decreaseGoals( sTeamGoals, fTeamGoals );
     if( fTeamGoals > sTeamGoals ) {
         firstTeamInGroup->unWin();
         secondTeamInGroup->unLose();

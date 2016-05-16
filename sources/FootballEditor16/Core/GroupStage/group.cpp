@@ -23,6 +23,7 @@ vector<MatchInGroup>& Group::getMatches()
 
 vector<Team> Group::getWinners()
 {
+    sort();
     vector<Team> winners;
     winners.push_back(teams[0]);
     winners.push_back(teams[1]);

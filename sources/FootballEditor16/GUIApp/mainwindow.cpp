@@ -6,15 +6,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    this->setFixedSize(SCREEN_SIZE);
-    QPixmap background("../../FootballEditor16/GUIApp/Resources/background.png");
+    QPixmap background(":/background.png");
     QPalette qPalette;
     qPalette.setBrush(this->backgroundRole(),QBrush(background));
     this->setPalette(qPalette);
+        //ui->exitWidget->hide();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_btnExit_clicked()
+{
+    ExitDialog* exitDialog = new ExitDialog(this);
+    exitDialog->exec();
 }

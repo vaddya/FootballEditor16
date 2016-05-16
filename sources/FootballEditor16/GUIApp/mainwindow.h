@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "exitdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -15,10 +16,10 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-private:
-    const QSize SCREEN_SIZE{1090, 647};
-    const QSize BUTTON_SIZE{150, 50};
+private slots:
+    void on_btnExit_clicked();
 
+private:
     Ui::MainWindow *ui;
 };
 

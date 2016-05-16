@@ -110,6 +110,8 @@ public:
      */
     int getFouls() const;
 
+
+    void clear();
 private:
     int goalsFor;
     int goalsAgainst;

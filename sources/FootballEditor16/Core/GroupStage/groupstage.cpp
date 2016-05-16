@@ -35,6 +35,8 @@ void GroupStage::determineWinners()
 
 vector<Team>& GroupStage::getWinners()
 {
+    if( isGroupStageOver() )
+        throw GroupStageIsNotOver();
     determineWinners();
     return winners;
 }
@@ -45,6 +47,15 @@ Group &GroupStage::getGroup( char id )
         if( id == group.getId() )
             return group;
     throw WrongID( id );
+}
+
+bool GroupStage::isGroupStageOver()
+{
+    for( Group &group: groups )
+        for( MatchInGroup &match: group.getMatches() )
+            if( match.getResult() == "Hasn't started yet" )
+                return false;
+    return true;
 }
 
 void GroupStage::createGroups()
