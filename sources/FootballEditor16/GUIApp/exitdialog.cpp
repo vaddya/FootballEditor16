@@ -2,22 +2,14 @@
 #include "ui_exitdialog.h"
 
 ExitDialog::ExitDialog(QWidget *parent) :
-    QDialog(parent),
+    QDialog(parent, Qt::WindowTitleHint),
     ui(new Ui::ExitDialog)
 {
     ui->setupUi(this);
     this->parent = parent;
-}
-
-void ExitDialog::on_btnYes_clicked()
-{
-    this->close();
-    this->parent->close();
-}
-
-void ExitDialog::on_btnCancel_clicked()
-{
-    this->close();
+    connect(ui->btnCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
+    connect(ui->btnYes,SIGNAL(clicked(bool)),this,SLOT(close()));
+    connect(ui->btnYes,SIGNAL(clicked(bool)),parent,SLOT(close()));
 }
 
 ExitDialog::~ExitDialog()

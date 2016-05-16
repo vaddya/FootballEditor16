@@ -1,6 +1,7 @@
 #ifndef EXITDIALOG_H
 #define EXITDIALOG_H
 
+#include <QtWidgets>
 #include <QDialog>
 
 namespace Ui {
@@ -14,10 +15,6 @@ class ExitDialog : public QDialog
 public:
     explicit ExitDialog(QWidget *parent = 0);
     ~ExitDialog();
-
-private slots:
-    void on_btnYes_clicked();
-    void on_btnCancel_clicked();
 
 private:
     Ui::ExitDialog *ui;
