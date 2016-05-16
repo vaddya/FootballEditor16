@@ -78,8 +78,17 @@
     <property name="text">
      <string>Create new competition</string>
     </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
     <property name="default">
      <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="btnLoadComp">
@@ -171,7 +180,6 @@
    </widget>
    <addaction name="menuFile"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionFile">
    <property name="text">
     <string>File</string>

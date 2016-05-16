@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QPixmap background(":/background.png");
+    QPixmap background(":/menu_background.png");
     QPalette qPalette;
     qPalette.setBrush(this->backgroundRole(),QBrush(background));
     this->setPalette(qPalette);
