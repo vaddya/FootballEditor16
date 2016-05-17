@@ -29,8 +29,8 @@ build_debug_version() {
 		Test/tst_testcore -xml -o test_results || true
 		cppcheck --version
 		cppcheck --enable=all -v  --xml  * 2> cppcheck_result
-		gcovr --version
-		gcovr -r . --xml --exclude='tst*' -o gcovr_result
+		#gcovr --version
+		#gcovr -r . --xml --exclude='tst*' -o gcovr_result
 		
 		valgrind --version
 		valgrind --leak-check=full --xml=yes --xml-file=/opt/tomcat/.jenkins/jobs/FootballEditor16/workspace/tst_testcore.%p.result /opt/tomcat/.jenkins/jobs/FootballEditor16/workspace/sources/FootballEditor16/Test/tst_testcore || true
