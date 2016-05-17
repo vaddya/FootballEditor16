@@ -1,6 +1,6 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
-    <qresource>
+    <qresource prefix="/">
         <file>menu_background.png</file>
         <file>settings_background.png</file>
         <file>texture.png</file>
