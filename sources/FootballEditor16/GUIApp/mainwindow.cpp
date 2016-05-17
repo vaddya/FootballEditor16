@@ -6,11 +6,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QPixmap background(":/menu_background.png");
-    QPalette qPalette;
-    qPalette.setBrush(this->backgroundRole(),QBrush(background));
-    this->setPalette(qPalette);
-        //ui->exitWidget->hide();
 }
 
 MainWindow::~MainWindow()
@@ -20,6 +15,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnExit_clicked()
 {
-    ExitDialog* exitDialog = new ExitDialog(this);
-    exitDialog->exec();
+    ExitDialog* exit = new ExitDialog(this);
+    exit->exec();
+    delete exit;
+}
+
+void MainWindow::on_btnNewComp_clicked()
+{
+    this->hide();
+    SettingsDialog* settings = new SettingsDialog(this);
+    settings->exec();
+    delete settings;
 }

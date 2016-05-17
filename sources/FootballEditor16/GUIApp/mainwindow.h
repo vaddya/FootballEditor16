@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "exitdialog.h"
+#include "settingsdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,6 +19,8 @@ public:
 
 private slots:
     void on_btnExit_clicked();
+
+    void on_btnNewComp_clicked();
 
 private:
     Ui::MainWindow *ui;

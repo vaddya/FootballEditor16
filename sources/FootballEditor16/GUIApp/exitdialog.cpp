@@ -3,10 +3,13 @@
 
 ExitDialog::ExitDialog(QWidget *parent) :
     QDialog(parent, Qt::WindowTitleHint),
-    ui(new Ui::ExitDialog)
+    ui(new Ui::ExitDialog),
+    parent(parent)
 {
     ui->setupUi(this);
-    this->parent = parent;
+
+    this->setFixedSize(this->geometry().width(),this->geometry().height());
+
     connect(ui->btnCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
     connect(ui->btnYes,SIGNAL(clicked(bool)),this,SLOT(close()));
     connect(ui->btnYes,SIGNAL(clicked(bool)),parent,SLOT(close()));

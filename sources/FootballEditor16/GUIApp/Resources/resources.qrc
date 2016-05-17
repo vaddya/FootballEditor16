@@ -2,6 +2,7 @@
 <RCC version="1.0">
     <qresource>
         <file>menu_background.png</file>
+        <file>settings_background.png</file>
         <file>texture.png</file>
     </qresource>
 </RCC>
