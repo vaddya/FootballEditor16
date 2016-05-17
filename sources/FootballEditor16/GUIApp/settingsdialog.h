@@ -16,7 +16,9 @@ public:
     ~SettingsDialog();
 
 private slots:
-    void on_pushButton_2_clicked();
+    void on_btnMenu_clicked();
+
+    void on_btnSave_clicked();
 
 private:
     Ui::SettingsDialog *ui;
