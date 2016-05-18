@@ -2,6 +2,7 @@
 #define SETTINGSDIALOG_H
 
 #include <QDialog>
+#include "competition.h"
 
 namespace Ui {
 class SettingsDialog;
@@ -18,11 +19,14 @@ public:
 private slots:
     void on_btnMenu_clicked();
 
-    void on_btnSave_clicked();
+    void on_btnCreate_clicked();
+
+    void on_cmbPreferences_currentIndexChanged(int index);
 
 private:
     Ui::SettingsDialog *ui;
-    QWidget* parent;
+    QWidget *parent;
+    Competition *comp;
 };
 
 #endif // SETTINGSDIALOG_H

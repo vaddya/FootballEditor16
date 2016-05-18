@@ -33,7 +33,7 @@
      <height>54</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="lauoutButtons">
     <item>
      <widget class="QPushButton" name="btnMenu">
       <property name="styleSheet">
@@ -74,7 +74,7 @@ QPushButton:pressed {
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="btnSave">
+     <widget class="QPushButton" name="btnCreate">
       <property name="styleSheet">
        <string notr="true">QPushButton { 
 	border: 1px solid #6d6d6d transparent;
@@ -95,7 +95,7 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>Save</string>
+       <string>Create</string>
       </property>
      </widget>
     </item>
@@ -105,9 +105,9 @@ QPushButton:pressed {
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>70</y>
+     <y>50</y>
      <width>600</width>
-     <height>430</height>
+     <height>471</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -139,75 +139,354 @@ width: 240px;
 font-weight: bold;</string>
     </property>
     <property name="text">
-     <string>Settings:</string>
+     <string>Create new competition:</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QLabel" name="lblPreferences">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>70</y>
-      <width>601</width>
-      <height>45</height>
+      <x>30</x>
+      <y>80</y>
+      <width>117</width>
+      <height>37</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetDefaultConstraint</enum>
-     </property>
-     <item>
-      <widget class="QLabel" name="lblName">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
 font-size: 18px;
 width: 240px;</string>
-       </property>
-       <property name="text">
-        <string>Name of the competition:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="editName">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font-size: 18px;
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
+    <property name="text">
+     <string>Preferences:</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="margin">
+     <number>8</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblNumberOfTeams">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>180</y>
+      <width>161</width>
+      <height>37</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font-size: 18px;
+width: 240px;</string>
+    </property>
+    <property name="text">
+     <string>Number or teams:</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="margin">
+     <number>8</number>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>180</y>
+      <width>250</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <widget class="QRadioButton" name="rbtn32">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>0</y>
+       <width>115</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: none;</string>
+     </property>
+     <property name="text">
+      <string>32</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbtn16">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>115</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>16</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>230</y>
+      <width>250</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Russia</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Portugal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Austria</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>France</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Germany</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Netherlands</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Spain</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="lblTeams">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>230</y>
+      <width>72</width>
+      <height>37</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font-size: 18px;
+width: 240px;</string>
+    </property>
+    <property name="text">
+     <string>Teams:</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="margin">
+     <number>8</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="edtTitle">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>130</y>
+      <width>250</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 18px;
 width: 240px;
 height: 35px;
 padding-left: 5px;</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTitle">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>130</y>
+      <width>211</width>
+      <height>37</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font-size: 18px;
+width: 240px;</string>
+    </property>
+    <property name="text">
+     <string>Title of the competition:</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="margin">
+     <number>8</number>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cmbPreferences">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>80</y>
+      <width>250</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 18px;
+width: 220px;
+height: 35px;
+padding-left: 5px;</string>
+    </property>
+    <property name="duplicatesEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="modelColumn">
+     <number>0</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>Custom</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>UEFA EURO</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FIFA World Cup</string>
+     </property>
+    </item>
    </widget>
   </widget>
  </widget>
  <tabstops>
   <tabstop>btnMenu</tabstop>
-  <tabstop>btnSave</tabstop>
+  <tabstop>cmbPreferences</tabstop>
+  <tabstop>edtTitle</tabstop>
+  <tabstop>rbtn16</tabstop>
+  <tabstop>rbtn32</tabstop>
+  <tabstop>listWidget</tabstop>
+  <tabstop>btnCreate</tabstop>
  </tabstops>
  <resources/>
  <connections/>

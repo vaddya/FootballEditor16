@@ -1,12 +1,11 @@
 #include "settingsdialog.h"
 #include "ui_settingsdialog.h"
 
-#include "competition.h"
-
 SettingsDialog::SettingsDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SettingsDialog),
-    parent(parent)
+    parent(parent),
+    comp(new Competition)
 {
     ui->setupUi(this);
 
@@ -24,10 +23,24 @@ void SettingsDialog::on_btnMenu_clicked()
     parent->show();
 }
 
-void SettingsDialog::on_btnSave_clicked()
+void SettingsDialog::on_btnCreate_clicked()
 {
-    Competition *comp = new Competition();
-    comp->setTitle(ui->editName->text().toStdString());
-    QString name = "Settings of " + QString::fromStdString(comp->getTitle());
-    ui->lblSettings->setText(name);
+    comp->setTitle(ui->edtTitle->text().toStdString());
+    ui->lblSettings->setText(QString::fromStdString(comp->getTitle()));
+}
+
+void SettingsDialog::on_cmbPreferences_currentIndexChanged(int index)
+{
+    if( index == 1 ) {
+        comp->setTitle("UEFA EURO 2016");
+        ui->edtTitle->setText(QString::fromStdString(comp->getTitle()));
+        ui->lblSettings->setText(QString::fromStdString(comp->getTitle()));
+        ui->rbtn16->setChecked(true);
+    }
+    if( index == 2 ) {
+        comp->setTitle("FIFA World Cup 2016");
+        ui->edtTitle->setText(QString::fromStdString(comp->getTitle()));
+        ui->lblSettings->setText(QString::fromStdString(comp->getTitle()));
+        ui->rbtn32->setChecked(true);
+    }
 }
