@@ -126,7 +126,7 @@ QPushButton:pressed {
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="lblSettings">
+   <widget class="QLabel" name="lblCreate">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -136,7 +136,7 @@ QPushButton:pressed {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
+     <string notr="true">color: #ffd800;
 font-size: 24px;
 width: 240px;
 font-weight: bold;</string>
@@ -196,7 +196,7 @@ width: 240px;</string>
      <cstring>cmbPreferences</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="lblNumberOfTeams">
+   <widget class="QLabel" name="lblNumber">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -235,7 +235,7 @@ width: 240px;</string>
      <cstring>rbtn16</cstring>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="grbNumberOfTeams">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -385,7 +385,7 @@ width: 240px;</string>
      <number>8</number>
     </property>
     <property name="buddy">
-     <cstring>listWidget</cstring>
+     <cstring>lstTeams</cstring>
     </property>
    </widget>
    <widget class="QLineEdit" name="edtTitle">
@@ -501,36 +501,85 @@ padding-left: 5px;</string>
      </property>
     </item>
    </widget>
-   <widget class="QListWidget" name="listWidget">
+   <widget class="QListWidget" name="lstTeams">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>280</y>
-      <width>151</width>
-      <height>141</height>
+      <x>320</x>
+      <y>230</y>
+      <width>250</width>
+      <height>171</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 18px;
+padding-left: 5px;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-right: 5px;</string>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="autoScroll">
+     <bool>true</bool>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
     </property>
     <property name="selectionMode">
      <enum>QAbstractItemView::MultiSelection</enum>
     </property>
-    <item>
-     <property name="text">
-      <string>Russia</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Costa Rica</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Portugal</string>
-     </property>
-    </item>
+    <property name="textElideMode">
+     <enum>Qt::ElideLeft</enum>
+    </property>
+    <property name="movement">
+     <enum>QListView::Static</enum>
+    </property>
+    <property name="flow">
+     <enum>QListView::TopToBottom</enum>
+    </property>
+    <property name="selectionRectVisible">
+     <bool>true</bool>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
     <item>
      <property name="text">
       <string>Austria</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Belgium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Bosnia and Herzegovina</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Croatia</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Czech Republic</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Denmark</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>England</string>
      </property>
     </item>
     <item>
@@ -545,7 +594,47 @@ padding-left: 5px;</string>
     </item>
     <item>
      <property name="text">
+      <string>Greece</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Iceland</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ireland</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Italy</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Netherlands</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Portugal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Romania</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Russia</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Slovakia</string>
      </property>
     </item>
     <item>
@@ -553,6 +642,55 @@ padding-left: 5px;</string>
       <string>Spain</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Sweden</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Switzerland</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Turkey</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ukraine</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QProgressBar" name="prbTeams">
+    <property name="geometry">
+     <rect>
+      <x>58</x>
+      <y>280</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QProgressBar:horizontal {
+padding: 1px;
+font-size: 18px;
+border: 1px solid gray;
+border-radius: 5px;
+width: 240px;
+}
+
+QProgressBar::chunk:horizontal {
+background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 #d9b900, stop: 1 #ffea01);
+}</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
   </widget>
  </widget>
@@ -562,7 +700,7 @@ padding-left: 5px;</string>
   <tabstop>edtTitle</tabstop>
   <tabstop>rbtn16</tabstop>
   <tabstop>rbtn32</tabstop>
-  <tabstop>listWidget</tabstop>
+  <tabstop>lstTeams</tabstop>
   <tabstop>btnCreate</tabstop>
  </tabstops>
  <resources/>

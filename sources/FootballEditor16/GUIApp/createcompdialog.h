@@ -25,7 +25,15 @@ private slots:
 
     void on_cmbPreferences_currentIndexChanged(int index);
 
-    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
+    void on_rbtn16_clicked();
+
+    void on_rbtn32_clicked();
+
+    void updateProgress();
+
+    void maximizeProgress();
+
+    void on_lstTeams_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::CreateCompDialog *ui;

@@ -4,6 +4,23 @@
         <file>menu_background.png</file>
         <file>settings_background.png</file>
         <file>texture.png</file>
-        <file>RU.png</file>
+		<file>Flags/Austria.png</file>
+		<file>Flags/Belgium.png</file>
+		<file>Flags/Bosnia and Herzegovina.png</file>
+		<file>Flags/Croatia.png</file>
+		<file>Flags/Czech Republic.png</file>
+		<file>Flags/Denmark.png</file>
+		<file>Flags/England.png</file>
+		<file>Flags/France.png</file>
+		<file>Flags/Germany.png</file>
+		<file>Flags/Greece.png</file>
+		<file>Flags/Iceland.png</file>
+		<file>Flags/Ireland.png</file>
+		<file>Flags/Italy.png</file>
+		<file>Flags/Netherlands.png</file>
+		<file>Flags/Portugal.png</file>
+        <file>Flags/Russia.png</file>
+        <file>Flags/Spain.png</file>
+		<file>Flags/Ukraine.png</file>
     </qresource>
 </RCC>
