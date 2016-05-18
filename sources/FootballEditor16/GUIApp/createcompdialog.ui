@@ -24,7 +24,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#CreateCompDialog {
-	background: url(:/settings_background.png)  no-repeat center center fixed;
+	background: url(:/settings_background.jpg)  no-repeat center center fixed;
 }</string>
   </property>
   <widget class="QWidget" name="layoutWidget">
@@ -78,10 +78,14 @@ QPushButton:pressed {
     </item>
     <item>
      <widget class="QPushButton" name="btnCreate">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton { 
 	border: 1px solid #6d6d6d transparent;
 	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #c7c7c7, stop: 1 #e8e8e8);
 	border-radius: 5px;
 	color: #3a3a3a;
 	font-size: 20px;
@@ -503,7 +507,7 @@ padding-left: 5px;</string>
    </widget>
    <widget class="QListWidget" name="lstTeams">
     <property name="enabled">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>

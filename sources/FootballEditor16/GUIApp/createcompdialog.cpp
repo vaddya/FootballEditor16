@@ -7,11 +7,13 @@ CreateCompDialog::CreateCompDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CreateCompDialog),
     parent(parent),
-    comp(new Competition)
+    comp(new Competition),
+    isMaxProgress(false)
 {
     ui->setupUi(this);
 
     this->setFixedSize(this->geometry().width(),this->geometry().height());
+    //ui->
 
     for( QListWidgetItem* listItem : ui->lstTeams->findItems("*", Qt::MatchWildcard) ) {
         listItem->setIcon(QPixmap(":/Flags/" + listItem->text() + ".png"));
@@ -73,13 +75,14 @@ void CreateCompDialog::updateProgress()
 void CreateCompDialog::maximizeProgress()
 {
     if( ui->prbTeams->value() == 100 )
-        ui->lstTeams->currentItem()->setCheckState(Qt::CheckState::Unchecked);
-    qDebug() << ui->prbTeams->value();
+        isMaxProgress = true;
+    else
+        isMaxProgress = false;
 }
 
 void CreateCompDialog::on_lstTeams_itemClicked(QListWidgetItem *item)
 {
-    if( ui->prbTeams->value() == 100 )
-        item->setCheckState(Qt::CheckState::Unchecked);
-        qDebug() << ui->prbTeams->value();
+    if( isMaxProgress )
+        item->setSelected(false);
+    maximizeProgress();
 }

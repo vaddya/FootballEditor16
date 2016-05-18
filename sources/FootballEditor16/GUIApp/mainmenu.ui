@@ -39,7 +39,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#MainWindow {
-	background: url(:/menu_background.png)  no-repeat center center fixed;
+	background: url(:/menu_background.jpg)  no-repeat center center fixed;
 }</string>
   </property>
   <property name="animated">

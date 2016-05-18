@@ -39,6 +39,8 @@ private:
     Ui::CreateCompDialog *ui;
     QWidget *parent;
     Competition *comp;
+
+    bool isMaxProgress;
 };
 
 #endif // SETTINGSDIALOG_H
