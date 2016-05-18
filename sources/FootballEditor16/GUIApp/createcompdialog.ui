@@ -79,13 +79,12 @@ QPushButton:pressed {
     <item>
      <widget class="QPushButton" name="btnCreate">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton { 
 	border: 1px solid #6d6d6d transparent;
 	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
-	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #c7c7c7, stop: 1 #e8e8e8);
 	border-radius: 5px;
 	color: #3a3a3a;
 	font-size: 20px;
@@ -120,7 +119,7 @@ QPushButton:pressed {
    <property name="styleSheet">
     <string notr="true">#frame {
 	border: 0px;
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.7);
 	border-radius: 15px;
 }</string>
    </property>
@@ -135,7 +134,7 @@ QPushButton:pressed {
      <rect>
       <x>0</x>
       <y>20</y>
-      <width>601</width>
+      <width>651</width>
       <height>31</height>
      </rect>
     </property>
@@ -263,7 +262,7 @@ width: 240px;</string>
     <widget class="QRadioButton" name="rbtn32">
      <property name="geometry">
       <rect>
-       <x>124</x>
+       <x>134</x>
        <y>0</y>
        <width>111</width>
        <height>35</height>
@@ -306,9 +305,9 @@ QRadioButton::indicator::unchecked{
     <widget class="QRadioButton" name="rbtn16">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>14</x>
        <y>0</y>
-       <width>115</width>
+       <width>111</width>
        <height>35</height>
       </rect>
      </property>
@@ -478,7 +477,7 @@ width: 240px;</string>
      </sizepolicy>
     </property>
     <property name="styleSheet">
-     <string notr="true">font-size: 18px;
+     <string notr="true">font-size: 17px;
 width: 220px;
 height: 35px;
 padding-left: 5px;</string>
@@ -496,12 +495,12 @@ padding-left: 5px;</string>
     </item>
     <item>
      <property name="text">
-      <string>UEFA EURO</string>
+      <string>EURO</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>FIFA World Cup</string>
+      <string>World Cup</string>
      </property>
     </item>
    </widget>
@@ -514,11 +513,11 @@ padding-left: 5px;</string>
       <x>320</x>
       <y>230</y>
       <width>250</width>
-      <height>171</height>
+      <height>201</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font-size: 18px;
+     <string notr="true">font-size: 17px;
 padding-left: 5px;
 padding-top: 5px;
 padding-bottom: 5px;
@@ -545,6 +544,9 @@ padding-right: 5px;</string>
     <property name="flow">
      <enum>QListView::TopToBottom</enum>
     </property>
+    <property name="viewMode">
+     <enum>QListView::ListMode</enum>
+    </property>
     <property name="selectionRectVisible">
      <bool>true</bool>
     </property>
@@ -553,7 +555,22 @@ padding-right: 5px;</string>
     </property>
     <item>
      <property name="text">
+      <string>Algeria</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Argentina</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Austria</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Belarus</string>
      </property>
     </item>
     <item>
@@ -564,6 +581,31 @@ padding-right: 5px;</string>
     <item>
      <property name="text">
       <string>Bosnia and Herzegovina</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Brazil</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Chile</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>China</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Colombia</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Cote d'Ivoire</string>
      </property>
     </item>
     <item>
@@ -579,6 +621,11 @@ padding-right: 5px;</string>
     <item>
      <property name="text">
       <string>Denmark</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Egypt</string>
      </property>
     </item>
     <item>
@@ -613,12 +660,47 @@ padding-right: 5px;</string>
     </item>
     <item>
      <property name="text">
+      <string>Israel</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Italy</string>
      </property>
     </item>
     <item>
      <property name="text">
+      <string>Japan</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Mexico</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Montenegro</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Netherlands</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Northern Ireland</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Norway</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Paraguay</string>
      </property>
     </item>
     <item>
@@ -638,7 +720,22 @@ padding-right: 5px;</string>
     </item>
     <item>
      <property name="text">
+      <string>Scotland</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Serbia</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Slovakia</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Slovenia</string>
      </property>
     </item>
     <item>
@@ -664,6 +761,21 @@ padding-right: 5px;</string>
     <item>
      <property name="text">
       <string>Ukraine</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>UNKOWN TEAM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>USA</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Wales</string>
      </property>
     </item>
    </widget>

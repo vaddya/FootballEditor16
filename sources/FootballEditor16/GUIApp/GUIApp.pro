@@ -15,15 +15,21 @@ CONFIG += console c++11
 SOURCES += main.cpp\
         mainmenu.cpp \
     exitdialog.cpp \
-    createcompdialog.cpp
+    createcompdialog.cpp \
+    warningdialog.cpp \
+    competitionwindow.cpp
 
 HEADERS  += mainmenu.h \
     exitdialog.h \
-    createcompdialog.h
+    createcompdialog.h \
+    warningdialog.h \
+    competitionwindow.h
 
 FORMS    += mainmenu.ui \
     exitdialog.ui \
-    createcompdialog.ui
+    createcompdialog.ui \
+    warningdialog.ui \
+    competitionwindow.ui
 
 RESOURCES += \
     Resources/resources.qrc

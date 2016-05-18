@@ -1,24 +1,23 @@
 #include "createcompdialog.h"
 #include "ui_createcompdialog.h"
-#include "exitdialog.h"
-#include "qpixmap.h"
+#include "qdebug.h"
 
 CreateCompDialog::CreateCompDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CreateCompDialog),
-    parent(parent),
-    comp(new Competition),
-    isMaxProgress(false)
+    parent(parent)
 {
     ui->setupUi(this);
-
+    ui->rbtn16->setChecked(true);
     this->setFixedSize(this->geometry().width(),this->geometry().height());
-    //ui->
 
-    for( QListWidgetItem* listItem : ui->lstTeams->findItems("*", Qt::MatchWildcard) ) {
-        listItem->setIcon(QPixmap(":/Flags/" + listItem->text() + ".png"));
+    for( QListWidgetItem* item : ui->lstTeams->findItems("*", Qt::MatchWildcard) ) {
+        item->setIcon(QPixmap(":/Flags/" + item->text() + ".png"));
+        if( item->icon().isNull() ) item->setIcon(QPixmap(":/Flags/Unknown.png"));
     }
+
     connect(ui->lstTeams, SIGNAL(itemSelectionChanged()), this, SLOT(updateProgress()));
+    connect(ui->lstTeams, SIGNAL(itemSelectionChanged()), this, SLOT(checkMax()));
     connect(ui->rbtn16, SIGNAL(clicked()), this, SLOT(updateProgress()));
     connect(ui->rbtn32, SIGNAL(clicked()), this, SLOT(updateProgress()));
 }
@@ -36,33 +35,30 @@ void CreateCompDialog::on_btnMenu_clicked()
 
 void CreateCompDialog::on_btnCreate_clicked()
 {
-
+    if( isReadyToCreate() ) {
+        CompetitionWindow *comp = new CompetitionWindow();
+        comp->setTeams(ui->lstTeams->selectedItems());
+        this->hide();
+        comp->show();
+    }
+    else {
+        WarningDialog *fillOut = new WarningDialog(this, "Please fill out all required fields!");
+        fillOut->show();
+        fillOut->exec();
+        delete fillOut;
+    }
 }
 
 void CreateCompDialog::on_cmbPreferences_currentIndexChanged(int index)
 {
     if( index == 1 ) {
-        comp->setTitle("UEFA EURO 2016");
-        ui->edtTitle->setText(QString::fromStdString(comp->getTitle()));
+        ui->edtTitle->setText(QString::fromStdString("UEFA EURO 2016"));
         ui->rbtn16->setChecked(true);
-        ui->lstTeams->setEnabled(true);
     }
     if( index == 2 ) {
-        comp->setTitle("FIFA World Cup 2016");
-        ui->edtTitle->setText(QString::fromStdString(comp->getTitle()));
+        ui->edtTitle->setText(QString::fromStdString("FIFA World Cup 2016"));
         ui->rbtn32->setChecked(true);
-        ui->lstTeams->setEnabled(true);
     }
-}
-
-void CreateCompDialog::on_rbtn16_clicked()
-{
-    ui->lstTeams->setEnabled(true);
-}
-
-void CreateCompDialog::on_rbtn32_clicked()
-{
-    ui->lstTeams->setEnabled(true);
 }
 
 void CreateCompDialog::updateProgress()
@@ -72,17 +68,27 @@ void CreateCompDialog::updateProgress()
     ui->prbTeams->setValue( value * 100 );
 }
 
-void CreateCompDialog::maximizeProgress()
-{
-    if( ui->prbTeams->value() == 100 )
-        isMaxProgress = true;
-    else
-        isMaxProgress = false;
-}
-
 void CreateCompDialog::on_lstTeams_itemClicked(QListWidgetItem *item)
 {
-    if( isMaxProgress )
+    if( isMax )
         item->setSelected(false);
-    maximizeProgress();
+    isMax = isMaxProgress();
+}
+
+void CreateCompDialog::checkMax()
+{
+    int maxNum = ui->rbtn16->isChecked() ? 16 : 32;
+    if( ui->lstTeams->selectedItems().count() > maxNum )
+        for( int i = ui->lstTeams->count()-1; ui->lstTeams->selectedItems().count() != maxNum; i-- )
+            ui->lstTeams->item(i)->setSelected(false);
+}
+
+bool CreateCompDialog::isReadyToCreate()
+{
+    return isMaxProgress() && (ui->edtTitle->text() != "");
+}
+
+bool CreateCompDialog::isMaxProgress()
+{
+    return ui->prbTeams->value() == 100;
 }

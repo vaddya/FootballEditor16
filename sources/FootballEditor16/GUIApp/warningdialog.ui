@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WarningDialog</class>
+ <widget class="QDialog" name="WarningDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>350</width>
+    <height>150</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Warning</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#WarningDialog {
+background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #c7c7c7, stop: 1 #e8e8e8);
+}</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>47</x>
+     <y>90</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="btnOk">
+      <property name="styleSheet">
+       <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 16px;
+	width: 130px;
+	height: 35px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+      </property>
+      <property name="text">
+       <string>OK</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="lblText">
+   <property name="geometry">
+    <rect>
+     <x>4</x>
+     <y>23</y>
+     <width>341</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 14pt ;
+qproperty-alignment: AlignCenter;
+color: #3a3a3a;</string>
+   </property>
+   <property name="text">
+    <string>Text</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

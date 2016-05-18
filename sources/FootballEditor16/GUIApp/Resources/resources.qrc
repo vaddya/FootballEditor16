@@ -4,28 +4,52 @@
         <file>menu_background.jpg</file>
         <file>settings_background.jpg</file>
         <file>texture.png</file>
+
+        <file>Flags/Algeria.png</file>
+        <file>Flags/Argentina.png</file>
         <file>Flags/Austria.png</file>
+		<file>Flags/Belarus.png</file>
         <file>Flags/Belgium.png</file>
         <file>Flags/Bosnia and Herzegovina.png</file>
+		<file>Flags/Brazil.png</file>
+        <file>Flags/Chile.png</file>
+        <file>Flags/China.png</file>
+        <file>Flags/Colombia.png</file>
+        <file>Flags/Cote d'Ivoire.png</file>
         <file>Flags/Croatia.png</file>
         <file>Flags/Czech Republic.png</file>
         <file>Flags/Denmark.png</file>
+        <file>Flags/Egypt.png</file>
         <file>Flags/England.png</file>
         <file>Flags/France.png</file>
+        <file>Flags/Finland.png</file>
         <file>Flags/Germany.png</file>
         <file>Flags/Greece.png</file>
         <file>Flags/Iceland.png</file>
         <file>Flags/Ireland.png</file>
+        <file>Flags/Israel.png</file>
         <file>Flags/Italy.png</file>
+        <file>Flags/Japan.png</file>
+        <file>Flags/Mexico.png</file>
+        <file>Flags/Montenegro.png</file>
         <file>Flags/Netherlands.png</file>
+        <file>Flags/Northern Ireland.png</file>
+        <file>Flags/Norway.png</file>
+        <file>Flags/Paraguay.png</file>
         <file>Flags/Portugal.png</file>
         <file>Flags/Romania.png</file>
         <file>Flags/Russia.png</file>
+        <file>Flags/Scotland.png</file>
+        <file>Flags/Serbia.png</file>
         <file>Flags/Slovakia.png</file>
+        <file>Flags/Slovenia.png</file>
         <file>Flags/Spain.png</file>
         <file>Flags/Sweden.png</file>
         <file>Flags/Switzerland.png</file>
         <file>Flags/Turkey.png</file>
         <file>Flags/Ukraine.png</file>
+        <file>Flags/Unknown.png</file>
+        <file>Flags/USA.png</file>
+        <file>Flags/Wales.png</file>
     </qresource>
 </RCC>

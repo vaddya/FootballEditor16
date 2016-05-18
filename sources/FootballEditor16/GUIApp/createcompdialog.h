@@ -2,9 +2,10 @@
 #define SETTINGSDIALOG_H
 
 #include <QDialog>
-#include "competition.h"
-#include "QListWidget"
-#include "QListWidgetItem"
+#include <QListWidget>
+#include <QListWidgetItem>
+#include "warningdialog.h"
+#include "competitionwindow.h"
 
 namespace Ui {
 class CreateCompDialog;
@@ -25,22 +26,20 @@ private slots:
 
     void on_cmbPreferences_currentIndexChanged(int index);
 
-    void on_rbtn16_clicked();
-
-    void on_rbtn32_clicked();
-
     void updateProgress();
 
-    void maximizeProgress();
-
     void on_lstTeams_itemClicked(QListWidgetItem *item);
+
+    void checkMax();
 
 private:
     Ui::CreateCompDialog *ui;
     QWidget *parent;
-    Competition *comp;
+    bool isMax;
 
-    bool isMaxProgress;
+    bool isReadyToCreate();
+
+    bool isMaxProgress();
 };
 
 #endif // SETTINGSDIALOG_H

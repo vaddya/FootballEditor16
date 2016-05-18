@@ -39,7 +39,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#MainWindow {
-	background: url(:/menu_background.jpg)  no-repeat center center fixed;
+	background-image: url(:/menu_background.jpg);
 }</string>
   </property>
   <property name="animated">
@@ -49,12 +49,15 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>550</x>
       <y>360</y>
-      <width>354</width>
+      <width>362</width>
       <height>191</height>
      </rect>
     </property>
@@ -258,11 +261,28 @@ QPushButton:pressed {
   </widget>
   <action name="actionFile">
    <property name="text">
-    <string>File</string>
+    <string>Exit</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionFile</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
