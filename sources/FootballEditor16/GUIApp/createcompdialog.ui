@@ -107,9 +107,9 @@ QPushButton:pressed {
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>175</x>
      <y>50</y>
-     <width>600</width>
+     <width>650</width>
      <height>471</height>
     </rect>
    </property>
@@ -154,7 +154,7 @@ font-weight: bold;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>50</x>
       <y>80</y>
       <width>117</width>
       <height>37</height>
@@ -178,7 +178,7 @@ width: 240px;</string>
      <number>1</number>
     </property>
     <property name="text">
-     <string>Preferences:</string>
+     <string>&amp;Preferences:</string>
     </property>
     <property name="textFormat">
      <enum>Qt::AutoText</enum>
@@ -192,11 +192,14 @@ width: 240px;</string>
     <property name="margin">
      <number>8</number>
     </property>
+    <property name="buddy">
+     <cstring>cmbPreferences</cstring>
+    </property>
    </widget>
    <widget class="QLabel" name="lblNumberOfTeams">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>50</x>
       <y>180</y>
       <width>161</width>
       <height>37</height>
@@ -214,7 +217,7 @@ font-size: 18px;
 width: 240px;</string>
     </property>
     <property name="text">
-     <string>Number or teams:</string>
+     <string>&amp;Number or teams:</string>
     </property>
     <property name="textFormat">
      <enum>Qt::AutoText</enum>
@@ -228,13 +231,16 @@ width: 240px;</string>
     <property name="margin">
      <number>8</number>
     </property>
+    <property name="buddy">
+     <cstring>rbtn16</cstring>
+    </property>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>320</x>
       <y>180</y>
-      <width>250</width>
+      <width>251</width>
       <height>35</height>
      </rect>
     </property>
@@ -253,17 +259,44 @@ width: 240px;</string>
     <widget class="QRadioButton" name="rbtn32">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>124</x>
        <y>0</y>
-       <width>115</width>
+       <width>111</width>
        <height>35</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background: none;</string>
+      <string notr="true">QRadioButton {
+	background: none;
+	color: #ffffff;
+}
+
+QRadioButton:checked {
+	background: none;
+	color: #fff;
+	font-weight: bold;
+}
+
+QRadioButton::indicator::checked{ 
+	border: 2px solid #d9b900; 
+	border-radius: 7px; 
+	background-color: #ffd800; 
+	width: 10px; 
+	height: 10px; 
+	margin-left: 10px;
+}
+
+QRadioButton::indicator::unchecked{ 
+	border: 2px solid #e8e8e8; 
+	border-radius: 7px; 
+	background-color: white; 
+	width: 10px; 
+	height: 10px; 
+	margin-left: 10px;
+}</string>
      </property>
      <property name="text">
-      <string>32</string>
+      <string>32 Teams</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="rbtn16">
@@ -282,62 +315,44 @@ width: 240px;</string>
       <enum>Qt::LeftToRight</enum>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QRadioButton {
+	background: none;
+	color: #ffffff;
+}
+
+QRadioButton:checked {
+	background: none;
+	color: #fff;
+	font-weight: bold;
+}
+
+QRadioButton::indicator::checked{ 
+	border: 2px solid #d9b900; 
+	border-radius: 7px; 
+	background-color: #ffd800; 
+	width: 10px; 
+	height: 10px; 
+	margin-left: 10px;
+}
+
+QRadioButton::indicator::unchecked{ 
+	border: 2px solid #e8e8e8; 
+	border-radius: 7px; 
+	background-color: white; 
+	width: 10px; 
+	height: 10px; 
+	margin-left: 10px;
+}</string>
      </property>
      <property name="text">
-      <string>16</string>
+      <string>16 Teams</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QListWidget" name="listWidget">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>230</y>
-      <width>250</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>Russia</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Portugal</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Austria</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>France</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Germany</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Netherlands</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Spain</string>
-     </property>
-    </item>
    </widget>
    <widget class="QLabel" name="lblTeams">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>50</x>
       <y>230</y>
       <width>72</width>
       <height>37</height>
@@ -355,7 +370,7 @@ font-size: 18px;
 width: 240px;</string>
     </property>
     <property name="text">
-     <string>Teams:</string>
+     <string>&amp;Teams:</string>
     </property>
     <property name="textFormat">
      <enum>Qt::AutoText</enum>
@@ -368,6 +383,9 @@ width: 240px;</string>
     </property>
     <property name="margin">
      <number>8</number>
+    </property>
+    <property name="buddy">
+     <cstring>listWidget</cstring>
     </property>
    </widget>
    <widget class="QLineEdit" name="edtTitle">
@@ -404,7 +422,7 @@ padding-left: 5px;</string>
    <widget class="QLabel" name="lblTitle">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>50</x>
       <y>130</y>
       <width>211</width>
       <height>37</height>
@@ -422,7 +440,7 @@ font-size: 18px;
 width: 240px;</string>
     </property>
     <property name="text">
-     <string>Title of the competition:</string>
+     <string>&amp;Title of the competition:</string>
     </property>
     <property name="textFormat">
      <enum>Qt::AutoText</enum>
@@ -435,6 +453,9 @@ width: 240px;</string>
     </property>
     <property name="margin">
      <number>8</number>
+    </property>
+    <property name="buddy">
+     <cstring>edtTitle</cstring>
     </property>
    </widget>
    <widget class="QComboBox" name="cmbPreferences">
@@ -477,6 +498,59 @@ padding-left: 5px;</string>
     <item>
      <property name="text">
       <string>FIFA World Cup</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>280</y>
+      <width>151</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::MultiSelection</enum>
+    </property>
+    <item>
+     <property name="text">
+      <string>Russia</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Costa Rica</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Portugal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Austria</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>France</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Germany</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Netherlands</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Spain</string>
      </property>
     </item>
    </widget>

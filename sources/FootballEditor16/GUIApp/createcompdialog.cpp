@@ -1,5 +1,6 @@
 #include "createcompdialog.h"
-#include "ui_settingsdialog.h"
+#include "ui_createcompdialog.h"
+#include "exitdialog.h"
 
 CreateCompDialog::CreateCompDialog(QWidget *parent) :
     QDialog(parent),
@@ -43,4 +44,9 @@ void CreateCompDialog::on_cmbPreferences_currentIndexChanged(int index)
         ui->lblSettings->setText(QString::fromStdString(comp->getTitle()));
         ui->rbtn32->setChecked(true);
     }
+}
+
+void CreateCompDialog::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+//TODO
 }

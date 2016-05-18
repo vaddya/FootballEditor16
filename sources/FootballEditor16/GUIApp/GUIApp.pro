@@ -13,15 +13,15 @@ TEMPLATE = app
 CONFIG += console c++11
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+        mainmenu.cpp \
     exitdialog.cpp \
     createcompdialog.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += mainmenu.h \
     exitdialog.h \
     createcompdialog.h
 
-FORMS    += mainwindow.ui \
+FORMS    += mainmenu.ui \
     exitdialog.ui \
     createcompdialog.ui
 

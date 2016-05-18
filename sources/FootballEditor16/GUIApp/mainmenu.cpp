@@ -1,5 +1,5 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "mainmenu.h"
+#include "ui_mainmenu.h"
 #include "createcompdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :

@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include "competition.h"
+#include "QListWidget"
+#include "QListWidgetItem"
 
 namespace Ui {
 class CreateCompDialog;
@@ -22,6 +24,8 @@ private slots:
     void on_btnCreate_clicked();
 
     void on_cmbPreferences_currentIndexChanged(int index);
+
+    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
 
 private:
     Ui::CreateCompDialog *ui;
