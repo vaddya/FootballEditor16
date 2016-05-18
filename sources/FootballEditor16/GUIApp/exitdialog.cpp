@@ -1,3 +1,4 @@
+#include "mainwindow.h"
 #include "exitdialog.h"
 #include "ui_exitdialog.h"
 

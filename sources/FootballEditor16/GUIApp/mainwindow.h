@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "exitdialog.h"
-#include "settingsdialog.h"
+#include "createcompdialog.h"
 
 namespace Ui {
 class MainWindow;

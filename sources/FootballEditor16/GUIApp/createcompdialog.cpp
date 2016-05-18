@@ -1,9 +1,9 @@
-#include "settingsdialog.h"
+#include "createcompdialog.h"
 #include "ui_settingsdialog.h"
 
-SettingsDialog::SettingsDialog(QWidget *parent) :
+CreateCompDialog::CreateCompDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::SettingsDialog),
+    ui(new Ui::CreateCompDialog),
     parent(parent),
     comp(new Competition)
 {
@@ -12,24 +12,24 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     this->setFixedSize(this->geometry().width(),this->geometry().height());
 }
 
-SettingsDialog::~SettingsDialog()
+CreateCompDialog::~CreateCompDialog()
 {
     delete ui;
 }
 
-void SettingsDialog::on_btnMenu_clicked()
+void CreateCompDialog::on_btnMenu_clicked()
 {
     this->close();
     parent->show();
 }
 
-void SettingsDialog::on_btnCreate_clicked()
+void CreateCompDialog::on_btnCreate_clicked()
 {
     comp->setTitle(ui->edtTitle->text().toStdString());
     ui->lblSettings->setText(QString::fromStdString(comp->getTitle()));
 }
 
-void SettingsDialog::on_cmbPreferences_currentIndexChanged(int index)
+void CreateCompDialog::on_cmbPreferences_currentIndexChanged(int index)
 {
     if( index == 1 ) {
         comp->setTitle("UEFA EURO 2016");

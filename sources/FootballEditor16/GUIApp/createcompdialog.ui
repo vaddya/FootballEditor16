@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SettingsDialog</class>
- <widget class="QDialog" name="SettingsDialog">
+ <class>CreateCompDialog</class>
+ <widget class="QDialog" name="CreateCompDialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,10 +20,10 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Settings</string>
+   <string>Create competition</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#SettingsDialog {
+   <string notr="true">#CreateCompDialog {
 	background: url(:/settings_background.png)  no-repeat center center fixed;
 }</string>
   </property>

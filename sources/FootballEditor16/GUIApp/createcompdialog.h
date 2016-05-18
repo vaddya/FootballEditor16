@@ -5,16 +5,16 @@
 #include "competition.h"
 
 namespace Ui {
-class SettingsDialog;
+class CreateCompDialog;
 }
 
-class SettingsDialog : public QDialog
+class CreateCompDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit SettingsDialog(QWidget *parent = 0);
-    ~SettingsDialog();
+    explicit CreateCompDialog(QWidget *parent = 0);
+    ~CreateCompDialog();
 
 private slots:
     void on_btnMenu_clicked();
@@ -24,7 +24,7 @@ private slots:
     void on_cmbPreferences_currentIndexChanged(int index);
 
 private:
-    Ui::SettingsDialog *ui;
+    Ui::CreateCompDialog *ui;
     QWidget *parent;
     Competition *comp;
 };

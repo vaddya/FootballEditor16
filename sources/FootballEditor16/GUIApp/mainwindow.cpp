@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "createcompdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,7 +16,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnExit_clicked()
 {
-    ExitDialog* exit = new ExitDialog(this);
+    ExitDialog *exit = new ExitDialog(this);
     exit->exec();
     delete exit;
 }
@@ -23,7 +24,7 @@ void MainWindow::on_btnExit_clicked()
 void MainWindow::on_btnNewComp_clicked()
 {
     this->hide();
-    SettingsDialog* settings = new SettingsDialog(this);
-    settings->exec();
-    delete settings;
+    CreateCompDialog *createComp = new CreateCompDialog(this);
+    createComp->exec();
+    delete createComp;
 }

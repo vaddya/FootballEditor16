@@ -15,15 +15,15 @@ CONFIG += console c++11
 SOURCES += main.cpp\
         mainwindow.cpp \
     exitdialog.cpp \
-    settingsdialog.cpp
+    createcompdialog.cpp
 
 HEADERS  += mainwindow.h \
     exitdialog.h \
-    settingsdialog.h
+    createcompdialog.h
 
 FORMS    += mainwindow.ui \
     exitdialog.ui \
-    settingsdialog.ui
+    createcompdialog.ui
 
 RESOURCES += \
     Resources/resources.qrc
