@@ -39,6 +39,9 @@
    <layout class="QHBoxLayout" name="lauoutButtons">
     <item>
      <widget class="QPushButton" name="btnMenu">
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton { 
 	border: 1px solid #6d6d6d transparent;
@@ -59,7 +62,7 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>Menu</string>
+       <string>&amp;Menu</string>
       </property>
      </widget>
     </item>
@@ -81,6 +84,9 @@ QPushButton:pressed {
       <property name="enabled">
        <bool>true</bool>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton { 
 	border: 1px solid #6d6d6d transparent;
@@ -101,7 +107,7 @@ QPushButton:pressed {
 }</string>
       </property>
       <property name="text">
-       <string>Create</string>
+       <string>&amp;Create</string>
       </property>
      </widget>
     </item>
@@ -253,6 +259,10 @@ width: 240px;</string>
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;
+font-size: 14px;</string>
+    </property>
     <property name="title">
      <string/>
     </property>
@@ -264,7 +274,7 @@ width: 240px;</string>
       <rect>
        <x>134</x>
        <y>0</y>
-       <width>111</width>
+       <width>101</width>
        <height>35</height>
       </rect>
      </property>
@@ -307,7 +317,7 @@ QRadioButton::indicator::unchecked{
       <rect>
        <x>14</x>
        <y>0</y>
-       <width>111</width>
+       <width>101</width>
        <height>35</height>
       </rect>
      </property>
@@ -480,7 +490,8 @@ width: 240px;</string>
      <string notr="true">font-size: 17px;
 width: 220px;
 height: 35px;
-padding-left: 5px;</string>
+padding-left: 5px;
+color: #3a3a3a;</string>
     </property>
     <property name="duplicatesEnabled">
      <bool>false</bool>
@@ -521,7 +532,8 @@ padding-left: 5px;</string>
 padding-left: 5px;
 padding-top: 5px;
 padding-bottom: 5px;
-padding-right: 5px;</string>
+padding-right: 5px;
+color: #3a3a3a;</string>
     </property>
     <property name="verticalScrollBarPolicy">
      <enum>Qt::ScrollBarAsNeeded</enum>
@@ -789,16 +801,20 @@ padding-right: 5px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QProgressBar:horizontal {
-padding: 1px;
-font-size: 18px;
-border: 1px solid gray;
-border-radius: 5px;
-width: 240px;
+     <string notr="true">QProgressBar {
+	font-size: 16px;
+	color: #3a3a3a;
+}
+
+QProgressBar:horizontal {
+	padding: 1px;
+	border: 1px solid #6d6d6d transparent;
+	border-radius: 5px;
+	width: 240px;
 }
 
 QProgressBar::chunk:horizontal {
-background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 #d9b900, stop: 1 #ffea01);
+	background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 #d9b900, stop: 1 #ffea01);
 }</string>
     </property>
     <property name="value">

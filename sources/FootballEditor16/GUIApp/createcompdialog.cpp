@@ -20,6 +20,8 @@ CreateCompDialog::CreateCompDialog(QWidget *parent) :
     connect(ui->lstTeams, SIGNAL(itemSelectionChanged()), this, SLOT(checkMax()));
     connect(ui->rbtn16, SIGNAL(clicked()), this, SLOT(updateProgress()));
     connect(ui->rbtn32, SIGNAL(clicked()), this, SLOT(updateProgress()));
+    connect(ui->rbtn16, SIGNAL(clicked()), this, SLOT(checkMax()));
+    connect(ui->rbtn32, SIGNAL(clicked()), this, SLOT(checkMax()));
 }
 
 CreateCompDialog::~CreateCompDialog()
@@ -37,12 +39,12 @@ void CreateCompDialog::on_btnCreate_clicked()
 {
     if( isReadyToCreate() ) {
         CompetitionWindow *comp = new CompetitionWindow();
-        comp->setTeams(ui->lstTeams->selectedItems());
         this->hide();
+        comp->setSettings(ui->edtTitle->text(), ui->lstTeams->selectedItems());
         comp->show();
     }
     else {
-        WarningDialog *fillOut = new WarningDialog(this, "Please fill out all required fields!");
+        WarningDialog *fillOut = new WarningDialog(this, "Please fill out all fields!");
         fillOut->show();
         fillOut->exec();
         delete fillOut;

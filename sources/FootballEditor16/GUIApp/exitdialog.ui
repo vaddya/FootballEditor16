@@ -34,15 +34,14 @@ background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #c7c7c7, stop: 
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font-size: 14pt ;
-qproperty-alignment: AlignCenter;
+    <string notr="true">font-size: 13pt ;
 color: #3a3a3a;</string>
    </property>
    <property name="text">
     <string>Are you sure you want to quit?</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>

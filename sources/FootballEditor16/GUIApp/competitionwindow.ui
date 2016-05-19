@@ -20,72 +20,417 @@
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frame">
+   <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>40</y>
-      <width>900</width>
-      <height>550</height>
+      <x>0</x>
+      <y>0</y>
+      <width>1000</width>
+      <height>650</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">#frame {
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="pgCreate4Groups">
+     <widget class="QFrame" name="frame">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>50</y>
+        <width>900</width>
+        <height>550</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#frame {
 	border: 0px;
 	background-color: rgba(0, 0, 0, 0.7);
 	border-radius: 15px;
 }</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="lblCreate">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>20</y>
-       <width>861</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: #ffd800;
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="lblCreate">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>901</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #ffd800;
 font-size: 24px;
 width: 240px;
 font-weight: bold;</string>
-     </property>
-     <property name="text">
-      <string>Group stage</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
+       </property>
+       <property name="text">
+        <string>Create groups</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="TeamCheckBoxes" name="grbTeams">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>70</y>
+         <width>701</width>
+         <height>351</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QGroupBox {
+	border: none;
+}
+
+QCheckBox {
+	color: rgb(255, 255, 255);
+	font-size: 20px;
+	margin-bottom: 5px;
+	width: 320px;
+}
+
+QCheckBox:checked {
+	background: none;
+	color: #fff;
+	font-weight: bold;
+}
+
+QCheckBox::indicator::checked{ 
+	border: 2px solid #d9b900; 
+	background-color: #ffd800; 
+	width: 10px; 
+	height: 10px; 
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
+QCheckBox::indicator::unchecked{ 
+	border: 2px solid #e8e8e8; 
+	background-color: white; 
+	width: 10px; 
+	height: 10px; 
+	margin-left: 10px;
+	margin-right: 5px;
+}</string>
+       </property>
+       <property name="title">
+        <string/>
+       </property>
+       <widget class="QCheckBox" name="checkBox_9">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>10</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_10">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>51</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_12">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>133</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_11">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>92</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_13">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>174</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_14">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>215</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_15">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>256</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_16">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>297</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_8">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>297</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_5">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>174</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_6">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>215</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_1">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>10</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_3">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>92</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_4">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>133</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_7">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>256</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_2">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>51</y>
+          <width>300</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>CheckBox</string>
+        </property>
+       </widget>
+       <zorder>layoutWidget</zorder>
+       <zorder>checkBox_8</zorder>
+       <zorder>checkBox_5</zorder>
+       <zorder>checkBox_6</zorder>
+       <zorder>checkBox_1</zorder>
+       <zorder>checkBox_3</zorder>
+       <zorder>checkBox_4</zorder>
+       <zorder>checkBox_7</zorder>
+       <zorder>checkBox_2</zorder>
+      </widget>
+      <widget class="QPushButton" name="btnCreate">
+       <property name="geometry">
+        <rect>
+         <x>175</x>
+         <y>440</y>
+         <width>252</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 20px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+       </property>
+       <property name="text">
+        <string>Create group</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnStart">
+       <property name="geometry">
+        <rect>
+         <x>475</x>
+         <y>440</y>
+         <width>252</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 20px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+       </property>
+       <property name="text">
+        <string>Start competition</string>
+       </property>
+      </widget>
+     </widget>
     </widget>
-    <widget class="QGroupBox" name="grbNumberOfTeams">
-     <property name="geometry">
-      <rect>
-       <x>320</x>
-       <y>180</y>
-       <width>251</width>
-       <height>35</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="title">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-    </widget>
+    <widget class="QWidget" name="pgCreate8Groups"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -94,11 +439,19 @@ font-weight: bold;</string>
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TeamCheckBoxes</class>
+   <extends>QGroupBox</extends>
+   <header>teamcheckboxes.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
