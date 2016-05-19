@@ -79,8 +79,9 @@ void CreateCompDialog::checkMax()
 {
     int maxNum = ui->rbtn16->isChecked() ? 16 : 32;
     if( ui->lstTeams->selectedItems().count() > maxNum )
-        for( int i = ui->lstTeams->count()-1; ui->lstTeams->selectedItems().count() != maxNum; i-- )
-            ui->lstTeams->item(i)->setSelected(false);
+        for( int i = ui->lstTeams->count()-1; ui->lstTeams->selectedItems().count() != maxNum; i-- ) {
+            ui->lstTeams->selectedItems().back()->setSelected(false);
+        }
 }
 
 bool CreateCompDialog::isReadyToCreate()
