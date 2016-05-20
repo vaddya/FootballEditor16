@@ -63,6 +63,7 @@ public:
      * @brief Sort teams by number of points
      */
     void sort();
+    vector<string> table();
 
 private:
     char id;

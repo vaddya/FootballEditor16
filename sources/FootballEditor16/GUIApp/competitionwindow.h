@@ -26,9 +26,11 @@ public:
 
 private slots:
 
-    void on_btnCreate_clicked();
+    void on_btn_CG4_Create_clicked();
 
-    void on_btnStart_clicked();
+    void on_btn_CG4_Start_clicked();
+
+    void on_btn_CG4_Generate_clicked();
 
 private:
     Ui::CompetitionWindow *ui;
@@ -37,7 +39,7 @@ private:
     QVector<QString> teams;
 
     void drawCreateGroups();
-
+    void drawGroupStage16();
     bool isMax;
 
 };
