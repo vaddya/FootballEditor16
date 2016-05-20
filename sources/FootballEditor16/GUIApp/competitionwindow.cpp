@@ -8,6 +8,7 @@ CompetitionWindow::CompetitionWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setFixedSize(this->geometry().width(),this->geometry().height());
+    ui->stackedWidget->setCurrentWidget(ui->pgCreateGroups4);
 }
 
 CompetitionWindow::~CompetitionWindow()
@@ -53,13 +54,21 @@ void CompetitionWindow::on_btnCreate_clicked()
         }
     }
     else {
-        WarningDialog *mustBeFour = new WarningDialog(this, "You need to selecet four teams!");
-        mustBeFour->exec();
-        delete mustBeFour;
+        WarningDialog *needSelecetFourTeams = new WarningDialog(this, "You need to selecet four teams!");
+        needSelecetFourTeams->exec();
+        delete needSelecetFourTeams;
     }
 }
 
 void CompetitionWindow::on_btnStart_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(ui->pgCreate8Groups);
+    if( (int)comp->getNumberOfTeams() == teams.size() ) {
+        ui->stackedWidget->setCurrentWidget(ui->pgGroupStage16);
+        comp->createGroups();
+    }
+    else {
+        WarningDialog *needCreateFourGroups = new WarningDialog(this, "You need to create four groups!");
+        needCreateFourGroups->exec();
+        delete needCreateFourGroups;
+    }
 }

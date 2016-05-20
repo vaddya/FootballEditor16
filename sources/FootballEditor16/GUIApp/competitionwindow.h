@@ -39,6 +39,7 @@ private:
     void drawCreateGroups();
 
     bool isMax;
+
 };
 
 #endif // COMPETITIONWINDOW_H

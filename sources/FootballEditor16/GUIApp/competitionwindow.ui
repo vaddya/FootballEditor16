@@ -30,16 +30,16 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
-    <widget class="QWidget" name="pgCreate4Groups">
+    <widget class="QWidget" name="pgCreateGroups4">
      <widget class="QFrame" name="frame">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>140</x>
         <y>50</y>
-        <width>900</width>
-        <height>550</height>
+        <width>720</width>
+        <height>471</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -60,7 +60,7 @@
         <rect>
          <x>0</x>
          <y>20</y>
-         <width>901</width>
+         <width>731</width>
          <height>31</height>
         </rect>
        </property>
@@ -80,10 +80,10 @@ font-weight: bold;</string>
       <widget class="TeamCheckBoxes" name="grbTeams">
        <property name="geometry">
         <rect>
-         <x>150</x>
-         <y>70</y>
-         <width>701</width>
-         <height>351</height>
+         <x>110</x>
+         <y>80</y>
+         <width>611</width>
+         <height>341</height>
         </rect>
        </property>
        <property name="sizePolicy">
@@ -99,7 +99,7 @@ font-weight: bold;</string>
 
 QCheckBox {
 	color: rgb(255, 255, 255);
-	font-size: 20px;
+	font-size: 19px;
 	margin-bottom: 5px;
 	width: 320px;
 }
@@ -134,7 +134,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_9">
         <property name="geometry">
          <rect>
-          <x>360</x>
+          <x>320</x>
           <y>10</y>
           <width>300</width>
           <height>30</height>
@@ -147,7 +147,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_10">
         <property name="geometry">
          <rect>
-          <x>360</x>
+          <x>320</x>
           <y>51</y>
           <width>300</width>
           <height>30</height>
@@ -160,7 +160,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_12">
         <property name="geometry">
          <rect>
-          <x>360</x>
+          <x>320</x>
           <y>133</y>
           <width>300</width>
           <height>30</height>
@@ -173,7 +173,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_11">
         <property name="geometry">
          <rect>
-          <x>360</x>
+          <x>320</x>
           <y>92</y>
           <width>300</width>
           <height>30</height>
@@ -186,7 +186,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_13">
         <property name="geometry">
          <rect>
-          <x>360</x>
+          <x>320</x>
           <y>174</y>
           <width>300</width>
           <height>30</height>
@@ -199,7 +199,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_14">
         <property name="geometry">
          <rect>
-          <x>360</x>
+          <x>320</x>
           <y>215</y>
           <width>300</width>
           <height>30</height>
@@ -212,7 +212,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_15">
         <property name="geometry">
          <rect>
-          <x>360</x>
+          <x>320</x>
           <y>256</y>
           <width>300</width>
           <height>30</height>
@@ -225,7 +225,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_16">
         <property name="geometry">
          <rect>
-          <x>360</x>
+          <x>320</x>
           <y>297</y>
           <width>300</width>
           <height>30</height>
@@ -238,7 +238,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_8">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>25</x>
           <y>297</y>
           <width>300</width>
           <height>30</height>
@@ -251,7 +251,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_5">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>25</x>
           <y>174</y>
           <width>300</width>
           <height>30</height>
@@ -264,7 +264,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_6">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>25</x>
           <y>215</y>
           <width>300</width>
           <height>30</height>
@@ -277,7 +277,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_1">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>25</x>
           <y>10</y>
           <width>300</width>
           <height>30</height>
@@ -299,7 +299,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_3">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>25</x>
           <y>92</y>
           <width>300</width>
           <height>30</height>
@@ -312,7 +312,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_4">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>25</x>
           <y>133</y>
           <width>300</width>
           <height>30</height>
@@ -325,7 +325,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_7">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>25</x>
           <y>256</y>
           <width>300</width>
           <height>30</height>
@@ -338,7 +338,7 @@ QCheckBox::indicator::unchecked{
        <widget class="QCheckBox" name="checkBox_2">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>25</x>
           <y>51</y>
           <width>300</width>
           <height>30</height>
@@ -348,89 +348,330 @@ QCheckBox::indicator::unchecked{
          <string>CheckBox</string>
         </property>
        </widget>
-       <zorder>layoutWidget</zorder>
-       <zorder>checkBox_8</zorder>
-       <zorder>checkBox_5</zorder>
-       <zorder>checkBox_6</zorder>
-       <zorder>checkBox_1</zorder>
-       <zorder>checkBox_3</zorder>
-       <zorder>checkBox_4</zorder>
-       <zorder>checkBox_7</zorder>
-       <zorder>checkBox_2</zorder>
-      </widget>
-      <widget class="QPushButton" name="btnCreate">
-       <property name="geometry">
-        <rect>
-         <x>175</x>
-         <y>440</y>
-         <width>252</width>
-         <height>52</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton { 
-	border: 1px solid #6d6d6d transparent;
-	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
-	border-radius: 5px;
-	color: #3a3a3a;
-	font-size: 20px;
-	height: 50px;
-	width: 250px;
-}
-
-QPushButton:hover { 
-	background-color: #ffd800;
-}
-
-QPushButton:pressed {
-	background-color: #d9b900;
-}</string>
-       </property>
-       <property name="text">
-        <string>Create group</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btnStart">
-       <property name="geometry">
-        <rect>
-         <x>475</x>
-         <y>440</y>
-         <width>252</width>
-         <height>52</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton { 
-	border: 1px solid #6d6d6d transparent;
-	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
-	border-radius: 5px;
-	color: #3a3a3a;
-	font-size: 20px;
-	height: 50px;
-	width: 250px;
-}
-
-QPushButton:hover { 
-	background-color: #ffd800;
-}
-
-QPushButton:pressed {
-	background-color: #d9b900;
-}</string>
-       </property>
-       <property name="text">
-        <string>Start competition</string>
-       </property>
       </widget>
      </widget>
+     <widget class="QPushButton" name="btnStart">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>550</y>
+        <width>252</width>
+        <height>52</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 20px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+      </property>
+      <property name="text">
+       <string>Start competition</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnCreate">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>550</y>
+        <width>252</width>
+        <height>52</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 20px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+      </property>
+      <property name="text">
+       <string>Create group</string>
+      </property>
+     </widget>
     </widget>
-    <widget class="QWidget" name="pgCreate8Groups"/>
+    <widget class="QWidget" name="pgGroupStage16">
+     <widget class="QPushButton" name="btnStart_2">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>550</y>
+        <width>252</width>
+        <height>52</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 20px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+      </property>
+      <property name="text">
+       <string>Start competition</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_2">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>50</y>
+        <width>720</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#frame_2 {
+	border: 0px;
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 15px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="lblCreate_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>731</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #ffd800;
+font-size: 24px;
+width: 240px;
+font-weight: bold;</string>
+       </property>
+       <property name="text">
+        <string>Group Stage</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QTabWidget" name="tabGroups">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>701</width>
+         <height>391</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTabWidget::tab-bar {
+    alignment: center;
+}
+
+QTabBar::tab {
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 16px;
+	height: 35px;
+	width: 155px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+QTabBar::tab:hover, QTabBar::tab:selected {
+	background-color: #ffd800;
+	font-weight: bold;
+}
+
+QTabWidget::pane  {
+	background: none;
+	border-top: 2px solid #C2C7CB;
+}
+
+QTabBar::tear {	
+	image: url(:/settings_background.jpg);
+}</string>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tabGroupA">
+        <attribute name="title">
+         <string>Group A</string>
+        </attribute>
+        <widget class="QTableWidget" name="tableWidget">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>60</y>
+           <width>641</width>
+           <height>192</height>
+          </rect>
+         </property>
+         <row>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>Team</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>G</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>W</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>D</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>L</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>GF</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>GA</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>GD</string>
+          </property>
+         </column>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>Group B</string>
+        </attribute>
+       </widget>
+       <widget class="QWidget" name="tab_3">
+        <attribute name="title">
+         <string>Group C</string>
+        </attribute>
+       </widget>
+       <widget class="QWidget" name="tab_4">
+        <attribute name="title">
+         <string>Group D</string>
+        </attribute>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="btnCreate_2">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>550</y>
+        <width>252</width>
+        <height>52</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 20px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+      </property>
+      <property name="text">
+       <string>Create group</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

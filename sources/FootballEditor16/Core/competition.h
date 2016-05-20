@@ -65,6 +65,10 @@ public:
      */
     void startGroupStage( vector<int> teamIDs );
     /**
+     * @brief Create groups
+     */
+    void createGroups();
+    /**
      * @brief Get group stage
      * @return group stage
      */
