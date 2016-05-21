@@ -17,22 +17,22 @@ SOURCES += main.cpp\
     exitdialog.cpp \
     createcompdialog.cpp \
     warningdialog.cpp \
-    competitionwindow.cpp \
-    teamcheckboxes.cpp
+    teamcheckboxes.cpp \
+    eurowindow.cpp
 
 HEADERS  += mainmenu.h \
     exitdialog.h \
     createcompdialog.h \
     warningdialog.h \
-    competitionwindow.h \
-    teamcheckboxes.h
+    teamcheckboxes.h \
+    eurowindow.h
 
 FORMS    += mainmenu.ui \
     exitdialog.ui \
     createcompdialog.ui \
     warningdialog.ui \
-    competitionwindow.ui \
-    temporary.ui
+    temporary.ui \
+    eurowindow.ui
 
 RESOURCES += \
     Resources/resources.qrc
