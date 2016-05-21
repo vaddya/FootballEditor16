@@ -14,6 +14,8 @@ namespace Ui {
 class CompetitionWindow;
 }
 
+enum TeamNum { EURO = 16, WORLDCUP = 32 };
+
 class CompetitionWindow : public QMainWindow
 {
     Q_OBJECT
@@ -26,11 +28,13 @@ public:
 
 private slots:
 
-    void on_btn_CG4_Create_clicked();
+    void startGroupStage();
 
-    void on_btn_CG4_Start_clicked();
+    void saveResults();
 
-    void on_btn_CG4_Generate_clicked();
+    void createGroup();
+
+    void generateGroups();
 
 private:
     Ui::CompetitionWindow *ui;
@@ -39,9 +43,16 @@ private:
     QVector<QString> teams;
 
     void drawCreateGroups();
-    void drawGroupStage16();
-    bool isMax;
+    void drawCreate8Groups();
 
+    void drawGroupStage();
+    void sizeTableGroupStage();
+    void drawTablesGroupStage();
+    void drawMatchesGroupStage();
+    void redrawTableGroupStage(char groupId);
+
+    bool isGenerated;
+    TeamNum teamNum;
 };
 
 #endif // COMPETITIONWINDOW_H

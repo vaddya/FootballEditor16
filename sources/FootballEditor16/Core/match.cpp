@@ -65,12 +65,9 @@ void Match::updateResult()
 
 ostream& operator<<( ostream &os, Match &match )
 {
-    os << "(" << match.getId() << ") " << match.getFirstTeam();
-//    if( match.getResult() == "-:-" )
-//        os << " vs ";
-//    else
-        os << " " << match.getResult() << " ";
-    os << match.getSecondTeam();
+    os << "(" << match.getId() << ") " << match.getFirstTeam()
+       << " " << match.getResult() << " "
+       << match.getSecondTeam();
     return os;
 }
 

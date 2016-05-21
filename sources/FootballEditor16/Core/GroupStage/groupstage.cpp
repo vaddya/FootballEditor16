@@ -14,6 +14,8 @@ void GroupStage::launch()
 
 vector<Group> &GroupStage::getGroups()
 {
+    for( Group &group : groups )
+        group.sort();
     return groups;
 }
 
@@ -44,8 +46,10 @@ vector<Team>& GroupStage::getWinners()
 Group &GroupStage::getGroup( char id )
 {
     for( Group &group: groups )
-        if( id == group.getId() )
+        if( id == group.getId() ) {
+            group.sort();
             return group;
+        }
     throw WrongID( id );
 }
 

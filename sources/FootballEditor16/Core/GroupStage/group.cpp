@@ -36,36 +36,6 @@ void Group::sort()
     std::reverse(teams.begin(), teams.end());
 }
 
-vector<std::string> Group::table()
-{
-    vector<string> strings;
-    ostringstream convert;
-    convert << "N  " << "Team" << setw(48) << "M   W   D   L  GF  GA  GD   P";
-    strings.push_back(convert.str());
-    int i = 0;
-    for( TeamInGroup team : teams ) {
-        ostringstream convert2;
-        convert2 << ++i << ". " << team;
-        strings.push_back(convert2.str());
-    }
-    ostringstream convert3;
-    convert << "M   W   D   L  GF  GA  GD   P";
-    strings.push_back(convert3.str());
-    for( TeamInGroup team : teams ) {
-        ostringstream convert4;
-        convert4 << team.getGames() << " " << setw(3)
-                 << team.getWins() << " " << setw(3)
-                 << team.getDraws() << " " << setw(3)
-                 << team.getLoses() << " " << setw(3)
-                 << team.getGoalsFor() << " " << setw(3)
-                 << team.getGoalsAgainst() << " " << setw(3)
-                 << team.getGoalsDiffrence() << " " << setw(3)
-                 << team.getPoints();
-        strings.push_back(convert4.str());
-    }
-    return strings;
-}
-
 void Group::createMatches()
 {
     for( unsigned i = 0; i < 4; i++ ) {

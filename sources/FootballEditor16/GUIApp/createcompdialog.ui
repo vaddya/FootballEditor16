@@ -20,7 +20,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Create competition</string>
+   <string>Football Editor 16 - Create competition</string>
   </property>
   <property name="styleSheet">
    <string notr="true">#CreateCompDialog {
