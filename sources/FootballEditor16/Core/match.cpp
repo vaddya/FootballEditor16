@@ -1,6 +1,6 @@
 #include "match.h"
 
-Match::Match( TeamStat &firstTeam, TeamStat &secondTeam ): firstTeam(firstTeam), secondTeam(secondTeam), result("Hasn't started yet")
+Match::Match( TeamStat &firstTeam, TeamStat &secondTeam ): firstTeam(firstTeam), secondTeam(secondTeam), result("-:-")
 {
     IdGenerator *idGen = IdGenerator::IdGeneratorInstance();
     id = idGen->getMatchId();
@@ -28,7 +28,7 @@ TeamStat &Match::getSecondTeam()
 
 bool Match::isPlayed() const
 {
-    if( result != "Hasn't started yet" )
+    if( result != "-:-" )
         return true;
     else
         return false;
@@ -66,9 +66,9 @@ void Match::updateResult()
 ostream& operator<<( ostream &os, Match &match )
 {
     os << "(" << match.getId() << ") " << match.getFirstTeam();
-    if( match.getResult() == "Hasn't started yet" )
-        os << " vs ";
-    else
+//    if( match.getResult() == "-:-" )
+//        os << " vs ";
+//    else
         os << " " << match.getResult() << " ";
     os << match.getSecondTeam();
     return os;

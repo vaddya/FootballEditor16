@@ -53,7 +53,7 @@ bool GroupStage::isGroupStageOver()
 {
     for( Group &group: groups )
         for( MatchInGroup &match: group.getMatches() )
-            if( match.getResult() == "Hasn't started yet" )
+            if( match.getResult() == "-:-" )
                 return false;
     return true;
 }

@@ -18,7 +18,7 @@ void MatchInGroup::clear()
     pickPointsBack( firstTeam.getGoalsFor(), secondTeam.getGoalsFor() );
     firstTeam.clear();
     secondTeam.clear();
-    result = "Hasn't started yet";
+    result = "-:-";
 }
 
 

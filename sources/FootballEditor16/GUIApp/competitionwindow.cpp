@@ -44,7 +44,7 @@ void CompetitionWindow::drawGroupStage16()
     {
         QTreeWidget *table = ui->frame_GS16->findChild<QTreeWidget*>(QString("tree_Group")+groupId);
         table->header()->resizeSection(0, 30);
-        table->header()->resizeSection(1, 258);
+        table->header()->resizeSection(1, 275);
         table->header()->resizeSection(2, 40);
         table->header()->resizeSection(3, 40);
         table->header()->resizeSection(4, 40);
@@ -68,6 +68,23 @@ void CompetitionWindow::drawGroupStage16()
             item->setText(7, QString::number(team.getGoalsAgainst()));
             item->setText(8, QString::number(team.getGoalsDiffrence()));
             item->setText(9, QString::number(team.getPoints()));
+        }
+
+        int i = 1;
+        for( MatchInGroup &match : comp->getGroupStage().getGroup(groupId).getMatches() ) {
+            QLabel *left = ui->frame_GS16->findChild<QLabel*>(QString("lbl_GS16_GroupA_left_m")+QString::number(i));
+            left->setText(QString::fromStdString(match.getFirstTeam().getName()));
+            left = new QLabel(ui->tab_GS16_GroupA_Matches);
+            left->setPixmap(QPixmap(":/Flags/" + QString::fromStdString(match.getFirstTeam().getName()) + ".png"));
+            left->setGeometry(265, -10+40*i, 16, 16);
+            left->show();
+            QLabel *right = ui->frame_GS16->findChild<QLabel*>(QString("lbl_GS16_GroupA_right_m")+QString::number(i));
+            right->setText(QString::fromStdString(match.getSecondTeam().getName()));
+            right = new QLabel(ui->tab_GS16_GroupA_Matches);
+            right->setPixmap(QPixmap(":/Flags/" + QString::fromStdString(match.getSecondTeam().getName()) + ".png"));
+            right->setGeometry(389, -10+40*i, 16, 16);
+            right->show();
+            i++;
         }
     }
 }

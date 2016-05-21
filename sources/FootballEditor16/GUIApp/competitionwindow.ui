@@ -593,10 +593,21 @@ QTabWidget::pane  {
 	color: rgb(255, 255, 255);
 	border: 0px solid black;
 }
-</string>
+
+QLabel {
+	font-size: 16px;
+	color: white;
+}
+
+QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 5px;
+	background-color: #e8e8e8; 
+	font-size: 18px;
+}</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab_GS16_GroupA_Table">
           <attribute name="title">
@@ -607,7 +618,7 @@ QTabWidget::pane  {
             <rect>
              <x>30</x>
              <y>10</y>
-             <width>621</width>
+             <width>631</width>
              <height>261</height>
             </rect>
            </property>
@@ -654,10 +665,31 @@ background: rgba(0, 0, 0, 0);
 	font-weight: bold;
  }</string>
            </property>
+           <property name="verticalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
+           <property name="horizontalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
+           <property name="sizeAdjustPolicy">
+            <enum>QAbstractScrollArea::AdjustIgnored</enum>
+           </property>
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
            </property>
+           <property name="showDropIndicator" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="selectionMode">
+            <enum>QAbstractItemView::SingleSelection</enum>
+           </property>
+           <attribute name="headerMinimumSectionSize">
+            <number>30</number>
+           </attribute>
            <attribute name="headerShowSortIndicator" stdset="0">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="headerStretchLastSection">
             <bool>false</bool>
            </attribute>
            <column>
@@ -824,6 +856,721 @@ font-size: 16px;</string>
           <attribute name="title">
            <string>Matches</string>
           </attribute>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_right_m2">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>60</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_right_m2">
+           <property name="geometry">
+            <rect>
+             <x>416</x>
+             <y>60</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_left_m2">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>60</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_left_m2">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>60</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="displayIntegerBase">
+            <number>9</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_sep2">
+           <property name="geometry">
+            <rect>
+             <x>333</x>
+             <y>65</y>
+             <width>6</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_left_m1">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>20</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="inputMethodHints">
+            <set>Qt::ImhDigitsOnly</set>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="displayIntegerBase">
+            <number>9</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_right_m1">
+           <property name="geometry">
+            <rect>
+             <x>416</x>
+             <y>20</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_sep1">
+           <property name="geometry">
+            <rect>
+             <x>332</x>
+             <y>25</y>
+             <width>6</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_left_m1">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>20</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_right_m1">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>20</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_left_m4">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>140</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="displayIntegerBase">
+            <number>9</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_left_m3">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>100</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_right_m4">
+           <property name="geometry">
+            <rect>
+             <x>416</x>
+             <y>140</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_right_m3">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>100</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_sep4">
+           <property name="geometry">
+            <rect>
+             <x>333</x>
+             <y>145</y>
+             <width>6</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_right_m3">
+           <property name="geometry">
+            <rect>
+             <x>416</x>
+             <y>100</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_left_m4">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>140</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_sep3">
+           <property name="geometry">
+            <rect>
+             <x>333</x>
+             <y>105</y>
+             <width>6</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_left_m3">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>100</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="displayIntegerBase">
+            <number>9</number>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_right_m4">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>140</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_left_m6">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>220</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="displayIntegerBase">
+            <number>9</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_left_m5">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>180</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_right_m6">
+           <property name="geometry">
+            <rect>
+             <x>416</x>
+             <y>220</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_right_m5">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>180</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_sep6">
+           <property name="geometry">
+            <rect>
+             <x>333</x>
+             <y>225</y>
+             <width>6</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_right_m5">
+           <property name="geometry">
+            <rect>
+             <x>416</x>
+             <y>180</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_left_m6">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>220</y>
+             <width>235</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lbl_GS16_GroupA_sep5">
+           <property name="geometry">
+            <rect>
+             <x>333</x>
+             <y>185</y>
+             <width>6</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_left_m5">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>180</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="displayIntegerBase">
+            <number>9</number>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spb_GS16_GroupA_right_m6">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>220</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btn_GS16_Save">
+           <property name="geometry">
+            <rect>
+             <x>360</x>
+             <y>270</y>
+             <width>161</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 18px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+           </property>
+           <property name="text">
+            <string>Save</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btn_GS16_Simulate">
+           <property name="geometry">
+            <rect>
+             <x>150</x>
+             <y>270</y>
+             <width>161</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 18px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+           </property>
+           <property name="text">
+            <string>Simulate</string>
+           </property>
+          </widget>
          </widget>
         </widget>
        </widget>
@@ -871,7 +1618,7 @@ QTabWidget::pane  {
 </string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab_GS16_GroupB_Table">
           <attribute name="title">
@@ -882,7 +1629,7 @@ QTabWidget::pane  {
             <rect>
              <x>30</x>
              <y>10</y>
-             <width>621</width>
+             <width>631</width>
              <height>261</height>
             </rect>
            </property>
@@ -929,10 +1676,25 @@ background: rgba(0, 0, 0, 0);
 	font-weight: bold;
  }</string>
            </property>
+           <property name="verticalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
+           <property name="horizontalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
            </property>
+           <property name="showDropIndicator" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="alternatingRowColors">
+            <bool>false</bool>
+           </property>
            <attribute name="headerShowSortIndicator" stdset="0">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="headerStretchLastSection">
             <bool>false</bool>
            </attribute>
            <column>
@@ -1099,6 +1861,454 @@ font-size: 16px;</string>
           <attribute name="title">
            <string>Matches</string>
           </attribute>
+          <widget class="QLabel" name="label_22">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>20</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinBox_13">
+           <property name="geometry">
+            <rect>
+             <x>360</x>
+             <y>245</y>
+             <width>35</width>
+             <height>35</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_23">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>110</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_24">
+           <property name="geometry">
+            <rect>
+             <x>410</x>
+             <y>200</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_25">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>200</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinBox_14">
+           <property name="geometry">
+            <rect>
+             <x>300</x>
+             <y>200</y>
+             <width>35</width>
+             <height>35</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="displayIntegerBase">
+            <number>9</number>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinBox_15">
+           <property name="geometry">
+            <rect>
+             <x>300</x>
+             <y>245</y>
+             <width>35</width>
+             <height>35</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="displayIntegerBase">
+            <number>9</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_26">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>65</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_27">
+           <property name="geometry">
+            <rect>
+             <x>410</x>
+             <y>245</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_28">
+           <property name="geometry">
+            <rect>
+             <x>410</x>
+             <y>155</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_29">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>245</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinBox_16">
+           <property name="geometry">
+            <rect>
+             <x>360</x>
+             <y>200</y>
+             <width>35</width>
+             <height>35</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_30">
+           <property name="geometry">
+            <rect>
+             <x>410</x>
+             <y>65</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_31">
+           <property name="geometry">
+            <rect>
+             <x>340</x>
+             <y>30</y>
+             <width>15</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font-size: 16px;
+color: white;</string>
+           </property>
+           <property name="text">
+            <string>—</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_32">
+           <property name="geometry">
+            <rect>
+             <x>340</x>
+             <y>120</y>
+             <width>15</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font-size: 16px;
+color: white;</string>
+           </property>
+           <property name="text">
+            <string>—</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_33">
+           <property name="geometry">
+            <rect>
+             <x>340</x>
+             <y>255</y>
+             <width>15</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font-size: 16px;
+color: white;</string>
+           </property>
+           <property name="text">
+            <string>—</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_34">
+           <property name="geometry">
+            <rect>
+             <x>410</x>
+             <y>20</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_35">
+           <property name="geometry">
+            <rect>
+             <x>340</x>
+             <y>165</y>
+             <width>15</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font-size: 16px;
+color: white;</string>
+           </property>
+           <property name="text">
+            <string>—</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_36">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>155</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_37">
+           <property name="geometry">
+            <rect>
+             <x>410</x>
+             <y>110</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Text</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_38">
+           <property name="geometry">
+            <rect>
+             <x>340</x>
+             <y>75</y>
+             <width>15</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font-size: 16px;
+color: white;</string>
+           </property>
+           <property name="text">
+            <string>—</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_39">
+           <property name="geometry">
+            <rect>
+             <x>340</x>
+             <y>210</y>
+             <width>15</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font-size: 16px;
+color: white;</string>
+           </property>
+           <property name="text">
+            <string>—</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
          </widget>
         </widget>
        </widget>
@@ -1157,7 +2367,7 @@ QTabWidget::pane  {
             <rect>
              <x>30</x>
              <y>10</y>
-             <width>621</width>
+             <width>631</width>
              <height>261</height>
             </rect>
            </property>
@@ -1204,10 +2414,19 @@ background: rgba(0, 0, 0, 0);
 	font-weight: bold;
  }</string>
            </property>
+           <property name="verticalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
+           <property name="horizontalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <attribute name="headerShowSortIndicator" stdset="0">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="headerStretchLastSection">
             <bool>false</bool>
            </attribute>
            <column>
@@ -1432,7 +2651,7 @@ QTabWidget::pane  {
             <rect>
              <x>30</x>
              <y>10</y>
-             <width>621</width>
+             <width>631</width>
              <height>261</height>
             </rect>
            </property>
@@ -1479,10 +2698,19 @@ background: rgba(0, 0, 0, 0);
 	font-weight: bold;
  }</string>
            </property>
+           <property name="verticalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
+           <property name="horizontalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
            </property>
            <attribute name="headerShowSortIndicator" stdset="0">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="headerStretchLastSection">
             <bool>false</bool>
            </attribute>
            <column>
@@ -1676,6 +2904,48 @@ font-size: 16px;</string>
    <container>1</container>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>spb_GS16_GroupA_left_m1</tabstop>
+  <tabstop>spb_GS16_GroupA_right_m1</tabstop>
+  <tabstop>spb_GS16_GroupA_left_m2</tabstop>
+  <tabstop>spb_GS16_GroupA_right_m2</tabstop>
+  <tabstop>spb_GS16_GroupA_left_m3</tabstop>
+  <tabstop>spb_GS16_GroupA_right_m3</tabstop>
+  <tabstop>spb_GS16_GroupA_left_m4</tabstop>
+  <tabstop>spb_GS16_GroupA_right_m4</tabstop>
+  <tabstop>spb_GS16_GroupA_left_m5</tabstop>
+  <tabstop>spb_GS16_GroupA_right_m5</tabstop>
+  <tabstop>spb_GS16_GroupA_left_m6</tabstop>
+  <tabstop>spb_GS16_GroupA_right_m6</tabstop>
+  <tabstop>checkBox_3</tabstop>
+  <tabstop>checkBox_4</tabstop>
+  <tabstop>checkBox_7</tabstop>
+  <tabstop>checkBox_2</tabstop>
+  <tabstop>btn_CG4_Start</tabstop>
+  <tabstop>btn_CG4_Create</tabstop>
+  <tabstop>tab_GS16_Groups</tabstop>
+  <tabstop>tab_GS16_GroupA</tabstop>
+  <tabstop>tree_GroupA</tabstop>
+  <tabstop>btn_CG4_Generate</tabstop>
+  <tabstop>tab_GS16_GroupB</tabstop>
+  <tabstop>tree_GroupB</tabstop>
+  <tabstop>tab_GS16_GroupC</tabstop>
+  <tabstop>tree_GroupC</tabstop>
+  <tabstop>tab_GS16_GroupD</tabstop>
+  <tabstop>tree_GroupD</tabstop>
+  <tabstop>checkBox_11</tabstop>
+  <tabstop>checkBox_12</tabstop>
+  <tabstop>checkBox_9</tabstop>
+  <tabstop>checkBox_10</tabstop>
+  <tabstop>checkBox_15</tabstop>
+  <tabstop>checkBox_14</tabstop>
+  <tabstop>checkBox_13</tabstop>
+  <tabstop>checkBox_16</tabstop>
+  <tabstop>checkBox_6</tabstop>
+  <tabstop>checkBox_5</tabstop>
+  <tabstop>checkBox_8</tabstop>
+  <tabstop>checkBox_1</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
