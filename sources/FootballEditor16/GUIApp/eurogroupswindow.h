@@ -1,5 +1,5 @@
-#ifndef COMPETITIONWINDOW_H
-#define COMPETITIONWINDOW_H
+#ifndef EUROGROUPSWINDOW_H
+#define EUROGROUPSWINDOW_H
 
 #include <QMainWindow>
 #include "QList"
@@ -11,18 +11,16 @@
 #include "warningdialog.h"
 
 namespace Ui {
-class CompetitionWindow;
+class EuroGroupsWindow;
 }
 
-enum TeamNum { EURO = 16, WORLDCUP = 32 };
-
-class CompetitionWindow : public QMainWindow
+class EuroGroupsWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit CompetitionWindow(QWidget *parent = 0);
-    ~CompetitionWindow();
+    explicit EuroGroupsWindow(QWidget *parent = 0);
+    ~EuroGroupsWindow();
 
     void setSettings(QString title, QList<QListWidgetItem*> teams);
 
@@ -37,13 +35,12 @@ private slots:
     void generateGroups();
 
 private:
-    Ui::CompetitionWindow *ui;
+    Ui::EuroGroupsWindow *ui;
 
     Competition *comp;
     QVector<QString> teams;
 
     void drawCreateGroups();
-    void drawCreate8Groups();
 
     void drawGroupStage();
     void sizeTableGroupStage();
@@ -52,7 +49,6 @@ private:
     void redrawTableGroupStage(char groupId);
 
     bool isGenerated;
-    TeamNum teamNum;
 };
 
-#endif // COMPETITIONWINDOW_H
+#endif // EUROGROUPSWINDOW_H

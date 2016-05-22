@@ -5,7 +5,8 @@
 #include <QListWidget>
 #include <QListWidgetItem>
 #include "warningdialog.h"
-#include "competitionwindow.h"
+#include "eurogroupswindow.h"
+#include "worldcupgroupswindow.h"
 
 namespace Ui {
 class CreateCompDialog;

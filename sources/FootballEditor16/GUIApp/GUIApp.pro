@@ -18,21 +18,24 @@ SOURCES += main.cpp\
     createcompdialog.cpp \
     warningdialog.cpp \
     teamcheckboxes.cpp \
-    eurowindow.cpp
+    eurogroupswindow.cpp \
+    worldcupgroupswindow.cpp
 
 HEADERS  += mainmenu.h \
     exitdialog.h \
     createcompdialog.h \
     warningdialog.h \
     teamcheckboxes.h \
-    eurowindow.h
+    eurogroupswindow.h \
+    worldcupgroupswindow.h
 
 FORMS    += mainmenu.ui \
     exitdialog.ui \
     createcompdialog.ui \
     warningdialog.ui \
     temporary.ui \
-    eurowindow.ui
+    eurogroupswindow.ui \
+    worldcupgroupswindow.ui
 
 RESOURCES += \
     Resources/resources.qrc

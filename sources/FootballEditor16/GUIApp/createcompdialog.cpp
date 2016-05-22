@@ -38,10 +38,18 @@ void CreateCompDialog::on_btnMenu_clicked()
 void CreateCompDialog::on_btnCreate_clicked()
 {
     if( isReadyToCreate() ) {
-        //CompetitionWindow *comp = new CompetitionWindow();
-        //this->hide();
-        //comp->setSettings(ui->edtTitle->text(), ui->lstTeams->selectedItems());
-        //comp->show();
+        if( ui->rbtn16->isChecked() ) {
+            EuroGroupsWindow *comp = new EuroGroupsWindow();
+            this->hide();
+            comp->setSettings(ui->edtTitle->text(), ui->lstTeams->selectedItems());
+            comp->show();
+        }
+        else {
+            WorldCupGroupsWindow *comp = new WorldCupGroupsWindow();
+            this->hide();
+            comp->setSettings(ui->edtTitle->text(), ui->lstTeams->selectedItems());
+            comp->show();
+        }
     }
     else {
         WarningDialog *fillOut = new WarningDialog(this, "Please fill out all fields!");

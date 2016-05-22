@@ -1,12 +1,9 @@
-#include "competitionwindow.h"
-#include "ui_competitionwindow.h"
-#include "QDebug"
-#include "Exceptions/wrongid.h"
-#include "qdebug.h"
+#include "eurogroupswindow.h"
+#include "ui_eurogroupswindow.h"
 
-CompetitionWindow::CompetitionWindow(QWidget *parent) :
+EuroGroupsWindow::EuroGroupsWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::CompetitionWindow),
+    ui(new Ui::EuroGroupsWindow),
     comp(new Competition),
     isGenerated(false)
 {
@@ -18,43 +15,28 @@ CompetitionWindow::CompetitionWindow(QWidget *parent) :
     connect(ui->btn_GS16_GroupC_Save, SIGNAL(clicked(bool)), this, SLOT(saveResults()));
     connect(ui->btn_GS16_GroupD_Save, SIGNAL(clicked(bool)), this, SLOT(saveResults()));
     connect(ui->btn_CG4_Create, SIGNAL(clicked(bool)), this, SLOT(createGroup()));
-    connect(ui->btn_CG8_Create, SIGNAL(clicked(bool)), this, SLOT(createGroup()));
     connect(ui->btn_CG4_Generate, SIGNAL(clicked(bool)), this, SLOT(generateGroups()));
-    connect(ui->btn_CG8_Generate, SIGNAL(clicked(bool)), this, SLOT(generateGroups()));
     connect(ui->btn_CG4_Start, SIGNAL(clicked(bool)), this, SLOT(startGroupStage()));
-    connect(ui->btn_CG8_Start, SIGNAL(clicked(bool)), this, SLOT(startGroupStage()));
 }
 
-CompetitionWindow::~CompetitionWindow()
+EuroGroupsWindow::~EuroGroupsWindow()
 {
     delete ui;
 }
 
-void CompetitionWindow::setSettings(QString title, QList<QListWidgetItem *> teams)
+void EuroGroupsWindow::setSettings(QString title, QList<QListWidgetItem *> teams)
 {
     comp->setTitle(title.toStdString());
     for( QListWidgetItem * lsWidget: teams )
         this->teams.push_back(lsWidget->text());
-    if( teams.size() == 16 ) {
-        teamNum = EURO;
-        ui->grbTeams->setMode(false);
-        ui->stackedWidget->setCurrentWidget(ui->pgCreateGroups4);
-    }
-    else {
-        teamNum = WORLDCUP;
-        ui->grbTeams_2->setMode(true);
-        ui->stackedWidget->setCurrentWidget(ui->pgCreateGroups8);
-    }
+    ui->stackedWidget->setCurrentWidget(ui->pgCreateGroups4);
     drawCreateGroups();
 }
 
-void CompetitionWindow::startGroupStage()
+void EuroGroupsWindow::startGroupStage()
 {
     if( (int)comp->getNumberOfTeams() == teams.size() ) {
-        if( teamNum == EURO )
-            ui->stackedWidget->setCurrentWidget(ui->pgGroupStage16);
-        else
-            ui->stackedWidget->setCurrentWidget(ui->pgGroupStage32);
+        ui->stackedWidget->setCurrentWidget(ui->pgGroupStage16);
         if( isGenerated )
             comp->startGroupStage();
         else
@@ -68,13 +50,10 @@ void CompetitionWindow::startGroupStage()
     }
 }
 
-void CompetitionWindow::drawCreateGroups()
+void EuroGroupsWindow::drawCreateGroups()
 {
-    TeamCheckBoxes *grb = ui->grbTeams;
-    if( teamNum == WORLDCUP )
-        grb = ui->grbTeams_2;
     for( int i = 0; i < teams.size(); i++ ) {
-        QCheckBox *item = grb->item(i+1);
+        QCheckBox *item = ui->grbTeams->item(i+1);
         item->setText(teams[i]);
         item->setIcon(QPixmap(":/Flags/" + teams[i] + ".png"));
         if( item->icon().isNull() ) item->setIcon(QPixmap(":/Flags/Unknown.png"));
@@ -82,19 +61,18 @@ void CompetitionWindow::drawCreateGroups()
     }
 }
 
-void CompetitionWindow::drawGroupStage()
+void EuroGroupsWindow::drawGroupStage()
 {
     sizeTableGroupStage();
     drawTablesGroupStage();
     drawMatchesGroupStage();
 }
 
-void CompetitionWindow::sizeTableGroupStage()
+void EuroGroupsWindow::sizeTableGroupStage()
 {
     for( Group group: comp->getGroupStage().getGroups() )
     {
-        QFrame *frame = ui->stackedWidget->findChild<QFrame*>(QString("frame_GS")+QString::number(teamNum));
-        QTreeWidget *table = frame->findChild<QTreeWidget*>(QString("tree_GS")+QString::number(teamNum)+"_Group"+group.getId());
+        QTreeWidget *table = ui->stackedWidget->findChild<QTreeWidget*>(QString("tree_GS16_Group")+group.getId(), Qt::FindChildrenRecursively);
         table->header()->resizeSection(0, 30);
         table->header()->resizeSection(1, 275);
         table->header()->resizeSection(2, 40);
@@ -109,11 +87,11 @@ void CompetitionWindow::sizeTableGroupStage()
     }
 }
 
-void CompetitionWindow::drawTablesGroupStage()
+void EuroGroupsWindow::drawTablesGroupStage()
 {
     for( Group &group : comp->getGroupStage().getGroups() )
     {
-        QTreeWidget *table = ui->stackedWidget->findChild<QTreeWidget*>(QString("tree_GS")+QString::number(teamNum)+"_Group"+group.getId(), Qt::FindChildrenRecursively);
+        QTreeWidget *table = ui->stackedWidget->findChild<QTreeWidget*>(QString("tree_GS16_Group")+group.getId(), Qt::FindChildrenRecursively);
         for( TeamInGroup &team : group.getTeams() ) {
             QTreeWidgetItem *item = new QTreeWidgetItem(table);
             item->setText(1, QString::fromStdString(team.getName()));
@@ -131,14 +109,14 @@ void CompetitionWindow::drawTablesGroupStage()
     }
 }
 
-void CompetitionWindow::drawMatchesGroupStage()
+void EuroGroupsWindow::drawMatchesGroupStage()
 {
     for( Group &group : comp->getGroupStage().getGroups() )
     {
-        QWidget *tabMatches = ui->stackedWidget->findChild<QWidget*>(QString("tab_GS"+QString::number(teamNum)+"_Group"+group.getId()+"_Matches"), Qt::FindChildrenRecursively);
+        QWidget *tabMatches = ui->stackedWidget->findChild<QWidget*>(QString("tab_GS16_Group")+group.getId()+"_Matches", Qt::FindChildrenRecursively);
         int i = 1;
         for( MatchInGroup &match : group.getMatches() ) {
-            QLabel *left = tabMatches->findChild<QLabel*>(QString("lbl_GS")+QString::number(teamNum)+"_Group"+group.getId()+"_left_m"+QString::number(i));
+            QLabel *left = tabMatches->findChild<QLabel*>(QString("lbl_GS16_Group")+group.getId()+"_left_m"+QString::number(i));
             left->setText(QString::fromStdString(match.getFirstTeam().getName()));
             left = new QLabel(tabMatches);
             left->setPixmap(QPixmap(":/Flags/" + QString::fromStdString(match.getFirstTeam().getName()) + ".png"));
@@ -146,7 +124,7 @@ void CompetitionWindow::drawMatchesGroupStage()
             left->show();
 
 
-            QLabel *right = tabMatches->findChild<QLabel*>(QString("lbl_GS")+QString::number(teamNum)+"_Group"+group.getId()+"_right_m"+QString::number(i));
+            QLabel *right = tabMatches->findChild<QLabel*>(QString("lbl_GS16_Group")+group.getId()+"_right_m"+QString::number(i));
             right->setText(QString::fromStdString(match.getSecondTeam().getName()));
             right = new QLabel(tabMatches);
             right->setPixmap(QPixmap(":/Flags/" + QString::fromStdString(match.getSecondTeam().getName()) + ".png"));
@@ -159,9 +137,9 @@ void CompetitionWindow::drawMatchesGroupStage()
     ui->tab_GS16_GroupA->setCurrentIndex(0);
 }
 
-void CompetitionWindow::redrawTableGroupStage(char groupId)
+void EuroGroupsWindow::redrawTableGroupStage(char groupId)
 {
-    QTreeWidget *table = ui->stackedWidget->findChild<QTreeWidget*>(QString("tree_GS")+QString::number(teamNum)+"_Group"+groupId, Qt::FindChildrenRecursively);
+    QTreeWidget *table = ui->stackedWidget->findChild<QTreeWidget*>(QString("tree_GS16_Group")+groupId, Qt::FindChildrenRecursively);
     int i = 0;
     for( TeamInGroup &team : comp->getGroupStage().getGroup(groupId).getTeams() ) {
         QTreeWidgetItem *item = table->topLevelItem(i);
@@ -180,27 +158,24 @@ void CompetitionWindow::redrawTableGroupStage(char groupId)
     }
 }
 
-void CompetitionWindow::saveResults()
+void EuroGroupsWindow::saveResults()
 {
     char groupId = sender()->objectName()[14].toLatin1();
     int i = 1;
     for( MatchInGroup &match : comp->getGroupStage().getGroup(groupId).getMatches() ) {
-        QSpinBox *left = ui->frame_GS16->findChild<QSpinBox*>(QString("spb_GS16_GroupA_left_m")+QString::number(i));
-        QSpinBox *right = ui->frame_GS16->findChild<QSpinBox*>(QString("spb_GS16_GroupA_right_m")+QString::number(i));
+        QSpinBox *left = ui->frame_GS16->findChild<QSpinBox*>(QString("spb_GS16_Group")+groupId+"_left_m"+QString::number(i));
+        QSpinBox *right = ui->frame_GS16->findChild<QSpinBox*>(QString("spb_GS16_Group")+groupId+"_right_m"+QString::number(i));
         match.setResult(left->value(), right->value());
         i++;
     }
     redrawTableGroupStage(groupId);
 }
 
-void CompetitionWindow::createGroup()
+void EuroGroupsWindow::createGroup()
 {
-    TeamCheckBoxes *grb = ui->grbTeams;
-    if( teamNum == WORLDCUP )
-        grb = ui->grbTeams_2;
-    if( grb->selectedItems().size() == 4 ) {
+    if( ui->grbTeams->selectedItems().size() == 4 ) {
         char groupId = 'A' + comp->getTeams().size()/4;
-        for( QCheckBox *item : grb->selectedItems() ) {
+        for( QCheckBox *item : ui->grbTeams->selectedItems() ) {
             comp->addTeam(item->text().toStdString());
             item->setStyleSheet("QCheckBox {"
                                 "color: #6c6c6c"
@@ -220,15 +195,12 @@ void CompetitionWindow::createGroup()
     }
 }
 
-void CompetitionWindow::generateGroups()
+void EuroGroupsWindow::generateGroups()
 {
     isGenerated = true;
-    TeamCheckBoxes *grb = ui->grbTeams;
-    if( teamNum == WORLDCUP )
-        grb = ui->grbTeams_2;
     for( int i = 0; i < teams.size(); i++ ) {
-        char groupId = 'A' + i % (teamNum/4);
-        QCheckBox *item = grb->item(i+1);
+        char groupId = 'A' + i % 4;
+        QCheckBox *item = ui->grbTeams->item(i+1);
         comp->addTeam(item->text().toStdString());
         item->setStyleSheet("QCheckBox {"
                             "color: #6c6c6c"
