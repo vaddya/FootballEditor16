@@ -2,6 +2,7 @@
 #define RANDOMISER_H
 
 #include "random"
+#include "time.h"
 
 using std::mt19937;
 using std::uniform_int_distribution;
@@ -23,7 +24,7 @@ public:
      * @param end Upper bound
      * @return randomed value
      */
-    int random( int begin, int end );
+    int random( int begin, int end, int seed = 1 );
 private:
     Randomiser();
     static Randomiser *randomiser;

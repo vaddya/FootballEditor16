@@ -14,6 +14,12 @@ EuroGroupsWindow::EuroGroupsWindow(QWidget *parent) :
     connect(ui->btn_GS16_GroupB_Save, SIGNAL(clicked(bool)), this, SLOT(saveResults()));
     connect(ui->btn_GS16_GroupC_Save, SIGNAL(clicked(bool)), this, SLOT(saveResults()));
     connect(ui->btn_GS16_GroupD_Save, SIGNAL(clicked(bool)), this, SLOT(saveResults()));
+
+    connect(ui->btn_GS16_GroupA_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_GS16_GroupB_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_GS16_GroupC_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_GS16_GroupD_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+
     connect(ui->btn_CG4_Create, SIGNAL(clicked(bool)), this, SLOT(createGroup()));
     connect(ui->btn_CG4_Generate, SIGNAL(clicked(bool)), this, SLOT(generateGroups()));
     connect(ui->btn_CG4_Start, SIGNAL(clicked(bool)), this, SLOT(startGroupStage()));
@@ -212,4 +218,19 @@ void EuroGroupsWindow::generateGroups()
         item->setEnabled(false);
         item->setText(item->text() + " (" + groupId + ")");
     }
+}
+
+void EuroGroupsWindow::simulateMatches()
+{
+    char groupId = sender()->objectName()[14].toLatin1();
+    int i = 1;
+    for( MatchInGroup &match : comp->getGroupStage().getGroup(groupId).getMatches() ) {
+        match.simulate();
+        QSpinBox *left = ui->frame_GS16->findChild<QSpinBox*>(QString("spb_GS16_Group")+groupId+"_left_m"+QString::number(i));
+        left->setValue(match.getFirstTeam().getGoalsFor());
+        QSpinBox *right = ui->frame_GS16->findChild<QSpinBox*>(QString("spb_GS16_Group")+groupId+"_right_m"+QString::number(i));
+        right->setValue(match.getSecondTeam().getGoalsFor());
+        i++;
+    }
+    redrawTableGroupStage(groupId);
 }

@@ -39,12 +39,12 @@ void Match::simulate()
     Randomiser *randomiser = Randomiser::RandomiserInstance();
     int firstTeamGoals;
     int secondTeamGoals;
-    if( randomiser->random(0,2) ) { // Chance is 2/3
+    if( randomiser->random(0,2,firstTeam.getId()+secondTeam.getId()) ) { // Chance is 2/3
         firstTeamGoals = randomiser->random(0,2);
         secondTeamGoals = randomiser->random(0,2);
     }
     else {
-        if( randomiser->random(0,2) ) { // Chance is 2/9
+        if( randomiser->random(0,2,firstTeam.getId()-secondTeam.getId()) ) { // Chance is 2/9
             firstTeamGoals = randomiser->random(0,3);
             secondTeamGoals = randomiser->random(0,3);
         }

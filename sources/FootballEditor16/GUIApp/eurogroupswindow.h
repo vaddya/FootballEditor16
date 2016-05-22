@@ -34,6 +34,8 @@ private slots:
 
     void generateGroups();
 
+    void simulateMatches();
+
 private:
     Ui::EuroGroupsWindow *ui;
 
