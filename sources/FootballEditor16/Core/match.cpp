@@ -39,18 +39,18 @@ void Match::simulate()
     Randomiser *randomiser = Randomiser::RandomiserInstance();
     int firstTeamGoals;
     int secondTeamGoals;
-    if( randomiser->random(0,2,firstTeam.getId()+secondTeam.getId()) ) { // Chance is 2/3
-        firstTeamGoals = randomiser->random(0,2);
-        secondTeamGoals = randomiser->random(0,2);
+    if( randomiser->random( 0,1,firstTeam.getId()+secondTeam.getId()+firstTeam.getName()[2]+secondTeam.getName()[1]+this->id ) ) { // Chance is 2/3
+        firstTeamGoals = randomiser->random(0,3,firstTeam.getId()+secondTeam.getId());
+        secondTeamGoals = randomiser->random(0,3,firstTeam.getName()[2]+secondTeam.getName()[1]+this->id);
     }
     else {
-        if( randomiser->random(0,2,firstTeam.getId()-secondTeam.getId()) ) { // Chance is 2/9
-            firstTeamGoals = randomiser->random(0,3);
-            secondTeamGoals = randomiser->random(0,3);
+        if( randomiser->random( 0,2,firstTeam.getId()+secondTeam.getId()+firstTeam.getName()[2]+secondTeam.getName()[1]+this->id ) ) { // Chance is 2/9
+            firstTeamGoals = randomiser->random(0,4,firstTeam.getId()+secondTeam.getId());
+            secondTeamGoals = randomiser->random(0,4,firstTeam.getName()[2]+secondTeam.getName()[1]+this->id);
         }
         else { // Chance is 1/9
-            firstTeamGoals = randomiser->random(0,4);
-            secondTeamGoals = randomiser->random(0,4);
+            firstTeamGoals = randomiser->random(0,5,firstTeam.getId()+secondTeam.getId());
+            secondTeamGoals = randomiser->random(0,5,firstTeam.getName()[2]+secondTeam.getName()[1]+this->id);
         }
     }
     setResult(firstTeamGoals, secondTeamGoals);

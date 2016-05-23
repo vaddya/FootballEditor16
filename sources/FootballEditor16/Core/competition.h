@@ -89,6 +89,9 @@ public:
     void startPlayOffStage( vector<int> teamIDs );
     ~Competition();
 
+    void restartGroupStage();
+    void clearTeams();
+
 private:
     string title;
     unsigned numberOfTeams;

@@ -1,0 +1,2533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EuroPlayoffWindow</class>
+ <widget class="QMainWindow" name="EuroPlayoffWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1002</width>
+    <height>660</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Football Editor 16 - Playoff Stage</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Resources/resources.qrc">
+    <normaloff>:/icon.png</normaloff>:/icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#EuroPlayoffWindow {
+	background: url(:/settings_background.jpg)  no-repeat center center fixed;
+	border: none;
+}
+
+QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 20px;
+	height: 50px;
+	width: 211px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>30</y>
+      <width>720</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frame {
+	border: 0px;
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 15px;
+	font-size: 15px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="lbl_playoff">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>721</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #ffd800;
+font-size: 24px;
+font-weight: bold;</string>
+     </property>
+     <property name="text">
+      <string>Playoff</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QTabWidget" name="tabs">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>700</width>
+       <height>431</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTabWidget::tab-bar {
+    alignment: center;
+}
+
+QTabBar::tab {
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #4b4b4b;
+	font-size: 16px;
+	height: 35px;
+	width: 323px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+QTabBar::tab:hover {
+	background-color: #ffea00;
+	font-weight: bold;
+	color: #4b4b4b;
+}
+
+QTabBar::tab:selected {
+	background-color: #ffea00;
+	font-weight: bold;
+	color: black;
+}
+
+QTabWidget::pane  {
+	background-color: none;
+	color: rgb(255, 255, 255);
+	border: 0px solid black;
+}
+
+QLabel {
+	color: black;
+	font-size: 17px;
+	width: 150px;
+}</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="wid_bracket">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <attribute name="title">
+       <string>Bracket</string>
+      </attribute>
+      <widget class="QFrame" name="frame_bracket">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>700</width>
+         <height>371</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: url(:/eu_playoff_bracket.png) no-repeat;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="lbl_quarter_top_m1">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>30</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Russia</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_m1">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>58</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Netherlands</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_m2">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>110</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Russia</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_m2">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>138</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Netherlands</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_m3">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>190</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Russia</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_m3">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>218</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Netherlands</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_m4">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>270</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Russia</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_m4">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>298</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Netherlands</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_score_m1">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>61</y>
+          <width>33</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string>2 (2)</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_score_m1">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>31</y>
+          <width>33</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string>2 (5)</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_score_m1_2">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>111</y>
+          <width>33</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_2">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>141</y>
+          <width>33</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_score_m1_3">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>191</y>
+          <width>33</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string>2 (5)</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_3">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>301</y>
+          <width>33</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_score_m1_4">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>271</y>
+          <width>33</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_4">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>221</y>
+          <width>33</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string>2 (2)</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_5">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>98</y>
+          <width>33</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_score_m1_5">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>68</y>
+          <width>33</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_m1_2">
+        <property name="geometry">
+         <rect>
+          <x>285</x>
+          <y>67</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_m1_2">
+        <property name="geometry">
+         <rect>
+          <x>285</x>
+          <y>95</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_6">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>258</y>
+          <width>33</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_score_m1_6">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>228</y>
+          <width>33</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_m1_3">
+        <property name="geometry">
+         <rect>
+          <x>285</x>
+          <y>255</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_m1_3">
+        <property name="geometry">
+         <rect>
+          <x>285</x>
+          <y>227</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_m1_4">
+        <property name="geometry">
+         <rect>
+          <x>515</x>
+          <y>150</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_m1_4">
+        <property name="geometry">
+         <rect>
+          <x>515</x>
+          <y>178</y>
+          <width>120</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_top_score_m1_7">
+        <property name="geometry">
+         <rect>
+          <x>640</x>
+          <y>151</y>
+          <width>33</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_7">
+        <property name="geometry">
+         <rect>
+          <x>640</x>
+          <y>181</y>
+          <width>33</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 15px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="wid_matches">
+      <attribute name="title">
+       <string>Matches</string>
+      </attribute>
+      <widget class="QTabWidget" name="tabs_matches">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>681</width>
+         <height>391</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTabWidget::tab-bar {
+    alignment: center;
+}
+
+QTabBar::tab {
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #4b4b4b;
+	font-size: 16px;
+	height: 35px;
+	width: 212px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+QTabBar::tab:hover {
+	background-color: #ffea00;
+	font-weight: bold;
+	color: #3a3a3a;
+}
+
+QTabBar::tab:selected {
+	background-color: #ffea00;
+	font-weight: bold;
+	color: black;
+}
+
+
+QTabWidget::pane  {
+	background: none;
+	color: rgb(255, 255, 255);
+	border: 0px solid black;
+}
+
+QLabel {
+	font-size: 16px;
+	color: white;
+}
+
+QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 5px;
+	background-color: #e8e8e8; 
+	font-size: 18px;
+}</string>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab_quarter">
+        <attribute name="title">
+         <string>Quarter-final</string>
+        </attribute>
+        <widget class="QPushButton" name="btn_quarter_simulate">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>305</y>
+           <width>175</width>
+           <height>35</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 18px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Simulate</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_left_m4">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>236</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Text</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_right_m4">
+         <property name="geometry">
+          <rect>
+           <x>416</x>
+           <y>236</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Text</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_left_m4">
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>238</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_right_m4">
+         <property name="geometry">
+          <rect>
+           <x>355</x>
+           <y>238</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_sep4">
+         <property name="geometry">
+          <rect>
+           <x>333</x>
+           <y>236</y>
+           <width>9</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+	font-size: 25px;
+}</string>
+         </property>
+         <property name="text">
+          <string>:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_quarter_next">
+         <property name="geometry">
+          <rect>
+           <x>450</x>
+           <y>305</y>
+           <width>175</width>
+           <height>35</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 18px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Next Round</string>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_right_pen_m4">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>272</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_left_pen_m4">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>272</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_quarter_pen_m4">
+         <property name="geometry">
+          <rect>
+           <x>322</x>
+           <y>272</y>
+           <width>32</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 2px;
+	color: #3a3a3a;
+	font-size: 10px;
+	height: 25px;
+	width: 30px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Pen.</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_quarter_pen_m3">
+         <property name="geometry">
+          <rect>
+           <x>322</x>
+           <y>199</y>
+           <width>32</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 2px;
+	color: #3a3a3a;
+	font-size: 10px;
+	height: 25px;
+	width: 30px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Pen.</string>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_right_m3">
+         <property name="geometry">
+          <rect>
+           <x>355</x>
+           <y>166</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_right_pen_m3">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>199</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_left_pen_m3">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>199</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_left_m3">
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>166</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_sep3">
+         <property name="geometry">
+          <rect>
+           <x>333</x>
+           <y>164</y>
+           <width>9</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+	font-size: 25px;
+}</string>
+         </property>
+         <property name="text">
+          <string>:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_right_m3">
+         <property name="geometry">
+          <rect>
+           <x>416</x>
+           <y>164</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Text</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_left_m3">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>164</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Text</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_quarter_pen_m2">
+         <property name="geometry">
+          <rect>
+           <x>322</x>
+           <y>127</y>
+           <width>32</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 2px;
+	color: #3a3a3a;
+	font-size: 10px;
+	height: 25px;
+	width: 30px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Pen.</string>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_right_m2">
+         <property name="geometry">
+          <rect>
+           <x>355</x>
+           <y>95</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_right_pen_m2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>127</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_left_pen_m2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>127</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_left_m2">
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>95</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_sep2">
+         <property name="geometry">
+          <rect>
+           <x>333</x>
+           <y>92</y>
+           <width>9</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+	font-size: 25px;
+}</string>
+         </property>
+         <property name="text">
+          <string>:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_right_m2">
+         <property name="geometry">
+          <rect>
+           <x>416</x>
+           <y>92</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Text</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_left_m2">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>92</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Text</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_quarter_pen_m1">
+         <property name="geometry">
+          <rect>
+           <x>322</x>
+           <y>55</y>
+           <width>32</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 2px;
+	color: #3a3a3a;
+	font-size: 10px;
+	height: 25px;
+	width: 30px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Pen.</string>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_right_m1">
+         <property name="geometry">
+          <rect>
+           <x>355</x>
+           <y>22</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_right_pen_m1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>55</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_left_pen_m1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>55</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_quarter_left_m1">
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>22</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_sep1">
+         <property name="geometry">
+          <rect>
+           <x>333</x>
+           <y>20</y>
+           <width>9</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+	font-size: 25px;
+}</string>
+         </property>
+         <property name="text">
+          <string>:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_right_m1">
+         <property name="geometry">
+          <rect>
+           <x>416</x>
+           <y>20</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Text</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_left_m1">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Text</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_quarter_save">
+         <property name="geometry">
+          <rect>
+           <x>250</x>
+           <y>305</y>
+           <width>175</width>
+           <height>35</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 18px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Save</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_semi">
+        <attribute name="title">
+         <string>Semi-final</string>
+        </attribute>
+        <widget class="QPushButton" name="btn_semi_pen_m1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>322</x>
+           <y>55</y>
+           <width>32</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 2px;
+	color: #3a3a3a;
+	font-size: 10px;
+	height: 25px;
+	width: 30px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Pen.</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_semi_left_m2">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>92</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Semi-finalist 3</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_semi_pen_m2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>322</x>
+           <y>127</y>
+           <width>32</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 2px;
+	color: #3a3a3a;
+	font-size: 10px;
+	height: 25px;
+	width: 30px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Pen.</string>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_semi_right_pen_m2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>127</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_semi_left_m1">
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>22</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_semi_left_pen_m2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>127</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_semi_right_m1">
+         <property name="geometry">
+          <rect>
+           <x>416</x>
+           <y>20</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Semi-finalist 2</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_semi_right_pen_m1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>55</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_semi_left_m2">
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>94</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_semi_left_pen_m1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>55</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_semi_right_m1">
+         <property name="geometry">
+          <rect>
+           <x>355</x>
+           <y>22</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_semi_left_m1">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Semi-finalist 1</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_semi_right_m2">
+         <property name="geometry">
+          <rect>
+           <x>416</x>
+           <y>92</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Semi-finalist 4</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_semi_right_m2">
+         <property name="geometry">
+          <rect>
+           <x>355</x>
+           <y>94</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_sep1_2">
+         <property name="geometry">
+          <rect>
+           <x>333</x>
+           <y>20</y>
+           <width>9</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+	font-size: 25px;
+}</string>
+         </property>
+         <property name="text">
+          <string>:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_sep1_3">
+         <property name="geometry">
+          <rect>
+           <x>333</x>
+           <y>92</y>
+           <width>9</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+	font-size: 25px;
+}</string>
+         </property>
+         <property name="text">
+          <string>:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_semi_save">
+         <property name="geometry">
+          <rect>
+           <x>250</x>
+           <y>305</y>
+           <width>175</width>
+           <height>35</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 18px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Save</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_semi_next">
+         <property name="geometry">
+          <rect>
+           <x>450</x>
+           <y>305</y>
+           <width>175</width>
+           <height>35</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 18px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Next round</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_semi_simulate">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>305</y>
+           <width>175</width>
+           <height>35</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 18px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Simulate</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_final">
+        <attribute name="title">
+         <string>Final</string>
+        </attribute>
+        <widget class="QSpinBox" name="spb_final_right_m1">
+         <property name="geometry">
+          <rect>
+           <x>355</x>
+           <y>22</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_final_left_pen_m1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>55</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_final_right_pen_m1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>55</y>
+           <width>23</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QSpinBox {
+	border: 2px solid #a3a3a3; 
+	border-radius: 3px;
+	background-color: #e8e8e8; 
+	font-size: 13px;
+}</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_final_pen_m1">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>322</x>
+           <y>55</y>
+           <width>32</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 2px;
+	color: #3a3a3a;
+	font-size: 10px;
+	height: 25px;
+	width: 30px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Pen.</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_final_right_m1">
+         <property name="geometry">
+          <rect>
+           <x>416</x>
+           <y>20</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Finalist 2</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_final_left_m1">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>240</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Finalist 1</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spb_final_left_m1">
+         <property name="geometry">
+          <rect>
+           <x>293</x>
+           <y>22</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>9</number>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_final_simulate">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>305</y>
+           <width>175</width>
+           <height>35</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 18px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Simulate</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_final_save">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>350</x>
+           <y>305</y>
+           <width>175</width>
+           <height>35</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 18px;
+	height: 50px;
+	width: 250px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
+}</string>
+         </property>
+         <property name="text">
+          <string>Save</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lbl_quarter_sep1_4">
+         <property name="geometry">
+          <rect>
+           <x>333</x>
+           <y>20</y>
+           <width>9</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+	font-size: 25px;
+}</string>
+         </property>
+         <property name="text">
+          <string>:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>570</y>
+      <width>721</width>
+      <height>54</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>40</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetNoConstraint</enum>
+     </property>
+     <item>
+      <widget class="QPushButton" name="btn_GS16_Back">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { 
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #c7c7c7, stop: 1 #e8e8e8);
+}</string>
+       </property>
+       <property name="text">
+        <string>Back</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_GS16_Simulate">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Simulate results</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_GS16_Playoff">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Playoff Stage</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="Resources/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

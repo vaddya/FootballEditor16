@@ -23,6 +23,10 @@ EuroGroupsWindow::EuroGroupsWindow(QWidget *parent) :
     connect(ui->btn_CG4_Create, SIGNAL(clicked(bool)), this, SLOT(createGroup()));
     connect(ui->btn_CG4_Generate, SIGNAL(clicked(bool)), this, SLOT(generateGroups()));
     connect(ui->btn_CG4_Start, SIGNAL(clicked(bool)), this, SLOT(startGroupStage()));
+
+    connect(ui->btn_GS16_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateAllMatches()));
+    connect(ui->btn_GS16_Back, SIGNAL(clicked(bool)), this, SLOT(backToCreate()));
+    connect(ui->btn_GS16_Playoff, SIGNAL(clicked(bool)), this, SLOT(playoff()));
 }
 
 EuroGroupsWindow::~EuroGroupsWindow()
@@ -35,7 +39,6 @@ void EuroGroupsWindow::setSettings(QString title, QList<QListWidgetItem *> teams
     comp->setTitle(title.toStdString());
     for( QListWidgetItem * lsWidget: teams )
         this->teams.push_back(lsWidget->text());
-    ui->stackedWidget->setCurrentWidget(ui->pgCreateGroups4);
     drawCreateGroups();
 }
 
@@ -48,6 +51,7 @@ void EuroGroupsWindow::startGroupStage()
         else
             comp->createGroups();
         drawGroupStage();
+        ui->lbl_GS16_GroupStage->setText(QString::fromStdString(comp->getTitle()) + " Group Stage");
     }
     else {
         WarningDialog *needCreateFourGroups = new WarningDialog(this, "You need to create four groups!");
@@ -58,13 +62,26 @@ void EuroGroupsWindow::startGroupStage()
 
 void EuroGroupsWindow::drawCreateGroups()
 {
+    ui->stackedWidget->setCurrentWidget(ui->pgCreateGroups4);
     for( int i = 0; i < teams.size(); i++ ) {
         QCheckBox *item = ui->grbTeams->item(i+1);
         item->setText(teams[i]);
         item->setIcon(QPixmap(":/Flags/" + teams[i] + ".png"));
         if( item->icon().isNull() ) item->setIcon(QPixmap(":/Flags/Unknown.png"));
         connect(item, SIGNAL(clicked()), ui->grbTeams, SLOT(checkMax()));
+        if( isGenerated ) {
+            item->setStyleSheet("QCheckBox {"
+                                "rgb(255, 255, 255)"
+                                "}"
+                                "QCheckBox::indicator::checked{ "
+                                "border: 2px solid #d9b900;"
+                                "background-color: #ffd800;"
+                                "}");
+            item->setEnabled(true);
+            item->setText(teams[i]);
+        }
     }
+    isGenerated = false;
 }
 
 void EuroGroupsWindow::drawGroupStage()
@@ -128,7 +145,6 @@ void EuroGroupsWindow::drawMatchesGroupStage()
             left->setPixmap(QPixmap(":/Flags/" + QString::fromStdString(match.getFirstTeam().getName()) + ".png"));
             left->setGeometry(265, -10+40*i, 16, 16);
             left->show();
-
 
             QLabel *right = tabMatches->findChild<QLabel*>(QString("lbl_GS16_Group")+group.getId()+"_right_m"+QString::number(i));
             right->setText(QString::fromStdString(match.getSecondTeam().getName()));
@@ -233,4 +249,36 @@ void EuroGroupsWindow::simulateMatches()
         i++;
     }
     redrawTableGroupStage(groupId);
+}
+
+void EuroGroupsWindow::simulateAllMatches()
+{
+    emit ui->btn_GS16_GroupA_Simulate->clicked(true);
+    emit ui->btn_GS16_GroupB_Simulate->clicked(true);
+    emit ui->btn_GS16_GroupC_Simulate->clicked(true);
+    emit ui->btn_GS16_GroupD_Simulate->clicked(true);
+}
+
+void EuroGroupsWindow::backToCreate()
+{
+    //TODO not now
+    //comp->restartGroupStage();
+    //comp->clearTeams();
+    //drawCreateGroups();
+}
+
+void EuroGroupsWindow::playoff()
+{
+    if( comp->getGroupStage().isGroupStageOver() ) {
+        EuroPlayoffWindow *playoff = new EuroPlayoffWindow();
+        comp->startPlayOffStage();
+        playoff->setCompetition(comp);
+        playoff->show();
+        this->hide();
+    }
+    else {
+        WarningDialog *groupStageIsNotOver = new WarningDialog(this, "Group stage isn't over!");
+        groupStageIsNotOver->exec();
+        delete groupStageIsNotOver;
+    }
 }

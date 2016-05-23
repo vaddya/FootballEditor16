@@ -11,12 +11,30 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Football Editor 16 - Playoff</string>
   </property>
   <property name="styleSheet">
    <string notr="true">#EuroGroupsWindow {
 	background: url(:/settings_background.jpg)  no-repeat center center fixed;
 	border: none;
+}
+
+QPushButton { 
+	border: 1px solid #6d6d6d transparent;
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
+	border-radius: 5px;
+	color: #3a3a3a;
+	font-size: 20px;
+	height: 50px;
+	width: 211px;
+}
+
+QPushButton:hover { 
+	background-color: #ffd800;
+}
+
+QPushButton:pressed {
+	background-color: #d9b900;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -30,9 +48,12 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="pgCreateGroups4">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <widget class="QFrame" name="frame">
       <property name="geometry">
        <rect>
@@ -350,110 +371,62 @@ QCheckBox::indicator::unchecked{
        </widget>
       </widget>
      </widget>
-     <widget class="QPushButton" name="btn_CG4_Start">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>640</x>
+        <x>140</x>
         <y>550</y>
-        <width>220</width>
-        <height>52</height>
+        <width>721</width>
+        <height>54</height>
        </rect>
       </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton { 
-	border: 1px solid #6d6d6d transparent;
-	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
-	border-radius: 5px;
-	color: #3a3a3a;
-	font-size: 20px;
-	height: 50px;
-	width: 250px;
-}
-
-QPushButton:hover { 
-	background-color: #ffd800;
-}
-
-QPushButton:pressed {
-	background-color: #d9b900;
-}</string>
-      </property>
-      <property name="text">
-       <string>Start competition</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="btn_CG4_Create">
-      <property name="geometry">
-       <rect>
-        <x>385</x>
-        <y>550</y>
-        <width>220</width>
-        <height>52</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton { 
-	border: 1px solid #6d6d6d transparent;
-	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
-	border-radius: 5px;
-	color: #3a3a3a;
-	font-size: 20px;
-	height: 50px;
-	width: 250px;
-}
-
-QPushButton:hover { 
-	background-color: #ffd800;
-}
-
-QPushButton:pressed {
-	background-color: #d9b900;
-}</string>
-      </property>
-      <property name="text">
-       <string>Create group</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="btn_CG4_Generate">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>550</y>
-        <width>220</width>
-        <height>52</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton { 
-	border: 1px solid #6d6d6d transparent;
-	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
-	border-radius: 5px;
-	color: #3a3a3a;
-	font-size: 20px;
-	height: 50px;
-	width: 250px;
-}
-
-QPushButton:hover { 
-	background-color: #ffd800;
-}
-
-QPushButton:pressed {
-	background-color: #d9b900;
-}</string>
-      </property>
-      <property name="text">
-       <string>Generate groups</string>
-      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>40</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetNoConstraint</enum>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btn_CG4_Generate">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Generate groups</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_CG4_Create">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Create group</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_CG4_Start">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Start competition</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="pgGroupStage16">
@@ -546,7 +519,7 @@ QTabWidget::pane  {
 }</string>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>3</number>
        </property>
        <widget class="QWidget" name="wid_GS16_GroupA">
         <property name="styleSheet">
@@ -2696,7 +2669,7 @@ QSpinBox {
 }</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab_GS16_GroupC_Table">
           <attribute name="title">
@@ -4699,6 +4672,68 @@ QPushButton:pressed {
         </widget>
        </widget>
       </widget>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>550</y>
+        <width>721</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>40</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetNoConstraint</enum>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btn_GS16_Back">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { 
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #c7c7c7, stop: 1 #e8e8e8);
+}</string>
+         </property>
+         <property name="text">
+          <string>Back</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_GS16_Simulate">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Simulate results</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_GS16_Playoff">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Playoff Stage</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>

@@ -14,9 +14,7 @@
    <string>Warning</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#WarningDialog {
-background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #c7c7c7, stop: 1 #e8e8e8);
-}</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">

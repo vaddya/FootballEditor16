@@ -32,6 +32,7 @@ public:
     int getNumberOfRounds() const;
     vector<MatchInPlayoff> &getMatches();
     RoundEnum getCurrentRound() const;
+    Round &getRound(int);
     vector<Round> &getRounds();
     friend ostream& operator<<(ostream& os, PlayoffStage &playoff);
 

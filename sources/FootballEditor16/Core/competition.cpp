@@ -106,8 +106,14 @@ PlayoffStage &Competition::getPlayoffStage()
 void Competition::startPlayOffStage()
 {
     if( groupStage != 0 && groupStage->getWinners().size() != 0 ) {
+        vector<Team> &winners = groupStage->getWinners();
+        vector<int> teamIDs;
+        if( numberOfTeams == 16 )
+            teamIDs = { winners[0].getId(), winners[3].getId(), winners[2].getId(), winners[1].getId(),
+                        winners[4].getId(), winners[6].getId(), winners[7].getId(), winners[5].getId() };
         playoffStage = new PlayoffStage(groupStage->getWinners());
         playoffStage->launch();
+        playoffStage->createMatches(teamIDs);
     }
     else
         throw GroupStageIsNotOver();
@@ -137,4 +143,16 @@ Competition::~Competition()
         delete groupStage;
     if( playoffStage )
         delete playoffStage;
+}
+
+void Competition::restartGroupStage()
+{
+    if( groupStage )
+        delete groupStage;
+}
+
+void Competition::clearTeams()
+{
+    numberOfTeams = 0;
+    teams.clear();
 }

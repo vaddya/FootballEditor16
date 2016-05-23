@@ -34,6 +34,10 @@
   <property name="windowTitle">
    <string>Football Editor 16</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Resources/resources.qrc">
+    <normaloff>:/icon.png</normaloff>:/icon.png</iconset>
+  </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
@@ -249,6 +253,8 @@ QPushButton:pressed {
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="Resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

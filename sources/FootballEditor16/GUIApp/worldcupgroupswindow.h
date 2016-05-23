@@ -34,6 +34,10 @@ private slots:
 
     void generateGroups();
 
+    void simulateMatches();
+
+    void simulateAllMatches();
+
 private:
     Ui::WorldCupGroupsWindow *ui;
 

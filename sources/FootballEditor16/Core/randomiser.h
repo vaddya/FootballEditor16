@@ -24,7 +24,7 @@ public:
      * @param end Upper bound
      * @return randomed value
      */
-    int random( int begin, int end, int seed = 1 );
+    int random(int begin, int end, time_t seed = 1 );
 private:
     Randomiser();
     static Randomiser *randomiser;

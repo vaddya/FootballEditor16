@@ -41,12 +41,17 @@ Team &PlayoffStage::findTeam( int id )
 
 vector<MatchInPlayoff> &PlayoffStage::getMatches()
 {
-        return rounds.back().getMatches();
+    return rounds.back().getMatches();
 }
 
 RoundEnum PlayoffStage::getCurrentRound() const
 {
     return currentRound;
+}
+
+Round &PlayoffStage::getRound(int index)
+{
+    return rounds[index];
 }
 
 vector<Round> &PlayoffStage::getRounds()

@@ -25,25 +25,9 @@
   <property name="styleSheet">
    <string notr="true">#CreateCompDialog {
 	background: url(:/settings_background.jpg)  no-repeat center center fixed;
-}</string>
-  </property>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>550</y>
-     <width>541</width>
-     <height>54</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="lauoutButtons">
-    <item>
-     <widget class="QPushButton" name="btnMenu">
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton { 
+}
+
+QPushButton { 
 	border: 1px solid #6d6d6d transparent;
 	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
 	border-radius: 5px;
@@ -60,24 +44,32 @@ QPushButton:hover {
 QPushButton:pressed {
 	background-color: #d9b900;
 }</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>550</y>
+     <width>546</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="lauoutButtons">
+    <property name="spacing">
+     <number>40</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="btnMenu">
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>&amp;Menu</string>
       </property>
      </widget>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
     </item>
     <item>
      <widget class="QPushButton" name="btnCreate">
@@ -88,23 +80,7 @@ QPushButton:pressed {
        <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton { 
-	border: 1px solid #6d6d6d transparent;
-	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #d9b900, stop: 1 #ffd800);
-	border-radius: 5px;
-	color: #3a3a3a;
-	font-size: 20px;
-	height: 50px;
-	width: 250px;
-}
-
-QPushButton:hover { 
-	background-color: #ffd800;
-}
-
-QPushButton:pressed {
-	background-color: #d9b900;
-}</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>&amp;Create</string>

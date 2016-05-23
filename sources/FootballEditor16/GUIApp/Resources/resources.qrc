@@ -4,14 +4,16 @@
         <file>menu_background.jpg</file>
         <file>settings_background.jpg</file>
         <file>texture.png</file>
+        <file>icon.png</file>
+        <file>eu_playoff_bracket.png</file>
 
         <file>Flags/Algeria.png</file>
         <file>Flags/Argentina.png</file>
         <file>Flags/Austria.png</file>
-		<file>Flags/Belarus.png</file>
+        <file>Flags/Belarus.png</file>
         <file>Flags/Belgium.png</file>
         <file>Flags/Bosnia and Herzegovina.png</file>
-		<file>Flags/Brazil.png</file>
+        <file>Flags/Brazil.png</file>
         <file>Flags/Chile.png</file>
         <file>Flags/China.png</file>
         <file>Flags/Colombia.png</file>

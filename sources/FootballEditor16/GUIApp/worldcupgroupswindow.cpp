@@ -21,6 +21,16 @@ WorldCupGroupsWindow::WorldCupGroupsWindow(QWidget *parent) :
     connect(ui->btn_CG8_Create, SIGNAL(clicked(bool)), this, SLOT(createGroup()));
     connect(ui->btn_CG8_Generate, SIGNAL(clicked(bool)), this, SLOT(generateGroups()));
     connect(ui->btn_CG8_Start, SIGNAL(clicked(bool)), this, SLOT(startGroupStage()));
+
+    connect(ui->btn_GS32_GroupA_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_GS32_GroupB_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_GS32_GroupC_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_GS32_GroupD_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_GS32_GroupE_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_GS32_GroupF_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_GS32_GroupG_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_GS32_GroupH_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_GS32_Simulate, SIGNAL(clicked(bool)), this, SLOT(simulateAllMatches()));
 }
 
 WorldCupGroupsWindow::~WorldCupGroupsWindow()
@@ -46,6 +56,7 @@ void WorldCupGroupsWindow::startGroupStage()
         else
             comp->createGroups();
         drawGroupStage();
+        ui->lbl_GS32_GroupStage->setText(QString::fromStdString(comp->getTitle()) + " Group Stage");
     }
     else {
         WarningDialog *needCreateFourGroups = new WarningDialog(this, "You need to create eight groups!");
@@ -62,7 +73,19 @@ void WorldCupGroupsWindow::drawCreateGroups()
         item->setIcon(QPixmap(":/Flags/" + teams[i] + ".png"));
         if( item->icon().isNull() ) item->setIcon(QPixmap(":/Flags/Unknown.png"));
         connect(item, SIGNAL(clicked()), ui->grbTeams, SLOT(checkMax()));
+        if( isGenerated ) {
+        item->setStyleSheet("QCheckBox {"
+                            "rgb(255, 255, 255)"
+                            "}"
+                            "QCheckBox::indicator::checked{ "
+                            "border: 2px solid #d9b900;"
+                            "background-color: #ffd800;"
+                            "}");
+        item->setEnabled(true);
+        item->setText(teams[i]);
+        }
     }
+    isGenerated = false;
 }
 
 void WorldCupGroupsWindow::drawGroupStage()
@@ -216,4 +239,31 @@ void WorldCupGroupsWindow::generateGroups()
         item->setEnabled(false);
         item->setText(item->text() + " (" + groupId + ")");
     }
+}
+
+void WorldCupGroupsWindow::simulateMatches()
+{
+    char groupId = sender()->objectName()[14].toLatin1();
+    int i = 1;
+    for( MatchInGroup &match : comp->getGroupStage().getGroup(groupId).getMatches() ) {
+        match.simulate();
+        QSpinBox *left = ui->frame_GS32->findChild<QSpinBox*>(QString("spb_GS32_Group")+groupId+"_left_m"+QString::number(i));
+        left->setValue(match.getFirstTeam().getGoalsFor());
+        QSpinBox *right = ui->frame_GS32->findChild<QSpinBox*>(QString("spb_GS32_Group")+groupId+"_right_m"+QString::number(i));
+        right->setValue(match.getSecondTeam().getGoalsFor());
+        i++;
+    }
+    redrawTableGroupStage(groupId);
+}
+
+void WorldCupGroupsWindow::simulateAllMatches()
+{
+    emit ui->btn_GS32_GroupA_Simulate->clicked(true);
+    emit ui->btn_GS32_GroupB_Simulate->clicked(true);
+    emit ui->btn_GS32_GroupC_Simulate->clicked(true);
+    emit ui->btn_GS32_GroupD_Simulate->clicked(true);
+    emit ui->btn_GS32_GroupE_Simulate->clicked(true);
+    emit ui->btn_GS32_GroupF_Simulate->clicked(true);
+    emit ui->btn_GS32_GroupG_Simulate->clicked(true);
+    emit ui->btn_GS32_GroupH_Simulate->clicked(true);
 }

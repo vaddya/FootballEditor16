@@ -13,13 +13,14 @@ TEMPLATE = app
 CONFIG += console c++11
 
 SOURCES += main.cpp\
-        mainmenu.cpp \
+    mainmenu.cpp \
     exitdialog.cpp \
     createcompdialog.cpp \
     warningdialog.cpp \
     teamcheckboxes.cpp \
     eurogroupswindow.cpp \
-    worldcupgroupswindow.cpp
+    worldcupgroupswindow.cpp \
+    europlayoffwindow.cpp
 
 HEADERS  += mainmenu.h \
     exitdialog.h \
@@ -27,15 +28,16 @@ HEADERS  += mainmenu.h \
     warningdialog.h \
     teamcheckboxes.h \
     eurogroupswindow.h \
-    worldcupgroupswindow.h
+    worldcupgroupswindow.h \
+    europlayoffwindow.h
 
 FORMS    += mainmenu.ui \
     exitdialog.ui \
     createcompdialog.ui \
     warningdialog.ui \
-    temporary.ui \
+    worldcupgroupswindow.ui \
     eurogroupswindow.ui \
-    worldcupgroupswindow.ui
+    europlayoffwindow.ui
 
 RESOURCES += \
     Resources/resources.qrc

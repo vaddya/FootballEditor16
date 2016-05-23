@@ -37,7 +37,7 @@ void GroupStage::determineWinners()
 
 vector<Team>& GroupStage::getWinners()
 {
-    if( isGroupStageOver() )
+    if( isGroupStageOver() == 0 )
         throw GroupStageIsNotOver();
     determineWinners();
     return winners;

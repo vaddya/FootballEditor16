@@ -9,6 +9,7 @@
 #include "QGroupBox"
 #include "QVBoxLayout"
 #include "warningdialog.h"
+#include "europlayoffwindow.h"
 
 namespace Ui {
 class EuroGroupsWindow;
@@ -35,6 +36,12 @@ private slots:
     void generateGroups();
 
     void simulateMatches();
+
+    void simulateAllMatches();
+
+    void backToCreate();
+
+    void playoff();
 
 private:
     Ui::EuroGroupsWindow *ui;
