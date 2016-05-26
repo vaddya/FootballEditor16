@@ -23,6 +23,13 @@ EuroPlayoffWindow::EuroPlayoffWindow(QWidget *parent) :
 
     connect(ui->btn_4_next, SIGNAL(clicked(bool)), this, SLOT(nextRound()));
     connect(ui->btn_2_next, SIGNAL(clicked(bool)), this, SLOT(nextRound()));
+
+    connect(ui->btn_4_simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_2_simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+    connect(ui->btn_1_simulate, SIGNAL(clicked(bool)), this, SLOT(simulateMatches()));
+
+    connect(ui->btn_simulate, SIGNAL(clicked(bool)), this, SLOT(simulateAllMatches()));
+
 }
 
 EuroPlayoffWindow::~EuroPlayoffWindow()
@@ -40,10 +47,10 @@ void EuroPlayoffWindow::setCompetition(Competition *competition)
 
 void EuroPlayoffWindow::drawBracket()
 {
-    for( Round round : comp->getPlayoffStage().getRounds() ) {
-        int roundId = round.getRoundEnum();
+    for( Round roundd : comp->getPlayoffStage().getRounds() ) {
+        int roundId = roundd.getRoundEnum();
         int matchId = 1;
-        for( MatchInPlayoff match : round.getMatches() ) {
+        for( MatchInPlayoff match : roundd.getMatches() ) {
             QLabel *top = ui->frame_bracket->findChild<QLabel*>(QString("lbl_")+QString::number(roundId)+"_top_m"+QString::number(matchId));
             top->setText(QString::fromStdString(match.getFirstTeam().getName()));
             top = ui->frame_bracket->findChild<QLabel*>(QString("ico_")+QString::number(roundId)+"_top_m"+QString::number(matchId));
@@ -56,10 +63,15 @@ void EuroPlayoffWindow::drawBracket()
 
             if( match.isPlayed() ) {
                 top = ui->frame_bracket->findChild<QLabel*>(QString("lbl_")+QString::number(roundId)+"_top_score_m"+QString::number(matchId));
-                top->setText(QString::number(match.getFirstTeam().getGoalsFor()));
-
                 bottom = ui->frame_bracket->findChild<QLabel*>(QString("lbl_")+QString::number(roundId)+"_bottom_score_m"+QString::number(matchId));
-                bottom->setText(QString::number(match.getSecondTeam().getGoalsFor()));
+                if( match.isWithPenalty() ) {
+                    top->setText(QString::number(match.getFirstTeam().getGoalsFor())+" ("+QString::number(match.getPenalty().firstTeamPenaltyScore)+")");
+                    bottom->setText(QString::number(match.getSecondTeam().getGoalsFor())+" ("+QString::number(match.getPenalty().secondTeamPenaltyScore)+")");
+                }
+                else {
+                    top->setText(QString::number(match.getFirstTeam().getGoalsFor()));
+                    bottom->setText(QString::number(match.getSecondTeam().getGoalsFor()));
+                }
             }
             matchId++;
         }
@@ -68,12 +80,12 @@ void EuroPlayoffWindow::drawBracket()
 
 void EuroPlayoffWindow::drawMatches()
 {
-    for( Round round : comp->getPlayoffStage().getRounds() ) {
-        int roundId = round.getRoundEnum();
+    for( Round roundd : comp->getPlayoffStage().getRounds() ) {
+        int roundId = roundd.getRoundEnum();
         int matchId = 1;
-        QWidget *tab = ui->tabs_matches->findChild<QWidget*>(QString("tab_")+QString::number(roundId), Qt::FindChildrenRecursively);
-
-        for( MatchInPlayoff match : round.getMatches() ) {
+        QWidget *tab = ui->tabs_matches->findChild<QWidget*>(QString("tab_")+QString::number(roundId),
+                                                             Qt::FindChildrenRecursively);
+        for( MatchInPlayoff match : roundd.getMatches() ) {
             QLabel *left = tab->findChild<QLabel*>(QString("lbl_")+QString::number(roundId)+"_left_m"+QString::number(matchId));
             left->setText(QString::fromStdString(match.getFirstTeam().getName()));
             left = tab->findChild<QLabel*>(QString("ico_")+QString::number(roundId)+"_left_m"+QString::number(matchId));
@@ -90,51 +102,102 @@ void EuroPlayoffWindow::drawMatches()
 
 void EuroPlayoffWindow::nextRound()
 {
-
     comp->getPlayoffStage().createNewMatches();
     drawBracket();
     drawMatches();
 }
 
+void EuroPlayoffWindow::simulateMatches()
+{
+    int roundId = sender()->objectName()[4].digitValue();
+    int matchId = 1;
+    for( MatchInPlayoff &match : comp->getPlayoffStage().getRound(roundId).getMatches() ) {
+        match.simulate();
+
+        QSpinBox *left = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_")+QString::number(roundId)+"_left_m"+QString::number(matchId),
+                                                                Qt::FindChildrenRecursively);
+        QSpinBox *right = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_")+QString::number(roundId)+"_right_m"+QString::number(matchId),
+                                                                 Qt::FindChildrenRecursively);
+        left->setValue(match.getFirstTeam().getGoalsFor());
+        right->setValue(match.getSecondTeam().getGoalsFor());
+
+        if( match.isWithPenalty() ) {
+            QSpinBox *leftPen = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_")+QString::number(roundId)+"_left_pen_m"+QString::number(matchId),
+                                                     Qt::FindChildrenRecursively);
+            QSpinBox *rightPen = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_")+QString::number(roundId)+"_right_pen_m"+QString::number(matchId),
+                                                                     Qt::FindChildrenRecursively);
+            leftPen->setEnabled(true);
+            rightPen->setEnabled(true);
+            leftPen->setValue(match.getPenalty().firstTeamPenaltyScore);
+            rightPen->setValue(match.getPenalty().secondTeamPenaltyScore);
+        }
+        matchId++;
+    }
+    drawBracket();
+}
+
+void EuroPlayoffWindow::simulateAllMatches()
+{
+    emit ui->btn_4_simulate->clicked(true);
+    emit ui->btn_4_next->clicked(true);
+    emit ui->btn_2_simulate->clicked(true);
+    emit ui->btn_2_next->clicked(true);
+    emit ui->btn_1_simulate->clicked(true);
+}
+
 void EuroPlayoffWindow::openPenalty()
 {
-    char round = sender()->objectName()[4].toLatin1();
-    if( round == 'q' ) {
-        qDebug() << sender()->objectName()[17].toLatin1();
-        char matchNum = sender()->objectName()[17].toLatin1();
-        QSpinBox *left = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_4_left_pen_m")+matchNum);
-        QSpinBox *right = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_4_right_pen_m")+matchNum);
-        left->setEnabled(true);
-        right->setEnabled(true);
-    }
-    else if( round == 's' ) {
-        char matchNum = sender()->objectName()[14].toLatin1();
-        QSpinBox *left = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_2_left_pen_m")+matchNum);
-        QSpinBox *right = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_2_right_pen_m")+matchNum);
-        left->setEnabled(true);
-        right->setEnabled(true);
+    int roundId = sender()->objectName()[4].digitValue();
+    int matchId = sender()->objectName()[11].digitValue();
+    QSpinBox *leftPen = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_")+QString::number(roundId)+"_left_pen_m"+QString::number(matchId),
+                                                            Qt::FindChildrenRecursively);
+    QSpinBox *rightPen = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_")+QString::number(roundId)+"_right_pen_m"+QString::number(matchId),
+                                                             Qt::FindChildrenRecursively);
+    if( leftPen->isEnabled() ) {
+        leftPen->setEnabled(false);
+        rightPen->setEnabled(false);
     }
     else {
-        ui->spb_1_left_pen_m1->setEnabled(true);
-        ui->spb_1_right_pen_m1->setEnabled(true);
+        leftPen->setEnabled(true);
+        rightPen->setEnabled(true);
     }
 }
 
 void EuroPlayoffWindow::saveResults()
 {
-    //char round = sender()->objectName()[4].toLatin1();
-    //int roundId;
-    int round = sender()->objectName()[4].digitValue();
-//    if( round == '4' ) roundId = 4;
-//    if( round == '2' ) roundId = 2;
-//    if( round == '1' ) roundId = 1;
+    int roundId = sender()->objectName()[4].digitValue();
+    int matchId = 1;
+    for( MatchInPlayoff &match : comp->getPlayoffStage().getRound(roundId).getMatches() ) {
+        QSpinBox *left = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_")+QString::number(roundId)+"_left_m"+QString::number(matchId),
+                                                                Qt::FindChildrenRecursively);
+        QSpinBox *right = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_")+QString::number(roundId)+"_right_m"+QString::number(matchId),
+                                                                 Qt::FindChildrenRecursively);
+        try {
+            match.setResult(left->value(), right->value());
+        }
+        catch( InputPenaltryScore &p ) {
+            QSpinBox *leftPen = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_")+QString::number(roundId)+"_left_pen_m"+QString::number(matchId),
+                                                                    Qt::FindChildrenRecursively);
+            QSpinBox *rightPen = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_")+QString::number(roundId)+"_right_pen_m"+QString::number(matchId),
+                                                                     Qt::FindChildrenRecursively);
+            if( leftPen->isEnabled() && rightPen->isEnabled() ) {
+                try {
+                    match.setPenaltyScore(leftPen->value(), rightPen->value());
+                }
+                catch( WrongPenaltyScore &w ) {
+                    WarningDialog *wrongPenaltyScore = new WarningDialog(this, w.what());
+                    wrongPenaltyScore->exec();
+                    delete wrongPenaltyScore;
+                }
+            }
+            else {
+                WarningDialog *inputPenalty = new WarningDialog(this, QString("Input penalty score in round 1/")+QString::number(roundId)+", match "+QString::number(matchId));
+                inputPenalty->exec();
+                delete inputPenalty;
+            }
+        }
 
-    int i = 1;
-    for( MatchInPlayoff &match : comp->getPlayoffStage().getRound(round).getMatches() ) {
-        QSpinBox *left = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_4_left_m")+QString::number(i), Qt::FindChildrenRecursively);
-        QSpinBox *right = ui->tabs_matches->findChild<QSpinBox*>(QString("spb_4_right_m")+QString::number(i), Qt::FindChildrenRecursively);
-        match.setResult(left->value(), right->value());
-        i++;
+        matchId++;
     }
     drawMatches();
     drawBracket();

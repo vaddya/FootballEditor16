@@ -14,7 +14,7 @@
    <string>Football Editor 16 - Group Stage</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="Resources/resources.qrc">
     <normaloff>:/icon.png</normaloff>:/icon.png</iconset>
   </property>
   <property name="styleSheet">
@@ -774,7 +774,7 @@ QTabWidget::pane  {
 }</string>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>5</number>
        </property>
        <widget class="QWidget" name="wid_GS32_GroupA">
         <property name="styleSheet">
@@ -6033,7 +6033,7 @@ QSpinBox {
 }</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab_GS32_GroupF_Table">
           <attribute name="title">
@@ -9157,11 +9157,16 @@ QPushButton:pressed {
        </item>
        <item>
         <widget class="QPushButton" name="btn_GS32_playoff">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">QPushButton { 
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #c7c7c7, stop: 1 #e8e8e8);
+}</string>
          </property>
          <property name="text">
           <string>Playoff Stage</string>
@@ -9182,6 +9187,8 @@ QPushButton:pressed {
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="Resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

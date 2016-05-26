@@ -48,16 +48,14 @@ private:
 
     Competition *comp;
     QVector<QString> teams;
+    bool isGenerated;
 
     void drawCreateGroups();
-
     void drawGroupStage();
     void sizeTableGroupStage();
     void drawTablesGroupStage();
     void drawMatchesGroupStage();
     void redrawTableGroupStage(char groupId);
-
-    bool isGenerated;
 };
 
 #endif // EUROGROUPSWINDOW_H

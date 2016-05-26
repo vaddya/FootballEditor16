@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "competition.h"
+#include "warningdialog.h"
 
 namespace Ui {
 class EuroPlayoffWindow;
@@ -28,6 +29,10 @@ private slots:
     void saveResults();
 
     void nextRound();
+
+    void simulateMatches();
+
+    void simulateAllMatches();
 
 private:
     Ui::EuroPlayoffWindow *ui;

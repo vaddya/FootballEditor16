@@ -1,7 +1,7 @@
 #include "PlayoffStage/matchinplayoff.h"
 
 MatchInPlayoff::MatchInPlayoff( TeamInPlayoff &firstTeam, TeamInPlayoff &secondTeam ): Match(firstTeam, secondTeam),
-    firstTeamInPlayoff(firstTeam), secondTeamInPlayoff(secondTeam), isWithPenalty(false) {}
+    firstTeamInPlayoff(firstTeam), secondTeamInPlayoff(secondTeam), withPenalty(false) {}
 
 void MatchInPlayoff::setResult( int firstTeamGoals, int secondTeamGoals )
 {
@@ -16,7 +16,7 @@ void MatchInPlayoff::setPenaltyScore( int firstTeamPenaltyScore, int secondTeamP
 {
     if ( firstTeamPenaltyScore == secondTeamPenaltyScore )
         throw WrongPenaltyScore();
-    isWithPenalty = true;
+    withPenalty = true;
     penalty.firstTeamPenaltyScore = firstTeamPenaltyScore;
     penalty.secondTeamPenaltyScore = secondTeamPenaltyScore;
     updateResult();
@@ -39,7 +39,7 @@ void MatchInPlayoff::updateResult()
 {
     ostringstream convert;
     convert << firstTeam.getGoalsFor() << ':' << secondTeam.getGoalsFor();
-    if( isWithPenalty )
+    if( withPenalty )
         convert << " (" << penalty.firstTeamPenaltyScore << ':' << penalty.secondTeamPenaltyScore << ")";
     result = convert.str();
 }
@@ -49,7 +49,7 @@ string MatchInPlayoff::showFirstTeam()
 {
     ostringstream convert;
     convert << firstTeam.getName();
-    if( isWithPenalty )
+    if( withPenalty )
         convert << setw(13-firstTeam.getName().size()) << firstTeam.getGoalsFor() << "(" << penalty.firstTeamPenaltyScore << ")";
     else
         convert << setw(16-firstTeam.getName().size()) << firstTeam.getGoalsFor();
@@ -60,11 +60,21 @@ string MatchInPlayoff::showSecondTeam()
 {
     ostringstream convert;
     convert << secondTeam.getName();
-    if( isWithPenalty )
+    if( withPenalty )
         convert << setw(13-secondTeam.getName().size()) << secondTeam.getGoalsFor() << "(" << penalty.secondTeamPenaltyScore << ")";
     else
         convert << setw(16-secondTeam.getName().size()) << secondTeam.getGoalsFor();
     return convert.str();
+}
+
+bool MatchInPlayoff::isWithPenalty()
+{
+    return withPenalty;
+}
+
+Penalty &MatchInPlayoff::getPenalty()
+{
+    return penalty;
 }
 
 void MatchInPlayoff::simulate()

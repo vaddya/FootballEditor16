@@ -801,6 +801,9 @@ QLabel {
        <string>Matches</string>
       </attribute>
       <widget class="QTabWidget" name="tabs_matches">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -1920,7 +1923,7 @@ QPushButton:pressed {
         </attribute>
         <widget class="QPushButton" name="btn_2_pen_m1">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="geometry">
           <rect>
@@ -1977,7 +1980,7 @@ QPushButton:pressed {
         </widget>
         <widget class="QPushButton" name="btn_2_pen_m2">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="geometry">
           <rect>
@@ -2596,7 +2599,7 @@ QPushButton:pressed {
         </widget>
         <widget class="QPushButton" name="btn_1_pen_m1">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="geometry">
           <rect>
@@ -2843,7 +2846,7 @@ QPushButton:pressed {
       <enum>QLayout::SetNoConstraint</enum>
      </property>
      <item>
-      <widget class="QPushButton" name="btn_GS16_Back">
+      <widget class="QPushButton" name="btn_back">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -2861,7 +2864,7 @@ QPushButton:pressed {
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_GS16_Simulate">
+      <widget class="QPushButton" name="btn_simulate">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -2874,15 +2877,20 @@ QPushButton:pressed {
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_GS16_Playoff">
+      <widget class="QPushButton" name="btn_final_screen">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">QPushButton { 
+	background: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0,  stop: 0 #c7c7c7, stop: 1 #e8e8e8);
+}</string>
        </property>
        <property name="text">
-        <string>Playoff Stage</string>
+        <string>Final screen</string>
        </property>
       </widget>
      </item>

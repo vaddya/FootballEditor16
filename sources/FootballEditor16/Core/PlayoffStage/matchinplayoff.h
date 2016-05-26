@@ -28,12 +28,14 @@ public:
     TeamInPlayoff &getWinner();
     string showFirstTeam();
     string showSecondTeam();
+    bool isWithPenalty();
+    Penalty &getPenalty();
 
 private:
     void updateResult();
     TeamInPlayoff firstTeamInPlayoff;
     TeamInPlayoff secondTeamInPlayoff;
-    bool isWithPenalty;
+    bool withPenalty;
     Penalty penalty;
 };
 

@@ -54,6 +54,7 @@ Round &PlayoffStage::getRound(int roundId)
     for( Round &round : rounds )
         if( round.getRoundEnum() == roundId )
             return round;
+    return rounds[0];
 }
 
 vector<Round> &PlayoffStage::getRounds()
