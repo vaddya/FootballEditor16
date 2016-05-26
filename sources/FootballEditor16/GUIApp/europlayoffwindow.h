@@ -17,13 +17,17 @@ public:
     ~EuroPlayoffWindow();
 
     void setCompetition(Competition *);
-    void drawFirstRound();
-    void drawQuarterFinals();
+
+    void drawBracket();
+
+    void drawMatches();
 
 private slots:
     void openPenalty();
 
     void saveResults();
+
+    void nextRound();
 
 private:
     Ui::EuroPlayoffWindow *ui;

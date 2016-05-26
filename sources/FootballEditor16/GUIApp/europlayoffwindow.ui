@@ -164,111 +164,111 @@ QLabel {
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="lbl_quarter_top_m1">
+       <widget class="QLabel" name="lbl_4_top_m1">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>58</x>
           <y>30</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
         <property name="text">
-         <string>Russia</string>
+         <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_m1">
+       <widget class="QLabel" name="lbl_4_bottom_m1">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>58</x>
           <y>58</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
         <property name="text">
-         <string>Netherlands</string>
+         <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_m2">
+       <widget class="QLabel" name="lbl_4_top_m2">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>58</x>
           <y>110</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
         <property name="text">
-         <string>Russia</string>
+         <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_m2">
+       <widget class="QLabel" name="lbl_4_bottom_m2">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>58</x>
           <y>138</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
         <property name="text">
-         <string>Netherlands</string>
+         <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_m3">
+       <widget class="QLabel" name="lbl_4_top_m3">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>58</x>
           <y>190</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
         <property name="text">
-         <string>Russia</string>
+         <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_m3">
+       <widget class="QLabel" name="lbl_4_bottom_m3">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>58</x>
           <y>218</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
         <property name="text">
-         <string>Netherlands</string>
+         <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_m4">
+       <widget class="QLabel" name="lbl_4_top_m4">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>58</x>
           <y>270</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
         <property name="text">
-         <string>Russia</string>
+         <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_m4">
+       <widget class="QLabel" name="lbl_4_bottom_m4">
         <property name="geometry">
          <rect>
-          <x>55</x>
+          <x>58</x>
           <y>298</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
         <property name="text">
-         <string>Netherlands</string>
+         <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_score_m1">
+       <widget class="QLabel" name="lbl_4_bottom_score_m1">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -281,13 +281,13 @@ QLabel {
          <string notr="true">font-size: 15px;</string>
         </property>
         <property name="text">
-         <string>2 (2)</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_score_m1">
+       <widget class="QLabel" name="lbl_4_top_score_m1">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -300,13 +300,13 @@ QLabel {
          <string notr="true">font-size: 15px;</string>
         </property>
         <property name="text">
-         <string>2 (5)</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_score_m1_2">
+       <widget class="QLabel" name="lbl_4_top_score_m2">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -319,13 +319,13 @@ QLabel {
          <string notr="true">font-size: 15px;</string>
         </property>
         <property name="text">
-         <string>1</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_2">
+       <widget class="QLabel" name="lbl_4_bottom_score_m2">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -338,13 +338,13 @@ QLabel {
          <string notr="true">font-size: 15px;</string>
         </property>
         <property name="text">
-         <string>0</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_score_m1_3">
+       <widget class="QLabel" name="lbl_4_top_score_m3">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -357,13 +357,13 @@ QLabel {
          <string notr="true">font-size: 15px;</string>
         </property>
         <property name="text">
-         <string>2 (5)</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_3">
+       <widget class="QLabel" name="lbl_4_bottom_score_m4">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -376,13 +376,13 @@ QLabel {
          <string notr="true">font-size: 15px;</string>
         </property>
         <property name="text">
-         <string>0</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_score_m1_4">
+       <widget class="QLabel" name="lbl_4_top_score_m4">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -395,13 +395,13 @@ QLabel {
          <string notr="true">font-size: 15px;</string>
         </property>
         <property name="text">
-         <string>1</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_4">
+       <widget class="QLabel" name="lbl_4_bottom_score_m3">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -414,13 +414,13 @@ QLabel {
          <string notr="true">font-size: 15px;</string>
         </property>
         <property name="text">
-         <string>2 (2)</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_5">
+       <widget class="QLabel" name="lbl_2_bottom_score_m1">
         <property name="geometry">
          <rect>
           <x>410</x>
@@ -439,7 +439,7 @@ QLabel {
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_score_m1_5">
+       <widget class="QLabel" name="lbl_2_top_score_m1">
         <property name="geometry">
          <rect>
           <x>410</x>
@@ -458,12 +458,12 @@ QLabel {
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_m1_2">
+       <widget class="QLabel" name="lbl_2_top_m1">
         <property name="geometry">
          <rect>
-          <x>285</x>
+          <x>288</x>
           <y>67</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
@@ -471,12 +471,12 @@ QLabel {
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_m1_2">
+       <widget class="QLabel" name="lbl_2_bottom_m1">
         <property name="geometry">
          <rect>
-          <x>285</x>
+          <x>288</x>
           <y>95</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
@@ -484,7 +484,7 @@ QLabel {
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_6">
+       <widget class="QLabel" name="lbl_2_bottom_score_m2">
         <property name="geometry">
          <rect>
           <x>410</x>
@@ -503,7 +503,7 @@ QLabel {
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_score_m1_6">
+       <widget class="QLabel" name="lbl_2_top_score_m2">
         <property name="geometry">
          <rect>
           <x>410</x>
@@ -522,12 +522,12 @@ QLabel {
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_m1_3">
+       <widget class="QLabel" name="lbl_2_bottom_m2">
         <property name="geometry">
          <rect>
-          <x>285</x>
+          <x>288</x>
           <y>255</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
@@ -535,12 +535,12 @@ QLabel {
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_m1_3">
+       <widget class="QLabel" name="lbl_2_top_m2">
         <property name="geometry">
          <rect>
-          <x>285</x>
+          <x>288</x>
           <y>227</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
@@ -548,12 +548,12 @@ QLabel {
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_m1_4">
+       <widget class="QLabel" name="lbl_1_top_m1">
         <property name="geometry">
          <rect>
-          <x>515</x>
+          <x>518</x>
           <y>150</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
@@ -561,12 +561,12 @@ QLabel {
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_m1_4">
+       <widget class="QLabel" name="lbl_1_bottom_m1">
         <property name="geometry">
          <rect>
-          <x>515</x>
+          <x>518</x>
           <y>178</y>
-          <width>120</width>
+          <width>118</width>
           <height>22</height>
          </rect>
         </property>
@@ -574,7 +574,7 @@ QLabel {
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_top_score_m1_7">
+       <widget class="QLabel" name="lbl_1_top_score_m1">
         <property name="geometry">
          <rect>
           <x>640</x>
@@ -593,7 +593,7 @@ QLabel {
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_quarter_bottom_score_m1_7">
+       <widget class="QLabel" name="lbl_1_bottom_score_m1">
         <property name="geometry">
          <rect>
           <x>640</x>
@@ -610,6 +610,188 @@ QLabel {
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_4_top_m1">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>35</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_4_bottom_m1">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>63</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_4_top_m2">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>115</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_4_bottom_m2">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>143</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_4_bottom_m3">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>223</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_4_top_m3">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>195</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_4_bottom_m4">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>303</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_4_top_m4">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>275</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_2_bottom_m2">
+        <property name="geometry">
+         <rect>
+          <x>266</x>
+          <y>260</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_2_top_m2">
+        <property name="geometry">
+         <rect>
+          <x>266</x>
+          <y>232</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_2_bottom_m1">
+        <property name="geometry">
+         <rect>
+          <x>266</x>
+          <y>100</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_2_top_m1">
+        <property name="geometry">
+         <rect>
+          <x>266</x>
+          <y>72</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_1_bottom_m1">
+        <property name="geometry">
+         <rect>
+          <x>496</x>
+          <y>183</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ico_1_top_m1">
+        <property name="geometry">
+         <rect>
+          <x>496</x>
+          <y>155</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>
@@ -676,13 +858,13 @@ QSpinBox {
 }</string>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>2</number>
        </property>
-       <widget class="QWidget" name="tab_quarter">
+       <widget class="QWidget" name="tab_4">
         <attribute name="title">
          <string>Quarter-final</string>
         </attribute>
-        <widget class="QPushButton" name="btn_quarter_simulate">
+        <widget class="QPushButton" name="btn_4_simulate">
          <property name="geometry">
           <rect>
            <x>50</x>
@@ -717,12 +899,12 @@ QPushButton:pressed {
           <string>Simulate</string>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_left_m4">
+        <widget class="QLabel" name="lbl_4_left_m4">
          <property name="geometry">
           <rect>
            <x>20</x>
            <y>236</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -736,12 +918,12 @@ QPushButton:pressed {
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_right_m4">
+        <widget class="QLabel" name="lbl_4_right_m4">
          <property name="geometry">
           <rect>
-           <x>416</x>
+           <x>421</x>
            <y>236</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -755,7 +937,7 @@ QPushButton:pressed {
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_left_m4">
+        <widget class="QSpinBox" name="spb_4_left_m4">
          <property name="geometry">
           <rect>
            <x>293</x>
@@ -783,7 +965,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_right_m4">
+        <widget class="QSpinBox" name="spb_4_right_m4">
          <property name="geometry">
           <rect>
            <x>355</x>
@@ -805,7 +987,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_sep4">
+        <widget class="QLabel" name="lbl_4_sep4">
          <property name="geometry">
           <rect>
            <x>333</x>
@@ -826,7 +1008,7 @@ QPushButton:pressed {
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_quarter_next">
+        <widget class="QPushButton" name="btn_4_next">
          <property name="geometry">
           <rect>
            <x>450</x>
@@ -861,7 +1043,7 @@ QPushButton:pressed {
           <string>Next Round</string>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_right_pen_m4">
+        <widget class="QSpinBox" name="spb_4_right_pen_m4">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -891,7 +1073,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_left_pen_m4">
+        <widget class="QSpinBox" name="spb_4_left_pen_m4">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -927,7 +1109,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_quarter_pen_m4">
+        <widget class="QPushButton" name="btn_4_pen_m4">
          <property name="geometry">
           <rect>
            <x>322</x>
@@ -962,7 +1144,7 @@ QPushButton:pressed {
           <string>Pen.</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_quarter_pen_m3">
+        <widget class="QPushButton" name="btn_4_pen_m3">
          <property name="geometry">
           <rect>
            <x>322</x>
@@ -997,7 +1179,7 @@ QPushButton:pressed {
           <string>Pen.</string>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_right_m3">
+        <widget class="QSpinBox" name="spb_4_right_m3">
          <property name="geometry">
           <rect>
            <x>355</x>
@@ -1019,7 +1201,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_right_pen_m3">
+        <widget class="QSpinBox" name="spb_4_right_pen_m3">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1049,7 +1231,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_left_pen_m3">
+        <widget class="QSpinBox" name="spb_4_left_pen_m3">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1085,7 +1267,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_left_m3">
+        <widget class="QSpinBox" name="spb_4_left_m3">
          <property name="geometry">
           <rect>
            <x>293</x>
@@ -1113,7 +1295,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_sep3">
+        <widget class="QLabel" name="lbl_4_sep3">
          <property name="geometry">
           <rect>
            <x>333</x>
@@ -1134,12 +1316,12 @@ QPushButton:pressed {
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_right_m3">
+        <widget class="QLabel" name="lbl_4_right_m3">
          <property name="geometry">
           <rect>
-           <x>416</x>
+           <x>421</x>
            <y>164</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -1153,12 +1335,12 @@ QPushButton:pressed {
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_left_m3">
+        <widget class="QLabel" name="lbl_4_left_m3">
          <property name="geometry">
           <rect>
            <x>20</x>
            <y>164</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -1172,7 +1354,7 @@ QPushButton:pressed {
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_quarter_pen_m2">
+        <widget class="QPushButton" name="btn_4_pen_m2">
          <property name="geometry">
           <rect>
            <x>322</x>
@@ -1207,7 +1389,7 @@ QPushButton:pressed {
           <string>Pen.</string>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_right_m2">
+        <widget class="QSpinBox" name="spb_4_right_m2">
          <property name="geometry">
           <rect>
            <x>355</x>
@@ -1229,7 +1411,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_right_pen_m2">
+        <widget class="QSpinBox" name="spb_4_right_pen_m2">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1259,7 +1441,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_left_pen_m2">
+        <widget class="QSpinBox" name="spb_4_left_pen_m2">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1295,7 +1477,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_left_m2">
+        <widget class="QSpinBox" name="spb_4_left_m2">
          <property name="geometry">
           <rect>
            <x>293</x>
@@ -1323,7 +1505,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_sep2">
+        <widget class="QLabel" name="lbl_4_sep2">
          <property name="geometry">
           <rect>
            <x>333</x>
@@ -1344,12 +1526,12 @@ QPushButton:pressed {
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_right_m2">
+        <widget class="QLabel" name="lbl_4_right_m2">
          <property name="geometry">
           <rect>
-           <x>416</x>
+           <x>421</x>
            <y>92</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -1363,12 +1545,12 @@ QPushButton:pressed {
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_left_m2">
+        <widget class="QLabel" name="lbl_4_left_m2">
          <property name="geometry">
           <rect>
            <x>20</x>
            <y>92</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -1382,7 +1564,7 @@ QPushButton:pressed {
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_quarter_pen_m1">
+        <widget class="QPushButton" name="btn_4_pen_m1">
          <property name="geometry">
           <rect>
            <x>322</x>
@@ -1417,7 +1599,7 @@ QPushButton:pressed {
           <string>Pen.</string>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_right_m1">
+        <widget class="QSpinBox" name="spb_4_right_m1">
          <property name="geometry">
           <rect>
            <x>355</x>
@@ -1439,7 +1621,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_right_pen_m1">
+        <widget class="QSpinBox" name="spb_4_right_pen_m1">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1469,7 +1651,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_left_pen_m1">
+        <widget class="QSpinBox" name="spb_4_left_pen_m1">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1505,7 +1687,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_quarter_left_m1">
+        <widget class="QSpinBox" name="spb_4_left_m1">
          <property name="geometry">
           <rect>
            <x>293</x>
@@ -1533,7 +1715,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_sep1">
+        <widget class="QLabel" name="lbl_4_sep1">
          <property name="geometry">
           <rect>
            <x>333</x>
@@ -1554,12 +1736,12 @@ QPushButton:pressed {
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_right_m1">
+        <widget class="QLabel" name="lbl_4_right_m1">
          <property name="geometry">
           <rect>
-           <x>416</x>
+           <x>421</x>
            <y>20</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -1573,12 +1755,12 @@ QPushButton:pressed {
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_left_m1">
+        <widget class="QLabel" name="lbl_4_left_m1">
          <property name="geometry">
           <rect>
            <x>20</x>
            <y>20</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -1592,7 +1774,7 @@ QPushButton:pressed {
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_quarter_save">
+        <widget class="QPushButton" name="btn_4_save">
          <property name="geometry">
           <rect>
            <x>250</x>
@@ -1627,12 +1809,116 @@ QPushButton:pressed {
           <string>Save</string>
          </property>
         </widget>
+        <widget class="QLabel" name="ico_4_left_m1">
+         <property name="geometry">
+          <rect>
+           <x>265</x>
+           <y>30</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_4_right_m3">
+         <property name="geometry">
+          <rect>
+           <x>395</x>
+           <y>174</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_4_left_m4">
+         <property name="geometry">
+          <rect>
+           <x>265</x>
+           <y>246</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_4_right_m1">
+         <property name="geometry">
+          <rect>
+           <x>395</x>
+           <y>30</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_4_left_m3">
+         <property name="geometry">
+          <rect>
+           <x>265</x>
+           <y>174</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_4_right_m4">
+         <property name="geometry">
+          <rect>
+           <x>395</x>
+           <y>246</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_4_left_m2">
+         <property name="geometry">
+          <rect>
+           <x>265</x>
+           <y>102</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_4_right_m2">
+         <property name="geometry">
+          <rect>
+           <x>395</x>
+           <y>102</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
        </widget>
-       <widget class="QWidget" name="tab_semi">
+       <widget class="QWidget" name="tab_2">
         <attribute name="title">
          <string>Semi-final</string>
         </attribute>
-        <widget class="QPushButton" name="btn_semi_pen_m1">
+        <widget class="QPushButton" name="btn_2_pen_m1">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1670,12 +1956,12 @@ QPushButton:pressed {
           <string>Pen.</string>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_semi_left_m2">
+        <widget class="QLabel" name="lbl_2_left_m2">
          <property name="geometry">
           <rect>
            <x>20</x>
            <y>92</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -1689,7 +1975,7 @@ QPushButton:pressed {
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_semi_pen_m2">
+        <widget class="QPushButton" name="btn_2_pen_m2">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1727,7 +2013,7 @@ QPushButton:pressed {
           <string>Pen.</string>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_semi_right_pen_m2">
+        <widget class="QSpinBox" name="spb_2_right_pen_m2">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1757,7 +2043,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_semi_left_m1">
+        <widget class="QSpinBox" name="spb_2_left_m1">
          <property name="geometry">
           <rect>
            <x>293</x>
@@ -1785,7 +2071,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_semi_left_pen_m2">
+        <widget class="QSpinBox" name="spb_2_left_pen_m2">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1821,12 +2107,12 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_semi_right_m1">
+        <widget class="QLabel" name="lbl_2_right_m1">
          <property name="geometry">
           <rect>
-           <x>416</x>
+           <x>421</x>
            <y>20</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -1840,7 +2126,7 @@ QPushButton:pressed {
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_semi_right_pen_m1">
+        <widget class="QSpinBox" name="spb_2_right_pen_m1">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1870,7 +2156,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_semi_left_m2">
+        <widget class="QSpinBox" name="spb_2_left_m2">
          <property name="geometry">
           <rect>
            <x>293</x>
@@ -1898,7 +2184,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_semi_left_pen_m1">
+        <widget class="QSpinBox" name="spb_2_left_pen_m1">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -1934,7 +2220,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_semi_right_m1">
+        <widget class="QSpinBox" name="spb_2_right_m1">
          <property name="geometry">
           <rect>
            <x>355</x>
@@ -1956,12 +2242,12 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_semi_left_m1">
+        <widget class="QLabel" name="lbl_2_left_m1">
          <property name="geometry">
           <rect>
            <x>20</x>
            <y>20</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -1975,12 +2261,12 @@ QPushButton:pressed {
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_semi_right_m2">
+        <widget class="QLabel" name="lbl_2_right_m2">
          <property name="geometry">
           <rect>
-           <x>416</x>
+           <x>421</x>
            <y>92</y>
-           <width>240</width>
+           <width>235</width>
            <height>31</height>
           </rect>
          </property>
@@ -1994,7 +2280,7 @@ QPushButton:pressed {
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_semi_right_m2">
+        <widget class="QSpinBox" name="spb_2_right_m2">
          <property name="geometry">
           <rect>
            <x>355</x>
@@ -2016,7 +2302,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_sep1_2">
+        <widget class="QLabel" name="lbl_2_sep1_2">
          <property name="geometry">
           <rect>
            <x>333</x>
@@ -2037,7 +2323,7 @@ QPushButton:pressed {
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_sep1_3">
+        <widget class="QLabel" name="lbl_2_sep1">
          <property name="geometry">
           <rect>
            <x>333</x>
@@ -2058,7 +2344,7 @@ QPushButton:pressed {
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_semi_save">
+        <widget class="QPushButton" name="btn_2_save">
          <property name="geometry">
           <rect>
            <x>250</x>
@@ -2093,7 +2379,7 @@ QPushButton:pressed {
           <string>Save</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_semi_next">
+        <widget class="QPushButton" name="btn_2_next">
          <property name="geometry">
           <rect>
            <x>450</x>
@@ -2128,7 +2414,7 @@ QPushButton:pressed {
           <string>Next round</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_semi_simulate">
+        <widget class="QPushButton" name="btn_2_simulate">
          <property name="geometry">
           <rect>
            <x>50</x>
@@ -2163,12 +2449,64 @@ QPushButton:pressed {
           <string>Simulate</string>
          </property>
         </widget>
+        <widget class="QLabel" name="ico_2_right_m1">
+         <property name="geometry">
+          <rect>
+           <x>395</x>
+           <y>30</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_2_left_m1">
+         <property name="geometry">
+          <rect>
+           <x>265</x>
+           <y>30</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_2_right_m2">
+         <property name="geometry">
+          <rect>
+           <x>395</x>
+           <y>102</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_2_left_m2">
+         <property name="geometry">
+          <rect>
+           <x>265</x>
+           <y>102</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
        </widget>
-       <widget class="QWidget" name="tab_final">
+       <widget class="QWidget" name="tab_1">
         <attribute name="title">
          <string>Final</string>
         </attribute>
-        <widget class="QSpinBox" name="spb_final_right_m1">
+        <widget class="QSpinBox" name="spb_1_right_m1">
          <property name="geometry">
           <rect>
            <x>355</x>
@@ -2190,7 +2528,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_final_left_pen_m1">
+        <widget class="QSpinBox" name="spb_1_left_pen_m1">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -2226,7 +2564,7 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_final_right_pen_m1">
+        <widget class="QSpinBox" name="spb_1_right_pen_m1">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -2256,7 +2594,7 @@ QPushButton:pressed {
           <number>99</number>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_final_pen_m1">
+        <widget class="QPushButton" name="btn_1_pen_m1">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -2294,7 +2632,7 @@ QPushButton:pressed {
           <string>Pen.</string>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_final_right_m1">
+        <widget class="QLabel" name="lbl_1_right_m1">
          <property name="geometry">
           <rect>
            <x>416</x>
@@ -2313,7 +2651,7 @@ QPushButton:pressed {
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_final_left_m1">
+        <widget class="QLabel" name="lbl_1_left_m1">
          <property name="geometry">
           <rect>
            <x>20</x>
@@ -2332,7 +2670,7 @@ QPushButton:pressed {
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QSpinBox" name="spb_final_left_m1">
+        <widget class="QSpinBox" name="spb_1_left_m1">
          <property name="geometry">
           <rect>
            <x>293</x>
@@ -2360,9 +2698,9 @@ QPushButton:pressed {
           <number>9</number>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_final_simulate">
+        <widget class="QPushButton" name="btn_1_simulate">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="geometry">
           <rect>
@@ -2398,9 +2736,9 @@ QPushButton:pressed {
           <string>Simulate</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="btn_final_save">
+        <widget class="QPushButton" name="btn_1_save">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="geometry">
           <rect>
@@ -2436,7 +2774,7 @@ QPushButton:pressed {
           <string>Save</string>
          </property>
         </widget>
-        <widget class="QLabel" name="lbl_quarter_sep1_4">
+        <widget class="QLabel" name="lbl_1_sep1">
          <property name="geometry">
           <rect>
            <x>333</x>
@@ -2455,6 +2793,32 @@ QPushButton:pressed {
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_1_right_m1">
+         <property name="geometry">
+          <rect>
+           <x>395</x>
+           <y>30</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="ico_1_left_m1">
+         <property name="geometry">
+          <rect>
+           <x>265</x>
+           <y>30</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
          </property>
         </widget>
        </widget>

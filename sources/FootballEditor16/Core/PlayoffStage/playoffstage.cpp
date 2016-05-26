@@ -49,9 +49,11 @@ RoundEnum PlayoffStage::getCurrentRound() const
     return currentRound;
 }
 
-Round &PlayoffStage::getRound(int index)
+Round &PlayoffStage::getRound(int roundId)
 {
-    return rounds[index];
+    for( Round &round : rounds )
+        if( round.getRoundEnum() == roundId )
+            return round;
 }
 
 vector<Round> &PlayoffStage::getRounds()
