@@ -87,11 +87,16 @@ public:
      * @param teamIDs
      */
     void startPlayOffStage( vector<int> teamIDs );
-    ~Competition();
-
+    /**
+     * @brief Restart group stage
+     */
     void restartGroupStage();
+    /**
+     * @brief Delete all teams
+     */
     void clearTeams();
 
+    ~Competition();
 private:
     string title;
     unsigned numberOfTeams;
